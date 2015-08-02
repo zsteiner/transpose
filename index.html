@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Transpose</title>
+		<link rel="stylesheet" href="css/transpose.css" />
+		<script src="scripts/jquery-3.0.0-alpha1.js"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+	<body>
+        <svg style="position: absolute; width: 0; height: 0;" width="0" height="0" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <defs>
+        <symbol id="icon-arrow-right" viewBox="0 0 1024 1024">
+        	<title>arrow-right</title>
+        	<path class="path1" d="M597.333 170.667q18 0 30.333 12.333l298.667 298.667q12.333 12.333 12.333 30.333t-12.333 30.333l-298.667 298.667q-12.333 12.333-30.333 12.333-18.333 0-30.5-12.167t-12.167-30.5q0-18 12.333-30.333l226-225.667h-665q-17.667 0-30.167-12.5t-12.5-30.167 12.5-30.167 30.167-12.5h665l-226-225.667q-12.333-12.333-12.333-30.333 0-18.333 12.167-30.5t30.5-12.167z"></path>
+        </symbol>
+        <symbol id="icon-arrow-left" viewBox="0 0 1024 1024">
+        	<title>arrow-left</title>
+        	<path class="path1" d="M426.667 170.667q17.667 0 30.167 12.5t12.5 30.167q0 18-12.667 30.333l-225.667 225.667h665q17.667 0 30.167 12.5t12.5 30.167-12.5 30.167-30.167 12.5h-665l225.667 225.667q12.667 12.333 12.667 30.333 0 17.667-12.5 30.167t-30.167 12.5q-18 0-30.333-12.333l-298.667-298.667q-12.333-13-12.333-30.333t12.333-30.333l298.667-298.667q12.667-12.333 30.333-12.333z"></path>
+        </symbol>
+        <symbol id="icon-arrow-down" viewBox="0 0 1024 1024">
+        	<title>arrow-down</title>
+        	<path class="path1" d="M512 85.333q17.667 0 30.167 12.5t12.5 30.167v665l225.667-226q12.333-12.333 30.333-12.333 18.333 0 30.5 12.167t12.167 30.5q0 18-12.333 30.333l-298.667 298.667q-12.333 12.333-30.333 12.333t-30.333-12.333l-298.667-298.667q-12.333-12.333-12.333-30.333 0-18.333 12.167-30.5t30.5-12.167q18 0 30.333 12.333l225.667 226v-665q0-17.667 12.5-30.167t30.167-12.5z"></path>
+        </symbol>
+        <symbol id="icon-arrow-up" viewBox="0 0 1024 1024">
+        	<title>arrow-up</title>
+        	<path class="path1" d="M512 85.333q18 0 30.333 12.333l298.667 298.667q12.333 12.333 12.333 30.333 0 18.333-12.167 30.5t-30.5 12.167q-18 0-30.333-12.333l-225.667-226v665q0 17.667-12.5 30.167t-30.167 12.5-30.167-12.5-12.5-30.167v-665l-225.667 226q-12.333 12.333-30.333 12.333-18.333 0-30.5-12.167t-12.167-30.5q0-18 12.333-30.333l298.667-298.667q12.333-12.333 30.333-12.333z"></path>
+        </symbol>
+        <symbol id="icon-beamed-note" viewBox="0 0 1024 1024">
+        	<title>beamed-note</title>
+        	<path class="path1" d="M870.4 51.2l-0.102 665.6c0 63.642-66.611 153.6-191.898 153.6-63.642 0-115.2-33.434-115.2-96 0-81.357 73.984-130.56 153.6-130.56 22.118 0 38.605 3.021 51.2 6.298v-375.501l-358.4 65.178v479.386h-0.102c0 63.642-66.611 153.6-191.898 153.6-63.642 0-115.2-33.434-115.2-96 0-81.357 73.984-130.56 153.6-130.56 22.118 0 38.605 3.021 51.2 6.298v-598.938l563.2-102.4z"></path>
+        </symbol>
+        </defs>
+        </svg>
+
+        <header>    
+            <div class="header-logo">
+                <h1>transpose</h1>
+            </div>
+        </header>
+		<div class="main-content">
+    			<h2>choose your instruments</h2>
+    		    <div class="instrument-selection">  
+        		    <div class="instrument">    
+            			<select class="menu" id="instrument-list1">
+            			  <option value="0" selected>piano</option>
+            			  <option value="3">alto sax</option>
+            			  <option value="3">alto clarinet</option>
+            			  <option value="3">bari sax</option>
+            			  <option value="2">baritone horn</option>
+            			  <option value="2">bass clarinet</option>
+            			  <option value="2">clarinet</option>
+            			  <option value="0">flute</option>
+            			  <option value="1">french horn</option>
+            			  <option value="0">oboe</option>
+            			  <option value="2">soprano sax</option>
+            			  <option value="2">tenor sax</option>
+            			  <option value="0">trombone</option>
+            			  <option value="2">trumpet</option>
+            			  <option value="0">tuba</option>
+            			  <option value="0">violin</option>
+            			</select>
+        		    </div>
+        		    <div class="instrument">
+                        <span class="arrow-container"><svg class="icon icon-arrow-right"><use xlink:href="#icon-arrow-right"></use></svg></span>       		    
+                        <span class="arrow-container"><svg class="icon icon-arrow-down"><use xlink:href="#icon-arrow-down"></use></svg></span>       		    
+        		    </div>
+        		    <div class="instrument">    
+            			<select class="menu" id="instrument-list2">
+            			  <option value="0" selected>piano</option>
+            			  <option value="3">alto sax</option>
+            			  <option value="3">alto clarinet</option>
+            			  <option value="3">bari sax</option>
+            			  <option value="2">baritone horn</option>
+            			  <option value="2">bass clarinet</option>
+            			  <option value="2">clarinet</option>
+            			  <option value="0">flute</option>
+            			  <option value="1">french horn</option>
+            			  <option value="0">oboe</option>
+            			  <option value="2">soprano sax</option>
+            			  <option value="2">tenor sax</option>
+            			  <option value="0">trombone</option>
+            			  <option value="2">trumpet</option>
+            			  <option value="0">tuba</option>
+            			  <option value="0">violin</option>
+            			</select>
+        		    </div>
+    		    </div>
+    			<h2>choose a pitch</h2>
+
+                <div class="circle-menu">   
+                    <!-- SVG Menu Generated By CIRCULUS.SVG :: http://sarasoueidan.com/tools/circulus -->
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-2 -2 504 504" id="menu" style="transform-origin: 50% 50% 0px; transform: matrix3d(0.25, -1, 0, 0, 1, 0.25, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); touch-action: none; -webkit-user-select: none;">
+                        <g id="symbolsContainer" class="notes-container">
+                            <symbol class="icon" id="icon-1" viewBox="0 0 40 40">
+                                <text x="50%" y="50%" dy=".5em" text-anchor="middle">C</text>
+                            </symbol>
+                            <symbol class="icon" id="icon-2" viewBox="0 0 40 40">
+                                <text x="50%" y="50%" dy=".5em" text-anchor="middle">G</text>
+                            </symbol>
+                            <symbol class="icon" id="icon-3" viewBox="0 0 40 40">
+                                <text x="50%" y="50%" dy=".5em" text-anchor="middle">D</text>
+                            </symbol>
+                            <symbol class="icon" id="icon-4" viewBox="0 0 40 40">
+                                <text x="50%" y="50%" dy=".5em" text-anchor="middle">A</text>
+                            </symbol>
+                            <symbol class="icon" id="icon-5" viewBox="0 0 40 40">
+                                <text x="50%" y="50%" dy=".5em" text-anchor="middle">E</text>
+                            </symbol>
+                            <symbol class="icon" id="icon-6" viewBox="0 0 40 40">
+                                <text x="50%" y="50%" dy=".5em" text-anchor="middle">B</text>
+                            </symbol>
+                            <symbol class="icon with-enharmonic" id="icon-7" viewBox="0 0 40 40">
+                                <text x="15%" y="0" dy=".5em">F</text>
+                                <text x="60%" y="25%" class="flat-sharp">&#X266F;</text>
+                                <text x="10%" y="80%" dy=".5em" class="enharmonic">G</text>
+                                <text x="55%" y="105%" class="enharmonic flat-sharp">&#X266D;</text>
+                            </symbol>
+                            <symbol class="icon with-enharmonic" id="icon-8" viewBox="0 0 40 40">
+                                <text x="15%" y="0" dy=".5em">D</text>
+                                <text x="65%" y="25%" class="flat-sharp">&#X266D;</text>
+                                <text x="10%" y="80%" dy=".5em" class="enharmonic">C</text>
+                                <text x="55%" y="105%" class="enharmonic flat-sharp">&#X266F;</text>
+                            </symbol>
+                            <symbol class="icon with-enharmonic" id="icon-9" viewBox="0 0 40 40">
+                                <text x="15%" y="0" dy=".5em">A</text>
+                                <text x="60%" y="25%" class="flat-sharp">&#X266D;</text>
+                                <text x="10%" y="80%" dy=".5em" class="enharmonic">G</text>
+                                <text x="55%" y="105%" class="enharmonic flat-sharp">&#X266F;</text>
+                            </symbol>
+                            <symbol class="icon with-enharmonic" id="icon-10" viewBox="0 0 40 40">
+                                <text x="15%" y="0" dy=".5em">E</text>
+                                <text x="60%" y="25%" class="flat-sharp">&#X266D;</text>
+                                <text x="10%" y="80%" dy=".5em" class="enharmonic">D</text>
+                                <text x="55%" y="105%" class="enharmonic flat-sharp">&#X266F;</text>
+                            </symbol>
+                            <symbol class="icon with-enharmonic" id="icon-11" viewBox="0 0 40 40">
+                                <text x="15%" y="0" dy=".5em">B</text>
+                                <text x="60%" y="25%" class="flat-sharp">&#X266D;</text>
+                                <text x="10%" y="80%" dy=".5em" class="enharmonic">A</text>
+                                <text x="55%" y="105%" class="enharmonic flat-sharp">&#X266F;</text>
+                            </symbol>
+                            <symbol class="icon" id="icon-12" viewBox="0 0 40 40">
+                                <text x="50%" y="50%" dy=".5em" text-anchor="middle">F</text>
+                            </symbol>
+                            <symbol class="indicator" id="indicator" viewBox="0 0 40 40">
+                                <polygon transform="translate(20.000000, 20.000000) scale(1, -1) translate(-20.000000, -20.000000) " points="40 0 40 40 0 40 "></polygon>
+                            </symbol>
+                        </g>
+                        <g id="itemsContainer">
+                            <!--C-->
+                            <a class="item" id="item-1" tabindex="0" transform="matrix(1,0,0,1,0,0)" data-svg-origin="250 250" style=""><path class="sector" d="M250,250 l250,0 A250,250 0 0,0 466.5063509461097,125.00000000000001 z"></path>
+                                <use xlink:href="#icon-1" width="40" height="40" x="394.2073974609375" y="186.00076293945312" transform="rotate(75 414.2073974609375 206.00076293945312)"></use>
+                                <use xlink:href="#indicator" width="40" height="40"  x="394.2073974609375" y="186.00076293945312" transform="rotate(210 457 182)" class="indicator"></use>
+                            </a>
+                            <!--F-->
+                            <a class="item" id="item-12" tabindex="0" transform="matrix(0.86602,-0.49999,0.49999,0.86602,-91.50635094610965,158.4936490538903)" data-svg-origin="250 250" style=""><path class="sector" d="M250,250 l250,0 A250,250 0 0,0 466.5063509461097,125.00000000000001 z"></path>
+                                <use xlink:href="#icon-12" width="40" height="40" x="394.2073974609375" y="186.00076293945312" transform="rotate(105 414.2073974609375 206.00076293945312)"></use>
+                                <use xlink:href="#indicator" width="40" height="40"  x="394.2073974609375" y="186.00076293945312" transform="rotate(210 457 182)" class="indicator"></use>
+                            </a>
+                            <!--B flat-->
+                            <a class="item" id="item-11" tabindex="0" transform="matrix(0.5,-0.86602,0.86602,0.5,-91.5063509461097,341.5063509461096)" data-svg-origin="250 250" style=""><path class="sector" d="M250,250 l250,0 A250,250 0 0,0 466.5063509461097,125.00000000000001 z"></path>
+                                <use xlink:href="#icon-11" width="40" height="40" x="394.2073974609375" y="186.00076293945312" transform="rotate(135 414.2073974609375 206.00076293945312)"></use>
+                                <use xlink:href="#indicator" width="40" height="40"  x="394.2073974609375" y="186.00076293945312" transform="rotate(210 457 182)" class="indicator"></use>
+                            </a>
+                            <!--E flat-->
+                            <a class="item" id="item-10" tabindex="0" transform="matrix(0,-1,1,0,0,500)" data-svg-origin="250 250" style=""><path class="sector" d="M250,250 l250,0 A250,250 0 0,0 466.5063509461097,125.00000000000001 z"></path><use xlink:href="#icon-10" width="40" height="40" x="394.2073974609375" y="186.00076293945312" transform="rotate(165 414.2073974609375 206.00076293945312)"></use>
+                                <use xlink:href="#indicator" width="40" height="40"  x="394.2073974609375" y="186.00076293945312" transform="rotate(210 457 182)" class="indicator"></use>
+                            </a>
+                            <!--A flat-->
+                            <a class="item" id="item-9" tabindex="0" transform="matrix(-0.49999,-0.86602,0.86602,-0.49999,158.49364905389024,591.5063509461097)" data-svg-origin="250 250" style=""><path class="sector" d="M250,250 l250,0 A250,250 0 0,0 466.5063509461097,125.00000000000001 z"></path>
+                                <use xlink:href="#icon-9" width="40" height="40" x="394.2073974609375" y="186.00076293945312" transform="rotate(195 414.2073974609375 206.00076293945312)"></use>
+                                <use xlink:href="#indicator" width="40" height="40"  x="394.2073974609375" y="186.00076293945312" transform="rotate(210 457 182)" class="indicator"></use>
+                            </a>
+                            <!--D flat-->
+                            <a class="item" id="item-8" tabindex="0" transform="matrix(-0.86602,-0.49999,0.49999,-0.86602,341.5063509461097,591.5063509461097)" data-svg-origin="250 250" style=""><path class="sector" d="M250,250 l250,0 A250,250 0 0,0 466.5063509461097,125.00000000000001 z"></path>
+                                <use xlink:href="#icon-8" width="40" height="40" x="394.2073974609375" y="186.00076293945312" transform="rotate(225 414.2073974609375 206.00076293945312)"></use>
+                                <use xlink:href="#indicator" width="40" height="40"  x="394.2073974609375" y="186.00076293945312" transform="rotate(210 457 182)" class="indicator"></use>
+                            </a>
+                            <!--F#-->
+                            <a class="item" id="item-7" tabindex="0" transform="matrix(-1,0,0,-1,500,500)" data-svg-origin="250 250" style=""><path class="sector" d="M250,250 l250,0 A250,250 0 0,0 466.5063509461097,125.00000000000001 z"></path>
+                                <use xlink:href="#icon-7" width="40" height="40" x="394.2073974609375" y="186.00076293945312" transform="rotate(255 414.2073974609375 206.00076293945312)"></use>
+                                <use xlink:href="#indicator" width="40" height="40"  x="394.2073974609375" y="186.00076293945312" transform="rotate(210 457 182)" class="indicator"></use>
+                            </a>
+                            <!--B-->
+                            <a class="item" id="item-6" tabindex="0" transform="matrix(-0.86602,0.5,-0.5,-0.86602,591.5063509461097,341.5063509461096)" data-svg-origin="250 250" style=""><path class="sector" d="M250,250 l250,0 A250,250 0 0,0 466.5063509461097,125.00000000000001 z"></path>
+                                <use xlink:href="#icon-6" width="40" height="40" x="394.2073974609375" y="186.00076293945312" transform="rotate(285 414.2073974609375 206.00076293945312)"></use>
+                                <use xlink:href="#indicator" width="40" height="40"  x="394.2073974609375" y="186.00076293945312" transform="rotate(210 457 182)" class="indicator"></use>
+                            </a>
+                            <!--E-->
+                            <a class="item" id="item-5" tabindex="0" transform="matrix(-0.5,0.86602,-0.86602,-0.5,591.5063509461097,158.4936490538905)" data-svg-origin="250 250" style=""><path class="sector" d="M250,250 l250,0 A250,250 0 0,0 466.5063509461097,125.00000000000001 z"></path>
+                                <use xlink:href="#icon-5" width="40" height="40" x="394.2073974609375" y="186.00076293945312" transform="rotate(315 414.2073974609375 206.00076293945312)"></use>
+                                <use xlink:href="#indicator" width="40" height="40"  x="394.2073974609375" y="186.00076293945312" transform="rotate(210 457 182)" class="indicator"></use>
+                            </a>
+                            <!--A-->
+                            <a class="item" id="item-4" tabindex="0" transform="matrix(0,1,-1,0,500.00000000000006,0)" data-svg-origin="250 250" style=""><path class="sector" d="M250,250 l250,0 A250,250 0 0,0 466.5063509461097,125.00000000000001 z"></path>
+                                <use xlink:href="#icon-4" width="40" height="40" x="394.2073974609375" y="186.00076293945312" transform="rotate(345 414.2073974609375 206.00076293945312)"></use>
+                                <use xlink:href="#indicator" width="40" height="40"  x="394.2073974609375" y="186.00076293945312" transform="rotate(210 457 182)" class="indicator"></use>
+                            </a>
+                            <!--D-->
+                            <a class="item" id="item-3" tabindex="0" transform="matrix(0.5,0.86602,-0.86602,0.5,341.5063509461096,-91.5063509461097)" data-svg-origin="250 250" style=""><path class="sector" d="M250,250 l250,0 A250,250 0 0,0 466.5063509461097,125.00000000000001 z"></path>
+                                <use xlink:href="#icon-3" width="40" height="40" x="394.2073974609375" y="186.00076293945312" transform="rotate(375 414.2073974609375 206.00076293945312)"></use>
+                                <use xlink:href="#indicator" width="40" height="40"  x="394.2073974609375" y="186.00076293945312" transform="rotate(210 457 182)" class="indicator"></use>
+                            </a>
+                            <!--G-->
+                            <a class="item" id="item-2" tabindex="0" transform="matrix(0.86602,0.5,-0.5,0.86602,158.49364905389052,-91.5063509461097)" data-svg-origin="250 250" style=""><path class="sector" d="M250,250 l250,0 A250,250 0 0,0 466.5063509461097,125.00000000000001 z"></path>
+                                <use xlink:href="#icon-2" width="40" height="40" x="394.2073974609375" y="186.00076293945312" transform="rotate(405 414.2073974609375 206.00076293945312)"></use>
+                                <use xlink:href="#indicator" width="40" height="40"  x="394.2073974609375" y="186.00076293945312" transform="rotate(210 457 182)" class="indicator"></use>
+                            </a>
+                        </g>
+                        <g id="trigger" class="trigger menu-trigger" role="button">
+                            <circle cx="250" cy="250" r="30"></circle>
+                            <!-- menu button label or icon goes here -->
+                        </g>
+                    </svg>
+                </div>
+                <div class="answer-container">  
+            		<div class="answer is-hidden">
+                		&ldquo;<span class="original-note"></span>&rdquo; on the <span class="original-instrument"></span> sounds the same as &ldquo;<span class="transpose-note"></span>&rdquo; on the <span class="transpose-instrument"></span>.
+            		</div>
+            		<div class="answer-same is-hidden">
+                		No need to transpose.
+            		</div>
+            		<div class="error-message is-hidden"><svg class="icon"><use xlink:href="#icon-beamed-note"></use></svg> Choose a note first.</div>
+                </div>
+		</div>
+	</body>
+	<script src="scripts/transpose.js"></script>
+</html>

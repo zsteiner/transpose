@@ -1,0 +1,289 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  vertical-align: baseline;
+  font: inherit;
+  font-size: 100%; }
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, main {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+:focus {
+  outline: 0; }
+
+*:before {
+  padding: 0;
+  margin: 0; }
+
+table {
+  border-spacing: 0;
+  border-collapse: collapse; }
+
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit; }
+
+*, *:before, *:after {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.is-hidden {
+  display: none; }
+
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+@font-face {
+  font-family: "Source Serif Pro";
+  src: url("../fonts/SourceSerifPro-Regular.otf.woff") format("woff"), url("../fonts/SourceSerifPro-Regular.ttf") format("truetype");
+  font-weight: regular;
+  font-weight: 400;
+  font-style: normal; }
+@font-face {
+  font-family: "Source Serif Pro";
+  src: url("../fonts/SourceSerifPro-Light.otf.woff") format("woff"), url("../fonts/SourceSerifPro-Light.ttf") format("truetype");
+  font-weight: lighter;
+  font-weight: 300;
+  font-style: normal; }
+@font-face {
+  font-family: "Source Serif Pro";
+  src: url("../fonts/SourceSerifPro-ExtraLight.otf.woff") format("woff"), url("../fonts/SourceSerifPro-ExtraLight.ttf") format("truetype");
+  font-weight: bold;
+  font-weight: 100;
+  font-style: normal; }
+body {
+  font-weight: 400;
+  font-family: "Source Serif Pro", serif; }
+
+h1, h2, h3, h4, h5 {
+  margin-bottom: .5em;
+  line-height: 1.25; }
+
+h1 {
+  font-size: 3em;
+  font-weight: 300; }
+
+h2 {
+  font-size: 2.5em; }
+
+h3 {
+  font-size: 2em; }
+
+h4 {
+  font-size: 1.75em; }
+
+h5 {
+  font-size: 1.5em; }
+
+p {
+  line-height: 1.5em; }
+  p + p {
+    margin-top: 1rem; }
+
+a {
+  color: #34495e;
+  text-decoration: none; }
+
+header {
+  text-align: center;
+  padding: 1rem 1rem 0; }
+  header svg {
+    width: 20em; }
+  header #transpose {
+    fill: #3A3B3D; }
+
+h1 {
+  margin-bottom: 2rem;
+  letter-spacing: .15em;
+  font-weight: 100;
+  font-size: 4em;
+  color: #3A3B3D; }
+
+h2 {
+  margin: 2rem 0;
+  letter-spacing: .05em;
+  font-weight: 100;
+  font-size: 1.75em; }
+
+.main-content {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1rem;
+  text-align: center; }
+  .main-content::after {
+    clear: both;
+    content: "";
+    display: table; }
+
+button {
+  padding: .5em;
+  border: 0;
+  background-color: #34495e;
+  color: white;
+  font-size: 1.5em;
+  cursor: pointer; }
+  button:hover {
+    background-color: #2b3c4e; }
+
+.answer-container {
+  margin: 3rem auto;
+  width: 60%;
+  font-size: 2em;
+  line-height: 1.25; }
+  @media screen and (max-width: 770px) {
+    .answer-container {
+      width: 90%; } }
+
+.error-message {
+  color: #FE3D42; }
+
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  fill: currentColor; }
+
+.instrument {
+  float: left;
+  display: block;
+  margin-right: 2.3576515979%;
+  width: 31.7615656014%; }
+  .instrument:last-child {
+    margin-right: 0; }
+  @media screen and (max-width: 770px) {
+    .instrument {
+      float: left;
+      display: block;
+      margin-right: 2.3576515979%;
+      width: 100%;
+      margin-bottom: 1rem; }
+      .instrument:last-child {
+        margin-right: 0; } }
+  .instrument select {
+    margin-top: 1rem; }
+  .instrument-selection {
+    overflow: auto;
+    margin-bottom: 2rem; }
+  .instrument .arrow-container {
+    font-size: 3em;
+    color: #959EA5; }
+  @media screen and (max-width: 770px) {
+    .instrument .icon-arrow-right {
+      display: none; } }
+  .instrument .icon-arrow-down {
+    display: none; }
+    @media screen and (max-width: 770px) {
+      .instrument .icon-arrow-down {
+        display: inline-block; } }
+
+.flat-sharp {
+  font-size: 75%;
+  position: relative;
+  top: -.125em;
+  left: -.1em; }
+
+#menu {
+  display: block;
+  margin: 0 auto;
+  overflow: visible; }
+
+a {
+  cursor: pointer;
+  /* SVG &lt;a&gt; elements don't get this by default, so you need to explicitly set it */
+  outline: none; }
+
+.item {
+  color: #3A3B3D; }
+  .item use {
+    fill: #535457; }
+  .item .sector {
+    -webkit-transition: all .1s linear;
+            transition: all .1s linear;
+    fill: #fff;
+    stroke: #959EA5; }
+
+.notes-container symbol {
+  font-size: 2.5em; }
+.notes-container symbol.with-enharmonic {
+  font-size: 2em; }
+  .notes-container symbol.with-enharmonic text.flat-sharp {
+    font-size: 60%; }
+.notes-container text.enharmonic {
+  fill: #959EA5;
+  font-size: 1.75rem; }
+
+.item:hover .sector {
+  fill: #eee; }
+
+.is-selected .sector, .is-selected.item:hover .sector {
+  fill: #007FB2; }
+.is-selected use, .is-selected.item:hover use {
+  fill: white !important; }
+
+.indicator {
+  fill: #FF951E !important; }
+
+.item .indicator {
+  visibility: hidden !important; }
+
+.item.is-transposed .indicator, .item.is-transposed:hover .indicator {
+  visibility: visible !important; }
+
+.menu-trigger {
+  fill: #959EA5;
+  pointer-events: auto;
+  /* KEEP THIS to make sure it stays clickable even when SVG's pointer events is disabled */ }
+
+.menu-trigger:hover, .menu-trigger:focus {
+  cursor: pointer; }
+
+symbol {
+  overflow: visible;
+  /* KEEP THIS so that text will not get cut off it it is wider than the icon width */ }
+
+.circle-menu {
+  width: 24em;
+  height: 24em;
+  margin: 2em auto; }
+  @media screen and (max-width: 700px) {
+    .circle-menu {
+      width: 18em;
+      height: 18em; } }

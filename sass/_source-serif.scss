@@ -1,0 +1,33 @@
+$location: "../fonts";
+$fontName: "SourceSerifPro";
+$fontFamily: "Source Serif Pro";
+
+//Regular
+@font-face {
+  font-family: $fontFamily;
+  src: url("#{$location}/#{$fontName}-Regular.otf.woff") format("woff"),
+       url("#{$location}/#{$fontName}-Regular.ttf") format("truetype");
+  font-weight: regular;
+  font-weight: 400;
+  font-style: normal;
+}
+
+//Light
+@font-face {
+  font-family: $fontFamily;
+  src: url("#{$location}/#{$fontName}-Light.otf.woff") format("woff"),
+       url("#{$location}/#{$fontName}-Light.ttf") format("truetype");
+  font-weight: lighter;
+  font-weight: 300;
+  font-style: normal;
+}
+
+//Extra Light
+@font-face {
+  font-family: $fontFamily;
+  src: url("#{$location}/#{$fontName}-ExtraLight.otf.woff") format("woff"),
+       url("#{$location}/#{$fontName}-ExtraLight.ttf") format("truetype");
+  font-weight: bold;
+  font-weight: 100;
+  font-style: normal;
+}

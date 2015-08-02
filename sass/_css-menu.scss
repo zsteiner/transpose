@@ -1,0 +1,245 @@
+$indicator-size: .5rem;
+$indicator-margin:  -($indicator-size / 2);
+$indicator: $indicator-size solid $primary;
+$indicator-offset: $indicator-size solid transparent;
+
+.pitch-container {
+    margin: spacer(1) auto;
+}
+
+
+.pitch-list {
+    $circle-size: 24em;
+    $note-size: $circle-size / 6;
+    
+    position: relative;
+    margin: spacer(4) auto;
+    text-align: center;
+    height: $circle-size;
+    width: $circle-size;
+    border-radius: 50%;
+    border: 1px $info solid;
+    
+    input {
+        position: absolute;
+        left: -999em;
+    }
+    
+    li {
+        border: 1px solid $info;    
+        width: $note-size;
+        height: $note-size;
+        border-radius: 50%;
+        position: absolute;
+        background-color: white;
+        margin-left: -($note-size / 2);
+        margin-top: -($note-size / 2);
+
+        &:before {
+            content: "";
+            position: absolute;
+            display: none;
+            color: $default;
+        }
+               
+        &:nth-child(1) {
+            top: 0;
+            left: 50%;
+            
+            &:before {
+                border-top: $indicator;
+            	border-left: $indicator-offset;
+            	border-right: $indicator-offset;
+                top: $indicator-margin;
+                margin-left: -$indicator-size;
+                left: 50%;                
+            }
+        }
+
+        &:nth-child(2) {
+            top: 5%;
+            left: 75%;
+
+            &:before {
+                border-top: $indicator;
+            	border-left: $indicator-offset;
+            	border-right: $indicator-offset;
+                top: -.5em;
+                margin-left: -1rem;
+                left: 50%;                
+            }
+        }
+
+        &:nth-child(3) {
+            top: 25%;
+            left: 95%;
+
+            &:before {
+                border-top: $indicator;
+            	border-left: $indicator-offset;
+            	border-right: $indicator-offset;
+                top: -.5em;
+                margin-left: -1rem;
+                left: 50%;                
+            }
+        }
+        
+        &:nth-child(4) {
+            left: 100%;
+            top: 50%;
+
+            &:before {
+                border-top: $indicator-offset;
+            	border-bottom: $indicator-offset;
+            	border-right: $indicator;
+                top: 50%;
+                margin-top: -$indicator-size;
+                right: $indicator-margin;                
+            }
+        }
+
+        &:nth-child(5) {
+            left: 95%;
+            top: 75%;
+
+            &:before {
+                border-top: $indicator;
+            	border-left: $indicator-offset;
+            	border-right: $indicator-offset;
+                top: -.5em;
+                margin-left: -1rem;
+                left: 50%;                
+            }
+        }
+
+        &:nth-child(6) {
+            left: 75%;
+            top: 95%;
+
+            &:before {
+                border-top: $indicator;
+            	border-left: $indicator-offset;
+            	border-right: $indicator-offset;
+                top: -.5em;
+                margin-left: -1rem;
+                left: 50%;                
+            }
+        }
+
+        &:nth-child(7) {
+            left: 50%;
+            top: 100%;
+
+            &:before {
+                border-bottom: $indicator;
+            	border-left: $indicator-offset;
+            	border-right: $indicator-offset;
+                bottom: $indicator-margin;
+                margin-left: -1rem;
+                left: 50%;                
+            }
+        }
+
+        &:nth-child(8) {
+            left: 25%;
+            top: 95%;
+
+            &:before {
+                border-top: $indicator;
+            	border-left: $indicator-offset;
+            	border-right: $indicator-offset;
+                top: -.5em;
+                margin-left: -1rem;
+                left: 50%;                
+            }
+        }
+
+        &:nth-child(9) {
+            left: 5%;
+            top: 75%;
+
+            &:before {
+                border-top: $indicator;
+            	border-left: $indicator-offset;
+            	border-right: $indicator-offset;
+                top: -.5em;
+                margin-left: -1rem;
+                left: 50%;                
+            }
+        }
+
+        &:nth-child(10) {
+            left: 0;
+            top: 50%;
+
+            &:before {
+                border-left: $indicator;
+            	border-top: $indicator-offset;
+            	border-bottom: $indicator-offset;
+                top: 50%;
+                margin-top: -$indicator-size;
+                left: $indicator-margin;                
+            }
+        }
+
+        &:nth-child(11) {
+            left: 5%;
+            top: 25%;
+
+            &:before {
+                border-top: $indicator;
+            	border-left: $indicator-offset;
+            	border-right: $indicator-offset;
+                top: -.5em;
+                margin-left: -1rem;
+                left: 50%;                
+            }
+        }
+
+        &:nth-child(12) {
+            left: 25%;
+            top: 5%;
+
+            &:before {
+                border-top: $indicator;
+            	border-left: $indicator-offset;
+            	border-right: $indicator-offset;
+                top: -.5em;
+                margin-left: -1rem;
+                left: 50%;                
+            }
+        }
+    }
+
+    .with-alternate {
+        font-size: ($note-size / 2)/2;
+        padding: ($note-size / 6) 0;
+    }
+    
+    .alternate {
+        display: block;
+        margin-top: spacer(.5);
+    }
+ 
+    .is-transposed {
+        &:before {
+            display: block;        
+        }
+    }
+    
+    label {
+        font-size: $note-size / 2;
+        display: block;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        color: $secondary;
+        padding: ($note-size / 8) 0;
+        cursor: pointer;        
+    }
+
+    input:checked + label {
+        background-color: $secondary;
+        color: white;
+    } 
+}

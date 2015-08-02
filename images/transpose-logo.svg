@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="129px" height="34px" viewBox="0 0 129 34" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.3 (12072) - http://www.bohemiancoding.com/sketch -->
+    <title>transpose-logo</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="transpose" sketch:type="MSArtboardGroup" transform="translate(-8.000000, -7.000000)" font-size="48" font-family="Learning Curve Pro" fill="#FF951E" font-weight="normal">
+            <text id="transpose-logo" sketch:type="MSTextLayer">
+                <tspan x="8" y="30">transpose</tspan>
+            </text>
+        </g>
+    </g>
+</svg>
