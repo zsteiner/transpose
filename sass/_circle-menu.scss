@@ -53,26 +53,22 @@
         }
         
         use {
-            fill: white !important;
+            color: white;
         }
     }
     
     .indicator {
-        fill: $primary !important;
+        fill: $primary;
     }
 
     .item .indicator {
-        visibility: hidden !important;
+        visibility: hidden;
     }
 
     .item.is-transposed, .item.is-transposed:hover {
     
-        .sector {
-            //fill: transparentize($primary, .4);
-        }    
-        
         .indicator {
-            visibility: visible !important;
+            visibility: visible;
         }        
     }
 

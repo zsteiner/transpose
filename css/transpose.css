@@ -256,16 +256,16 @@ a {
 .is-selected .sector, .is-selected.item:hover .sector {
   fill: #007FB2; }
 .is-selected use, .is-selected.item:hover use {
-  fill: white !important; }
+  color: white; }
 
 .indicator {
-  fill: #FF951E !important; }
+  fill: #FF951E; }
 
 .item .indicator {
-  visibility: hidden !important; }
+  visibility: hidden; }
 
 .item.is-transposed .indicator, .item.is-transposed:hover .indicator {
-  visibility: visible !important; }
+  visibility: visible; }
 
 .menu-trigger {
   fill: #959EA5;
