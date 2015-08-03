@@ -160,9 +160,15 @@ h2 {
     content: "";
     display: table; }
 
-.flat-sharp {
+.sharp, .flat {
   font-size: 75%;
-  position: relative;
+  position: relative; }
+
+.sharp {
+  top: -.125em;
+  left: 0; }
+
+.flat {
   top: -.125em;
   left: -.1em; }
 
@@ -238,7 +244,7 @@ h2 {
   font-size: 2.5em; }
 .notes-container .with-enharmonic {
   font-size: 2em; }
-  .notes-container .with-enharmonic text.flat-sharp {
+  .notes-container .with-enharmonic .flat, .notes-container .with-enharmonic .sharp {
     font-size: 60%; }
 .notes-container .enharmonic {
   font-size: 1.75rem;

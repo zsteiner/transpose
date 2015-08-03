@@ -43,9 +43,17 @@ h2 {
     text-align: center;
 }
 
-.flat-sharp {
+.sharp, .flat {
     font-size: 75%;
-    position: relative;
+    position: relative;    
+}
+
+.sharp {
+    top: -.125em;
+    left: 0;
+}
+
+.flat {
     top: -.125em;
     left: -.1em;
 }
