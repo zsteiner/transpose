@@ -12,22 +12,17 @@ $mobile: new-breakpoint(max-width 770px 12);
 header {
     text-align: center;
     padding: spacer(1) spacer(1) 0;
-    
-    svg {
-        width: 20em;
-    }
-    
-    #transpose {
-        fill: $default;
-    }
-}
 
-h1 {
-    margin-bottom: spacer(2);
-    letter-spacing: .15em;
-    font-weight: 100;
-    font-size: 4em;
-    color: $default;
+    h1 {
+        letter-spacing: .15em;
+        font-weight: 100;
+        font-size: 4em;
+        color: $default;
+
+        @include media($mobile) {
+            font-size: 2em;            
+        }    
+    }
 }
 
 h2 {
@@ -35,84 +30,17 @@ h2 {
     letter-spacing: .05em;
     font-weight: 100;
     font-size: 1.75em;
+
+    @include media($mobile) {
+        font-size: 1.25em;
+        margin: spacer(1) 0 spacer(.5);;            
+    }    
 }
 
 .main-content {
     @include outer-container;
     padding: spacer(1);
     text-align: center;
-}
-
-button {
-    padding: .5em;
-    border: 0;
-    background-color: $dark-blue;
-    color: white;
-    font-size: 1.5em;
-    cursor: pointer;
-    
-    &:hover {
-        background-color: darken($dark-blue, 5%);
-    }
-}
-
-.answer-container {
-    margin: spacer(3) auto;
-    width: 60%;
-    font-size: 2em;
-    line-height: 1.25;
-    
-    @include media($mobile) {
-        width: 90%;
-    }
-}
-
-.error-message {
-    color: $alert;
-}
-
-.icon {
-    display: inline-block;
-    width: 1em;
-    height: 1em;
-    fill: currentColor;
-}
-
-.instrument {
-    @include span-columns(4);
-    
-    @include media($mobile) {
-        @include span-columns(12);
-        margin-bottom: spacer(1);
-    }
-    
-    select {
-        margin-top: spacer(1);
-    }
-    
-    &-selection {
-        overflow: auto;
-        margin-bottom: spacer(2);
-    }
-    
-    .arrow-container {
-        font-size: 3em;            
-        color: $info;
-    }
-       
-    .icon-arrow-right {
-        @include media($mobile) {
-            display: none;
-        }
-    }
-
-    .icon-arrow-down {
-        display: none;
-        
-        @include media($mobile) {
-            display: inline-block;
-        }
-    }
 }
 
 .flat-sharp {
@@ -122,5 +50,7 @@ button {
     left: -.1em;
 }
 
+@import 'instrument-selector';
+@import 'answers';
 //@import 'css-menu';
-@import 'circle-menu';
+@import 'svg-menu';

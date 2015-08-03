@@ -64,6 +64,12 @@ textarea {
 .is-hidden {
   display: none; }
 
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  fill: currentColor; }
+
 html {
   box-sizing: border-box; }
 
@@ -124,23 +130,24 @@ a {
 header {
   text-align: center;
   padding: 1rem 1rem 0; }
-  header svg {
-    width: 20em; }
-  header #transpose {
-    fill: #3A3B3D; }
-
-h1 {
-  margin-bottom: 2rem;
-  letter-spacing: .15em;
-  font-weight: 100;
-  font-size: 4em;
-  color: #3A3B3D; }
+  header h1 {
+    letter-spacing: .15em;
+    font-weight: 100;
+    font-size: 4em;
+    color: #3A3B3D; }
+    @media screen and (max-width: 770px) {
+      header h1 {
+        font-size: 2em; } }
 
 h2 {
   margin: 2rem 0;
   letter-spacing: .05em;
   font-weight: 100;
   font-size: 1.75em; }
+  @media screen and (max-width: 770px) {
+    h2 {
+      font-size: 1.25em;
+      margin: 1rem 0 0.5rem; } }
 
 .main-content {
   max-width: 68em;
@@ -153,33 +160,11 @@ h2 {
     content: "";
     display: table; }
 
-button {
-  padding: .5em;
-  border: 0;
-  background-color: #34495e;
-  color: white;
-  font-size: 1.5em;
-  cursor: pointer; }
-  button:hover {
-    background-color: #2b3c4e; }
-
-.answer-container {
-  margin: 3rem auto;
-  width: 60%;
-  font-size: 2em;
-  line-height: 1.25; }
-  @media screen and (max-width: 770px) {
-    .answer-container {
-      width: 90%; } }
-
-.error-message {
-  color: #FE3D42; }
-
-.icon {
-  display: inline-block;
-  width: 1em;
-  height: 1em;
-  fill: currentColor; }
+.flat-sharp {
+  font-size: 75%;
+  position: relative;
+  top: -.125em;
+  left: -.1em; }
 
 .instrument {
   float: left;
@@ -194,11 +179,14 @@ button {
       display: block;
       margin-right: 2.3576515979%;
       width: 100%;
-      margin-bottom: 1rem; }
+      margin-bottom: 0.5rem; }
       .instrument:last-child {
         margin-right: 0; } }
   .instrument select {
     margin-top: 1rem; }
+    @media screen and (max-width: 770px) {
+      .instrument select {
+        margin-top: 0.5rem; } }
   .instrument-selection {
     overflow: auto;
     margin-bottom: 2rem; }
@@ -214,76 +202,72 @@ button {
       .instrument .icon-arrow-down {
         display: inline-block; } }
 
-.flat-sharp {
-  font-size: 75%;
-  position: relative;
-  top: -.125em;
-  left: -.1em; }
+.answer-container {
+  margin: 3rem auto;
+  width: 60%;
+  font-size: 2em;
+  line-height: 1.25; }
+  @media screen and (max-width: 770px) {
+    .answer-container {
+      width: 90%;
+      font-size: 1.5em; } }
 
-#menu {
-  display: block;
-  margin: 0 auto;
-  overflow: visible; }
+.error-message {
+  color: #FE3D42; }
 
-a {
-  cursor: pointer;
-  /* SVG &lt;a&gt; elements don't get this by default, so you need to explicitly set it */
-  outline: none; }
+.circle-menu {
+  margin: 2em auto;
+  width: 24em;
+  height: 24em; }
+  @media screen and (max-width: 700px) {
+    .circle-menu {
+      width: 18em;
+      height: 18em; } }
+  .circle-menu svg {
+    display: block;
+    overflow: visible;
+    margin: 0 auto; }
+  .circle-menu a {
+    outline: none;
+    cursor: pointer;
+    /* SVG &lt;a&gt; elements don't get this by default, so you need to explicitly set it */ }
+  .circle-menu symbol {
+    overflow: visible; }
+
+.notes-container .note {
+  font-size: 2.5em; }
+.notes-container .with-enharmonic {
+  font-size: 2em; }
+  .notes-container .with-enharmonic text.flat-sharp {
+    font-size: 60%; }
+.notes-container .enharmonic {
+  font-size: 1.75rem;
+  fill: #959EA5; }
 
 .item {
-  color: #3A3B3D; }
-  .item use {
+  color: #3A3B3D;
+  -webkit-tap-highlight-color: transparent; }
+  .item .note {
     fill: #535457; }
+  .item:hover .sector {
+    fill: #eee; }
   .item .sector {
     -webkit-transition: all .1s linear;
             transition: all .1s linear;
     fill: #fff;
     stroke: #959EA5; }
-
-.notes-container symbol {
-  font-size: 2.5em; }
-.notes-container symbol.with-enharmonic {
-  font-size: 2em; }
-  .notes-container symbol.with-enharmonic text.flat-sharp {
-    font-size: 60%; }
-.notes-container text.enharmonic {
-  fill: #959EA5;
-  font-size: 1.75rem; }
-
-.item:hover .sector {
-  fill: #eee; }
+  .item .indicator {
+    display: none;
+    fill: #FF951E; }
 
 .is-selected .sector, .is-selected.item:hover .sector {
   fill: #007FB2; }
-.is-selected use, .is-selected.item:hover use {
-  color: white; }
+.is-selected .note, .is-selected.item:hover .note {
+  fill: white; }
 
-.indicator {
-  fill: #FF951E; }
-
-.item .indicator {
-  visibility: hidden; }
-
-.item.is-transposed .indicator, .item.is-transposed:hover .indicator {
-  visibility: visible; }
+.is-transposed .indicator, .is-transposed:hover .indicator {
+  display: block; }
 
 .menu-trigger {
-  fill: #959EA5;
   pointer-events: auto;
-  /* KEEP THIS to make sure it stays clickable even when SVG's pointer events is disabled */ }
-
-.menu-trigger:hover, .menu-trigger:focus {
-  cursor: pointer; }
-
-symbol {
-  overflow: visible;
-  /* KEEP THIS so that text will not get cut off it it is wider than the icon width */ }
-
-.circle-menu {
-  width: 24em;
-  height: 24em;
-  margin: 2em auto; }
-  @media screen and (max-width: 700px) {
-    .circle-menu {
-      width: 18em;
-      height: 18em; } }
+  fill: #959EA5; }

@@ -1,0 +1,89 @@
+    .circle-menu {
+        margin: 2em auto;
+        width: 24em;
+        height: 24em;
+
+        @include media($phone) {
+            width: 18em;
+            height: 18em;
+        }
+
+        svg {
+            display: block;
+            overflow: visible;
+            margin: 0 auto;
+        }
+
+        a {
+            outline: none; 
+            cursor: pointer; /* SVG &lt;a&gt; elements don't get this by default, so you need to explicitly set it */
+        }
+    
+        symbol {
+            overflow: visible; // KEEP THIS so that text will not get cut off it it is wider than the icon width
+        }
+    }
+
+    .notes-container {
+        .note {
+            font-size: 2.5em;
+        }
+
+        .with-enharmonic {
+            font-size: 2em;
+            
+            text.flat-sharp {
+                font-size: 60%;
+            }
+        }
+        
+        .enharmonic {
+            font-size: 1.75rem;
+            fill: $info;
+        }
+    }
+    
+    .item {
+        color: $default;
+        -webkit-tap-highlight-color: transparent;
+                
+        .note {
+            fill: lighten($default, 10%);
+        }
+        
+        &:hover .sector {
+           fill: #eee; 
+        }
+        
+        .sector {
+            transition: all .1s linear;
+            fill: #fff;
+            stroke: $info;
+        }
+
+        .indicator {
+            display: none;
+            fill: $primary;
+        }
+    }
+
+    .is-selected, .is-selected.item:hover {
+        .sector {
+            fill: $secondary;        
+        }
+        
+        .note {
+            fill: white;
+        }
+    }
+
+    .is-transposed, .is-transposed:hover {
+        .indicator {
+            display: block;
+        }        
+    }
+
+    .menu-trigger {
+        pointer-events: auto;
+        fill: $info; // KEEP THIS to make sure it stays clickable even when SVG's pointer events is disabled
+    }

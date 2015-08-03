@@ -1,0 +1,40 @@
+.instrument {
+    @include span-columns(4);
+    
+    @include media($mobile) {
+        @include span-columns(12);
+        margin-bottom: spacer(.5);
+    }
+    
+    select {
+        margin-top: spacer(1);
+
+        @include media($mobile) {
+            margin-top: spacer(.5);;            
+        }    
+    }
+    
+    &-selection {
+        overflow: auto;
+        margin-bottom: spacer(2);
+    }
+    
+    .arrow-container {
+        font-size: 3em;            
+        color: $info;
+    }
+       
+    .icon-arrow-right {
+        @include media($mobile) {
+            display: none;
+        }
+    }
+
+    .icon-arrow-down {
+        display: none;
+        
+        @include media($mobile) {
+            display: inline-block;
+        }
+    }
+}
