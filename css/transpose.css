@@ -383,7 +383,7 @@ h2 {
 
 .answer-container {
   margin: 2rem auto;
-  width: 60%;
+  max-width: 16em;
   font-size: 2em;
   line-height: 1.25; }
   @media screen and (max-width: 770px) {

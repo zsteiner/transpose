@@ -2,8 +2,8 @@ var instruments,
     instrumentScroll,
     originalNote,
     originalNoteLabel,
-    originalInstrument = 0,
-    originalInstrumentLabel = "piano",
+    originalInstrument,
+    originalInstrumentLabel,
     transposeInstrument,
     transposeInstrumentLabel,
     transposeNote,
@@ -78,12 +78,12 @@ function transpose() {
 }
 
 function errorChecker() {
-    if (originalNote === undefined) {
-        $('.error-message').removeClass('is-hidden').siblings().addClass('is-hidden');  
-    }
-    
-    else if (transposeInstrument === undefined) {
+    if (transposeInstrument === undefined) {
         $('.error-message-transpose').removeClass('is-hidden').siblings().addClass('is-hidden');
+    }
+
+    else if (originalNote === undefined) {
+        $('.error-message').removeClass('is-hidden').siblings().addClass('is-hidden');  
     }
 
     else {
@@ -111,6 +111,21 @@ function createInstruments(obj) {
         else {
             icon = '<svg class="icon icon-note"><use xlink:href="#icon-' + instruments[i].key + '"></use></svg>';
         }
+
+        if (instruments[i].default === true) {
+            originalInstrument = instruments[i].transposeFactor;  
+            originalInstrumentLabel = instruments[i].name;
+            $('.instrument-source .instrument-name').text(originalInstrumentLabel);
+ 
+            if (instruments[i].icon === true) {
+                $('.instrument-source use').attr('xlink:href', '#icon-' + instruments[i].iconName).parent().removeClass('icon-note');
+            }
+            
+            else {
+                $('.instrument-source use').attr('xlink:href', '#icon-' + instruments[i].iconName).parent().addClass('icon-note');
+            }
+        }
+        
         sourceItem.innerHTML = 
     	    '<input type="radio" name="source-instrument" id="source-instrument' + i + '" value="' + instruments[i].transposeFactor + '">' + 
     	    '<label for="source-instrument' + i + '">' + icon + 
