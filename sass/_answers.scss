@@ -1,12 +1,12 @@
 .answer-container {
-    margin: spacer(3) auto;
+    margin: spacer(2) auto;
     width: 60%;
     font-size: 2em;
     line-height: 1.25;
     
     @include media($mobile) {
         width: 90%;
-        font-size: 1.5em;
+        font-size: 1.25em;
     }
 }
 

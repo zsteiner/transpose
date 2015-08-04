@@ -68,7 +68,8 @@ textarea {
   display: inline-block;
   width: 1em;
   height: 1em;
-  fill: currentColor; }
+  fill: currentColor;
+  color: currentColor; }
 
 html {
   box-sizing: border-box; }
@@ -127,6 +128,44 @@ a {
   color: #34495e;
   text-decoration: none; }
 
+.scroll-wrapper {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden; }
+
+.scroll-content {
+  position: absolute;
+  z-index: 1;
+  -webkit-tap-highlight-color: transparent;
+  width: 100%;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-text-size-adjust: none;
+  -ms-text-size-adjust: none;
+  -o-text-size-adjust: none;
+  text-size-adjust: none; }
+
+.iScrollVerticalScrollbar[style] {
+  width: .5rem !important;
+  background-color: #e8eaeb;
+  top: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important; }
+
+.iScrollIndicator[style] {
+  border-radius: 0 !important;
+  border: 0 !important; }
+
 header {
   text-align: center;
   padding: 1rem 1rem 0; }
@@ -137,7 +176,8 @@ header {
     color: #3A3B3D; }
     @media screen and (max-width: 770px) {
       header h1 {
-        font-size: 2em; } }
+        font-size: 2em;
+        margin-bottom: 0; } }
 
 h2 {
   margin: 2rem 0;
@@ -176,7 +216,8 @@ h2 {
   float: left;
   display: block;
   margin-right: 2.3576515979%;
-  width: 31.7615656014%; }
+  width: 31.7615656014%;
+  padding: 0.5rem; }
   .instrument:last-child {
     margin-right: 0; }
   @media screen and (max-width: 770px) {
@@ -184,45 +225,177 @@ h2 {
       float: left;
       display: block;
       margin-right: 2.3576515979%;
-      width: 100%;
+      width: 40.2913699012%;
       margin-bottom: 0.5rem; }
       .instrument:last-child {
         margin-right: 0; } }
-  .instrument select {
-    margin-top: 1rem; }
-    @media screen and (max-width: 770px) {
-      .instrument select {
-        margin-top: 0.5rem; } }
   .instrument-selection {
     overflow: auto;
-    margin-bottom: 2rem; }
-  .instrument .arrow-container {
-    font-size: 3em;
-    color: #959EA5; }
+    margin: 0 auto 1rem;
+    max-width: 34em; }
+
+.arrow-container {
+  float: left;
+  display: block;
+  margin-right: 2.3576515979%;
+  width: 31.7615656014%;
+  margin-top: .75em;
+  color: #959EA5;
+  font-size: 4em; }
+  .arrow-container:last-child {
+    margin-right: 0; }
   @media screen and (max-width: 770px) {
-    .instrument .icon-arrow-right {
-      display: none; } }
-  .instrument .icon-arrow-down {
-    display: none; }
+    .arrow-container {
+      float: left;
+      display: block;
+      margin-right: 2.3576515979%;
+      width: 14.7019570017%;
+      font-size: 2em;
+      margin-top: 2rem;
+      padding: 0.5rem 0; }
+      .arrow-container:last-child {
+        margin-right: 0; } }
+
+.button {
+  display: inline-block;
+  padding: 1rem;
+  width: 10rem;
+  height: 10rem;
+  border: 1px solid #bec4c8;
+  border-radius: .25em;
+  background-color: white;
+  color: #3A3B3D;
+  vertical-align: top;
+  text-align: center;
+  line-height: 1;
+  cursor: pointer;
+  -webkit-transition: all .1s linear;
+          transition: all .1s linear; }
+  @media screen and (max-width: 770px) {
+    .button {
+      height: 5rem;
+      width: 5rem;
+      padding: 0.25rem; } }
+  .button.is-selected, .button:hover {
+    box-shadow: 0 0 0 0.25rem #007FB2;
+    border-color: transparent;
+    color: #007FB2; }
+  .button .icon {
+    height: 4rem;
+    width: 4rem;
+    margin-bottom: 0.5rem; }
     @media screen and (max-width: 770px) {
-      .instrument .icon-arrow-down {
-        display: inline-block; } }
+      .button .icon {
+        height: 2rem;
+        width: 2rem;
+        margin-bottom: 0.5rem; } }
+  .button .icon-note {
+    padding: .5rem; }
+    @media screen and (max-width: 770px) {
+      .button .icon-note {
+        height: 2rem;
+        width: 2rem;
+        padding: .25rem; } }
+  .button .instrument-name {
+    display: block;
+    font-size: 1.5rem; }
+    @media screen and (max-width: 770px) {
+      .button .instrument-name {
+        font-size: .875rem; } }
+
+.button-empty {
+  border: 0.25em dashed #959EA5;
+  color: #959EA5;
+  padding: 0.25rem; }
+  .button-empty.is-selected, .button-empty:hover {
+    box-shadow: none;
+    border-color: #007FB2;
+    background-color: white;
+    color: #007FB2; }
+  .button-empty .icon {
+    font-size: 2rem;
+    margin-top: 0.5rem; }
+    @media screen and (max-width: 770px) {
+      .button-empty .icon {
+        margin-top: 1rem; } }
+  .button-empty .instrument-name {
+    font-size: 1.25rem;
+    line-height: 1.25; }
+    @media screen and (max-width: 770px) {
+      .button-empty .instrument-name {
+        display: none !important; } }
+
+.icon-note {
+  fill: white;
+  background: #bec4c8;
+  padding: .3rem;
+  border-radius: 50%; }
+
+.instrument-selector {
+  position: absolute;
+  top: 10em;
+  left: 50%;
+  z-index: 100;
+  overflow: hidden;
+  margin-left: -10.5em;
+  padding: 0.5rem;
+  width: 21em;
+  height: 21em;
+  border: 1px solid #ccd0d4;
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  text-align: center; }
+  @media screen and (max-width: 770px) {
+    .instrument-selector {
+      top: 5em; } }
+
+.instrument-list {
+  overflow: auto;
+  margin: 0.5rem 0.425rem;
+  z-index: 999; }
+  .instrument-list input {
+    position: absolute;
+    margin: -999em; }
+  .instrument-list li {
+    display: inline-block;
+    float: left;
+    width: 5rem;
+    height: 5rem;
+    border-right: 1px solid #ccd0d4;
+    border-bottom: 1px solid #ccd0d4; }
+    .instrument-list li:nth-of-type(4n) {
+      border-right: 0; }
+  .instrument-list label {
+    display: block;
+    padding: 0.5rem;
+    width: 100%;
+    height: 5rem;
+    color: #3A3B3D;
+    text-align: center;
+    font-size: .75em;
+    cursor: pointer; }
+  .instrument-list input:checked + label {
+    background-color: rgba(0, 127, 178, 0.3); }
+  .instrument-list .icon {
+    display: block;
+    margin: 0 auto 0.5rem;
+    font-size: 3em; }
 
 .answer-container {
-  margin: 3rem auto;
+  margin: 2rem auto;
   width: 60%;
   font-size: 2em;
   line-height: 1.25; }
   @media screen and (max-width: 770px) {
     .answer-container {
       width: 90%;
-      font-size: 1.5em; } }
+      font-size: 1.25em; } }
 
 .error-message {
   color: #FE3D42; }
 
 .circle-menu {
-  margin: 2em auto;
+  margin: 1rem auto;
   width: 24em;
   height: 24em; }
   @media screen and (max-width: 700px) {

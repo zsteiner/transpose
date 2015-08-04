@@ -8,6 +8,7 @@ $dark-blue: #34495e;
 $mobile: new-breakpoint(max-width 770px 12);
 
 @import "typography";
+@import "iscroll";
 
 header {
     text-align: center;
@@ -20,7 +21,8 @@ header {
         color: $default;
 
         @include media($mobile) {
-            font-size: 2em;            
+            font-size: 2em;
+            margin-bottom: 0;           
         }    
     }
 }
@@ -58,6 +60,7 @@ h2 {
     left: -.1em;
 }
 
+@import 'instrument-selection';
 @import 'instrument-selector';
 @import 'answers';
 //@import 'css-menu';
