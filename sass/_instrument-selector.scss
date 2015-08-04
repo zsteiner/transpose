@@ -11,7 +11,7 @@ $border-color: lighten($info, 20%);
     margin-left: (-$selector-margin);   
     padding: spacer(.5);
     width: $selector-size;
-    height: $selector-size;
+    height: $selector-size + 1em;
     border: 1px solid $border-color;
     background-color: transparentize(white, .05);
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
@@ -33,16 +33,23 @@ $border-color: lighten($info, 20%);
     }
     
     li {
+        $list-border: 1px solid $border-color;
+        
         display: inline-block;
         float: left;
         width: 5rem;
         height: 5rem;
-        border-right: 1px solid $border-color;
-        border-bottom: 1px solid $border-color;
+        border-bottom: $list-border;
+        border-right: $list-border;
         
-        &:nth-of-type(4n) {
+        &:nth-child(4n) {
+            border-bottom:  $list-border;
             border-right: 0;
         }
+
+        &:nth-last-of-type(-n+4) {
+            border-bottom: 0;
+        }        
     }
     
     label {
