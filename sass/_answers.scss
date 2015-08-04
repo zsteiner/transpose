@@ -1,15 +1,34 @@
 .answer-container {
-    margin: spacer(2) auto;
+    margin: spacer(1) auto spacer(2);
     max-width: 16em;
+    height: 5rem;
     font-size: 2em;
     line-height: 1.25;
     
     @include media($mobile) {
         width: 90%;
-        font-size: 1.25em;
+        height: 3rem;
+        font-size: 1em;
+        margin-top: 0;
+        margin-bottom: spacer(1);
+    }
+    
+    h2 {
+        font-size: 2rem;
+        padding-top: spacer(1);
+        margin: 0;        
+
+        @include media($mobile) {
+            font-size: 1.25rem;
+        }
     }
 }
 
 .error-message {
     color: $alert;
+    font-weight: 400;
+}
+
+.error-message-source, .error-message-transpose {
+    padding-top: spacer(1);
 }

@@ -169,25 +169,37 @@ a {
 header {
   text-align: center;
   padding: 1rem 1rem 0; }
+  @media screen and (max-width: 770px) {
+    header {
+      padding: 0.5rem 0.5rem 0; } }
+  header .header-logo {
+    background: url("../images/transpose-logo.svg") no-repeat 50%;
+    background-size: contain;
+    height: 5em; }
+    @media screen and (max-width: 770px) {
+      header .header-logo {
+        height: 2.25em; } }
   header h1 {
     letter-spacing: .15em;
     font-weight: 100;
-    font-size: 4em;
-    color: #3A3B3D; }
+    font-size: 3em;
+    color: #3A3B3D;
+    visibility: hidden;
+    margin: 0; }
     @media screen and (max-width: 770px) {
       header h1 {
         font-size: 2em;
         margin-bottom: 0; } }
 
 h2 {
-  margin: 2rem 0;
+  margin-bottom: 1rem;
   letter-spacing: .05em;
   font-weight: 100;
   font-size: 1.75em; }
   @media screen and (max-width: 770px) {
     h2 {
       font-size: 1.25em;
-      margin: 1rem 0 0.5rem; } }
+      margin-bottom: 0.5rem; } }
 
 .main-content {
   max-width: 68em;
@@ -199,6 +211,9 @@ h2 {
     clear: both;
     content: "";
     display: table; }
+  @media screen and (max-width: 770px) {
+    .main-content {
+      padding: 0.5rem; } }
 
 .sharp, .flat {
   font-size: 75%;
@@ -231,8 +246,11 @@ h2 {
         margin-right: 0; } }
   .instrument-selection {
     overflow: auto;
-    margin: 0 auto 1rem;
+    margin: 0 auto 2rem;
     max-width: 34em; }
+    @media screen and (max-width: 770px) {
+      .instrument-selection {
+        margin-bottom: 0.5rem; } }
 
 .arrow-container {
   float: left;
@@ -270,7 +288,8 @@ h2 {
   line-height: 1;
   cursor: pointer;
   -webkit-transition: all .1s linear;
-          transition: all .1s linear; }
+          transition: all .1s linear;
+  -webkit-tap-highlight-color: transparent; }
   @media screen and (max-width: 770px) {
     .button {
       height: 5rem;
@@ -385,17 +404,32 @@ h2 {
     font-size: 3em; }
 
 .answer-container {
-  margin: 2rem auto;
+  margin: 1rem auto 2rem;
   max-width: 16em;
+  height: 5rem;
   font-size: 2em;
   line-height: 1.25; }
   @media screen and (max-width: 770px) {
     .answer-container {
       width: 90%;
-      font-size: 1.25em; } }
+      height: 3rem;
+      font-size: 1em;
+      margin-top: 0;
+      margin-bottom: 1rem; } }
+  .answer-container h2 {
+    font-size: 2rem;
+    padding-top: 1rem;
+    margin: 0; }
+    @media screen and (max-width: 770px) {
+      .answer-container h2 {
+        font-size: 1.25rem; } }
 
 .error-message {
-  color: #FE3D42; }
+  color: #FE3D42;
+  font-weight: 400; }
+
+.error-message-source, .error-message-transpose {
+  padding-top: 1rem; }
 
 .circle-menu {
   margin: 1rem auto;
@@ -404,7 +438,8 @@ h2 {
   @media screen and (max-width: 700px) {
     .circle-menu {
       width: 18em;
-      height: 18em; } }
+      height: 18em;
+      margin: 0.5rem auto 0; } }
   .circle-menu svg {
     display: block;
     overflow: visible;

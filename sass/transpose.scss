@@ -13,13 +13,30 @@ $mobile: new-breakpoint(max-width 770px 12);
 header {
     text-align: center;
     padding: spacer(1) spacer(1) 0;
+    
+    @include media($mobile) {
+        padding: spacer(.5) spacer(.5) 0;
+    }
+    
+
+    .header-logo {
+        background: url('../images/transpose-logo.svg') no-repeat 50%;
+        background-size: contain;
+        height: 5em;
+
+        @include media($mobile) {
+            height: 2.25em;
+        }
+    }
 
     h1 {
         letter-spacing: .15em;
         font-weight: 100;
-        font-size: 4em;
+        font-size: 3em;
         color: $default;
-
+        visibility: hidden;
+        margin: 0;
+        
         @include media($mobile) {
             font-size: 2em;
             margin-bottom: 0;           
@@ -28,14 +45,14 @@ header {
 }
 
 h2 {
-    margin: spacer(2) 0;
+    margin-bottom: spacer(1);
     letter-spacing: .05em;
     font-weight: 100;
     font-size: 1.75em;
 
     @include media($mobile) {
         font-size: 1.25em;
-        margin: spacer(1) 0 spacer(.5);;            
+        margin-bottom: spacer(.5);
     }    
 }
 
@@ -43,6 +60,12 @@ h2 {
     @include outer-container;
     padding: spacer(1);
     text-align: center;
+
+    @include media($mobile) {
+        padding: spacer(.5);
+    }    
+
+    
 }
 
 .sharp, .flat {

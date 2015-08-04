@@ -6,6 +6,7 @@
         @include media($phone) {
             width: 18em;
             height: 18em;
+            margin: spacer(.5) auto 0;
         }
 
         svg {

@@ -9,8 +9,13 @@
     
     &-selection {
         overflow: auto;
-        margin: 0 auto spacer(1);
+        margin: 0 auto spacer(2);
         max-width: 34em;
+
+        @include media($mobile) {
+            margin-bottom: spacer(.5);
+        }
+
     }    
 }
 
@@ -42,6 +47,8 @@
     line-height: 1;
     cursor: pointer;
     transition: all .1s linear;
+    -webkit-tap-highlight-color: transparent;
+
 
     @include media($mobile) {
         height: 5rem;
