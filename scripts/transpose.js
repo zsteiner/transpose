@@ -63,13 +63,13 @@ function transpose() {
     $('#item-' + transposeNote).addClass('is-transposed').siblings().removeClass('is-transposed');
     
     if (transposeNote === originalNote) {
-        $('.answer-same').removeClass('is-hidden').siblings().addClass('is-hidden');
+        $('#message-same').removeClass('is-hidden').siblings().addClass('is-hidden');
         $('.original-instrument').html(originalInstrumentLabel);
         $('.transpose-instrument').html(transposeInstrumentLabel);
     }
     
     else {
-        $('.answer').removeClass('is-hidden').siblings().addClass('is-hidden');
+        $('#message-result').removeClass('is-hidden').siblings().addClass('is-hidden');
     	$('.original-instrument').html(originalInstrumentLabel);
     	$('.original-note').html(originalNoteLabel);
     	$('.transpose-note').html(transposeNoteLabel);
@@ -79,11 +79,11 @@ function transpose() {
 
 function errorChecker() {
     if (transposeInstrument === undefined) {
-        $('.error-message-transpose').removeClass('is-hidden').siblings().addClass('is-hidden');
+        $('#message-error-transpose').removeClass('is-hidden').siblings().addClass('is-hidden');
     }
 
     else if (originalNote === undefined) {
-        $('.error-message').removeClass('is-hidden').siblings().addClass('is-hidden');  
+        $('#message-error-note').removeClass('is-hidden').siblings().addClass('is-hidden');  
     }
 
     else {
@@ -105,36 +105,36 @@ function createInstruments(obj) {
         transposeItem = transposeInstrumentList.appendChild(document.createElement('li'));
 
         if (instruments[i].icon === true) {
-            icon = '<svg class="icon"><use xlink:href="#icon-' + instruments[i].iconName + '"></use></svg>';    
+            icon = '<svg class="icon instruments__icon"><use xlink:href="#icon-' + instruments[i].iconName + '"></use></svg>';    
         }
         
         else {
-            icon = '<svg class="icon icon-note"><use xlink:href="#icon-' + instruments[i].key + '"></use></svg>';
+            icon = '<svg class="icon instruments__icon icon--note"><use xlink:href="#icon-' + instruments[i].key + '"></use></svg>';
         }
 
         if (instruments[i].default === true) {
             originalInstrument = instruments[i].transposeFactor;  
             originalInstrumentLabel = instruments[i].name;
-            $('.instrument-source .instrument-name').text(originalInstrumentLabel);
+            $('#instrument-source .tr-button__name').text(originalInstrumentLabel);
  
             if (instruments[i].icon === true) {
-                $('.instrument-source use').attr('xlink:href', '#icon-' + instruments[i].iconName).parent().removeClass('icon-note');
+                $('#instrument-source .tr-button__icon use').attr('xlink:href', '#icon-' + instruments[i].iconName).parent().removeClass('icon--note');
             }
             
             else {
-                $('.instrument-source use').attr('xlink:href', '#icon-' + instruments[i].iconName).parent().addClass('icon-note');
+                $('#instrument-source .tr-button__icon use').attr('xlink:href', '#icon-' + instruments[i].iconName).parent().addClass('icon--note');
             }
         }
         
         sourceItem.innerHTML = 
     	    '<input type="radio" name="source-instrument" id="source-instrument' + i + '" value="' + instruments[i].transposeFactor + '">' + 
     	    '<label for="source-instrument' + i + '">' + icon + 
-    	    '<span class="instrument-name">' + instruments[i].name + '</span></label>';
+    	    '<span class="instruments__name">' + instruments[i].name + '</span></label>';
 
         transposeItem.innerHTML = 
     	    '<input type="radio" name="transpose-instrument" id="transpose-instrument' + i + '" value="' + instruments[i].transposeFactor + '" >' +
     	    '<label for="transpose-instrument' + i + '">' + icon + 
-    	    '<span class="instrument-name">' + instruments[i].name + '</span></label>';
+    	    '<span class="instruments__name">' + instruments[i].name + '</span></label>';
     	    
         $(sourceItem).find('label').on('click', function(event) {
             event.stopPropagation();
@@ -145,21 +145,21 @@ function createInstruments(obj) {
             originalInstrument =  instruments[selectedInstrument].transposeFactor;
             originalInstrumentLabel = instruments[selectedInstrument].name;
             
-            $('.instrument-source .instrument-name').text(originalInstrumentLabel);
+            $('#instrument-source .tr-button__name').text(originalInstrumentLabel);
 
             if (instruments[i].icon === true) {
-                $('.instrument-source use').attr('xlink:href', '#icon-' + instruments[selectedInstrument].iconName).parent().removeClass('icon-note');
+                $('#instrument-source .tr-button__icon use').attr('xlink:href', '#icon-' + instruments[selectedInstrument].iconName).parent().removeClass('icon--note');
             }
             
             else {
-                $('.instrument-source use').attr('xlink:href', '#icon-' + instruments[selectedInstrument].iconName).parent().addClass('icon-note');
+                $('#instrument-source .tr-button__icon use').attr('xlink:href', '#icon-' + instruments[selectedInstrument].iconName).parent().addClass('icon--note');
             }
             
             setTimeout(function(){
-                $('.instrument-selector').addClass('is-hidden');    
+                $('.tr-instruments').addClass('is-hidden');    
             },200);
             
-            $('.instrument-source .button').removeClass('is-selected button-empty');
+            $('#instrument-source').removeClass('is-selected tr-button--empty');
             
             errorChecker();
         });
@@ -173,21 +173,21 @@ function createInstruments(obj) {
             transposeInstrument = instruments[selectedInstrument].transposeFactor;
             transposeInstrumentLabel = instruments[selectedInstrument].name;
 
-            $('.instrument-transpose .instrument-name').text(transposeInstrumentLabel);
+            $('#instrument-transpose .tr-button__name').text(transposeInstrumentLabel);
             
             if (instruments[i].icon === true) {
-                $('.instrument-transpose use').attr('xlink:href', '#icon-' + instruments[selectedInstrument].iconName).parent().removeClass('icon-note');
+                $('#instrument-transpose .tr-button__icon use').attr('xlink:href', '#icon-' + instruments[selectedInstrument].iconName).parent().removeClass('tr-button__icon--note');
             }
             
             else {
-                $('.instrument-transpose use').attr('xlink:href', '#icon-' + instruments[selectedInstrument].iconName).parent().addClass('icon-note');
+                $('#instrument-transpose .tr-button__icon use').attr('xlink:href', '#icon-' + instruments[selectedInstrument].iconName).parent().addClass('tr-button__icon--note');
             }
             
             setTimeout(function(){
-                $('.instrument-selector').addClass('is-hidden');    
+                $('.tr-instruments').addClass('is-hidden');    
             },200);
 
-            $('.instrument-transpose .button').removeClass('is-selected button-empty');
+            $('#instrument-transpose').removeClass('is-selected tr-button--empty');
             event.stopPropagation();
             errorChecker();
         });
@@ -202,22 +202,22 @@ $.getJSON('scripts/instruments.js').done(function(data) {
     createInstruments(instruments);
 });
 
-$('.instrument .button').click(function(event){
+$('#instrument-source, #instrument-transpose').click(function(event){
     event.stopPropagation();
     var value = $(this).data('value');
 
-    $('.instrument .button').removeClass('is-selected'); 
+    $('.tr-button').removeClass('is-selected'); 
     $(this).addClass('is-selected');
     
-    $('.instrument-selector').removeClass('is-hidden');
+    $('.tr-instruments').removeClass('is-hidden');
     $('#' + value + '-list').removeClass('is-hidden').siblings().addClass('is-hidden');
     
     instrumentScroll.refresh();
 });
 
 $('body').click(function(){
-     $('.instrument-selector').addClass('is-hidden');
-     $('.button').removeClass('is-selected');
+     $('<div class="tr-instruments"></div>  ').addClass('is-hidden');
+     $('.tr-button').removeClass('is-selected');
 });
 
 $('#itemsContainer a').click(function(event){

@@ -1,0 +1,41 @@
+.tr-messages {
+    margin: spacer(1) auto spacer(2);
+    max-width: 32em;
+    height: 5rem;
+    text-align: center;
+    
+    @include media($mobile) {
+        height: 4rem;
+        margin-top: 0;
+        margin-bottom: spacer(1);
+        padding: 0;
+    }
+    
+    &__message {
+        font-size: 1.75rem;
+        line-height: 1.25;
+        padding: spacer(1) 0;
+        vertical-align: middle;
+
+        @include media($mobile) {
+            font-size: 1rem;
+            padding: spacer(1) spacer(.5);
+        }
+
+        &--error {
+            color: $alert;            
+        }
+
+        &--default {
+            font-weight: 100;            
+        }
+    }
+}
+
+.original-note {
+    color: $secondary;
+}
+
+.transpose-note {
+    color: $primary;
+}

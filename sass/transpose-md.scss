@@ -1,30 +1,51 @@
-$selector-size: 21em;
+//@import "reset";
+@import "utility";
+@import "bourbon";
+@import "neat";
+@import "variables";
+
+//@import 'iscroll';
+@import 'svg-menu';
+
+.page-content {
+    padding: 2em;
+}
+
+.tr-selection__arrow {
+    margin-top: .75em;            
+    color: $info;
+    font-size: 4em;
+    text-align: center;
+}
+
+.mdl-card__title .icon {
+    position: absolute;
+    font-size: 4em;
+}
+
+.mdl-card__title {
+    color: #fff;
+    background: $secondary;
+}
+
+$selector-size: 22em;
 $selector-margin: $selector-size / 2;
 $border-color: lighten($info, 20%);
 
-.instrument-selector {
-    position: absolute;
-    top: 10em;
-    left: 50%;
-    z-index: 100;
+.tr-selector {
     overflow: hidden;
-    margin-left: (-$selector-margin);   
-    padding: spacer(.5);
-    width: $selector-size;
-    height: $selector-size + 1em;
-    border: 1px solid $border-color;
-    background-color: transparentize(white, .05);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-    text-align: center;
-    
-    @include media($mobile) {
-        top: 5em;
-    }
 }
 
-.instrument-list {
+.mdl-card__supporting-text {
+    width: 100%;
+}
+
+.tr-instruments__list {
     overflow: auto;
-    margin: spacer(.5) .425rem;
+    padding: 0;
+    width: 100%;
+    list-style: none;
+    margin: 0;
     z-index: 999;
     
     input {
@@ -37,7 +58,7 @@ $border-color: lighten($info, 20%);
         
         display: inline-block;
         float: left;
-        width: 5rem;
+        width: 25%;
         height: 5rem;
         border-bottom: $list-border;
         border-right: $list-border;
@@ -50,6 +71,11 @@ $border-color: lighten($info, 20%);
         &:nth-last-of-type(-n+4) {
             border-bottom: 0;
         }        
+    }
+    
+    .instruments__name {
+        display: inline-block;
+        line-height: 1;
     }
     
     label {
@@ -73,3 +99,5 @@ $border-color: lighten($info, 20%);
         font-size: 3em;
     } 
 }
+
+@import 'messages';

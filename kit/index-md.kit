@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Transpose</title>
+        <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.2/material.deep_orange-blue.min.css">
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+        <script src="https://storage.googleapis.com/code.getmdl.io/1.0.2/material.min.js"></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		<link rel="stylesheet" href="css/transpose-md.css" />
+		<script src="scripts/jquery-3.0.0-alpha1.js"></script>
+		<script src="scripts/iscroll.js"></script>
+	</head>
+	<body>
+        <!--@include "svg-icons" -->
+
+        <!-- Always shows a header, even in smaller screens. -->
+        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+          <header class="mdl-layout__header">
+            <div class="mdl-layout__header-row">
+              <!-- Title -->
+              <span class="mdl-layout-title">tranpose</span>
+              <!-- Add spacer, to align navigation to the right -->
+              <div class="mdl-layout-spacer"></div>
+              <!-- Navigation. We hide it in small screens. -->
+              <nav class="mdl-navigation mdl-layout--large-screen-only">
+                <a class="mdl-navigation__link" href="">Note</a>
+                <a class="mdl-navigation__link" href="">Chord</a>
+                <a class="mdl-navigation__link" href="">Scale</a>
+              </nav>
+            </div>
+          </header>
+          <div class="mdl-layout__drawer">
+            <span class="mdl-layout-title">transpose</span>
+            <nav class="mdl-navigation">
+                <a class="mdl-navigation__link" href="">Note</a>
+                <a class="mdl-navigation__link" href="">Chord</a>
+                <a class="mdl-navigation__link" href="">Scale</a>
+            </nav>
+          </div>
+          <main class="mdl-layout__content">
+            <div class="page-content">
+    			<h2 class="mdl-typography--display-2">Choose your Instruments</h2>
+    		    <div class="tr-selection mdl-grid">  
+        		    <div id="instrument-source" class="mdl-cell mdl-cell--4-col tr-selection__instrument">
+                        <div class="mdl-card mdl-shadow--2dp">
+                          <div class="mdl-card__title mdl-card--expand">
+                            <svg class="icon tr-button__icon"><use xlink:href="#icon-piano"></use></svg>  
+                            <h2 class="mdl-card__title-text tr-button__name">piano</h2>
+                          </div>
+                            <div class="mdl-card__supporting-text tr-instruments is-hidden">   
+                    		    <ul id="source-list" class="tr-instruments__list"></ul>
+                            </div>
+                          <div class="mdl-card__actions mdl-card--border">
+                            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect tr-button" data-value="source">
+                              Change Instrument
+                            </a>
+                          </div>
+                        </div>
+
+        		    </div>
+                    <div class="mdl-cell mdl-cell--4-col tr-selection__arrow">
+                        <svg class="icon icon-arrow-right"><use xlink:href="#icon-arrow-right"></use></svg>       	    
+                    </div>       		    
+        		    <div id="instrument-transpose" class="mdl-cell mdl-cell--4-col tr-selection__instrument">    
+                        <div class="mdl-card mdl-shadow--2dp">
+                          <div class="mdl-card__title mdl-card--expand">
+                            <svg class="icon tr-button__icon"><use xlink:href="#icon-plus"></use></svg>  
+                            <h2 class="mdl-card__title-text tr-button__name">add an instrument</h2>
+                          </div>
+                            <div class="mdl-card__supporting-text tr-instruments is-hidden">   
+                    		    <ul id="transpose-list" class="tr-instruments__list"></ul>
+                            </div>
+                          <div class="mdl-card__actions mdl-card--border">
+                            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect tr-button" data-value="transpose">
+                              Change Instrument
+                            </a>
+                          </div>
+                        </div>
+        		    </div>
+    		    </div>
+
+                <div class="tr-messages">  
+        			<div class="mdl-typography--title tr-messages__message tr-messages__message--default">choose a note</div>
+            		
+            		<div id="message-error-note" class="mdl-typography--title tr-messages__message tr-messages__message--error is-hidden">
+                		<svg class="icon"><use xlink:href="#icon-beamed-note"></use></svg> Choose a note.
+            		</div>
+            		
+            		<div id="message-error-source" class="mdl-typography--title tr-messages__message is-hidden">Choose an original instrument.</div>
+            		<div id="message-error-transpose" class="tr-messages__message is-hidden">Choose a transposing instrument.</div>
+
+            		<div id="message-result" class="mdl-typography--title tr-messages__message is-hidden">
+                		&ldquo;<span class="original-note"></span>&rdquo; on the <span class="original-instrument"></span> sounds the same as &ldquo;<span class="transpose-note"></span>&rdquo; on the <span class="transpose-instrument"></span>.
+            		</div>
+            		
+            		<div id="message-same" class="mdl-typography--title tr-messages__message is-hidden">
+                		No need to transpose between <span class="original-instrument"></span> and <span class="transpose-instrument"></span>.
+            		</div>
+                </div>
+    		    
+                <!--@include "circle-menu" -->
+            </div>
+          </main>
+        <footer class="mdl-mini-footer">
+          <div class="mdl-mini-footer__left-section">
+            <div class="mdl-logo">transponse</div>
+            <ul class="mdl-mini-footer__link-list">
+              <li><a href="http://zachsteiner.com">Copyright 2015 Zach Steiner</a></li>
+            </ul>
+          </div>
+        </footer>
+        </div>
+	</body>
+	<script src="scripts/transpose.js"></script>
+</html>

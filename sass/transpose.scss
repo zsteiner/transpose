@@ -56,7 +56,7 @@ h2 {
     }    
 }
 
-.main-content {
+.tr-layout__main {
     @include outer-container;
     padding: spacer(1);
     text-align: center;
@@ -64,8 +64,6 @@ h2 {
     @include media($mobile) {
         padding: spacer(.5);
     }    
-
-    
 }
 
 .sharp, .flat {
@@ -83,8 +81,7 @@ h2 {
     left: -.1em;
 }
 
-@import 'instrument-selection';
-@import 'instrument-selector';
-@import 'answers';
-//@import 'css-menu';
+@import 'selection';
+@import 'instruments';
+@import 'messages';
 @import 'svg-menu';
