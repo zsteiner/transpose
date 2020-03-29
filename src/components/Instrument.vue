@@ -1,19 +1,37 @@
 <template>
   <div class="selection">
     <button class="button">
-      <span>{{ name }}</span>
+      <Icon class="icon" :icon="icon" />
+      <span class="name">{{ name }}</span>
     </button>
   </div>
 </template>
 
 <script>
+import instruments from '@/constants/instruments';
+
+import Icon from '@/components/Icon.vue';
+
 export default {
   name: 'Instrument',
+  components: {
+    Icon,
+  },
   props: {
-    name: {
+    instrument: {
       type: String,
       default: 'piano',
       required: true,
+    },
+  },
+  computed: {
+    icon() {
+      const { instrument } = this;
+      return instruments[instrument].icon;
+    },
+    name() {
+      const { instrument } = this;
+      return instruments[instrument].name;
     },
   },
 };
@@ -24,16 +42,6 @@ export default {
   overflow: auto;
   padding: 1rem;
   text-align: center;
-
-  &__instrument {
-    padding: spacer(0.5);
-  }
-
-  &__arrow {
-    margin-top: 0.75em;
-    color: $info;
-    font-size: 4em;
-  }
 }
 
 .button {
@@ -71,32 +79,22 @@ export default {
       background-color: white;
       color: $secondary;
     }
-
-    .tr-button__icon {
-      font-size: 2rem;
-      margin-top: spacer(0.5);
-    }
-
-    .tr-button__name {
-      font-size: 1.25rem;
-      line-height: 1.25;
-    }
   }
+}
 
-  &__icon {
-    height: 4rem;
-    width: 4rem;
-    margin-bottom: spacer(0.5);
+.icon {
+  height: 4rem;
+  width: 4rem;
+  margin-bottom: spacer(1);
 
-    &.icon--note {
-      padding: 0.5rem;
-    }
+  &.icon--note {
+    padding: 0.5rem;
   }
+}
 
-  &__name {
-    display: block;
-    font-size: 1.5rem;
-  }
+.name {
+  display: block;
+  font-size: 1.25rem;
 }
 
 .icon--note {

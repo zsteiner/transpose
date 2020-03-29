@@ -15,7 +15,7 @@ export default {
   props: {
     icon: {
       type: String,
-      default: 'close',
+      default: 'piano',
       required: true,
     },
     inline: {

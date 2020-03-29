@@ -1,0 +1,13 @@
+/* eslint-disable */
+import './alto-sax'
+import './arrow-down'
+import './arrow-left'
+import './arrow-right'
+import './arrow-up'
+import './b-flat'
+import './beamed-note'
+import './c'
+import './e-flat'
+import './f'
+import './piano'
+import './plus'
