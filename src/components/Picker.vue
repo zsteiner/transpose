@@ -12,6 +12,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 import instruments from '@/constants/instruments';
 
 import Icon from '@/components/Icon.vue';
@@ -27,14 +28,20 @@ export default {
     };
   },
   props: {
-    visible: Boolean,
+    selection: Number,
   },
   methods: {
+    ...mapActions(['updateSelection']),
     handleClose() {
       this.$emit('click');
     },
     selectInstrument(instrument) {
       console.log('instrument', instrument);
+      const { selection } = this;
+      this.updateSelection({
+        selection,
+        instrument,
+      });
       this.handleClose();
     },
   },

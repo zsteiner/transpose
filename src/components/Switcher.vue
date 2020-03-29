@@ -1,16 +1,19 @@
 <template>
   <section class="switcher">
-    <Selector instrument="piano" @click="togglePicker" />
+    <Selector :instrument="instrument1" @click="togglePicker(1)" />
     <Icon class="arrow" icon="arrow-right" />
-    <Selector instrument="alto-sax" @click="togglePicker" />
-    <Picker v-if="showPicker" @click="togglePicker" />
+    <Selector :instrument="instrument2" @click="togglePicker(2)" />
+    <Picker v-if="showPicker" :selection="selection" @click="togglePicker" />
   </section>
 </template>
 
 <script>
+import { mapState } from 'vuex';
+
 import Icon from '@/components/Icon.vue';
 import Picker from '@/components/Picker.vue';
 import Selector from '@/components/Selector.vue';
+
 export default {
   name: 'Switcher',
   components: {
@@ -18,13 +21,18 @@ export default {
     Picker,
     Selector,
   },
+  computed: {
+    ...mapState(['instrument1', 'instrument2']),
+  },
   data() {
     return {
+      selection: 1,
       showPicker: false,
     };
   },
   methods: {
-    togglePicker() {
+    togglePicker(selection) {
+      this.selection = selection;
       this.showPicker = !this.showPicker;
     },
   },

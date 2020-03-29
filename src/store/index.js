@@ -3,9 +3,26 @@ import Vuex from 'vuex';
 
 Vue.use(Vuex);
 
+import instruments from '@/constants/instruments';
+
 export default new Vuex.Store({
-  state: {},
-  mutations: {},
-  actions: {},
+  state: {
+    instrument1: {
+      ...instruments.piano,
+    },
+    instrument2: {
+      ...instruments['alto-sax'],
+    },
+  },
+  mutations: {
+    UPDATE_INSTRUMENT(state, { selection, instrument }) {
+      state[`instrument${selection}`] = instruments[instrument];
+    },
+  },
+  actions: {
+    updateSelection({ commit }, { selection, instrument }) {
+      commit('UPDATE_INSTRUMENT', { selection, instrument });
+    },
+  },
   modules: {},
 });

@@ -1,14 +1,14 @@
 <template>
   <div class="selection">
     <button class="button" @click="handleClick">
-      <Icon class="icon" :icon="icon" />
-      <span class="name">{{ name }}</span>
+      <Icon class="icon" :icon="instrument.icon" />
+      <span class="name">{{ instrument.name }}</span>
     </button>
   </div>
 </template>
 
 <script>
-import instruments from '@/constants/instruments';
+// import instruments from '@/constants/instruments';
 
 import Icon from '@/components/Icon.vue';
 
@@ -19,19 +19,9 @@ export default {
   },
   props: {
     instrument: {
-      type: String,
-      default: 'piano',
+      type: Object,
+      default: () => {},
       required: true,
-    },
-  },
-  computed: {
-    icon() {
-      const { instrument } = this;
-      return instruments[instrument].icon;
-    },
-    name() {
-      const { instrument } = this;
-      return instruments[instrument].name;
     },
   },
   methods: {
