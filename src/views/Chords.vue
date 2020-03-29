@@ -1,5 +1,5 @@
 <template>
-  <article>
-    <h1>Chords</h1>
+  <article class="container">
+    <h1 class="title">Chords</h1>
   </article>
 </template>

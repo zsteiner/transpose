@@ -1,0 +1,21 @@
+$primary: #ff951e;
+$secondary: #007fb2;
+$alert: #fe3d42;
+$warning: #ffca4c;
+$success: #39ea28;
+$default: #3a3b3d;
+$info: #959ea5;
+$black: darken($default, 10%);
+
+$link-hover: darken($secondary, 20%);
+
+$spacer-unit: 1rem;
+
+@function spacer($value) {
+  @if ($value * 4) % 1 != 0 {
+    @warn Spacer value must be a multiple of 0.5;
+    @return Spacer value must be a multiple of 0.5;
+  } @else {
+    @return $spacer-unit * $value;
+  }
+}

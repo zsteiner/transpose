@@ -1,34 +1,51 @@
 <template>
   <div id="app">
-    <div classe="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/chords">Chords</router-link> |
-      <router-link to="/scales">Scales</router-link>
-    </div>
+    <Nav />
+    <Switcher />
     <router-view />
   </div>
 </template>
 
+<script>
+import Nav from '@/components/Nav.vue';
+import Switcher from '@/components/Switcher.vue';
+
+export default {
+  name: 'App',
+  components: {
+    Nav,
+    Switcher,
+  },
+};
+</script>
+
 <style lang="scss" scoped>
 #app {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
-    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
 }
 
-.nav {
-  padding: 2rem;
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
 
-  a {
-    color: #2c3e50;
-    border-bottom: 0.25rem solid transparent;
+body {
+  box-sizing: border-box;
+}
 
-    &.router-link-exact-active {
-      border-color: currentColor;
-    }
-  }
+.container {
+  margin: 0 auto;
+  padding: 1rem;
+  max-width: 75rem;
+  text-align: center;
+}
+
+.container >>> .title {
+  margin: 0 0 1em;
+  color: pink;
 }
 </style>
