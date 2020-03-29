@@ -13,6 +13,7 @@ export default new Vuex.Store({
     instrument2: {
       ...instruments['alto-sax'],
     },
+    transposingFactor: 3,
   },
   mutations: {
     UPDATE_INSTRUMENT(state, { selection, instrument }) {

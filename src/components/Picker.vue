@@ -3,8 +3,7 @@
     <ul>
       <li class="item" v-for="instrument in instruments" :key="instrument.id">
         <button class="button" @click="selectInstrument(instrument.id)">
-          <Icon class="icon" :icon="instrument.icon" />
-          <span class="name">{{ instrument.name }}</span>
+          <Instrument :instrument="instrument" />
         </button>
       </li>
     </ul>
@@ -15,12 +14,12 @@
 import { mapActions } from 'vuex';
 import instruments from '@/constants/instruments';
 
-import Icon from '@/components/Icon.vue';
+import Instrument from '@/components/Instrument.vue';
 
 export default {
   name: 'Picker',
   components: {
-    Icon,
+    Instrument,
   },
   data() {
     return {
@@ -50,27 +49,32 @@ export default {
 
 <style lang="scss" scoped>
 $list-border: 0.0625rem solid $info;
-$width: 32rem;
+$size: 28rem;
 
 .picker {
+  top: 50%;
   left: 50%;
   position: fixed;
+  height: $size;
+  width: $size;
+  margin-left: -#{$size / 2};
+  margin-top: -#{$size / 2};
+  overflow: scroll;
+  border: $list-border;
 
   ul {
     background: transparentize(white, 0.05);
-    margin-left: -#{$width / 2};
     display: grid;
-    max-width: $width;
-    grid-template-columns: repeat(4, 8rem);
+    grid-template-columns: repeat(4, 1fr);
     list-style: none;
     padding: 0;
-    border: $list-border;
+    margin: 0;
   }
 }
 
 .item {
   position: relative;
-  height: 8rem;
+  height: 7rem;
   text-align: center;
   border-bottom: $list-border;
   border-right: $list-border;
@@ -83,16 +87,6 @@ $width: 32rem;
   &:nth-last-of-type(-n + 4) {
     border-bottom: 0;
   }
-}
-
-.icon {
-  font-size: 2rem;
-  display: inline-block;
-  margin-bottom: spacer(1);
-}
-
-.name {
-  display: block;
 }
 
 .button {

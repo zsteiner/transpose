@@ -1,21 +1,18 @@
 <template>
   <div class="selection">
     <button class="button" @click="handleClick">
-      <Icon class="icon" :icon="instrument.icon" />
-      <span class="name">{{ instrument.name }}</span>
+      <Instrument :instrument="instrument" />
     </button>
   </div>
 </template>
 
 <script>
-// import instruments from '@/constants/instruments';
-
-import Icon from '@/components/Icon.vue';
+import Instrument from '@/components/Instrument.vue';
 
 export default {
   name: 'Selector',
   components: {
-    Icon,
+    Instrument,
   },
   props: {
     instrument: {
@@ -75,27 +72,5 @@ export default {
       color: $secondary;
     }
   }
-}
-
-.icon {
-  height: 4rem;
-  width: 4rem;
-  margin-bottom: spacer(1);
-
-  &.icon--note {
-    padding: 0.5rem;
-  }
-}
-
-.name {
-  display: block;
-  font-size: 1rem;
-}
-
-.icon--note {
-  fill: white;
-  background: lighten($info, 15%);
-  padding: 0.3rem;
-  border-radius: 50%;
 }
 </style>
