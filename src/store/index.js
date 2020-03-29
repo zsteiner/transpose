@@ -4,6 +4,7 @@ import Vuex from 'vuex';
 Vue.use(Vuex);
 
 import instruments from '@/constants/instruments';
+import noteTranslator from '@/constants/noteTranslator';
 
 export default new Vuex.Store({
   state: {
@@ -13,16 +14,52 @@ export default new Vuex.Store({
     instrument2: {
       ...instruments['alto-sax'],
     },
-    transposingFactor: 3,
+    transposeFactor: 3,
+    originalNote: {},
+    transposedNote: {},
   },
   mutations: {
-    UPDATE_INSTRUMENT(state, { selection, instrument }) {
+    SET_INSTRUMENT(state, { selection, instrument }) {
       state[`instrument${selection}`] = instruments[instrument];
+    },
+    SET_NOTES(state, originalNote) {
+      const { transposeFactor } = state;
+      let transposedNote;
+
+      if (originalNote + transposeFactor <= 0) {
+        transposedNote = originalNote + transposeFactor + 12;
+      } else if (originalNote + transposeFactor > 12) {
+        transposedNote = originalNote + transposeFactor - 12;
+      } else {
+        transposedNote = originalNote + transposeFactor;
+      }
+
+      state.originalNote = {
+        index: originalNote,
+        display: noteTranslator[originalNote - 1],
+      };
+      state.transposedNote = {
+        index: transposedNote,
+        display: noteTranslator[transposedNote - 1],
+      };
+    },
+    SET_TRANSPOSING(state, transposeFactor) {
+      state.transposeFactor = transposeFactor;
     },
   },
   actions: {
     updateSelection({ commit }, { selection, instrument }) {
-      commit('UPDATE_INSTRUMENT', { selection, instrument });
+      commit('SET_INSTRUMENT', { selection, instrument });
+    },
+    updateNotes({ commit }, note) {
+      commit('SET_NOTES', note);
+    },
+    updateTransposingFactor({ state, commit }, instrument) {
+      const transposeFactor =
+        instruments[instrument].transposeFactor -
+        state.instrument1.transposeFactor;
+
+      commit('SET_TRANSPOSING', transposeFactor);
     },
   },
   modules: {},

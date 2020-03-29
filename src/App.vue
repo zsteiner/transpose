@@ -20,9 +20,28 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@font-face {
+  font-family: 'Source Serif Variable';
+  font-weight: 200 900;
+  font-style: normal;
+  font-stretch: normal;
+  src: url('/SourceSerifVariable-Roman.ttf.woff2') format('woff2'),
+    url('/SourceSerifVariable-Roman.ttf.woff') format('woff'),
+    url('/SourceSerifVariable-Roman.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Source Serif Variable';
+  font-weight: 200 900;
+  font-style: italic;
+  font-stretch: normal;
+  src: url('/SourceSerifVariable-Italic.ttf.woff2') format('woff2'),
+    url('/SourceSerifVariable-Italic.ttf.woff') format('woff'),
+    url('/SourceSerifVariable-Italic.ttf') format('truetype');
+}
+
 #app {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
-    Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-family: 'Source Serif Variable', 'Source Serif', serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -43,9 +62,10 @@ body {
   max-width: 75rem;
   text-align: center;
 }
+</style>
 
-.container >>> .title {
-  margin: 0 0 1em;
-  color: pink;
+<style>
+button {
+  font-family: inherit;
 }
 </style>

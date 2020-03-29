@@ -1,11 +1,16 @@
 <template>
   <article class="container">
-    <h1 class="title">Notes</h1>
+    <CircleFifths />
   </article>
 </template>
 
 <script>
+import CircleFifths from '@/components/CircleFifths.vue';
+
 export default {
   name: 'Home',
+  components: {
+    CircleFifths,
+  },
 };
 </script>

@@ -65,6 +65,7 @@ $size: 28rem;
   margin-top: -#{$size / 2};
   overflow: scroll;
   border: $list-border;
+  z-index: 1000;
 
   ul {
     background: transparentize(white, 0.05);
