@@ -94,7 +94,7 @@ export default {
 
 .name {
   display: block;
-  font-size: 1.25rem;
+  font-size: 1rem;
 }
 
 .icon--note {
