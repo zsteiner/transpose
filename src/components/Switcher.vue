@@ -1,19 +1,32 @@
 <template>
   <section class="switcher">
-    <Instrument instrument="piano" />
+    <Selector instrument="piano" @click="togglePicker" />
     <Icon class="arrow" icon="arrow-right" />
-    <Instrument instrument="alto-sax" />
+    <Selector instrument="alto-sax" @click="togglePicker" />
+    <Picker v-if="showPicker" @click="togglePicker" />
   </section>
 </template>
 
 <script>
 import Icon from '@/components/Icon.vue';
-import Instrument from '@/components/Instrument.vue';
+import Picker from '@/components/Picker.vue';
+import Selector from '@/components/Selector.vue';
 export default {
   name: 'Switcher',
   components: {
     Icon,
-    Instrument,
+    Picker,
+    Selector,
+  },
+  data() {
+    return {
+      showPicker: false,
+    };
+  },
+  methods: {
+    togglePicker() {
+      this.showPicker = !this.showPicker;
+    },
   },
 };
 </script>

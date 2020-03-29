@@ -1,6 +1,6 @@
 <template>
   <div class="selection">
-    <button class="button">
+    <button class="button" @click="handleClick">
       <Icon class="icon" :icon="icon" />
       <span class="name">{{ name }}</span>
     </button>
@@ -13,7 +13,7 @@ import instruments from '@/constants/instruments';
 import Icon from '@/components/Icon.vue';
 
 export default {
-  name: 'Instrument',
+  name: 'Selector',
   components: {
     Icon,
   },
@@ -32,6 +32,11 @@ export default {
     name() {
       const { instrument } = this;
       return instruments[instrument].name;
+    },
+  },
+  methods: {
+    handleClick() {
+      this.$emit('click');
     },
   },
 };
