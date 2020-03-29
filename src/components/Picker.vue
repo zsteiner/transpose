@@ -1,8 +1,12 @@
 <template>
   <section class="picker">
     <ul>
-      <li class="item" v-for="instrument in instruments" :key="instrument.id">
-        <button class="button" @click="selectInstrument(instrument.id)">
+      <li
+        class="item"
+        v-for="instrument in instruments"
+        :key="instrument.iconName"
+      >
+        <button class="button" @click="selectInstrument(instrument.iconName)">
           <Instrument :instrument="instrument" />
         </button>
       </li>

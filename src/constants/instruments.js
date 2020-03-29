@@ -11,7 +11,7 @@ const instruments = {
     key: 'e-flat',
     transposeFactor: 3,
     icon: false,
-    iconName: 'e-flat',
+    iconName: 'alto-clarinet',
   },
   'alto-sax': {
     name: 'alto sax',
@@ -25,7 +25,7 @@ const instruments = {
     key: 'e-flat',
     transposeFactor: 3,
     icon: false,
-    iconName: 'e-flat',
+    iconName: 'bari-sax',
   },
   'baritone-horn': {
     name: 'baritone horn',
@@ -130,7 +130,7 @@ const instruments = {
     key: 'c',
     transposeFactor: 0,
     icon: false,
-    iconName: 'violin',
+    iconName: 'viola',
   },
   violin: {
     name: 'violin',
