@@ -46,16 +46,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-}
-
-body {
-  box-sizing: border-box;
-}
-
 .container {
   margin: 0 auto;
   padding: 1rem;
@@ -64,8 +54,31 @@ body {
 }
 </style>
 
-<style>
+<style lang="scss">
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  box-sizing: border-box;
+  margin: 0;
+}
+
 button {
   font-family: inherit;
+}
+
+.no-scroll {
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: transparentize(black, 0.25);
+  }
 }
 </style>

@@ -1,5 +1,6 @@
 <template>
   <section class="picker">
+    <button class="close" @click="handleClose">close</button>
     <ul>
       <li
         class="item"
@@ -52,19 +53,26 @@ export default {
 
 <style lang="scss" scoped>
 $list-border: 0.0625rem solid $info;
-$size: 28rem;
+$size: 32rem;
 
 .picker {
-  top: 50%;
-  left: 50%;
   position: fixed;
-  height: $size;
-  width: $size;
-  margin-left: -#{$size / 2};
-  margin-top: -#{$size / 2};
-  overflow: scroll;
-  border: $list-border;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-height: 100vh;
   z-index: 1000;
+  border-bottom: $list-border;
+
+  @media (min-width: $medium) {
+    top: 50%;
+    left: 50%;
+    height: $size;
+    width: $size;
+    margin-left: -#{$size / 2};
+    margin-top: -#{$size / 2};
+    border: $list-border;
+  }
 
   ul {
     background: transparentize(white, 0.05);
@@ -72,7 +80,25 @@ $size: 28rem;
     grid-template-columns: repeat(4, 1fr);
     list-style: none;
     padding: 0;
+    height: 100%;
     margin: 0;
+    overflow: scroll;
+  }
+}
+
+.close {
+  position: absolute;
+  color: $primary;
+  background: none;
+  border: 0;
+  font-size: 1.75rem;
+  top: -1.325em;
+  right: 0;
+
+  &:hover,
+  &:focus {
+    outline: 0;
+    color: $secondary;
   }
 }
 

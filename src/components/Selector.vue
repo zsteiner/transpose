@@ -31,29 +31,32 @@ export default {
 
 <style lang="scss" scoped>
 .selection {
+  display: flex;
+  align-items: stretch;
   overflow: auto;
   padding: 1rem;
   text-align: center;
+  align-self: stretch;
 }
 
 .button {
-  display: inline-block;
+  display: block;
+  width: 100%;
   padding: spacer(1);
-  width: 10rem;
-  height: 10rem;
-  border: 1px solid lighten($info, 15%);
+  border: 0.0625rem solid lighten($info, 15%);
   border-radius: 0.25em;
   background-color: white;
   color: $default;
-  vertical-align: top;
   text-align: center;
   line-height: 1;
   cursor: pointer;
   transition: all 0.1s linear;
   -webkit-tap-highlight-color: transparent;
 
+  &:focus,
   &.is-selected,
   &:hover {
+    outline: 0;
     box-shadow: 0 0 0 0.25rem $secondary;
     border-color: transparent;
     color: $secondary;

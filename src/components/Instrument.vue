@@ -28,12 +28,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$icon-size: 2rem;
+$icon-size: 3rem;
 
 .icon {
   display: inline-block;
-  font-size: $icon-size;
-  margin-bottom: spacer(1);
+  font-size: $icon-size * 0.75;
+  margin-bottom: spacer(0.5);
+
+  @media (min-width: $medium) {
+    font-size: $icon-size;
+    margin-bottom: spacer(1);
+  }
 }
 
 .name {
@@ -46,12 +51,17 @@ $icon-size: 2rem;
   justify-content: center;
   align-items: center;
   color: white;
-  font-size: 1.25rem;
-  height: $icon-size;
-  width: $icon-size;
+  font-size: $icon-size * 0.5;
+  height: $icon-size * 0.75;
+  width: $icon-size * 0.75;
   padding: 0.5rem;
   background: lighten($info, 15%);
   padding: 0.5rem;
   border-radius: 50%;
+
+  @media (min-width: $medium) {
+    font-size: $icon-size * 0.75;
+    margin-bottom: spacer(1);
+  }
 }
 </style>

@@ -34,6 +34,14 @@ export default {
     togglePicker(selection) {
       this.selection = selection;
       this.showPicker = !this.showPicker;
+
+      const noScrollClass = 'no-scroll';
+
+      if (this.showPicker) {
+        document.body.classList.add(noScrollClass);
+      } else {
+        document.body.classList.remove(noScrollClass);
+      }
     },
   },
 };
@@ -42,14 +50,25 @@ export default {
 <style lang="scss" scoped>
 .switcher {
   display: grid;
-  grid-template-columns: 15rem min-content 15rem;
-  grid-gap: 2rem;
-  margin: 2rem auto;
+  grid-template-columns: 8rem min-content 8rem;
+  grid-template-rows: 8rem;
+  grid-gap: 1rem;
+  margin: 2rem auto 0;
   justify-content: center;
   align-items: center;
+
+  @media (min-width: $medium) {
+    grid-template-columns: 15rem min-content 15rem;
+    grid-template-rows: 15rem;
+    grid-gap: 2rem;
+  }
 }
 .arrow {
   color: $info;
-  font-size: 4em;
+  font-size: 2em;
+
+  @media (min-width: $medium) {
+    font-size: 4em;
+  }
 }
 </style>

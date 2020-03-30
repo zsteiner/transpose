@@ -511,10 +511,12 @@ export default {
     },
   },
   updated() {
-    removeClasses('is-transposed');
-    this.$refs[`note${this.transposedNote.index}`].classList.add(
-      'is-transposed',
-    );
+    if (this.transposedNote.index) {
+      removeClasses('is-transposed');
+      this.$refs[`note${this.transposedNote.index}`].classList.add(
+        'is-transposed',
+      );
+    }
   },
 };
 </script>
@@ -522,8 +524,13 @@ export default {
 <style lang="scss" scoped>
 .circle-menu {
   margin: spacer(1) auto;
-  width: 24em;
+  width: 100%;
   height: 24em;
+
+  @media (min-width: $medium) {
+    width: 24em;
+    height: 24em;
+  }
 
   svg {
     display: block;

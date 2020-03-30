@@ -11,6 +11,10 @@ $link-hover: darken($secondary, 20%);
 
 $spacer-unit: 1rem;
 
+$large: 75rem;
+$medium: 45rem;
+$small: 25rem;
+
 @function spacer($value) {
   @if ($value * 4) % 1 != 0 {
     @warn Spacer value must be a multiple of 0.5;
