@@ -1,10 +1,21 @@
+.DS_Store
+node_modules
+/dist
 
-*.scssc
+# local env files
+.env.local
+.env.*.local
 
-sass/.sass-cache/b67f2d49ee15af9aaa61b2ce9266dbc790a0830b/_circle-menu.scssc
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-*.codekit
-
-*.codekit
-
-*.codekit
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

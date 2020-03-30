@@ -1,3 +1,24 @@
-This is a project to quickly transpose a note between two instruments. Can quickly switch between notes and instruments.
+# transpose
 
-JavaScript and SVG.
+## Project setup
+```
+npm install
+```
+
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
+
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Lints and fixes files
+```
+npm run lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
