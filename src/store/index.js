@@ -50,15 +50,14 @@ export default new Vuex.Store({
   actions: {
     updateSelection({ dispatch, commit }, { selection, instrument }) {
       commit('SET_INSTRUMENT', { selection, instrument });
-      dispatch('updateTransposingFactor', instrument);
+      dispatch('updateTransposingFactor');
     },
     updateNotes({ commit }, note) {
       commit('SET_NOTES', note);
     },
-    updateTransposingFactor({ state, commit }, instrument) {
+    updateTransposingFactor({ state, commit }) {
       const transposeFactor =
-        instruments[instrument].transposeFactor -
-        state.instrument1.transposeFactor;
+        state.instrument2.transposeFactor - state.instrument1.transposeFactor;
 
       commit('SET_TRANSPOSING', transposeFactor);
       commit('SET_NOTES', state.originalNote.index);
