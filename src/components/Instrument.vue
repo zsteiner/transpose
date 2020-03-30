@@ -1,9 +1,9 @@
 <template>
   <div class="instrument">
-    <span :class="{ icon: true, key: !instrument.icon }">
+    <span :class="{ icon: true, key: !instrument.icon && !empty }">
       <Icon :icon="displayIcon" />
     </span>
-    <span class="name">{{ instrument.name }}</span>
+    <span class="name">{{ displayText }}</span>
   </div>
 </template>
 
@@ -16,12 +16,20 @@ export default {
     Icon,
   },
   props: {
+    empty: Boolean,
     instrument: Object,
   },
   computed: {
     displayIcon() {
-      const { icon, iconName, key } = this.instrument;
-      return icon ? iconName : key;
+      if (this.empty) {
+        return 'plus';
+      } else {
+        const { icon, iconName, key } = this.instrument;
+        return icon ? iconName : key;
+      }
+    },
+    displayText() {
+      return this.empty ? 'add instrument' : this.instrument.name;
     },
   },
 };

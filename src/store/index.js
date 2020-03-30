@@ -11,9 +11,7 @@ export default new Vuex.Store({
     instrument1: {
       ...instruments.piano,
     },
-    instrument2: {
-      ...instruments['alto-sax'],
-    },
+    instrument2: {},
     transposeFactor: 3,
     originalNote: {},
     transposedNote: {},

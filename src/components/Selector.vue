@@ -1,7 +1,7 @@
 <template>
   <div class="selection">
-    <button class="button" @click="handleClick">
-      <Instrument :instrument="instrument" />
+    <button :class="{ button: true, empty: isEmpty }" @click="handleClick">
+      <Instrument :instrument="instrument" :empty="isEmpty" />
     </button>
   </div>
 </template>
@@ -19,6 +19,11 @@ export default {
       type: Object,
       default: () => {},
       required: true,
+    },
+  },
+  computed: {
+    isEmpty() {
+      return !this.instrument.name;
     },
   },
   methods: {
@@ -61,19 +66,19 @@ export default {
     border-color: transparent;
     color: $secondary;
   }
+}
 
-  &--empty {
-    border: 0.25em dashed $info;
-    color: $info;
-    padding: spacer(0.25);
+.empty {
+  border: 0.25em dashed $info;
+  color: $info;
+  padding: spacer(0.25);
 
-    &.is-selected,
-    &:hover {
-      box-shadow: none;
-      border-color: $secondary;
-      background-color: white;
-      color: $secondary;
-    }
+  &.is-selected,
+  &:hover {
+    box-shadow: none;
+    border-color: $secondary;
+    background-color: white;
+    color: $secondary;
   }
 }
 </style>
