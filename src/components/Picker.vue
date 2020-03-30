@@ -39,7 +39,6 @@ export default {
       this.$emit('click');
     },
     selectInstrument(instrument) {
-      console.log('instrument', instrument);
       const { selection } = this;
       this.updateSelection({
         selection,
