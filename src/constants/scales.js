@@ -1,9 +1,9 @@
 const scales = {
   major: {
-    c: 'CDEFGABc',
-    g: 'GABCDF^g',
-    d: 'DE^FGAB^CD',
-    a: 'AB^cdef^g^a',
+    c: "CDEFGABC'",
+    g: "GABCDF^G'",
+    d: "DE^FGAB^C'D'",
+    a: "AB^cdef^G'A'",
     b: 'B',
     fSharp: '^F',
     cSharp: '^C',
