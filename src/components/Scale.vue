@@ -1,12 +1,14 @@
 <template>
   <section>
-    <div id="scale" class="scale"></div>
-    <div id="transpose" class="scale"></div>
+    <CircleFifths />
+    <div ref="scale" class="scale"></div>
+    <div ref="transpose" class="scale"></div>
   </section>
 </template>
 
 <script>
 import { mapState } from 'vuex';
+import CircleFifths from '@/components/CircleFifths.vue';
 import scales from '@/constants/scales';
 
 import abcjs from 'abcjs';
@@ -14,6 +16,9 @@ import 'abcjs/abcjs-audio.css';
 
 export default {
   name: 'Scale',
+  components: {
+    CircleFifths,
+  },
   data() {
     return {
       scale: `L:4/4\n${scales.major.c}\n"`,
@@ -22,8 +27,8 @@ export default {
   },
   ...mapState(['transposeFactor']),
   mounted() {
-    abcjs.renderAbc('scale', this.scale, { responsive: 'resize' });
-    abcjs.renderAbc('transpose', this.transpose, {
+    abcjs.renderAbc(this.$refs.scale, this.scale, { responsive: 'resize' });
+    abcjs.renderAbc(this.$refs.transpose, this.transpose, {
       responsive: 'resize',
     });
   },
