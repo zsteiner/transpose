@@ -48,7 +48,7 @@ const instruments = {
     icon: false,
     iconName: 'cello',
   },
-  clarient: {
+  clarinet: {
     name: 'clarinet',
     key: 'b-flat',
     transposeFactor: 2,

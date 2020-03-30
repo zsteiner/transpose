@@ -1,10 +1,11 @@
 <template>
   <p class="message">
-    <span v-if="originalNote && transposedNote">
+    <span v-if="originalNote && transposedNote && transposeFactor > 0">
       <strong v-html="originalNote"></strong> on the
       {{ instrument1.name }} sounds the same as
       <strong v-html="transposedNote"></strong> on the {{ instrument2.name }}.
     </span>
+    <span v-if="transposeFactor === 0">There's no need to transpose.</span>
   </p>
 </template>
 
@@ -17,7 +18,7 @@ export default {
     transposedNote: String,
   },
   computed: {
-    ...mapState(['instrument1', 'instrument2']),
+    ...mapState(['instrument1', 'instrument2', 'transposeFactor']),
   },
 };
 </script>
