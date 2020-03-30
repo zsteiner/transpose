@@ -513,11 +513,19 @@ export default {
     },
   },
   updated() {
-    if (this.transposedNote.index) {
+    if (this.transposedNote.note) {
       removeClasses('is-transposed');
       this.$refs[`note${this.transposedNote.index}`].classList.add(
         'is-transposed',
       );
+    }
+  },
+  mounted() {
+    if (this.transposedNote.note) {
+      this.$refs[`note${this.transposedNote.index}`].classList.add(
+        'is-transposed',
+      );
+      this.$refs[`note${this.originalNote.index}`].classList.add('is-selected');
     }
   },
 };
@@ -527,11 +535,11 @@ export default {
 .circle-menu {
   margin: spacer(1) auto;
   width: 100%;
-  height: 24em;
+  height: 18em;
 
   @media (min-width: $medium) {
-    width: 24em;
-    height: 24em;
+    width: 20em;
+    height: 20em;
   }
 
   svg {

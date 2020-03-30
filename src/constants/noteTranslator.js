@@ -1,18 +1,54 @@
 import notes from './notes';
 
 const noteTranslator = [
-  notes.c.display,
-  notes.g.display,
-  notes.d.display,
-  notes.a.display,
-  notes.e.display,
-  notes.b.display,
-  notes.fSharp.display,
-  notes.cSharp.display,
-  notes.aFlat.display,
-  notes.eFlat.display,
-  notes.bFlat.display,
-  notes.f.display,
+  {
+    note: 'c',
+    display: notes.c.display,
+  },
+  {
+    note: 'g',
+    display: notes.g.display,
+  },
+  {
+    note: 'd',
+    display: notes.d.display,
+  },
+  {
+    note: 'a',
+    display: notes.a.display,
+  },
+  {
+    note: 'e',
+    display: notes.e.display,
+  },
+  {
+    note: 'b',
+    display: notes.b.display,
+  },
+  {
+    note: 'fSharp',
+    display: notes.fSharp.display,
+  },
+  {
+    note: 'cSharp',
+    display: notes.cSharp.display,
+  },
+  {
+    note: 'aFlat',
+    display: notes.aFlat.display,
+  },
+  {
+    note: 'eFlat',
+    display: notes.eFlat.display,
+  },
+  {
+    note: 'bFlat',
+    display: notes.bFlat.display,
+  },
+  {
+    note: 'F',
+    display: notes.f.display,
+  },
 ];
 
 export default noteTranslator;
