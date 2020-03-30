@@ -9,10 +9,24 @@ import 'abcjs/abcjs-audio.css';
 export default {
   name: 'Scale',
   props: {
-    scale: String,
+    scale: Object,
+  },
+  watch: {
+    scale: function() {
+      this.renderScale();
+    },
   },
   mounted() {
-    abcjs.renderAbc(this.$refs.scale, this.scale, { responsive: 'resize' });
+    this.renderScale();
+  },
+  methods: {
+    renderScale() {
+      abcjs.renderAbc(
+        this.$refs.scale,
+        `K:${this.scale.key}\nL:4/4\n${this.scale.scale}\n"`,
+        { responsive: 'resize' },
+      );
+    },
   },
 };
 </script>

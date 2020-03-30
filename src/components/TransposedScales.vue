@@ -1,8 +1,8 @@
 <template>
   <section>
     <CircleFifths />
-    <Scale :scale="original" />
-    <Scale :scale="transposed" />
+    <Scale :scale="original" v-if="originalNote.note" />
+    <Scale :scale="transposed" v-if="transposedNote.note" />
   </section>
 </template>
 
@@ -21,10 +21,10 @@ export default {
   computed: {
     ...mapState(['originalNote', 'transposedNote']),
     original() {
-      return `L:4/4\n${scales.major[this.originalNote.note]}\n"`;
+      return scales.major[this.originalNote.note];
     },
     transposed() {
-      return `L:4/4\n${scales.major[this.transposedNote.note]}\n"`;
+      return scales.major[this.transposedNote.note];
     },
   },
 };
