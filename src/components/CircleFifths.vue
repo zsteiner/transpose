@@ -480,10 +480,8 @@
 
 <script>
 import { mapActions, mapState } from 'vuex';
-
-import removeClasses from '@/utils/removeClasses';
-
 import TransposeMessage from '@/components/TransposeMessage.vue';
+import removeClasses from '@/utils/removeClasses';
 
 export default {
   name: 'CircleFifths',
@@ -513,10 +511,7 @@ export default {
     },
     selectOriginalNote() {
       if (this.originalNote.note) {
-        removeClasses('is-transposed');
-        this.$refs[`note${this.originalNote.position}`].classList.add(
-          'is-selected',
-        );
+        this.selectNote(this.originalNote.position);
       }
     },
     selectTransposedNote() {

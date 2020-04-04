@@ -81,4 +81,11 @@ button {
     background-color: transparentize(black, 0.25);
   }
 }
+
+.sharp,
+.flat {
+  position: relative;
+  font-size: 0.625em;
+  bottom: 0.25em;
+}
 </style>

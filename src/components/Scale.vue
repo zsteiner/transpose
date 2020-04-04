@@ -1,24 +1,32 @@
 <template>
-  <div ref="scale" class="scale"></div>
+  <section class="scale-container">
+    <p class="display">
+      <span v-for="(note, index) in scale" :key="index" v-html="note.display" />
+    </p>
+    <div ref="scale" class="scale"></div>
+  </section>
 </template>
 
 <script>
 import abcjs from 'abcjs';
 import 'abcjs/abcjs-audio.css';
+import writeNotation from '@/utils/writeNotation';
 
 export default {
   name: 'Scale',
   props: {
-    scale: String,
+    scale: Array,
     transpose: Number,
   },
   computed: {
+    notatedScale() {
+      return writeNotation(this.scale);
+    },
     transposeSteps() {
       return this.transpose ? this.transpose * 3 : 0;
     },
     scaleNotation() {
-      const { scale } = this;
-      return `L:4/4\n${scale}\n"`;
+      return `L:4/4\n${this.notatedScale}\n"`;
     },
   },
   watch: {
@@ -40,8 +48,22 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.scale {
+.scale-container {
   max-width: $medium;
-  margin: auto;
+  margin: 0 auto;
+}
+
+.scale {
+  width: 100%;
+}
+
+.display {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(4rem, 1fr));
+  grid-gap: 0.5rem;
+  margin: 2rem 0 0;
+  font-size: 1.25rem;
+  padding: 0 1rem;
+  text-align: center;
 }
 </style>
