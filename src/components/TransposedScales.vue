@@ -1,36 +1,43 @@
 <template>
   <section>
     <CircleFifths />
-    <!-- <Scale :scale="original" v-if="originalNote.note" /> -->
-    <!-- <Scale
-      :scale="original"
+    <p>orginal: {{ originalScale }}</p>
+    <Scale :scale="originalScale" v-if="originalNote.note" />
+    <p>tranposed: {{ transposedScale }}</p>
+    <Scale
+      :scale="transposedScale"
       :transpose="transposeFactor"
-      v-if="transposedNote.note"
-    /> -->
-    <p>orginal: {{ original }}</p>
-    <p>tranposed: {{ transposed }}</p>
+      v-if="originalNote.note"
+    />
   </section>
 </template>
 
 <script>
 import { mapState } from 'vuex';
 import CircleFifths from '@/components/CircleFifths.vue';
-// import Scale from '@/components/Scale.vue';
+import Scale from '@/components/Scale.vue';
 import scales from '@/constants/scales';
+import transposeScale from '@/utils/transposeScale';
+// import writeNotation from '@/utils/writeNotation';
 
 export default {
   name: 'TransposedScales',
   components: {
     CircleFifths,
-    // Scale,
+    Scale,
   },
   computed: {
     ...mapState(['originalNote', 'transposedNote', 'transposeFactor']),
-    original() {
+    selectedScale() {
       return scales.major;
     },
-    transposed() {
-      return scales.major;
+    originalScale() {
+      const offset = this.originalNote.position - 1;
+      return transposeScale(this.selectedScale, offset);
+    },
+    transposedScale() {
+      const offset = this.originalNote.position - 1 + this.transposeFactor;
+      return transposeScale(this.selectedScale, offset);
     },
   },
 };

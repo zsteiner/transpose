@@ -14,7 +14,11 @@ export default new Vuex.Store({
     },
     instrument2: {},
     transposeFactor: 0,
-    originalNote: {},
+    originalNote: {
+      position: 1,
+      note: notes[1].note,
+      display: notes[1].display,
+    },
     transposedNote: {},
   },
   mutations: {
@@ -26,12 +30,12 @@ export default new Vuex.Store({
       const transposedNote = transposeNotes(originalNote, transposeFactor);
 
       state.originalNote = {
-        index: originalNote,
+        position: originalNote,
         note: notes[originalNote - 1].note,
         display: notes[originalNote - 1].display,
       };
       state.transposedNote = {
-        index: transposedNote,
+        position: transposedNote,
         note: notes[transposedNote - 1].note,
         display: notes[transposedNote - 1].display,
       };
@@ -54,7 +58,7 @@ export default new Vuex.Store({
 
       commit('SET_TRANSPOSING', transposeFactor);
       if (state.originalNote.note) {
-        commit('SET_NOTES', state.originalNote.index);
+        commit('SET_NOTES', state.originalNote.position);
       }
     },
   },

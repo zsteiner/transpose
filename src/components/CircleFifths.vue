@@ -511,22 +511,28 @@ export default {
       this.$refs[`note${note}`].classList.add('is-selected');
       this.updateNotes(note);
     },
-  },
-  updated() {
-    if (this.transposedNote.note) {
-      removeClasses('is-transposed');
-      this.$refs[`note${this.transposedNote.index}`].classList.add(
-        'is-transposed',
-      );
-    }
+    selectOriginalNote() {
+      if (this.originalNote.note) {
+        removeClasses('is-transposed');
+        this.$refs[`note${this.originalNote.position}`].classList.add(
+          'is-selected',
+        );
+      }
+    },
+    selectTransposedNote() {
+      if (this.transposedNote.note) {
+        removeClasses('is-transposed');
+        this.$refs[`note${this.transposedNote.position}`].classList.add(
+          'is-transposed',
+        );
+      }
+    },
   },
   mounted() {
-    if (this.transposedNote.note) {
-      this.$refs[`note${this.transposedNote.index}`].classList.add(
-        'is-transposed',
-      );
-      this.$refs[`note${this.originalNote.index}`].classList.add('is-selected');
-    }
+    this.selectOriginalNote();
+  },
+  updated() {
+    this.selectTransposedNote();
   },
 };
 </script>
