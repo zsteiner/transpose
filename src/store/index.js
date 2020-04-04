@@ -5,7 +5,7 @@ Vue.use(Vuex);
 
 import instruments from '@/constants/instruments';
 import notes from '@/constants/notes';
-import noteTransposer from '@/utils/noteTransposer';
+import transposeNotes from '@/utils/transposeNotes';
 
 export default new Vuex.Store({
   state: {
@@ -23,7 +23,7 @@ export default new Vuex.Store({
     },
     SET_NOTES(state, originalNote) {
       const { transposeFactor } = state;
-      const transposedNote = noteTransposer(originalNote, transposeFactor);
+      const transposedNote = transposeNotes(originalNote, transposeFactor);
 
       state.originalNote = {
         index: originalNote,

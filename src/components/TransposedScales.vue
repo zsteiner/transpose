@@ -8,7 +8,7 @@
       v-if="transposedNote.note"
     /> -->
     <p>orginal: {{ original }}</p>
-    <p>tranposed: {{ tranposed }}</p>
+    <p>tranposed: {{ transposed }}</p>
   </section>
 </template>
 
