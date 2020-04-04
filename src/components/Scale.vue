@@ -1,7 +1,12 @@
 <template>
   <section class="scale-container">
     <p class="display">
-      <span v-for="(note, index) in scale" :key="index" v-html="note.display" />
+      <Note
+        v-for="(note, index) in scale"
+        :key="index"
+        :note="note"
+        display="flat"
+      />
     </p>
     <div ref="scale" class="scale"></div>
   </section>
@@ -10,6 +15,7 @@
 <script>
 import abcjs from 'abcjs';
 import 'abcjs/abcjs-audio.css';
+import Note from '@/components/Note.vue';
 import writeNotation from '@/utils/writeNotation';
 
 export default {
@@ -17,6 +23,9 @@ export default {
   props: {
     scale: Array,
     transpose: Number,
+  },
+  components: {
+    Note,
   },
   computed: {
     notatedScale() {

@@ -18,6 +18,8 @@ export default new Vuex.Store({
       position: 1,
       note: notes[1].note,
       display: notes[1].display,
+      displayFlat: notes[1].displayFlat,
+      displaySharp: notes[1].displaySharp,
     },
     transposedNote: {},
   },
@@ -33,11 +35,15 @@ export default new Vuex.Store({
         position: originalNote,
         note: notes[originalNote - 1].note,
         display: notes[originalNote - 1].display,
+        displayFlat: notes[originalNote - 1].displayFlat,
+        displaySharp: notes[originalNote - 1].displaySharp,
       };
       state.transposedNote = {
         position: transposedNote,
         note: notes[transposedNote - 1].note,
         display: notes[transposedNote - 1].display,
+        displayFlat: notes[transposedNote - 1].displayFlat,
+        displaySharp: notes[transposedNote - 1].displaySharp,
       };
     },
     SET_TRANSPOSING(state, transposeFactor) {
