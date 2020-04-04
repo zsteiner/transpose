@@ -4,7 +4,8 @@ import Vuex from 'vuex';
 Vue.use(Vuex);
 
 import instruments from '@/constants/instruments';
-import noteTranslator from '@/constants/noteTranslator';
+import notes from '@/constants/notes';
+import noteTransposer from '@/utils/noteTransposer';
 
 export default new Vuex.Store({
   state: {
@@ -22,24 +23,17 @@ export default new Vuex.Store({
     },
     SET_NOTES(state, originalNote) {
       const { transposeFactor } = state;
-      let transposedNote;
+      const transposedNote = noteTransposer(originalNote, transposeFactor);
 
-      if (originalNote + transposeFactor <= 0) {
-        transposedNote = originalNote + transposeFactor + 12;
-      } else if (originalNote + transposeFactor > 12) {
-        transposedNote = originalNote + transposeFactor - 12;
-      } else {
-        transposedNote = originalNote + transposeFactor;
-      }
       state.originalNote = {
         index: originalNote,
-        note: noteTranslator[originalNote - 1].note,
-        display: noteTranslator[originalNote - 1].display,
+        note: notes[originalNote - 1].note,
+        display: notes[originalNote - 1].display,
       };
       state.transposedNote = {
         index: transposedNote,
-        note: noteTranslator[transposedNote - 1].note,
-        display: noteTranslator[transposedNote - 1].display,
+        note: notes[transposedNote - 1].note,
+        display: notes[transposedNote - 1].display,
       };
     },
     SET_TRANSPOSING(state, transposeFactor) {

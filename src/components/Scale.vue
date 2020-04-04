@@ -10,6 +10,12 @@ export default {
   name: 'Scale',
   props: {
     scale: Object,
+    transpose: Number,
+  },
+  computed: {
+    transposeSteps() {
+      return this.transpose * 3;
+    },
   },
   watch: {
     scale: function() {
@@ -21,11 +27,10 @@ export default {
   },
   methods: {
     renderScale() {
-      abcjs.renderAbc(
-        this.$refs.scale,
-        `K:${this.scale.key}\nL:4/4\n${this.scale.scale}\n"`,
-        { responsive: 'resize' },
-      );
+      abcjs.renderAbc(this.$refs.scale, `L:4/4\n${this.scale.scale}\n"`, {
+        responsive: 'resize',
+        visualTranspose: this.transposeSteps,
+      });
     },
   },
 };

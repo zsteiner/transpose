@@ -1,39 +1,45 @@
-const notes = {
-  c: { index: 1, display: 'C' },
-  g: { index: 2, display: 'G' },
-  d: { index: 3, display: 'D' },
-  a: { index: 4, display: 'A' },
-  e: { index: 5, display: 'E' },
-  b: { index: 6, display: 'B' },
-  fSharp: {
-    index: 7,
+const notes = [
+  { note: 'c', display: 'C', notation: 'C' },
+  { note: 'g', display: 'G', notation: 'G' },
+  { note: 'd', display: 'D', notation: 'D' },
+  { note: 'a', display: 'A', notation: 'A' },
+  { note: 'e', display: 'E', notation: 'E' },
+  { note: 'b', display: 'B', notation: 'B' },
+  {
+    note: 'fSharp',
     display:
       'F<span class="sharp">&#X266F;</span> / G<span class="flat">&#X266D;</span>',
+    notation: '^F',
   },
-  cSharp: {
-    index: 8,
+  {
+    note: 'cSharp',
     display:
       'D<span class="flat">&#X266D;</span> / C<span class="sharp">&#X266F;</span>',
+    notation: '^C',
   },
-  aFlat: {
-    index: 9,
+  {
+    note: 'aFlat',
     display:
       'A<span class="flat">&#X266D;</span> / G<span class="sharp">&#X266F;</span>',
+    notation: '_E',
   },
-  eFlat: {
-    index: 10,
+  {
+    note: 'eFlat',
     display:
       'E<span class="flat">&#X266D;</span> / D<span class="sharp">&#X266F;</span>',
+    notation: '^F',
   },
-  bFlat: {
-    index: 11,
+  {
+    note: 'bFlat',
     display:
       'B<span class="flat">&#X266D;</span> / A<span class="sharp">&#X266F;</span>',
+    notation: '_B',
   },
-  f: {
-    index: 12,
+  {
+    note: 'f',
     display: 'F',
+    notation: 'F',
   },
-};
+];
 
 export default notes;
