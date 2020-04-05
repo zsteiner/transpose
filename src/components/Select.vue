@@ -98,7 +98,7 @@ export default {
   cursor: pointer;
   display: block;
   font-size: 1rem;
-  line-height: 1;
+  line-height: 1.25;
   outline: none;
   padding: $input-padding;
   position: relative;
