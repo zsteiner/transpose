@@ -10,6 +10,7 @@ const scales = {
   lydian: ['c', 'd', 'e', 'gFlat', 'g', 'a', 'b', 'c'],
   mixolydian: ['c', 'd', 'e', 'f', 'g', 'a', 'bFlat', 'c'],
   locrian: ['c', 'dFlat', 'eFlat', 'f', 'gFlat', 'aFlat', 'bFlat', 'c'],
+  gypsy: ['c', 'dFlat', 'e', 'f', 'g', 'aFlat', 'bFlat', 'c'],
 };
 
 export default scales;

@@ -55,6 +55,7 @@ export default {
         { value: 'lydian', label: 'Lydian' },
         { value: 'mixolydian', label: 'Mixolydian' },
         { value: 'locrian', label: 'Locrian' },
+        { value: 'gypsy', label: 'Spanish Gypsy' },
       ],
     };
   },
