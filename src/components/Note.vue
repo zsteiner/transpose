@@ -48,5 +48,6 @@ export default {
 .position {
   font-size: 0.75rem;
   margin-left: 0.25rem;
+  display: none;
 }
 </style>
