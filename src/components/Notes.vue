@@ -1,5 +1,5 @@
 <template>
-  <section class="scale-container">
+  <section class="container">
     <p class="display">
       <Note
         v-for="(note, index) in scale"
@@ -52,7 +52,8 @@ export default {
   methods: {
     renderScale() {
       abcjs.renderAbc(this.$refs.notes, this.syntax, {
-        responsive: this.type === 'scale' ? 'resize' : '',
+        responsive: 'resize',
+        viewportHorizontal: true,
         paddingleft: 0,
         paddingright: 0,
         paddingtop: 0,
@@ -63,7 +64,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.scale-container {
+.container {
   width: 100%;
   max-width: $medium;
   margin: 0 auto;
@@ -76,7 +77,7 @@ export default {
 .display {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
-  margin: 2rem 0 0;
+  margin: 2rem 0 1rem;
   font-size: 1.25rem;
   padding-left: 2.25rem;
   text-align: left;

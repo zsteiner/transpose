@@ -43,7 +43,7 @@ const scaleKeys = {
   },
   a: {
     major: 'sharp',
-    minor: 'natural',
+    minor: 'flat',
     majorPentatonic: 'sharp',
     minorPentatonic: 'natural',
     bluesMajor: 'sharp',
