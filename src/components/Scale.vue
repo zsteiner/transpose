@@ -31,7 +31,7 @@ export default {
     notatedScale() {
       return writeNotation(this.scale, this.scaleKey);
     },
-    scaleNotation() {
+    scaleSyntax() {
       return `L:4/4\n${this.notatedScale}\n"`;
     },
   },
@@ -45,7 +45,7 @@ export default {
   },
   methods: {
     renderScale() {
-      abcjs.renderAbc(this.$refs.scale, this.scaleNotation, {
+      abcjs.renderAbc(this.$refs.scale, this.scaleSyntax, {
         responsive: 'resize',
         paddingleft: 0,
         paddingright: 0,

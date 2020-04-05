@@ -17,7 +17,7 @@
       :scale="transposedScale"
       :scaleKey="transposedScaleKey"
       :transpose="transposeFactor"
-      v-if="originalNote.note !== transposedNote.note"
+      v-if="transposedNote.note && originalNote.note !== transposedNote.note"
     />
   </section>
 </template>
