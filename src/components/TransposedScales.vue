@@ -6,9 +6,14 @@
         scale.label
       }}</option>
     </select>
-    <Scale :scale="originalScale" v-if="originalNote.note" />
+    <Scale
+      :scale="originalScale"
+      v-if="originalNote.note"
+      :scaleKey="originalScaleKey"
+    />
     <Scale
       :scale="transposedScale"
+      :scaleKey="transposedScaleKey"
       :transpose="transposeFactor"
       v-if="originalNote.note !== transposedNote.note"
     />
@@ -19,6 +24,7 @@
 import { mapState } from 'vuex';
 import CircleFifths from '@/components/CircleFifths.vue';
 import Scale from '@/components/Scale.vue';
+import scaleKeys from '@/constants/scaleKeys';
 import scales from '@/constants/scales';
 import transposeScale from '@/utils/transposeScale';
 
@@ -56,8 +62,18 @@ export default {
       return transposeScale(this.selectedScale, offset);
     },
     transposedScale() {
-      const offset = this.originalNote.position - 1 + this.transposeFactor;
+      const offset = this.transposedNote.position - 1;
       return transposeScale(this.selectedScale, offset);
+    },
+    originalScaleKey() {
+      return scaleKeys[this.originalNote.note][this.scaleName];
+    },
+    transposedScaleKey() {
+      if (this.transposedNote.note) {
+        return scaleKeys[this.transposedNote.note][this.scaleName];
+      } else {
+        return null;
+      }
     },
   },
 };

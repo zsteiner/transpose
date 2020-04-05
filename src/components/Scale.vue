@@ -5,7 +5,7 @@
         v-for="(note, index) in scale"
         :key="index"
         :note="note"
-        display="flat"
+        :display="scaleKey"
       />
     </p>
     <div ref="scale" class="scale"></div>
@@ -22,17 +22,14 @@ export default {
   name: 'Scale',
   props: {
     scale: Array,
-    transpose: Number,
+    scaleKey: String,
   },
   components: {
     Note,
   },
   computed: {
     notatedScale() {
-      return writeNotation(this.scale);
-    },
-    transposeSteps() {
-      return this.transpose ? this.transpose * 3 : 0;
+      return writeNotation(this.scale, this.scaleKey);
     },
     scaleNotation() {
       return `L:4/4\n${this.notatedScale}\n"`;
@@ -50,7 +47,10 @@ export default {
     renderScale() {
       abcjs.renderAbc(this.$refs.scale, this.scaleNotation, {
         responsive: 'resize',
-        visualTranspose: this.transposeSteps,
+        paddingleft: 0,
+        paddingright: 0,
+        paddingtop: 0,
+        paddingbottom: 0,
       });
     },
   },
@@ -68,11 +68,10 @@ export default {
 
 .display {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(4rem, 1fr));
-  grid-gap: 0.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
   margin: 2rem 0 0;
   font-size: 1.25rem;
-  padding: 0 1rem;
-  text-align: center;
+  padding-left: 2.25rem;
+  text-align: left;
 }
 </style>
