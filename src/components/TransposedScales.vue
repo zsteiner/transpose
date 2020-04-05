@@ -8,16 +8,18 @@
       :options="options"
       v-model="scaleName"
     />
-    <Scale
+    <Notes
       :scale="originalScale"
       v-if="originalNote.note"
       :scaleKey="originalScaleKey"
+      type="scale"
     />
-    <Scale
+    <Notes
       :scale="transposedScale"
       :scaleKey="transposedScaleKey"
       :transpose="transposeFactor"
       v-if="transposedNote.note && originalNote.note !== transposedNote.note"
+      type="scale"
     />
   </section>
 </template>
@@ -25,7 +27,7 @@
 <script>
 import { mapState } from 'vuex';
 import CircleFifths from '@/components/CircleFifths.vue';
-import Scale from '@/components/Scale.vue';
+import Notes from '@/components/Notes.vue';
 import Select from '@/components/Select.vue';
 import TransposeMessage from '@/components/TransposeMessage.vue';
 import scaleKeys from '@/constants/scaleKeys';
@@ -36,7 +38,7 @@ export default {
   name: 'TransposedScales',
   components: {
     CircleFifths,
-    Scale,
+    Notes,
     Select,
     TransposeMessage,
   },

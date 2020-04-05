@@ -1,5 +1,15 @@
 <template>
   <article class="container">
-    <h1 class="title">Chords</h1>
+    <TransposedChords />
   </article>
 </template>
+
+<script>
+import TransposedChords from '@/components/TransposedChords.vue';
+export default {
+  name: 'Chords',
+  components: {
+    TransposedChords,
+  },
+};
+</script>

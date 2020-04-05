@@ -8,7 +8,7 @@
         :display="scaleKey"
       />
     </p>
-    <div ref="scale" class="scale"></div>
+    <div ref="notes" class="notes"></div>
   </section>
 </template>
 
@@ -19,20 +19,26 @@ import Note from '@/components/Note.vue';
 import writeNotation from '@/utils/writeNotation';
 
 export default {
-  name: 'Scale',
+  name: 'Notes',
   props: {
     scale: Array,
     scaleKey: String,
+    type: String,
   },
   components: {
     Note,
   },
   computed: {
-    notatedScale() {
+    notation() {
       return writeNotation(this.scale, this.scaleKey);
     },
-    scaleSyntax() {
-      return `L:4/4\n${this.notatedScale}\n"`;
+    syntax() {
+      let notation = this.notation;
+      if (this.type === 'chord') {
+        notation = `[${this.notation}]`;
+      }
+
+      return `L:4/4\n${notation}\n"`;
     },
   },
   watch: {
@@ -45,8 +51,8 @@ export default {
   },
   methods: {
     renderScale() {
-      abcjs.renderAbc(this.$refs.scale, this.scaleSyntax, {
-        responsive: 'resize',
+      abcjs.renderAbc(this.$refs.notes, this.syntax, {
+        responsive: this.type === 'scale' ? 'resize' : '',
         paddingleft: 0,
         paddingright: 0,
         paddingtop: 0,
@@ -58,11 +64,12 @@ export default {
 </script>
 <style lang="scss" scoped>
 .scale-container {
+  width: 100%;
   max-width: $medium;
   margin: 0 auto;
 }
 
-.scale {
+.notes {
   width: 100%;
 }
 
