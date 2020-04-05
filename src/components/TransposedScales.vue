@@ -1,11 +1,13 @@
 <template>
   <section>
+    <TransposeMessage />
     <CircleFifths />
-    <select v-model="scaleName">
-      <option v-for="scale in scales" :key="scale.value" :value="scale.value">{{
-        scale.label
-      }}</option>
-    </select>
+    <Select
+      name="scales"
+      label="Scales"
+      :options="options"
+      v-model="scaleName"
+    />
     <Scale
       :scale="originalScale"
       v-if="originalNote.note"
@@ -24,6 +26,8 @@
 import { mapState } from 'vuex';
 import CircleFifths from '@/components/CircleFifths.vue';
 import Scale from '@/components/Scale.vue';
+import Select from '@/components/Select.vue';
+import TransposeMessage from '@/components/TransposeMessage.vue';
 import scaleKeys from '@/constants/scaleKeys';
 import scales from '@/constants/scales';
 import transposeScale from '@/utils/transposeScale';
@@ -33,11 +37,13 @@ export default {
   components: {
     CircleFifths,
     Scale,
+    Select,
+    TransposeMessage,
   },
   data() {
     return {
       scaleName: 'major',
-      scales: [
+      options: [
         { value: 'major', label: 'Major / Ionian' },
         { value: 'minor', label: 'Minor / Aeolian' },
         { value: 'majorPentatonic', label: 'Major Pentatonic' },

@@ -1,10 +1,34 @@
 const notes = [
-  { position: 1, note: 'c', display: 'C' },
-  { position: 2, note: 'g', display: 'G' },
-  { position: 3, note: 'd', display: 'D' },
-  { position: 4, note: 'a', display: 'A' },
-  { position: 5, note: 'e', display: 'E' },
-  { position: 6, note: 'b', display: 'B' },
+  {
+    position: 1,
+    note: 'c',
+    display: 'C',
+  },
+  {
+    position: 2,
+    note: 'g',
+    display: 'G',
+  },
+  {
+    position: 3,
+    note: 'd',
+    display: 'D',
+  },
+  {
+    position: 4,
+    note: 'a',
+    display: 'A',
+  },
+  {
+    position: 5,
+    note: 'e',
+    display: 'E',
+  },
+  {
+    position: 6,
+    note: 'b',
+    display: 'B',
+  },
   {
     position: 7,
     note: 'gFlat',

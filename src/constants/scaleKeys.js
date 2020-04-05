@@ -46,7 +46,7 @@ const scaleKeys = {
     bluesMinor: 'flat',
     bluesMajor: 'flat',
     dorian: 'sharp',
-    phyrygian: 'natural',
+    phyrygian: 'flat',
     lydian: 'sharp',
     mixolydian: 'sharp',
     locrian: 'flat',
