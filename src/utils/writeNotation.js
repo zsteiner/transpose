@@ -6,7 +6,7 @@ function octaveDown(note) {
   return `${note},`;
 }
 
-export default function(scale, scaleKey) {
+export default function (scale, scaleKey) {
   // let previous = {
   //   position: 0,
   // };

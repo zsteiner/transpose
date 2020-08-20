@@ -42,7 +42,7 @@ export default {
     },
   },
   watch: {
-    scale: function() {
+    scale: function () {
       this.renderScale();
     },
   },

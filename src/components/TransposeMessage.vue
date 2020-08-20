@@ -1,9 +1,9 @@
 <template>
   <p class="message">
     <span v-if="showMessage">
-      <strong><Note :note="originalNote" display="both"/></strong> on the
+      <strong><Note :note="originalNote" display="both" /></strong> on the
       {{ instrument1.name }} sounds the same as
-      <strong><Note :note="transposedNote" display="both"/></strong> on the
+      <strong><Note :note="transposedNote" display="both" /></strong> on the
       {{ instrument2.name }}.
     </span>
     <span v-if="this.instrument2.name && transposeFactor === 0"

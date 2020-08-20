@@ -6,7 +6,12 @@
       xmlns:xlink="http://www.w3.org/1999/xlink"
       viewBox="-2 -2 504 504"
       id="menu"
-      style="transform-origin: 50% 50% 0px; transform: translate3d(0px, 0px, 0px); touch-action: none; -webkit-user-select: none;"
+      style="
+        transform-origin: 50% 50% 0px;
+        transform: translate3d(0px, 0px, 0px);
+        touch-action: none;
+        -webkit-user-select: none;
+      "
     >
       <g id="symbolsContainer" class="notes-container">
         <symbol class="note" id="icon-1" viewBox="0 0 40 40">
@@ -548,7 +553,7 @@ export default {
     },
   },
   watch: {
-    transposedNote: function() {
+    transposedNote: function () {
       this.selectTransposedNote();
     },
   },
