@@ -1,4 +1,4 @@
-export default function(className) {
+export default function (className) {
   const elements = document.getElementsByClassName(className);
 
   for (let element of elements) {
