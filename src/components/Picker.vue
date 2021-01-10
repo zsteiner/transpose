@@ -8,7 +8,7 @@
         :key="instrument.iconName"
       >
         <button class="button" @click="selectInstrument(instrument.iconName)">
-          <Instrument :instrument="instrument" />
+          <Instrument :instrument="instrument" stretch />
         </button>
       </li>
     </ul>
@@ -53,7 +53,7 @@ export default {
 
 <style lang="scss" scoped>
 $list-border: 0.0625rem solid $info;
-$size: 32rem;
+$size: 38rem;
 
 .picker {
   position: fixed;
@@ -67,8 +67,8 @@ $size: 32rem;
   @media (min-width: $medium) {
     top: 50%;
     left: 50%;
-    height: $size;
-    width: $size;
+    max-height: $size;
+    max-width: $size;
     margin-left: -#{$size / 2};
     margin-top: -#{$size / 2};
     border: $list-border;
@@ -124,6 +124,11 @@ $size: 32rem;
   background: none;
   border: 0;
   height: 100%;
+  padding: 1rem;
   width: 100%;
+}
+
+.button:hover {
+  color: $secondary;
 }
 </style>

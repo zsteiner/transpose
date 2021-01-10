@@ -1,10 +1,24 @@
 <template>
-  <div class="instrument">
-    <span :class="{ icon: true, key: !instrument.icon && !empty }">
+  <span
+    :class="[
+      'instrument',
+      {
+        stretch: stretch,
+      },
+    ]"
+  >
+    <span
+      :class="[
+        'icon',
+        {
+          'key-icon': !instrument.icon && !empty,
+        },
+      ]"
+    >
       <Icon :icon="displayIcon" />
     </span>
     <span class="name">{{ displayText }}</span>
-  </div>
+  </span>
 </template>
 
 <script>
@@ -18,6 +32,7 @@ export default {
   props: {
     empty: Boolean,
     instrument: Object,
+    stretch: Boolean,
   },
   computed: {
     displayIcon() {
@@ -36,16 +51,28 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$icon-size: 3rem;
+$icon-size: 2.5rem;
+
+.instrument {
+  height: 100%;
+}
+
+.stretch {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
 .icon {
   display: inline-block;
   font-size: $icon-size * 0.75;
+  line-height: 1;
   margin-bottom: spacer(0.5);
 
   @media (min-width: $medium) {
     font-size: $icon-size;
-    margin-bottom: spacer(1);
+    margin-bottom: spacer(0.5);
   }
 }
 
@@ -54,21 +81,21 @@ $icon-size: 3rem;
   font-size: 0.875rem;
 }
 
-.key {
+.key-icon {
   display: inline-flex;
   justify-content: center;
   align-items: center;
   color: white;
-  font-size: $icon-size * 0.5;
-  height: $icon-size * 0.75;
-  width: $icon-size * 0.75;
+  font-size: $icon-size;
+  height: $icon-size;
+  width: $icon-size;
   padding: 0.5rem;
   background: lighten($info, 15%);
   padding: 0.5rem;
   border-radius: 50%;
 
   @media (min-width: $medium) {
-    font-size: $icon-size * 0.75;
+    font-size: $icon-size;
     margin-bottom: spacer(1);
   }
 }
