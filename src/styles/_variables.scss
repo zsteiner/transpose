@@ -15,6 +15,9 @@ $large: 75rem;
 $medium: 45rem;
 $small: 25rem;
 
+$input-padding: 0.75rem 1rem;
+$border-width: 0.0625rem;
+
 @function spacer($value) {
   @if ($value * 4) % 1 != 0 {
     @warn Spacer value must be a multiple of 0.5;

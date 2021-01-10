@@ -4,7 +4,8 @@ import Vuex from 'vuex';
 Vue.use(Vuex);
 
 import instruments from '@/constants/instruments';
-import noteTranslator from '@/constants/noteTranslator';
+import notes from '@/constants/notes';
+import transposeNotes from '@/utils/transposeNotes';
 
 export default new Vuex.Store({
   state: {
@@ -12,8 +13,14 @@ export default new Vuex.Store({
       ...instruments.piano,
     },
     instrument2: {},
-    transposeFactor: 3,
-    originalNote: {},
+    transposeFactor: 0,
+    originalNote: {
+      position: 1,
+      note: notes[1].note,
+      display: notes[1].display,
+      displayFlat: notes[1].displayFlat,
+      displaySharp: notes[1].displaySharp,
+    },
     transposedNote: {},
   },
   mutations: {
@@ -22,23 +29,21 @@ export default new Vuex.Store({
     },
     SET_NOTES(state, originalNote) {
       const { transposeFactor } = state;
-      let transposedNote;
-
-      if (originalNote + transposeFactor <= 0) {
-        transposedNote = originalNote + transposeFactor + 12;
-      } else if (originalNote + transposeFactor > 12) {
-        transposedNote = originalNote + transposeFactor - 12;
-      } else {
-        transposedNote = originalNote + transposeFactor;
-      }
+      const transposedNote = transposeNotes(originalNote, transposeFactor);
 
       state.originalNote = {
-        index: originalNote,
-        display: noteTranslator[originalNote - 1],
+        position: originalNote,
+        note: notes[originalNote - 1].note,
+        display: notes[originalNote - 1].display,
+        displayFlat: notes[originalNote - 1].displayFlat,
+        displaySharp: notes[originalNote - 1].displaySharp,
       };
       state.transposedNote = {
-        index: transposedNote,
-        display: noteTranslator[transposedNote - 1],
+        position: transposedNote,
+        note: notes[transposedNote - 1].note,
+        display: notes[transposedNote - 1].display,
+        displayFlat: notes[transposedNote - 1].displayFlat,
+        displaySharp: notes[transposedNote - 1].displaySharp,
       };
     },
     SET_TRANSPOSING(state, transposeFactor) {
@@ -58,7 +63,9 @@ export default new Vuex.Store({
         state.instrument2.transposeFactor - state.instrument1.transposeFactor;
 
       commit('SET_TRANSPOSING', transposeFactor);
-      commit('SET_NOTES', state.originalNote.index);
+      if (state.originalNote.note) {
+        commit('SET_NOTES', state.originalNote.position);
+      }
     },
   },
   modules: {},
