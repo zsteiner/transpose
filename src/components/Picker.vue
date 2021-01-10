@@ -8,7 +8,7 @@
         :key="instrument.iconName"
       >
         <button class="button" @click="selectInstrument(instrument.iconName)">
-          <Instrument :instrument="instrument" />
+          <Instrument :instrument="instrument" stretch />
         </button>
       </li>
     </ul>
@@ -124,6 +124,11 @@ $size: 32rem;
   background: none;
   border: 0;
   height: 100%;
+  padding: 0.75rem;
   width: 100%;
+}
+
+.button:hover {
+  color: $secondary;
 }
 </style>
