@@ -99,7 +99,7 @@ export default {
   max-width: $medium;
   margin: auto;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(12rem, 50%));
   grid-gap: 1rem;
 }
 </style>

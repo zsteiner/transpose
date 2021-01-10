@@ -1,6 +1,13 @@
 <template>
   <section class="container">
-    <p class="display">
+    <p
+      :class="[
+        'display',
+        {
+          'display-chord': type === 'chord',
+        },
+      ]"
+    >
       <Note
         v-for="(note, index) in scale"
         :key="index"
@@ -33,12 +40,7 @@ export default {
       return writeNotation(this.scale, this.scaleKey);
     },
     syntax() {
-      let notation = this.notation;
-      if (this.type === 'chord') {
-        notation = `[${this.notation}]`;
-      }
-
-      return `L:4/4\n${notation}\n"`;
+      return `L:4/4\n${this.notation}\n"`;
     },
   },
   watch: {
@@ -51,13 +53,15 @@ export default {
   },
   methods: {
     renderScale() {
+      const responsive = this.type === 'scale' ? 'resize' : '';
+
       abcjs.renderAbc(this.$refs.notes, this.syntax, {
-        responsive: 'resize',
-        viewportHorizontal: true,
         paddingleft: 0,
         paddingright: 0,
         paddingtop: 0,
         paddingbottom: 0,
+        viewportHorizontal: false,
+        responsive,
       });
     },
   },
@@ -81,5 +85,9 @@ export default {
   font-size: 1.25rem;
   padding-left: 2.25rem;
   text-align: left;
+}
+
+.display-chord {
+  padding-right: 3.5rem;
 }
 </style>
