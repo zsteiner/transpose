@@ -1,7 +1,7 @@
 <template>
   <span
     :class="[
-      instrument,
+      'instrument',
       {
         stretch: stretch,
       },
@@ -51,7 +51,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$icon-size: 3rem;
+$icon-size: 2.5rem;
 
 .instrument {
   height: 100%;
@@ -61,6 +61,7 @@ $icon-size: 3rem;
   align-items: center;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 .icon {
@@ -85,16 +86,16 @@ $icon-size: 3rem;
   justify-content: center;
   align-items: center;
   color: white;
-  font-size: $icon-size * 0.5;
-  height: $icon-size * 0.75;
-  width: $icon-size * 0.75;
+  font-size: $icon-size;
+  height: $icon-size;
+  width: $icon-size;
   padding: 0.5rem;
   background: lighten($info, 15%);
   padding: 0.5rem;
   border-radius: 50%;
 
   @media (min-width: $medium) {
-    font-size: $icon-size * 0.75;
+    font-size: $icon-size;
     margin-bottom: spacer(1);
   }
 }

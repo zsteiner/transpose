@@ -124,7 +124,7 @@ $size: 32rem;
   background: none;
   border: 0;
   height: 100%;
-  padding: 0.75rem;
+  padding: 1rem;
   width: 100%;
 }
 
