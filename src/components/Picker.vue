@@ -53,7 +53,7 @@ export default {
 
 <style lang="scss" scoped>
 $list-border: 0.0625rem solid $info;
-$size: 32rem;
+$size: 38rem;
 
 .picker {
   position: fixed;
@@ -67,8 +67,8 @@ $size: 32rem;
   @media (min-width: $medium) {
     top: 50%;
     left: 50%;
-    height: $size;
-    width: $size;
+    max-height: $size;
+    max-width: $size;
     margin-left: -#{$size / 2};
     margin-top: -#{$size / 2};
     border: $list-border;

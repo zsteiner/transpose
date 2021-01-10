@@ -18,14 +18,14 @@ const instruments = {
     key: 'e-flat',
     transposeFactor: 3,
     icon: true,
-    iconName: 'sax-alto',
+    iconName: 'alto-sax',
   },
   'bari-sax': {
     name: 'baritone sax',
     key: 'e-flat',
     transposeFactor: 3,
     icon: true,
-    iconName: 'sax-bari',
+    iconName: 'bari-sax',
   },
   'baritone-horn': {
     name: 'baritone horn',
@@ -95,14 +95,14 @@ const instruments = {
     key: 'b-flat',
     transposeFactor: 2,
     icon: true,
-    iconName: 'sax-soprano',
+    iconName: 'soprano-sax',
   },
   'tenor-sax': {
     name: 'tenor sax',
     key: 'b-flat',
     transposeFactor: 2,
     icon: true,
-    iconName: 'sax-tenor',
+    iconName: 'tenor-sax',
   },
   trombone: {
     name: 'trombone',
