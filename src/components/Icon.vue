@@ -34,6 +34,7 @@ export default {
   height: 1em;
   position: relative;
   width: 1em;
+  z-index: 0;
 }
 
 .inline {

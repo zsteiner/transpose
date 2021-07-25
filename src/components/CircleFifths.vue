@@ -583,6 +583,8 @@ export default {
     display: block;
     overflow: visible;
     margin: 0 auto;
+    position: relative;
+    z-index: -1;
   }
 
   a {

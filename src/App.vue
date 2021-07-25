@@ -25,9 +25,8 @@ export default {
   font-weight: 200 900;
   font-style: normal;
   font-stretch: normal;
-  src: url('/SourceSerifVariable-Roman.ttf.woff2') format('woff2'),
-    url('/SourceSerifVariable-Roman.ttf.woff') format('woff'),
-    url('/SourceSerifVariable-Roman.ttf') format('truetype');
+  src: url('/SourceSerifVariable-Roman.otf.woff2') format('woff2'),
+    url('/SourceSerifVariable-Roman.otf.woff') format('woff');
 }
 
 @font-face {
@@ -35,13 +34,12 @@ export default {
   font-weight: 200 900;
   font-style: italic;
   font-stretch: normal;
-  src: url('/SourceSerifVariable-Italic.ttf.woff2') format('woff2'),
-    url('/SourceSerifVariable-Italic.ttf.woff') format('woff'),
-    url('/SourceSerifVariable-Italic.ttf') format('truetype');
+  src: url('/SourceSerifVariable-Italic.otf.woff2') format('woff2'),
+    url('/SourceSerifVariable-Italic.otf.woff') format('woff');
 }
 
 #app {
-  font-family: 'Source Serif Variable', 'Source Serif', serif;
+  font-family: 'Source Serif Variable', 'Source Serif', 'Georgia', serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -70,15 +68,26 @@ button {
   font-family: inherit;
 }
 
+html,
+body {
+  min-height: 100%;
+}
+
 .no-scroll {
   overflow: hidden;
+  position: relative;
+  z-index: 100;
 
   &::before {
     content: '';
     position: fixed;
-    width: 100%;
-    height: 100%;
-    background-color: transparentize(black, 0.25);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: transparentize(white, 0.5);
+    backdrop-filter: blur(5px);
+    z-index: 1;
   }
 }
 </style>

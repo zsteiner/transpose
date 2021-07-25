@@ -61,7 +61,7 @@ $size: 38rem;
   left: 0;
   width: 100%;
   max-height: 100vh;
-  z-index: 1000;
+  z-index: 100;
   border-bottom: $list-border;
 
   @media (min-width: $medium) {
@@ -92,7 +92,7 @@ $size: 38rem;
   background: none;
   border: 0;
   font-size: 1.75rem;
-  top: -1.325em;
+  top: -2em;
   right: 0;
 
   &:hover,
