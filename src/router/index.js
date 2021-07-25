@@ -13,18 +13,17 @@ const routes = [
   {
     path: '/chords',
     name: 'Chords',
-    component: () =>
-      import(/* webpackChunkName: "chords" */ '../views/Chords.vue'),
+    component: () => import(/* webpackChunkName: "chords" */ '../views/Chords.vue'),
   },
   {
     path: '/scales',
     name: 'Scales',
-    component: () =>
-      import(/* webpackChunkName: "chords" */ '../views/Scales.vue'),
+    component: () => import(/* webpackChunkName: "scales" */ '../views/Scales.vue'),
   },
 ];
 
 const router = new VueRouter({
+  mode: 'history',
   routes,
 });
 

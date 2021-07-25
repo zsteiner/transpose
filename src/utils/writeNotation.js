@@ -6,7 +6,7 @@ function octaveDown(note) {
   return `${note},`;
 }
 
-export default function (scale, scaleKey) {
+export default function writeNotiona(scale, scaleKey) {
   // let previous = {
   //   position: 0,
   // };
@@ -21,10 +21,10 @@ export default function (scale, scaleKey) {
     }
 
     if (
-      note.position === scale[0].position &&
-      index !== 0 &&
-      note.position !== 11 &&
-      note.position !== 6
+      note.position === scale[0].position
+      && index !== 0
+      && note.position !== 11
+      && note.position !== 6
     ) {
       notation = octaveUp(notation);
     }

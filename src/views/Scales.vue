@@ -6,6 +6,7 @@
 
 <script>
 import TransposedScales from '@/components/TransposedScales.vue';
+
 export default {
   name: 'Scales',
   components: {

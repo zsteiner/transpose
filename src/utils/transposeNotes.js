@@ -1,4 +1,4 @@
-export default function (originalNote, transposeFactor) {
+export default function transposeNotes(originalNote, transposeFactor) {
   let transposedNote;
   if (originalNote + transposeFactor <= 0) {
     transposedNote = originalNote + transposeFactor + 12;

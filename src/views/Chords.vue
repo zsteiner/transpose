@@ -6,6 +6,7 @@
 
 <script>
 import TransposedChords from '@/components/TransposedChords.vue';
+
 export default {
   name: 'Chords',
   components: {

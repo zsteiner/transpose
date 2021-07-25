@@ -77,18 +77,19 @@ export default {
       return transposeScale(this.selectedChord, offset);
     },
     originalScaleKey() {
-      const scaleName = this.options.find((obj) => obj.value === this.chordName)
-        .scale;
+      const scaleName = this.options.find(
+        (obj) => obj.value === this.chordName,
+      ).scale;
       return scaleKeys[this.originalNote.note][scaleName];
     },
     transposedScaleKey() {
-      const scaleName = this.options.find((obj) => obj.value === this.chordName)
-        .scale;
+      const scaleName = this.options.find(
+        (obj) => obj.value === this.chordName,
+      ).scale;
       if (this.transposedNote.note) {
         return scaleKeys[this.transposedNote.note][scaleName];
-      } else {
-        return null;
       }
+      return null;
     },
   },
 };
