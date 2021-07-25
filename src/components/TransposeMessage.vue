@@ -31,10 +31,10 @@ export default {
     ]),
     showMessage() {
       return (
-        this.instrument2.name &&
-        this.originalNote &&
-        this.transposedNote &&
-        this.transposeFactor > 0
+        this.instrument2.name
+        && this.originalNote
+        && this.transposedNote
+        && this.transposeFactor > 0
       );
     },
   },

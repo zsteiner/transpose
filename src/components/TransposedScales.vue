@@ -80,9 +80,8 @@ export default {
     transposedScaleKey() {
       if (this.transposedNote.note) {
         return scaleKeys[this.transposedNote.note][this.scaleName];
-      } else {
-        return null;
       }
+      return null;
     },
   },
 };

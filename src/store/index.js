@@ -1,11 +1,11 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
-Vue.use(Vuex);
-
 import instruments from '@/constants/instruments';
 import notes from '@/constants/notes';
 import transposeNotes from '@/utils/transposeNotes';
+
+Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
@@ -59,8 +59,7 @@ export default new Vuex.Store({
       commit('SET_NOTES', note);
     },
     updateTransposingFactor({ state, commit }) {
-      const transposeFactor =
-        state.instrument2.transposeFactor - state.instrument1.transposeFactor;
+      const transposeFactor = state.instrument2.transposeFactor - state.instrument1.transposeFactor;
 
       commit('SET_TRANSPOSING', transposeFactor);
       if (state.originalNote.note) {

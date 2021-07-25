@@ -38,10 +38,9 @@ export default {
     displayIcon() {
       if (this.empty) {
         return 'plus';
-      } else {
-        const { icon, iconName, key } = this.instrument;
-        return icon ? iconName : key;
       }
+      const { icon, iconName, key } = this.instrument;
+      return icon ? iconName : key;
     },
     displayText() {
       return this.empty ? 'add instrument' : this.instrument.name;
