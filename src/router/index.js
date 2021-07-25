@@ -20,7 +20,7 @@ const routes = [
     path: '/scales',
     name: 'Scales',
     component: () =>
-      import(/* webpackChunkName: "chords" */ '../views/Scales.vue'),
+      import(/* webpackChunkName: "scales" */ '../views/Scales.vue'),
   },
 ];
 
