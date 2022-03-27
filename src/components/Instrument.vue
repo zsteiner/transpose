@@ -46,6 +46,7 @@ export default {
         return 'plus';
       }
       const { icon, iconName, key } = this.instrument;
+
       return icon ? iconName : key;
     },
 

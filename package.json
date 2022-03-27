@@ -3,14 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "yarn run generate-icons && vue-cli-service serve",
-    "build": "yarn run generate-icons && vue-cli-service build",
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "lint:all": "yarn run lint && yarn run lint:style",
     "lint:all:fix": "yarn run lint && yarn run lint:style:fix",
     "lint:style": "stylelint 'src/**/*.{css,scss,vue}'",
-    "lint:style:fix": "yarn run lint:style --fix",
-    "generate-icons": "vsvg -s ./icons -t ./src/compiled-icons --svgo svgo.js --tpl ./icons/icon.tpl.txt --es6"
+    "lint:style:fix": "yarn run lint:style --fix"
   },
   "dependencies": {
     "abcjs": "^6.0.2",
@@ -19,7 +18,6 @@
     "typescript": "^4.6.3",
     "vue": "^3.2.31",
     "vue-router": "^4.0.14",
-    "vue-svgicon": "^3.2.6",
     "vuex": "^4.0.2"
   },
   "devDependencies": {
@@ -50,6 +48,8 @@
     "stylelint-order": "^5.0.0",
     "stylelint-scss": "^4.2.0",
     "stylelint-webpack-plugin": "^3.2.0",
+    "vue-loader-v16": "^16.0.0-beta.5.4",
+    "vue-svg-loader": "^0.17.0-beta.2",
     "vue-template-compiler": "^2.6.11"
   },
   "resolutions": {

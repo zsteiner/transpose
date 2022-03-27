@@ -1,8 +1,10 @@
 <template>
-  <div id="app" class="app">
+  <div
+id="app"
+class="app">
     <Nav />
     <Switcher />
-    <!-- <router-view /> -->
+    <router-view />
   </div>
 </template>
 
