@@ -11,9 +11,11 @@ import Instrument from '@/components/Instrument.vue';
 
 export default {
   name: 'Selector',
+
   components: {
     Instrument,
   },
+
   props: {
     instrument: {
       type: Object,
@@ -21,11 +23,15 @@ export default {
       required: true,
     },
   },
+
+  emits: ['click'],
+
   computed: {
     isEmpty() {
       return !this.instrument.name;
     },
   },
+
   methods: {
     handleClick() {
       this.$emit('click');
@@ -35,8 +41,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@use "sass:color";
-
 .selection {
   align-items: stretch;
   align-self: stretch;
@@ -47,7 +51,7 @@ export default {
 }
 
 .button {
-  background-color: white;
+  background-color: $white;
   border: 0.0625rem solid color.adjust($info, $lightness: 15%);
   border-radius: 0.25em;
   color: $default;
@@ -77,7 +81,7 @@ export default {
 
   &.is-selected,
   &:hover {
-    background-color: white;
+    background-color: $white;
     border-color: $secondary;
     box-shadow: none;
     color: $secondary;

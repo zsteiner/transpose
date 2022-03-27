@@ -3,9 +3,9 @@
     <button class="close" @click="handleClose">close</button>
     <ul>
       <li
-        class="item"
         v-for="instrument in instruments"
         :key="instrument.iconName"
+        class="item"
       >
         <button class="button" @click="selectInstrument(instrument.iconName)">
           <Instrument :instrument="instrument" stretch />
@@ -23,22 +23,33 @@ import Instrument from '@/components/Instrument.vue';
 
 export default {
   name: 'Picker',
+
   components: {
     Instrument,
   },
+
+  props: {
+    selection: {
+      type: Number,
+      required: true,
+    },
+  },
+
+  emits: ['click'],
+
   data() {
     return {
       instruments,
     };
   },
-  props: {
-    selection: Number,
-  },
+
   methods: {
     ...mapActions(['updateSelection']),
+
     handleClose() {
       this.$emit('click');
     },
+
     selectInstrument(instrument) {
       const { selection } = this;
       this.updateSelection({
@@ -52,8 +63,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@use "sass:color";
-
 $list-border: 0.0625rem solid $info;
 $size: 38rem;
 
@@ -69,15 +78,15 @@ $size: 38rem;
   @media (min-width: $medium) {
     border: $list-border;
     left: 50%;
-    margin-left: -#{$size / 2};
-    margin-top: -#{$size / 2};
+    margin-left: -#{math.div($size, 2)};
+    margin-top: -#{math.div($size, 2)};
     max-height: $size;
     max-width: $size;
     top: 50%;
   }
 
   ul {
-    background: color.adjust(white, $alpha: -0.05);
+    background: color.adjust($white, $alpha: -0.05);
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     height: 100%;

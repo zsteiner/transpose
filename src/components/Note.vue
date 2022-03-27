@@ -30,9 +30,16 @@
 <script>
 export default {
   name: 'Note',
+
   props: {
-    note: Object,
-    display: String,
+    note: {
+      type: Object,
+      default: () => ({}),
+    },
+    display: {
+      type: String,
+      default: '',
+    },
   },
 };
 </script>

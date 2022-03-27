@@ -16,20 +16,24 @@ import Selector from '@/components/Selector.vue';
 
 export default {
   name: 'Switcher',
+
   components: {
     Icon,
     Picker,
     Selector,
   },
-  computed: {
-    ...mapState(['instrument1', 'instrument2']),
-  },
+
   data() {
     return {
       selection: 1,
       showPicker: false,
     };
   },
+
+  computed: {
+    ...mapState(['instrument1', 'instrument2']),
+  },
+
   methods: {
     togglePicker(selection) {
       this.selection = selection;

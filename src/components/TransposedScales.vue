@@ -3,22 +3,22 @@
     <TransposeMessage />
     <CircleFifths />
     <Select
+      v-model="scaleName"
       name="scales"
       label="Scales"
       :options="options"
-      v-model="scaleName"
     />
     <Notes
-      :scale="originalScale"
       v-if="originalNote.note"
-      :scaleKey="originalScaleKey"
+      :scale="originalScale"
+      :scale-key="originalScaleKey"
       type="scale"
     />
     <Notes
-      :scale="transposedScale"
-      :scaleKey="transposedScaleKey"
-      :transpose="transposeFactor"
       v-if="transposedNote.note && originalNote.note !== transposedNote.note"
+      :scale="transposedScale"
+      :scale-key="transposedScaleKey"
+      :transpose="transposeFactor"
       type="scale"
     />
   </section>
@@ -36,12 +36,14 @@ import transposeScale from '@/utils/transposeScale';
 
 export default {
   name: 'TransposedScales',
+
   components: {
     CircleFifths,
     Notes,
     Select,
     TransposeMessage,
   },
+
   data() {
     return {
       scaleName: 'major',
@@ -61,6 +63,7 @@ export default {
       ],
     };
   },
+
   computed: {
     ...mapState(['originalNote', 'transposedNote', 'transposeFactor']),
     selectedScale() {

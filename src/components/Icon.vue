@@ -1,8 +1,8 @@
 <template>
   <SvgIcon
+    v-if="icon !== ''"
     :class="{ [$style.icon]: true, [$style.inline]: inline }"
     :icon="icon"
-    v-if="icon !== ''"
   />
 </template>
 

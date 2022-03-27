@@ -6,7 +6,7 @@
       <strong><Note :note="transposedNote" display="both" /></strong> on the
       {{ instrument2.name }}.
     </span>
-    <span v-if="this.instrument2.name && transposeFactor === 0"
+    <span v-if="instrument2.name && transposeFactor === 0"
       >There's no need to transpose.</span
     >
   </p>
@@ -18,9 +18,11 @@ import Note from '@/components/Note.vue';
 
 export default {
   name: 'TransposeMessage',
+
   components: {
     Note,
   },
+
   computed: {
     ...mapState([
       'instrument1',
@@ -31,10 +33,10 @@ export default {
     ]),
     showMessage() {
       return (
-        this.instrument2.name
-        && this.originalNote
-        && this.transposedNote
-        && this.transposeFactor > 0
+        this.instrument2.name &&
+        this.originalNote &&
+        this.transposedNote &&
+        this.transposeFactor > 0
       );
     },
   },

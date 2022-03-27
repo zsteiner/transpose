@@ -1,8 +1,7 @@
-import Vue from 'vue';
-import VueRouter from 'vue-router';
+import { createWebHistory, createRouter } from 'vue-router';
 import Home from '../views/Home.vue';
-
-Vue.use(VueRouter);
+import Chords from '../views/Chords.vue';
+import Scales from '../views/Scales.vue';
 
 const routes = [
   {
@@ -13,17 +12,17 @@ const routes = [
   {
     path: '/chords',
     name: 'Chords',
-    component: () => import(/* webpackChunkName: "chords" */ '../views/Chords.vue'),
+    component: Chords,
   },
   {
     path: '/scales',
     name: 'Scales',
-    component: () => import(/* webpackChunkName: "scales" */ '../views/Scales.vue'),
+    component: Scales,
   },
 ];
 
-const router = new VueRouter({
-  mode: 'history',
+const router = createRouter({
+  history: createWebHistory(),
   routes,
 });
 

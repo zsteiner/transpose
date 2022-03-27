@@ -1,8 +1,8 @@
 <template>
-  <div class="app">
+  <div id="app" class="app">
     <Nav />
     <Switcher />
-    <router-view />
+    <!-- <router-view /> -->
   </div>
 </template>
 
@@ -12,6 +12,7 @@ import Switcher from '@/components/Switcher.vue';
 
 export default {
   name: 'App',
+
   components: {
     Nav,
     Switcher,
@@ -20,28 +21,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@font-face {
-  font-family: "Source Serif Variable";
-  font-stretch: normal;
-  font-style: normal;
-  font-weight: 200 900;
-  src:
-    url("/SourceSerifVariable-Roman.otf.woff2") format("woff2"),
-    url("/SourceSerifVariable-Roman.otf.woff") format("woff");
-}
-
-@font-face {
-  font-family: "Source Serif Variable";
-  font-stretch: normal;
-  font-style: italic;
-  font-weight: 200 900;
-  src:
-    url("/SourceSerifVariable-Italic.otf.woff2") format("woff2"),
-    url("/SourceSerifVariable-Italic.otf.woff") format("woff");
-}
-
 .app {
-  font-family: "Source Serif Variable", "Source Serif", Georgia, serif;
+  font-family: 'Source Serif Variable', 'Source Serif', Georgia, serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -55,8 +36,6 @@ export default {
 </style>
 
 <style lang="scss">
-@use "sass:color";
-
 *,
 *::before,
 *::after {
@@ -84,9 +63,9 @@ body {
 
   &::before {
     backdrop-filter: blur(0.325rem);
-    background-color: color.adjust(white, $alpha: -0.5);
+    background-color: color.adjust($white, $alpha: -0.5);
     bottom: 0;
-    content: "";
+    content: '';
     left: 0;
     position: fixed;
     right: 0;

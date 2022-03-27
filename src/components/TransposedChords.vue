@@ -3,22 +3,22 @@
     <TransposeMessage />
     <CircleFifths />
     <Select
+      v-model="chordName"
       name="chords"
       label="Chords"
       :options="options"
-      v-model="chordName"
     />
     <div class="chords">
       <Notes
         v-if="originalNote.note"
         :scale="originalChord"
-        :scaleKey="originalScaleKey"
+        :scale-key="originalScaleKey"
         type="chord"
       />
       <Notes
         v-if="transposedNote.note && originalNote.note !== transposedNote.note"
         :scale="transposedChord"
-        :scaleKey="transposedScaleKey"
+        :scale-key="transposedScaleKey"
         :transpose="transposeFactor"
         type="chord"
       />

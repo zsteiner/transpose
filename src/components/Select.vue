@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <select class="select input" :name="name" v-model="inputValue">
+    <select v-model="inputValue" class="select input" :name="name">
       <option disabled selected :value="label">
         {{ label }}
       </option>
@@ -18,38 +18,34 @@
 <script>
 export default {
   name: 'Select',
+
   props: {
     label: {
       type: String,
-      default: 'Input Label',
       required: true,
     },
     name: {
       type: String,
-      default: 'inputlabel',
       required: true,
     },
     options: {
       type: Array,
-      default: () => [],
       required: true,
     },
-    readonly: {
-      type: Boolean,
-      default: false,
-    },
-    required: {
-      type: Boolean,
-      default: false,
-    },
+    readonly: Boolean,
+    required: Boolean,
     selectedValue: {
       type: String,
+      default: '',
     },
     value: {
       type: String,
-      default: null,
+      default: '',
     },
   },
+
+  emits: ['input'],
+
   computed: {
     inputValue: {
       get() {

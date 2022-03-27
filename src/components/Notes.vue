@@ -27,14 +27,26 @@ import writeNotation from '@/utils/writeNotation';
 
 export default {
   name: 'Notes',
-  props: {
-    scale: Array,
-    scaleKey: String,
-    type: String,
-  },
+
   components: {
     Note,
   },
+
+  props: {
+    scale: {
+      type: Array,
+      default: () => [],
+    },
+    scaleKey: {
+      type: String,
+      default: '',
+    },
+    type: {
+      type: String,
+      default: '',
+    },
+  },
+
   computed: {
     notation() {
       return writeNotation(this.scale, this.scaleKey);
@@ -43,14 +55,17 @@ export default {
       return `L:4/4\n${this.notation}\n"`;
     },
   },
+
   watch: {
     scale() {
       this.renderScale();
     },
   },
+
   mounted() {
     this.renderScale();
   },
+
   methods: {
     renderScale() {
       const responsive = this.type === 'scale' ? 'resize' : '';

@@ -4,7 +4,11 @@ module.exports = {
   css: {
     loaderOptions: {
       sass: {
-        additionalData: '@import "@/styles/_variables.scss";',
+        additionalData: `
+          @use "sass:color";
+          @use "sass:math";
+          @import "@/styles/_variables.scss";
+        `,
       },
     },
   },

@@ -26,14 +26,20 @@ import Icon from '@/components/Icon.vue';
 
 export default {
   name: 'Instrument',
+
   components: {
     Icon,
   },
+
   props: {
     empty: Boolean,
-    instrument: Object,
+    instrument: {
+      type: Object,
+      required: true,
+    },
     stretch: Boolean,
   },
+
   computed: {
     displayIcon() {
       if (this.empty) {
@@ -42,6 +48,7 @@ export default {
       const { icon, iconName, key } = this.instrument;
       return icon ? iconName : key;
     },
+
     displayText() {
       return this.empty ? 'add instrument' : this.instrument.name;
     },
@@ -50,8 +57,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@use "sass:color";
-
 $icon-size: 2.5rem;
 
 .instrument {
@@ -86,7 +91,7 @@ $icon-size: 2.5rem;
   align-items: center;
   background: color.adjust($info, $lightness: 15%);
   border-radius: 50%;
-  color: white;
+  color: $white;
   display: inline-flex;
   font-size: $icon-size;
   height: $icon-size;
