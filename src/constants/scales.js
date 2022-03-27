@@ -1,6 +1,6 @@
 const scales = {
   major: ['c', 'd', 'e', 'f', 'g', 'a', 'b', 'c'],
-  minor: ['c', 'd', 'eFlat', 'f', 'g', 'aFlat', 'b', 'c'],
+  minor: ['c', 'd', 'eFlat', 'f', 'g', 'aFlat', 'bFlat', 'c'],
   majorPentatonic: ['c', 'd', 'e', 'g', 'a', 'c'],
   minorPentatonic: ['c', 'eFlat', 'f', 'g', 'bFlat', 'c'],
   bluesMinor: ['c', 'eFlat', 'f', 'gFlat', 'g', 'bFlat', 'c'],
