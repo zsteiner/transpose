@@ -11,7 +11,7 @@
     "no-invalid-position-at-import-rule": null,
     "order/order": ["custom-properties", "declarations", "rules"],
     "order/properties-alphabetical-order": [true],
-    "property-no-vendor-prefix": false,
+    "property-no-vendor-prefix": [true, { "ignoreProperties": ["appearance"] }],
     "scss/at-rule-no-unknown": true,
     "selector-id-pattern": null,
     "selector-class-pattern": null,

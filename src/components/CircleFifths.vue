@@ -597,6 +597,16 @@ export default {
   fill: $info;
 }
 
+.is-selected {
+  .sector {
+    fill: $secondary;
+  }
+
+  .note {
+    fill: white;
+  }
+}
+
 .item {
   color: $default;
   -webkit-tap-highlight-color: transparent;
@@ -616,19 +626,12 @@ export default {
     fill: $primary;
   }
 
-  &:hover .sector {
-    fill: #eee;
-  }
-}
-
-.is-selected,
-.is-selected.item:hover {
-  .sector {
+  &.is-selected:hover {
     fill: $secondary;
   }
 
-  .note {
-    fill: white;
+  &:hover .sector {
+    fill: #eee;
   }
 }
 
