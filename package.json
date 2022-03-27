@@ -13,19 +13,8 @@
     "generate-icons": "vsvg -s ./icons -t ./src/compiled-icons --svgo svgo.js --tpl ./icons/icon.tpl.txt --es6"
   },
   "dependencies": {
-    "@vue/eslint-config-airbnb": "^5.3.0",
     "abcjs": "^5.12.0",
     "core-js": "^3.6.4",
-    "postcss-html": "^1.3.0",
-    "postcss-scss": "^4.0.3",
-    "stylelint": "^14.6.1",
-    "stylelint-config-recommended-vue": "^1.4.0",
-    "stylelint-config-sass-guidelines": "^9.0.1",
-    "stylelint-config-standard": "^25.0.0",
-    "stylelint-config-standard-scss": "^3.0.0",
-    "stylelint-order": "^5.0.0",
-    "stylelint-scss": "^4.2.0",
-    "stylelint-webpack-plugin": "^3.2.0",
     "vue": "^2.6.11",
     "vue-router": "^3.1.5",
     "vue-svgicon": "^3.2.6",
@@ -37,6 +26,7 @@
     "@vue/cli-plugin-router": "~4.5.13",
     "@vue/cli-plugin-vuex": "~4.5.13",
     "@vue/cli-service": "~4.5.13",
+    "@vue/eslint-config-airbnb": "^5.3.0",
     "@vue/eslint-config-prettier": "^6.0.0",
     "babel-eslint": "^10.0.3",
     "eslint": "^7.31.0",
@@ -44,8 +34,18 @@
     "eslint-plugin-vue": "^7.14.0",
     "lint-staged": "^11.1.1",
     "prettier": "^2.0.5",
+    "postcss-html": "^1.3.0",
+    "postcss-scss": "^4.0.3",
     "sass": "^1.25.0",
     "sass-loader": "^10.1.0",
+    "stylelint": "^14.6.1",
+    "stylelint-config-recommended-vue": "^1.4.0",
+    "stylelint-config-sass-guidelines": "^9.0.1",
+    "stylelint-config-standard": "^25.0.0",
+    "stylelint-config-standard-scss": "^3.0.0",
+    "stylelint-order": "^5.0.0",
+    "stylelint-scss": "^4.2.0",
+    "stylelint-webpack-plugin": "^3.2.0",
     "vue-template-compiler": "^2.6.11"
   },
   "resolutions": {
@@ -58,7 +58,7 @@
     "pre-commit": "lint-staged"
   },
   "lint-staged": {
-    "*.{js,jsx,vue}": [
+    "*.{js,vue}": [
       "yarn run lint:all:fix",
       "git add"
     ]
