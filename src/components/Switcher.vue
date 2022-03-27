@@ -49,20 +49,21 @@ export default {
 
 <style lang="scss" scoped>
 .switcher {
+  align-items: center;
   display: grid;
+  grid-gap: 1rem;
   grid-template-columns: 8rem min-content 8rem;
   grid-template-rows: 8rem;
-  grid-gap: 1rem;
-  margin: 2rem auto 0;
   justify-content: center;
-  align-items: center;
+  margin: 2rem auto 0;
 
   @media (min-width: $medium) {
+    grid-gap: 2rem;
     grid-template-columns: 10rem min-content 10rem;
     grid-template-rows: 10rem;
-    grid-gap: 2rem;
   }
 }
+
 .arrow {
   color: $info;
   font-size: 1em;

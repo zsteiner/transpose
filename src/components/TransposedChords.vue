@@ -104,11 +104,11 @@ export default {
 
 <style lang="scss" scoped>
 .chords {
-  max-width: $medium;
-  margin: auto;
   display: grid;
-  grid-template-columns: repeat(2, minmax(12rem, 50%));
   gap: 1rem;
+  grid-template-columns: repeat(2, minmax(12rem, 50%));
+  margin: auto;
+  max-width: $medium;
   width: 100%;
 }
 </style>

@@ -21,38 +21,42 @@ export default {
 
 <style lang="scss" scoped>
 @font-face {
-  font-family: 'Source Serif Variable';
-  font-weight: 200 900;
-  font-style: normal;
+  font-family: "Source Serif Variable";
   font-stretch: normal;
-  src: url('/SourceSerifVariable-Roman.otf.woff2') format('woff2'),
-    url('/SourceSerifVariable-Roman.otf.woff') format('woff');
+  font-style: normal;
+  font-weight: 200 900;
+  src:
+    url("/SourceSerifVariable-Roman.otf.woff2") format("woff2"),
+    url("/SourceSerifVariable-Roman.otf.woff") format("woff");
 }
 
 @font-face {
-  font-family: 'Source Serif Variable';
-  font-weight: 200 900;
-  font-style: italic;
+  font-family: "Source Serif Variable";
   font-stretch: normal;
-  src: url('/SourceSerifVariable-Italic.otf.woff2') format('woff2'),
-    url('/SourceSerifVariable-Italic.otf.woff') format('woff');
+  font-style: italic;
+  font-weight: 200 900;
+  src:
+    url("/SourceSerifVariable-Italic.otf.woff2") format("woff2"),
+    url("/SourceSerifVariable-Italic.otf.woff") format("woff");
 }
 
 #app {
-  font-family: 'Source Serif Variable', 'Source Serif', 'Georgia', serif;
+  font-family: "Source Serif Variable", "Source Serif", Georgia, serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 .container {
   margin: 0 auto;
-  padding: 1rem;
   max-width: 75rem;
+  padding: 1rem;
   text-align: center;
 }
 </style>
 
 <style lang="scss">
+@use "sass:color";
+
 *,
 *::before,
 *::after {
@@ -79,14 +83,14 @@ body {
   z-index: 100;
 
   &::before {
-    content: '';
-    position: fixed;
-    top: 0;
+    backdrop-filter: blur(0.325rem);
+    background-color: color.adjust(white, $alpha: -0.5);
     bottom: 0;
+    content: "";
     left: 0;
+    position: fixed;
     right: 0;
-    background-color: transparentize(white, 0.5);
-    backdrop-filter: blur(5px);
+    top: 0;
     z-index: 1;
   }
 }

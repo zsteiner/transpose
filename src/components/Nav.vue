@@ -18,15 +18,15 @@ export default {
 <style lang="scss" scoped>
 .header {
   display: flex;
-  justify-content: center;
   gap: 1.5rem;
+  justify-content: center;
   padding-top: 1.5rem;
   text-align: center;
 }
 
 .logo {
-  width: auto;
   height: 3rem;
+  width: auto;
 }
 
 .nav {
@@ -34,8 +34,8 @@ export default {
   display: flex;
 
   a {
-    color: $secondary;
     border-bottom: 0.25rem solid transparent;
+    color: $secondary;
     padding: 0.5rem 0;
     text-decoration-line: none;
 
@@ -44,7 +44,7 @@ export default {
     }
 
     &.router-link-exact-active {
-      border-color: currentColor;
+      border-color: currentcolor;
     }
   }
 }

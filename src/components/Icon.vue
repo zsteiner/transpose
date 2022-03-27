@@ -32,7 +32,7 @@ export default {
 
 <style module>
 .icon {
-  fill: currentColor;
+  fill: currentcolor;
   height: 1em;
   position: relative;
   width: 1em;

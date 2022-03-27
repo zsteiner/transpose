@@ -65,12 +65,12 @@ export default {
 
 <style lang="scss" scoped>
 .wrapper {
+  border: $border-width solid $info;
   color: $default;
+  margin: 2rem auto 4rem;
   max-width: 25rem;
   min-width: 18rem;
   position: relative;
-  border: $border-width solid $info;
-  margin: 2rem auto 4rem;
 
   input,
   select {

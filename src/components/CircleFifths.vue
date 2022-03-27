@@ -8,11 +8,11 @@
       viewBox="-2 -2 504 504"
       id="menu"
       style="
-        transform-origin: 50% 50% 0px;
-        transform: translate3d(0px, 0px, 0px);
         touch-action: none;
-        -webkit-user-select: none;
-      "
+        transform: translate3d(0, 0, 0);
+        transform-origin: 50% 50% 0;
+        user-select: none;
+"
     >
       <g id="symbolsContainer" class="notes-container">
         <symbol class="note" id="icon-1" viewBox="0 0 40 40">
@@ -115,7 +115,6 @@
           tabindex="0"
           transform="matrix(0,-1,1,0,0,500)"
           data-svg-origin="250 250"
-          style=""
           @click="selectNote(1)"
         >
           <path
@@ -148,7 +147,6 @@
           tabindex="0"
           transform="matrix(0.5,-0.86602,0.86602,0.5,-91.5063509461097,341.5063509461096)"
           data-svg-origin="250 250"
-          style=""
           @click="selectNote(2)"
         >
           <path
@@ -181,7 +179,6 @@
           tabindex="0"
           transform="matrix(0.86602,-0.49999,0.49999,0.86602,-91.50635094610965,158.4936490538903)"
           data-svg-origin="250 250"
-          style=""
           @click="selectNote(3)"
         >
           <path
@@ -214,7 +211,6 @@
           tabindex="0"
           transform="matrix(1,0,0,1,0,0)"
           data-svg-origin="250 250"
-          style=""
           @click="selectNote(4)"
         >
           <path
@@ -247,7 +243,6 @@
           tabindex="0"
           transform="matrix(0.86602,0.5,-0.5,0.86602,158.49364905389052,-91.5063509461097)"
           data-svg-origin="250 250"
-          style=""
           @click="selectNote(5)"
         >
           <path
@@ -279,7 +274,6 @@
           ref="note6"
           transform="matrix(0.5,0.86602,-0.86602,0.5,341.5063509461096,-91.5063509461097)"
           data-svg-origin="250 250"
-          style=""
           @click="selectNote(6)"
         >
           <path
@@ -312,7 +306,6 @@
           tabindex="0"
           transform="matrix(0,1,-1,0,500.00000000000006,0)"
           data-svg-origin="250 250"
-          style=""
           @click="selectNote(7)"
         >
           <path
@@ -345,7 +338,6 @@
           tabindex="0"
           transform="matrix(-0.5,0.86602,-0.86602,-0.5,591.5063509461097,158.4936490538905)"
           data-svg-origin="250 250"
-          style=""
           @click="selectNote(8)"
         >
           <path
@@ -378,7 +370,6 @@
           tabindex="0"
           transform="matrix(-0.86602,0.5,-0.5,-0.86602,591.5063509461097,341.5063509461096)"
           data-svg-origin="250 250"
-          style=""
           @click="selectNote(9)"
         >
           <path
@@ -411,7 +402,6 @@
           tabindex="0"
           transform="matrix(-1,0,0,-1,500,500)"
           data-svg-origin="250 250"
-          style=""
           @click="selectNote(10)"
         >
           <path
@@ -444,7 +434,6 @@
           tabindex="0"
           transform="matrix(-0.86602,-0.49999,0.49999,-0.86602,341.5063509461097,591.5063509461097)"
           data-svg-origin="250 250"
-          style=""
           @click="selectNote(11)"
         >
           <path
@@ -477,7 +466,6 @@
           tabindex="0"
           transform="matrix(-0.49999,-0.86602,0.86602,-0.49999,158.49364905389024,591.5063509461097)"
           data-svg-origin="250 250"
-          style=""
           @click="selectNote(12)"
         >
           <path
@@ -569,27 +557,29 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@use "sass:color";
+
 .circle-menu {
-  margin: spacer(1) auto;
-  width: 18em;
-  max-width: 100%;
   height: 18em;
+  margin: spacer(1) auto;
+  max-width: 100%;
+  width: 18em;
 
   @media (min-width: $medium) {
-    width: 20em;
     height: 20em;
+    width: 20em;
   }
 
   svg {
     display: block;
-    overflow: visible;
     margin: 0 auto;
+    overflow: visible;
     position: relative;
   }
 
   a {
-    outline: none;
     cursor: pointer;
+    outline: none;
   }
 
   symbol {
@@ -612,22 +602,22 @@ export default {
   -webkit-tap-highlight-color: transparent;
 
   .note {
-    fill: lighten($default, 10%);
-  }
-
-  &:hover .sector {
-    fill: #eee;
+    fill: color.adjust($default, $lightness: 10%);
   }
 
   .sector {
-    transition: all 0.1s linear;
     fill: #fff;
     stroke: $info;
+    transition: all 0.1s linear;
   }
 
   .indicator {
     display: none;
     fill: $primary;
+  }
+
+  &:hover .sector {
+    fill: #eee;
   }
 }
 
@@ -650,7 +640,7 @@ export default {
 }
 
 .menu-trigger {
-  pointer-events: auto;
   fill: $info;
+  pointer-events: auto;
 }
 </style>

@@ -50,6 +50,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@use "sass:color";
+
 $icon-size: 2.5rem;
 
 .instrument {
@@ -81,17 +83,16 @@ $icon-size: 2.5rem;
 }
 
 .key-icon {
-  display: inline-flex;
-  justify-content: center;
   align-items: center;
+  background: color.adjust($info, $lightness: 15%);
+  border-radius: 50%;
   color: white;
+  display: inline-flex;
   font-size: $icon-size;
   height: $icon-size;
+  justify-content: center;
+  padding: 0.5rem;
   width: $icon-size;
-  padding: 0.5rem;
-  background: lighten($info, 15%);
-  padding: 0.5rem;
-  border-radius: 50%;
 
   @media (min-width: $medium) {
     font-size: $icon-size;

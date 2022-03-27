@@ -40,14 +40,14 @@ export default {
 <style lang="scss">
 .sharp,
 .flat {
-  position: relative;
-  font-size: 0.625em;
   bottom: 0.25em;
+  font-size: 0.625em;
+  position: relative;
 }
 
 .position {
+  display: none;
   font-size: 0.75rem;
   margin-left: 0.25rem;
-  display: none;
 }
 </style>

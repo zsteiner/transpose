@@ -88,7 +88,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .scale {
-  max-width: $medium;
   margin: auto;
+  max-width: $medium;
 }
 </style>
