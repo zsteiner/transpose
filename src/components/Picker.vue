@@ -128,9 +128,9 @@ $size: 38rem;
   padding: 1rem;
   text-align: inherit;
   width: 100%;
-}
 
-.button:hover {
-  color: $secondary;
+  &:hover {
+    color: $secondary;
+  }
 }
 </style>
