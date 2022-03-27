@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <img class="logo" src="@/assets/transpose-logo.svg" />
+    <img class="logo" src="/transpose-logo.svg" />
     <nav class="nav">
       <router-link class="link" to="/">Notes</router-link>
       <router-link class="link" to="/chords">Chords</router-link>
