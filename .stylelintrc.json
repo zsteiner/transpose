@@ -1,0 +1,37 @@
+{
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-standard-scss"
+  ],
+  "plugins": [
+    "stylelint-order"
+  ],
+  "rules": {
+    "at-rule-no-unknown": null,
+    "function-no-unknown": null,
+    "no-invalid-position-at-import-rule": null,
+    "order/order": [
+      "custom-properties",
+      "declarations",
+      "rules"
+    ],
+    "order/properties-alphabetical-order": [
+      true
+    ],
+    "scss/at-rule-no-unknown": true,
+    "selector-id-pattern": null,
+    "selector-class-pattern": null,
+    "unit-allowed-list": [
+      "ch",
+      "em",
+      "rem",
+      "vh",
+      "vw",
+      "vmin",
+      "deg",
+      "%",
+      "s",
+      "fr"
+    ]
+  }
+}

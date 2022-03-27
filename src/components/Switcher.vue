@@ -58,17 +58,17 @@ export default {
   align-items: center;
 
   @media (min-width: $medium) {
-    grid-template-columns: 15rem min-content 15rem;
-    grid-template-rows: 15rem;
+    grid-template-columns: 10rem min-content 10rem;
+    grid-template-rows: 10rem;
     grid-gap: 2rem;
   }
 }
 .arrow {
   color: $info;
-  font-size: 2em;
+  font-size: 1em;
 
   @media (min-width: $medium) {
-    font-size: 4em;
+    font-size: 2em;
   }
 }
 </style>

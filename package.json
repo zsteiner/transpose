@@ -6,12 +6,19 @@
     "serve": "yarn run generate-icons && vue-cli-service serve",
     "build": "yarn run generate-icons && vue-cli-service build",
     "lint": "vue-cli-service lint",
+    "lint:style": "stylelint 'src/**/*.{css,scss,vue}'",
+    "lint:style:fix": "stylelint 'src/**/*.{css,scss,vue}' -- --fix",
     "generate-icons": "vsvg -s ./icons -t ./src/compiled-icons --svgo svgo.js --tpl ./icons/icon.tpl.txt --es6"
   },
   "dependencies": {
     "@vue/eslint-config-airbnb": "^5.3.0",
     "abcjs": "^5.12.0",
     "core-js": "^3.6.4",
+    "postcss-scss": "^4.0.3",
+    "stylelint": "^14.6.1",
+    "stylelint-config-standard": "^25.0.0",
+    "stylelint-config-standard-scss": "^3.0.0",
+    "stylelint-order": "^5.0.0",
     "vue": "^2.6.11",
     "vue-router": "^3.1.5",
     "vue-svgicon": "^3.2.6",
@@ -33,6 +40,9 @@
     "sass": "^1.25.0",
     "sass-loader": "^10.1.0",
     "vue-template-compiler": "^2.6.11"
+  },
+  "resolutions": {
+    "postcss": "^8.3.11"
   },
   "engines": {
     "node": "16.14.0"

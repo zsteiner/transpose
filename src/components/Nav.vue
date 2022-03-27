@@ -17,20 +17,23 @@ export default {
 
 <style lang="scss" scoped>
 .header {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
   padding-top: 1.5rem;
   text-align: center;
 }
 
 .logo {
-  width: 15rem;
-  height: auto;
+  width: auto;
+  height: 3rem;
 }
 
 .nav {
-  margin: 1rem 0;
+  align-items: center;
+  display: flex;
 
   a {
-    display: inline-block;
     color: $secondary;
     border-bottom: 0.25rem solid transparent;
     padding: 0.5rem 0;

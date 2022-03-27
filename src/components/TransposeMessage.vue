@@ -44,8 +44,8 @@ export default {
 <style lang="scss" scoped>
 .message {
   font-size: 0.875rem;
-  min-height: 2.5em;
-  margin-bottom: 1.5rem;
+  min-height: 2em;
+  margin: 0;
 
   @media (min-width: $medium) {
     font-size: 1.5rem;

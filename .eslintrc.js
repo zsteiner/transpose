@@ -3,7 +3,11 @@ module.exports = {
   env: {
     node: true,
   },
-  extends: ['@vue/eslint-config-airbnb', 'plugin:vue/base', 'plugin:vue/essential', 'eslint:recommended'],
+  extends: [
+    '@vue/eslint-config-airbnb',
+    'plugin:vue/base',
+    'plugin:vue/essential',
+  ],
   parserOptions: {
     parser: 'babel-eslint',
   },

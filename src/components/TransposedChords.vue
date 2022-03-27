@@ -38,12 +38,14 @@ import transposeScale from '@/utils/transposeScale';
 
 export default {
   name: 'TransposedChords',
+
   components: {
     CircleFifths,
     Notes,
     Select,
     TransposeMessage,
   },
+
   data() {
     return {
       chordName: 'major',
@@ -63,25 +65,30 @@ export default {
       ],
     };
   },
+
   computed: {
     ...mapState(['originalNote', 'transposedNote', 'transposeFactor']),
     selectedChord() {
       return chords[this.chordName];
     },
+
     originalChord() {
       const offset = this.originalNote.position - 1;
       return transposeScale(this.selectedChord, offset);
     },
+
     transposedChord() {
       const offset = this.transposedNote.position - 1;
       return transposeScale(this.selectedChord, offset);
     },
+
     originalScaleKey() {
       const scaleName = this.options.find(
         (obj) => obj.value === this.chordName,
       ).scale;
       return scaleKeys[this.originalNote.note][scaleName];
     },
+
     transposedScaleKey() {
       const scaleName = this.options.find(
         (obj) => obj.value === this.chordName,
@@ -94,13 +101,14 @@ export default {
   },
 };
 </script>
+
 <style lang="scss" scoped>
 .chords {
-  width: 100%;
   max-width: $medium;
   margin: auto;
   display: grid;
   grid-template-columns: repeat(2, minmax(12rem, 50%));
-  grid-gap: 1rem;
+  gap: 1rem;
+  width: 100%;
 }
 </style>
