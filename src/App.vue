@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div class="app">
     <Nav />
     <Switcher />
     <router-view />
@@ -40,7 +40,7 @@ export default {
     url("/SourceSerifVariable-Italic.otf.woff") format("woff");
 }
 
-#app {
+.app {
   font-family: "Source Serif Variable", "Source Serif", Georgia, serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
