@@ -12,6 +12,11 @@ import '@/compiled-icons';
 
 export default {
   name: 'Icon',
+
+  components: {
+    SvgIcon,
+  },
+
   props: {
     icon: {
       type: String,
@@ -21,9 +26,6 @@ export default {
     inline: {
       type: Boolean,
     },
-  },
-  components: {
-    SvgIcon,
   },
 };
 </script>
