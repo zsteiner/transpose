@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <img class="logo" src="/transpose-logo.svg" />
+    <Logo class="logo" />
     <nav class="nav">
       <router-link class="link" to="/">Notes</router-link>
       <router-link class="link" to="/chords">Chords</router-link>
@@ -10,8 +10,14 @@
 </template>
 
 <script>
+import Logo from '@/assets/transpose-logo.svg?component';
+
 export default {
   name: 'Nav',
+
+  components: {
+    Logo,
+  },
 };
 </script>
 
