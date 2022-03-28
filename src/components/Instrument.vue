@@ -26,22 +26,30 @@ import Icon from '@/components/Icon.vue';
 
 export default {
   name: 'Instrument',
+
   components: {
     Icon,
   },
+
   props: {
     empty: Boolean,
-    instrument: Object,
+    instrument: {
+      type: Object,
+      required: true,
+    },
     stretch: Boolean,
   },
+
   computed: {
     displayIcon() {
       if (this.empty) {
         return 'plus';
       }
       const { icon, iconName, key } = this.instrument;
+
       return icon ? iconName : key;
     },
+
     displayText() {
       return this.empty ? 'add instrument' : this.instrument.name;
     },
@@ -81,17 +89,16 @@ $icon-size: 2.5rem;
 }
 
 .key-icon {
-  display: inline-flex;
-  justify-content: center;
   align-items: center;
-  color: white;
+  background: color.adjust($info, $lightness: 15%);
+  border-radius: 50%;
+  color: $white;
+  display: inline-flex;
   font-size: $icon-size;
   height: $icon-size;
+  justify-content: center;
+  padding: 0.5rem;
   width: $icon-size;
-  padding: 0.5rem;
-  background: lighten($info, 15%);
-  padding: 0.5rem;
-  border-radius: 50%;
 
   @media (min-width: $medium) {
     font-size: $icon-size;

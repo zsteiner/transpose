@@ -6,37 +6,37 @@ const instruments = {
     icon: true,
     iconName: 'piano',
   },
-  'alto-clarinet': {
+  altoClarinet: {
     name: 'alto clarinet',
-    key: 'e-flat',
+    key: 'eFlat',
     transposeFactor: 3,
     icon: false,
-    iconName: 'alto-clarinet',
+    iconName: 'altoClarinet',
   },
-  'alto-sax': {
+  altoSax: {
     name: 'alto sax',
-    key: 'e-flat',
+    key: 'eFlat',
     transposeFactor: 3,
     icon: true,
-    iconName: 'alto-sax',
+    iconName: 'altoSax',
   },
-  'bari-sax': {
+  bariSax: {
     name: 'baritone sax',
-    key: 'e-flat',
+    key: 'eFlat',
     transposeFactor: 3,
     icon: true,
-    iconName: 'bari-sax',
+    iconName: 'bariSax',
   },
-  'baritone-horn': {
+  baritoneHorn: {
     name: 'baritone horn',
-    key: 'b-flat',
+    key: 'bFlat',
     transposeFactor: 2,
     icon: true,
-    iconName: 'baritone-horn',
+    iconName: 'baritoneHorn',
   },
-  'bass-clarinet': {
+  bassClarinet: {
     name: 'bass clarinet',
-    key: 'b-flat',
+    key: 'bFlat',
     transposeFactor: 2,
     icon: false,
     iconName: 'bass-clarinet',
@@ -50,17 +50,17 @@ const instruments = {
   },
   clarinet: {
     name: 'clarinet',
-    key: 'b-flat',
+    key: 'bFlat',
     transposeFactor: 2,
     icon: true,
     iconName: 'clarinet',
   },
-  'double-bass': {
+  doubleBass: {
     name: 'double bass',
     key: 'c',
     transposeFactor: 0,
     icon: true,
-    iconName: 'double-bass',
+    iconName: 'doubleBass',
   },
   flute: {
     name: 'flute',
@@ -76,12 +76,12 @@ const instruments = {
     icon: true,
     iconName: 'guitar',
   },
-  'french-horn': {
+  frenchHorn: {
     name: 'french horn',
     key: 'f',
     transposeFactor: 1,
     icon: true,
-    iconName: 'french-horn',
+    iconName: 'frenchHorn',
   },
   oboe: {
     name: 'oboe',
@@ -90,19 +90,19 @@ const instruments = {
     icon: false,
     iconName: 'oboe',
   },
-  'soprano-sax': {
+  sopranoSax: {
     name: 'soprano sax',
-    key: 'b-flat',
+    key: 'bFlat',
     transposeFactor: 2,
     icon: true,
-    iconName: 'soprano-sax',
+    iconName: 'sopranoSax',
   },
-  'tenor-sax': {
+  tenorSax: {
     name: 'tenor sax',
-    key: 'b-flat',
+    key: 'bFlat',
     transposeFactor: 2,
     icon: true,
-    iconName: 'tenor-sax',
+    iconName: 'tenorSax',
   },
   trombone: {
     name: 'trombone',
@@ -113,7 +113,7 @@ const instruments = {
   },
   trumpet: {
     name: 'trumpet',
-    key: 'b-flat',
+    key: 'bFlat',
     transposeFactor: 2,
     icon: true,
     iconName: 'trumpet',

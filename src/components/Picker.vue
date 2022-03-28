@@ -3,9 +3,9 @@
     <button class="close" @click="handleClose">close</button>
     <ul>
       <li
-        class="item"
         v-for="instrument in instruments"
         :key="instrument.iconName"
+        class="item"
       >
         <button class="button" @click="selectInstrument(instrument.iconName)">
           <Instrument :instrument="instrument" stretch />
@@ -23,22 +23,33 @@ import Instrument from '@/components/Instrument.vue';
 
 export default {
   name: 'Picker',
+
   components: {
     Instrument,
   },
+
+  props: {
+    selection: {
+      type: Number,
+      required: true,
+    },
+  },
+
+  emits: ['click'],
+
   data() {
     return {
       instruments,
     };
   },
-  props: {
-    selection: Number,
-  },
+
   methods: {
     ...mapActions(['updateSelection']),
+
     handleClose() {
       this.$emit('click');
     },
+
     selectInstrument(instrument) {
       const { selection } = this;
       this.updateSelection({
@@ -56,58 +67,58 @@ $list-border: 0.0625rem solid $info;
 $size: 38rem;
 
 .picker {
+  border-bottom: $list-border;
+  left: 0;
+  max-height: 100vh;
   position: fixed;
   top: 0;
-  left: 0;
   width: 100%;
-  max-height: 100vh;
   z-index: 100;
-  border-bottom: $list-border;
 
   @media (min-width: $medium) {
-    top: 50%;
+    border: $list-border;
     left: 50%;
+    margin-left: -#{math.div($size, 2)};
+    margin-top: -#{math.div($size, 2)};
     max-height: $size;
     max-width: $size;
-    margin-left: -#{$size / 2};
-    margin-top: -#{$size / 2};
-    border: $list-border;
+    top: 50%;
   }
 
   ul {
-    background: transparentize(white, 0.05);
+    background: color.adjust($white, $alpha: -0.05);
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    list-style: none;
-    padding: 0;
     height: 100%;
+    list-style: none;
     margin: 0;
     overflow: scroll;
+    padding: 0;
   }
 }
 
 .close {
-  position: absolute;
-  color: $primary;
   background: none;
   border: 0;
+  color: $primary;
   font-size: 1.75rem;
-  top: -2em;
+  position: absolute;
   right: 0;
+  top: -2em;
 
   &:hover,
   &:focus {
-    outline: 0;
     color: $secondary;
+    outline: 0;
   }
 }
 
 .item {
-  position: relative;
-  height: 7rem;
-  text-align: center;
   border-bottom: $list-border;
   border-right: $list-border;
+  height: 7rem;
+  position: relative;
+  text-align: center;
 
   &:nth-child(4n) {
     border-bottom: $list-border;
@@ -120,15 +131,15 @@ $size: 38rem;
 }
 
 .button {
-  text-align: inherit;
   background: none;
   border: 0;
   height: 100%;
   padding: 1rem;
+  text-align: inherit;
   width: 100%;
-}
 
-.button:hover {
-  color: $secondary;
+  &:hover {
+    color: $secondary;
+  }
 }
 </style>

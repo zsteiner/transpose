@@ -1,13 +1,9 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
-
+import { createStore } from 'vuex';
 import instruments from '@/constants/instruments';
 import notes from '@/constants/notes';
 import transposeNotes from '@/utils/transposeNotes';
 
-Vue.use(Vuex);
-
-export default new Vuex.Store({
+export default createStore({
   state: {
     instrument1: {
       ...instruments.piano,
@@ -59,7 +55,8 @@ export default new Vuex.Store({
       commit('SET_NOTES', note);
     },
     updateTransposingFactor({ state, commit }) {
-      const transposeFactor = state.instrument2.transposeFactor - state.instrument1.transposeFactor;
+      const transposeFactor =
+        state.instrument2.transposeFactor - state.instrument1.transposeFactor;
 
       commit('SET_TRANSPOSING', transposeFactor);
       if (state.originalNote.note) {
