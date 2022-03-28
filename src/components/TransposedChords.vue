@@ -2,11 +2,11 @@
   <section>
     <TransposeMessage />
     <CircleFifths />
-    <Select
+    <SelectList
       v-model="chordName"
       name="chords"
       label="Chords"
-      :options="options"
+      :options="chordOptions"
     />
     <div class="chords">
       <Notes
@@ -30,7 +30,7 @@
 import { mapState } from 'vuex';
 import CircleFifths from '@/components/CircleFifths.vue';
 import Notes from '@/components/Notes.vue';
-import Select from '@/components/Select.vue';
+import SelectList from '@/components/SelectList.vue';
 import TransposeMessage from '@/components/TransposeMessage.vue';
 import chords from '@/constants/chords';
 import scaleKeys from '@/constants/scaleKeys';
@@ -42,14 +42,14 @@ export default {
   components: {
     CircleFifths,
     Notes,
-    Select,
+    SelectList,
     TransposeMessage,
   },
 
   data() {
     return {
       chordName: 'major',
-      options: [
+      chordOptions: [
         { value: 'major', label: 'Major', scale: 'major' },
         { value: 'power', label: 'Power Fifth', scale: 'major' },
         { value: 'suspended4th', label: 'Suspended 4th', scale: 'major' },
@@ -83,14 +83,14 @@ export default {
     },
 
     originalScaleKey() {
-      const scaleName = this.options.find(
+      const scaleName = this.chordOptions.find(
         (obj) => obj.value === this.chordName,
       ).scale;
       return scaleKeys[this.originalNote.note][scaleName];
     },
 
     transposedScaleKey() {
-      const scaleName = this.options.find(
+      const scaleName = this.chordOptions.find(
         (obj) => obj.value === this.chordName,
       ).scale;
       if (this.transposedNote.note) {

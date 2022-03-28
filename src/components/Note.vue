@@ -1,20 +1,22 @@
 <template>
   <span v-if="note.displayFlat && display === 'both'">
-    {{ note.displayFlat }}<span class="flat">&#X266D;</span>
+    {{ note.displayFlat }}<span class="flat">{{ $options.symbols.flat }}</span>
     {{ ' / ' }}
-    {{ note.displaySharp }}<span class="sharp">&#X266F;</span>
+    {{ note.displaySharp
+    }}<span class="sharp">{{ $options.symbols.sharp }}</span>
     <div class="position">
       {{ note.position }}
     </div>
   </span>
   <span v-else-if="note.displayFlat && display === 'sharp'">
-    {{ note.displaySharp }}<span class="sharp">&#X266F;</span>
+    {{ note.displaySharp
+    }}<span class="sharp">{{ $options.symbols.sharp }}</span>
     <div class="position">
       {{ note.position }}
     </div>
   </span>
   <span v-else-if="note.displayFlat && display === 'flat'">
-    {{ note.displayFlat }}<span class="flat">&#X266D;</span>
+    {{ note.displayFlat }}<span class="flat">{{ $options.symbols.flat }}</span>
     <div class="position">
       {{ note.position }}
     </div>
@@ -28,6 +30,11 @@
 </template>
 
 <script>
+const symbols = {
+  flat: '♭',
+  sharp: '♯',
+};
+
 export default {
   name: 'Note',
 
@@ -41,6 +48,8 @@ export default {
       default: '',
     },
   },
+
+  symbols,
 };
 </script>
 

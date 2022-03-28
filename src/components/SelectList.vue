@@ -17,7 +17,7 @@
 
 <script>
 export default {
-  name: 'Select',
+  name: 'SelectList',
 
   props: {
     label: {
@@ -27,6 +27,10 @@ export default {
     name: {
       type: String,
       required: true,
+    },
+    modelValue: {
+      type: String,
+      default: '',
     },
     options: {
       type: Array,
@@ -38,21 +42,17 @@ export default {
       type: String,
       default: '',
     },
-    value: {
-      type: String,
-      default: '',
-    },
   },
 
-  emits: ['input'],
+  emits: ['update:modelValue'],
 
   computed: {
     inputValue: {
       get() {
-        return this.value;
+        return this.modelValue;
       },
       set(newValue) {
-        this.$emit('input', newValue);
+        this.$emit('update:modelValue', newValue);
       },
     },
   },

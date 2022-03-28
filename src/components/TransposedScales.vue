@@ -2,11 +2,11 @@
   <section>
     <TransposeMessage />
     <CircleFifths />
-    <Select
+    <SelectList
       v-model="scaleName"
       name="scales"
       label="Scales"
-      :options="options"
+      :options="scaleOptions"
     />
     <Notes
       v-if="originalNote.note"
@@ -28,7 +28,7 @@
 import { mapState } from 'vuex';
 import CircleFifths from '@/components/CircleFifths.vue';
 import Notes from '@/components/Notes.vue';
-import Select from '@/components/Select.vue';
+import SelectList from '@/components/SelectList.vue';
 import TransposeMessage from '@/components/TransposeMessage.vue';
 import scaleKeys from '@/constants/scaleKeys';
 import scales from '@/constants/scales';
@@ -40,14 +40,14 @@ export default {
   components: {
     CircleFifths,
     Notes,
-    Select,
+    SelectList,
     TransposeMessage,
   },
 
   data() {
     return {
       scaleName: 'major',
-      options: [
+      scaleOptions: [
         { value: 'major', label: 'Major / Ionian' },
         { value: 'minor', label: 'Minor / Aeolian' },
         { value: 'majorPentatonic', label: 'Major Pentatonic' },
@@ -66,20 +66,25 @@ export default {
 
   computed: {
     ...mapState(['originalNote', 'transposedNote', 'transposeFactor']),
+
     selectedScale() {
       return scales[this.scaleName];
     },
+
     originalScale() {
       const offset = this.originalNote.position - 1;
       return transposeScale(this.selectedScale, offset);
     },
+
     transposedScale() {
       const offset = this.transposedNote.position - 1;
       return transposeScale(this.selectedScale, offset);
     },
+
     originalScaleKey() {
       return scaleKeys[this.originalNote.note][this.scaleName];
     },
+
     transposedScaleKey() {
       if (this.transposedNote.note) {
         return scaleKeys[this.transposedNote.note][this.scaleName];
@@ -89,6 +94,7 @@ export default {
   },
 };
 </script>
+
 <style lang="scss" scoped>
 .scale {
   margin: auto;

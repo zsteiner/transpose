@@ -12,7 +12,7 @@
         transform: translate3d(0, 0, 0);
         transform-origin: 50% 50% 0;
         user-select: none;
-"
+      "
     >
       <g id="symbolsContainer" class="notes-container">
         <symbol id="icon-1" class="note" viewBox="0 0 40 40">
@@ -602,11 +602,11 @@ export default {
 }
 
 .is-selected {
-  .sector {
+  .sector.sector {
     fill: $secondary;
   }
 
-  .note {
+  .note.note {
     fill: $white;
   }
 }
@@ -630,7 +630,7 @@ export default {
     fill: $primary;
   }
 
-  &.is-selected:hover {
+  &.is-selected:hover .sector {
     fill: $secondary;
   }
 

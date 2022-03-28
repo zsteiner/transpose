@@ -19,7 +19,6 @@ export default {
   props: {
     instrument: {
       type: Object,
-      default: () => {},
       required: true,
     },
   },
