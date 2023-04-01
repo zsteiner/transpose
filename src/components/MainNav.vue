@@ -13,7 +13,7 @@
 import Logo from '@/assets/transpose-logo.svg?component';
 
 export default {
-  name: 'Nav',
+  name: 'MainNav',
 
   components: {
     Logo,

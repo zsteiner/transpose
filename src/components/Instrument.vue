@@ -75,11 +75,11 @@ $icon-size: 2.5rem;
   display: inline-block;
   font-size: $icon-size * 0.75;
   line-height: 1;
-  margin-bottom: spacer(0.5);
+  margin-bottom: 0.5rem;
 
   @media (min-width: $medium) {
     font-size: $icon-size;
-    margin-bottom: spacer(0.5);
+    margin-bottom: 0.5rem;
   }
 }
 
@@ -102,7 +102,7 @@ $icon-size: 2.5rem;
 
   @media (min-width: $medium) {
     font-size: $icon-size;
-    margin-bottom: spacer(1);
+    margin-bottom: 1rem;
   }
 }
 </style>
