@@ -32,6 +32,7 @@ import piccolo from '@/assets/icons/piccolo.svg?component';
 import plus from '@/assets/icons/plus.svg?component';
 import sopranoSax from '@/assets/icons/sopranoSax.svg?component';
 import tenorSax from '@/assets/icons/tenorSax.svg?component';
+import trombone from '@/assets/icons/trombone.svg?component';
 import trumpet from '@/assets/icons/trumpet.svg?component';
 import tuba from '@/assets/icons/tuba.svg?component';
 import viola from '@/assets/icons/viola.svg?component';
@@ -62,6 +63,7 @@ export default {
     plus,
     sopranoSax,
     tenorSax,
+    trombone,
     trumpet,
     tuba,
     viola,
