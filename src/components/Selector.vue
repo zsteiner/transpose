@@ -57,7 +57,7 @@ export default {
   cursor: pointer;
   display: block;
   line-height: 1;
-  padding: spacer(1);
+  padding: 1rem;
   -webkit-tap-highlight-color: transparent;
   text-align: center;
   transition: all 0.1s linear;
@@ -76,7 +76,7 @@ export default {
 .empty {
   border: 0.25em dashed $info;
   color: $info;
-  padding: spacer(0.25);
+  padding: 0.25rem;
 
   &.is-selected,
   &:hover {

@@ -1,22 +1,20 @@
 <template>
-  <div
-id="app"
-class="app">
-    <Nav />
+  <div id="app" class="app">
+    <MainNav />
     <Switcher />
     <router-view />
   </div>
 </template>
 
 <script>
-import Nav from '@/components/Nav.vue';
+import MainNav from '@/components/MainNav.vue';
 import Switcher from '@/components/Switcher.vue';
 
 export default {
   name: 'App',
 
   components: {
-    Nav,
+    MainNav,
     Switcher,
   },
 };
@@ -66,12 +64,9 @@ body {
   &::before {
     backdrop-filter: blur(0.325rem);
     background-color: color.adjust($white, $alpha: -0.5);
-    bottom: 0;
     content: '';
-    left: 0;
+    inset: 0;
     position: fixed;
-    right: 0;
-    top: 0;
     z-index: 1;
   }
 }

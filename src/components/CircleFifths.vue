@@ -567,7 +567,7 @@ export default {
 
 .circle-menu {
   height: 18em;
-  margin: spacer(1) auto;
+  margin: 1rem auto;
   max-width: 100%;
   width: 18em;
 

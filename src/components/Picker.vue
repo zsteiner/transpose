@@ -1,18 +1,20 @@
 <template>
-  <section class="picker">
-    <button class="close" @click="handleClose">close</button>
-    <ul>
-      <li
-        v-for="instrument in instruments"
-        :key="instrument.iconName"
-        class="item"
-      >
-        <button class="button" @click="selectInstrument(instrument.iconName)">
-          <Instrument :instrument="instrument" stretch />
-        </button>
-      </li>
-    </ul>
-  </section>
+  <div class="scrim">
+    <section class="picker">
+      <button class="close" @click="handleClose">close</button>
+      <ul>
+        <li
+          v-for="instrument in instruments"
+          :key="instrument.iconName"
+          class="item"
+        >
+          <button class="button" @click="selectInstrument(instrument.iconName)">
+            <Instrument :instrument="instrument" stretch />
+          </button>
+        </li>
+      </ul>
+    </section>
+  </div>
 </template>
 
 <script>
@@ -66,23 +68,24 @@ export default {
 $list-border: 0.0625rem solid $info;
 $size: 38rem;
 
+.scrim {
+  backdrop-filter: blur(0.25rem);
+  background: color.adjust($default, $alpha: -0.95);
+  display: flex;
+  inset: 0;
+  position: fixed;
+  z-index: 100;
+}
+
 .picker {
   border-bottom: $list-border;
-  left: 0;
-  max-height: 100vh;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 100;
-
+  margin: auto;
+  position: relative;
+  
   @media (min-width: $medium) {
     border: $list-border;
-    left: 50%;
-    margin-left: -#{math.div($size, 2)};
-    margin-top: -#{math.div($size, 2)};
     max-height: $size;
     max-width: $size;
-    top: 50%;
   }
 
   ul {
