@@ -24,3 +24,5 @@ yarn-error.log*
 .stylelintcache
 .husky
 .yarn
+.pnp.loader.mjs
+.pnp.cjs
