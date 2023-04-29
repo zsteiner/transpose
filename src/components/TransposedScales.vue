@@ -54,7 +54,7 @@ export default {
         { value: 'minorPentatonic', label: 'Minor Pentatonic' },
         { value: 'bluesMajor', label: 'Major Blues' },
         { value: 'bluesMinor', label: 'Minor Blues' },
-        { value: 'dorian', label: 'Dorain' },
+        { value: 'dorian', label: 'Dorian' },
         { value: 'phyrygian', label: 'Phyrygian' },
         { value: 'lydian', label: 'Lydian' },
         { value: 'mixolydian', label: 'Mixolydian' },

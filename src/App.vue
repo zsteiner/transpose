@@ -30,7 +30,7 @@ export default {
 .container {
   margin: 0 auto;
   max-width: 75rem;
-  padding: 1rem;
+  padding: 1rem 1rem 6rem;
   text-align: center;
 }
 </style>
