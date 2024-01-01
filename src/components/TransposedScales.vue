@@ -2,25 +2,10 @@
   <section>
     <TransposeMessage />
     <CircleFifths />
-    <SelectList
-      v-model="scaleName"
-      name="scales"
-      label="Scales"
-      :options="scaleOptions"
-    />
-    <Notes
-      v-if="originalNote.note"
-      :scale="originalScale"
-      :scale-key="originalScaleKey"
-      type="scale"
-    />
-    <Notes
-      v-if="transposedNote.note && originalNote.note !== transposedNote.note"
-      :scale="transposedScale"
-      :scale-key="transposedScaleKey"
-      :transpose="transposeFactor"
-      type="scale"
-    />
+    <SelectList v-model="scaleName" name="scales" label="Scales" :options="scaleOptions" />
+    <Notes v-if="originalNote.note" :scale="originalScale" :scale-key="originalScaleKey" type="scale" />
+    <Notes v-if="transposedNote.note && originalNote.note !== transposedNote.note" :scale="transposedScale"
+      :scale-key="transposedScaleKey" :transpose="transposeFactor" type="scale" />
   </section>
 </template>
 
@@ -33,6 +18,7 @@ import TransposeMessage from '@/components/TransposeMessage.vue';
 import scaleKeys from '@/constants/scaleKeys';
 import scales from '@/constants/scales';
 import transposeScale from '@/utils/transposeScale';
+import { scaleOptions } from '@/constants/scaleOptions';
 
 export default {
   name: 'TransposedScales',
@@ -47,20 +33,7 @@ export default {
   data() {
     return {
       scaleName: 'major',
-      scaleOptions: [
-        { value: 'major', label: 'Major / Ionian' },
-        { value: 'minor', label: 'Minor / Aeolian' },
-        { value: 'majorPentatonic', label: 'Major Pentatonic' },
-        { value: 'minorPentatonic', label: 'Minor Pentatonic' },
-        { value: 'bluesMajor', label: 'Major Blues' },
-        { value: 'bluesMinor', label: 'Minor Blues' },
-        { value: 'dorian', label: 'Dorian' },
-        { value: 'phyrygian', label: 'Phyrygian' },
-        { value: 'lydian', label: 'Lydian' },
-        { value: 'mixolydian', label: 'Mixolydian' },
-        { value: 'locrian', label: 'Locrian' },
-        { value: 'gypsy', label: 'Spanish Gypsy' },
-      ],
+      scaleOptions,
     };
   },
 
@@ -95,9 +68,9 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .scale {
   margin: auto;
-  max-width: $medium;
+  max-width: var(--medium);
 }
 </style>
