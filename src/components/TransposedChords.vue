@@ -16,7 +16,7 @@
         type="chord"
       />
       <Notes
-        v-if="transposedNote.note && originalNote.note !== transposedNote.note"
+        v-if="transposedNote?.note && originalNote.note !== transposedNote.note"
         :scale="transposedChord"
         :scale-key="transposedScaleKey"
         :transpose="transposeFactor"
@@ -81,7 +81,7 @@ export default {
       const scaleName = this.chordOptions.find(
         (obj) => obj.value === this.chordName,
       ).scale;
-      if (this.transposedNote.note) {
+      if (this.transposedNote?.note) {
         return scaleKeys[this.transposedNote.note][scaleName];
       }
       return null;

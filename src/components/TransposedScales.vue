@@ -15,7 +15,7 @@
       type="scale"
     />
     <Notes
-      v-if="transposedNote.note && originalNote.note !== transposedNote.note"
+      v-if="transposedNote?.note && originalNote.note !== transposedNote.note"
       :scale="transposedScale"
       :scale-key="transposedScaleKey"
       :transpose="transposeFactor"
@@ -76,7 +76,7 @@ export default {
     },
 
     transposedScaleKey() {
-      if (this.transposedNote.note) {
+      if (this.transposedNote?.note) {
         return scaleKeys[this.transposedNote.note][this.scaleName];
       }
       return null;

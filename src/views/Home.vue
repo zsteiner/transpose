@@ -5,7 +5,7 @@
   </article>
 </template>
 
-<script>
+<script lang="ts">
 import CircleFifths from '@/components/CircleFifths.vue';
 import TransposeMessage from '@/components/TransposeMessage.vue';
 
