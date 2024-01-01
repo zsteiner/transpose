@@ -26,16 +26,5 @@ export default defineConfig({
         replacement: path.resolve(__dirname, 'src'),
       },
     ],
-  },
-  css: {
-    preprocessorOptions: {
-      scss: {
-        additionalData: `
-          @use "sass:color";
-          @use "sass:math";
-          @import "@/styles/_variables.scss";
-        `,
-      },
-    },
-  },
+  }
 });
