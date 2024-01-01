@@ -1,5 +1,6 @@
-export default function transposeNotes(originalNote, transposeFactor) {
+export default function transposeNotes(originalNote: number, transposeFactor: number) {
   let transposedNote;
+
   if (originalNote + transposeFactor <= 0) {
     transposedNote = originalNote + transposeFactor + 12;
   } else if (originalNote + transposeFactor > 12) {
@@ -7,5 +8,6 @@ export default function transposeNotes(originalNote, transposeFactor) {
   } else {
     transposedNote = originalNote + transposeFactor;
   }
+
   return transposedNote;
 }

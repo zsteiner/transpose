@@ -1,4 +1,4 @@
-export default function removeCalsses(className) {
+export default function removeClasses(className) {
   const elements = document.getElementsByClassName(className);
 
   /* eslint-disable no-unused-vars */

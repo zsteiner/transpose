@@ -1,6 +1,6 @@
 import { createStore } from 'vuex';
 import instruments from '@/constants/instruments';
-import notes from '@/constants/notes';
+import { notes } from '@/constants/notes';
 import transposeNotes from '@/utils/transposeNotes';
 
 export default createStore({

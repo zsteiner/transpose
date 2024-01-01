@@ -1,19 +1,13 @@
 <template>
   <section class="container">
     <p
-      :class="[
-        'display',
-        {
-          'display-chord': type === 'chord',
-        },
-      ]"
-    >
-      <Note
-        v-for="(note, index) in scale"
-        :key="index"
-        :note="note"
-        :display="scaleKey"
-      />
+:class="[
+      'display',
+      {
+        'display-chord': type === 'chord',
+      },
+    ]">
+      <Note v-for="(note, index) in scale" :key="index" :note="note" :display="scaleKey" />
     </p>
     <div ref="notes" class="notes"></div>
   </section>
@@ -82,10 +76,10 @@ export default {
   },
 };
 </script>
-<style lang="scss" scoped>
+<style scoped>
 .container {
   margin: 0 auto;
-  max-width: $medium;
+  max-width: var(--medium);
   width: 100%;
 }
 

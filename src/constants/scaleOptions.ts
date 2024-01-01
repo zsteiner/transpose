@@ -1,0 +1,18 @@
+export const scaleOptions = [
+  { value: 'major', label: 'Major / Ionian' },
+  { value: 'minor', label: 'Minor / Aeolian' },
+  { value: 'majorPentatonic', label: 'Major Pentatonic' },
+  { value: 'minorPentatonic', label: 'Minor Pentatonic' },
+  { value: 'bluesMajor', label: 'Major Blues' },
+  { value: 'bluesMinor', label: 'Minor Blues' },
+  { value: 'dorian', label: 'Dorian' },
+  { value: 'phyrygian', label: 'Phyrygian' },
+  { value: 'lydian', label: 'Lydian' },
+  { value: 'mixolydian', label: 'Mixolydian' },
+  { value: 'locrian', label: 'Locrian' },
+  { value: 'gypsy', label: 'Spanish Gypsy' },
+  { value: 'bhairav', label: 'Raga (Bhairav)' },
+  { value: 'marwa', label: 'Raga (Marwa)' },
+  { value: 'purvi', label: 'Raga (Purvi)' },
+  { value: 'todi', label: 'Raga (Todi)' },
+];

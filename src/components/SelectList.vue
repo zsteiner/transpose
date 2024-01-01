@@ -4,11 +4,7 @@
       <option disabled selected :value="label">
         {{ label }}
       </option>
-      <option
-        v-for="option in options"
-        :key="option.value"
-        :value="option.value"
-      >
+      <option v-for="option in options" :key="option.value" :value="option.value">
         {{ option.label }}
       </option>
     </select>
@@ -59,23 +55,24 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .wrapper {
-  border: $border-width solid $info;
-  color: $default;
+  border: var(--border-width) solid var(--info);
+  color: var(--default);
   margin: 2rem auto 4rem;
   max-width: 25rem;
   min-width: 18rem;
   position: relative;
-
-  input,
-  select {
-    color: $default;
-  }
 }
 
+.wrapper input,
+.wrapper select {
+  color: var(--default);
+}
+
+
 .input {
-  border: $border-width solid transparent;
+  border: var(--border-width) solid transparent;
   height: 100%;
   overflow: hidden;
   width: 100%;
@@ -96,13 +93,13 @@ export default {
   font-size: 1rem;
   line-height: 1.25;
   outline: none;
-  padding: $input-padding;
+  padding: var(--input-padding);
   position: relative;
   width: 100%;
   z-index: 1;
+}
 
-  &:focus {
-    outline: none;
-  }
+.select:focus {
+  outline: none;
 }
 </style>

@@ -1,4 +1,14 @@
-const notes = [
+import { ScaleNotes } from "../types";
+
+export type Note = {
+  position: number;
+  note: ScaleNotes;
+  display?: string;
+  displayFlat?: string;
+  displaySharp?: string;
+};
+
+export const notes = [
   {
     position: 1,
     note: 'c',
@@ -64,6 +74,4 @@ const notes = [
     note: 'f',
     display: 'F',
   },
-];
-
-export default notes;
+] as Note[];

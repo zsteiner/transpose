@@ -53,7 +53,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style>
 .sharp,
 .flat {
   bottom: 0.25em;
