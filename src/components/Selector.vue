@@ -58,7 +58,7 @@ export default {
   background-color: var(--white);
   border: var(--border-width) solid var(--default-light);
   border-radius: 0.25em;
-  color: var(--default);
+  color: var(--default-light);
   cursor: pointer;
   display: block;
   line-height: 1;

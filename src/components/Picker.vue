@@ -149,6 +149,7 @@ export default {
 .button {
   background: none;
   border: 0;
+  color: var(--default-light);
   height: 100%;
   padding: 1rem;
   text-align: inherit;

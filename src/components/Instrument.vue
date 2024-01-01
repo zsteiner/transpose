@@ -15,7 +15,10 @@
         },
       ]"
     >
-      <Icon :icon="displayIcon" />
+      <Icon
+        class="iconInternal"
+        :icon="displayIcon"
+      />
     </span>
     <span class="name">{{ displayText }}</span>
   </span>
@@ -90,15 +93,18 @@ export default {
 
 .key-icon {
   align-items: center;
-  background: var(--info);
+  background: currentcolor;
   border-radius: 50%;
-  color: var(--white);
   display: inline-flex;
   font-size: var(--icon-size);
   height: 1em;
   justify-content: center;
   padding: 0.5rem;
   width: 1em;
+}
+
+.key-icon .iconInternal {
+  color: var(--white);
 }
 
 @media (width >= 45rem) {
