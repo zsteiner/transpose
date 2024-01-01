@@ -14,9 +14,9 @@
           display="both"
         />
       </strong>
-      on the {{ instrument2.name }}.
+      on the {{ instrument2?.name }}.
     </span>
-    <span v-if="instrument2.name && transposeFactor === 0"
+    <span v-if="instrument2?.name && transposeFactor === 0"
       >There's no need to transpose.</span
     >
   </p>
