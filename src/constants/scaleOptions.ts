@@ -12,5 +12,7 @@ export const scaleOptions = [
   { value: 'locrian', label: 'Locrian' },
   { value: 'gypsy', label: 'Spanish Gypsy' },
   { value: 'bhairav', label: 'Raga (Bhairav)' },
+  { value: 'marwa', label: 'Raga (Marwa)' },
+  { value: 'purvi', label: 'Raga (Purvi)' },
   { value: 'todi', label: 'Raga (Todi)' },
 ];

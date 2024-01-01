@@ -1,6 +1,8 @@
+import { ScaleNotes } from "../types";
+
 export type Note = {
   position: number;
-  note: string;
+  note: ScaleNotes;
   display?: string;
   displayFlat?: string;
   displaySharp?: string;
