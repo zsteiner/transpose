@@ -10,6 +10,7 @@ export const scaleOptions = [
   { value: 'lydian', label: 'Lydian' },
   { value: 'mixolydian', label: 'Mixolydian' },
   { value: 'locrian', label: 'Locrian' },
+  { value: 'gypsy', label: 'Spanish Gypsy' },
   { value: 'bhairav', label: 'Raga (Bhairav)' },
   { value: 'todi', label: 'Raga (Todi)' },
 ];

@@ -19,7 +19,7 @@ import Notes from '@/components/Notes.vue';
 import SelectList from '@/components/SelectList.vue';
 import TransposeMessage from '@/components/TransposeMessage.vue';
 import chords from '@/constants/chords';
-import scaleKeys from '@/constants/scaleKeys';
+import { scaleKeys } from '@/constants/scaleKeys';
 import transposeScale from '@/utils/transposeScale';
 
 export default {

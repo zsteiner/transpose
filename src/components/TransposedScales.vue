@@ -4,8 +4,7 @@
     <CircleFifths />
     <SelectList v-model="scaleName" name="scales" label="Scales" :options="scaleOptions" />
     <Notes v-if="originalNote.note" :scale="originalScale" :scale-key="originalScaleKey" type="scale" />
-    <Notes
-v-if="transposedNote.note && originalNote.note !== transposedNote.note" :scale="transposedScale"
+    <Notes v-if="transposedNote.note && originalNote.note !== transposedNote.note" :scale="transposedScale"
       :scale-key="transposedScaleKey" :transpose="transposeFactor" type="scale" />
   </section>
 </template>
@@ -16,8 +15,8 @@ import CircleFifths from '@/components/CircleFifths.vue';
 import Notes from '@/components/Notes.vue';
 import SelectList from '@/components/SelectList.vue';
 import TransposeMessage from '@/components/TransposeMessage.vue';
-import scaleKeys from '@/constants/scaleKeys';
-import scales from '@/constants/scales';
+import { scaleKeys } from '@/constants/scaleKeys';
+import { scales } from '@/constants/scales';
 import transposeScale from '@/utils/transposeScale';
 import { scaleOptions } from '@/constants/scaleOptions';
 

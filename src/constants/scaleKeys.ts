@@ -1,4 +1,9 @@
-const scaleKeys = {
+const ragaKeys = {
+  bhairav: 'flat',
+  todi: 'flat',
+}
+
+export const scaleKeys = {
   c: {
     major: 'natural',
     minor: 'flat',
@@ -12,9 +17,7 @@ const scaleKeys = {
     mixolydian: 'flat',
     locrian: 'flat',
     gypsy: 'flat',
-    bhairav: 'flat',
-    todi: 'flat',
-
+    ...ragaKeys
   },
   g: {
     major: 'sharp',
@@ -29,9 +32,7 @@ const scaleKeys = {
     mixolydian: 'natural',
     locrian: 'flat',
     gypsy: 'flat',
-    bhairav: 'flat',
-    todi: 'flat',
-
+    ...ragaKeys,
   },
   d: {
     major: 'sharp',
@@ -46,9 +47,7 @@ const scaleKeys = {
     mixolydian: 'sharp',
     locrian: 'flat',
     gypsy: 'flat',
-    bhairav: 'flat',
-    todi: 'flat',
-
+    ...ragaKeys,
   },
   a: {
     major: 'sharp',
@@ -63,9 +62,7 @@ const scaleKeys = {
     mixolydian: 'sharp',
     locrian: 'flat',
     gypsy: 'sharp',
-    bhairav: 'flat',
-    todi: 'flat',
-
+    ...ragaKeys,
   },
   e: {
     major: 'sharp',
@@ -80,9 +77,7 @@ const scaleKeys = {
     mixolydian: 'sharp',
     locrian: 'flat',
     gypsy: 'sharp',
-    bhairav: 'flat',
-    todi: 'flat',
-
+    ...ragaKeys,
   },
   b: {
     major: 'sharp',
@@ -97,8 +92,7 @@ const scaleKeys = {
     mixolydian: 'sharp',
     locrian: 'natrual',
     gypsy: 'sharp',
-    bhairav: 'flat',
-    todi: 'flat',
+    ...ragaKeys
 
   },
   gFlat: {
@@ -114,8 +108,7 @@ const scaleKeys = {
     mixolydian: 'sharp',
     locrian: 'sharp',
     gypsy: 'sharp',
-    bhairav: 'flat',
-    todi: 'flat',
+    ...ragaKeys
 
   },
   dFlat: {
@@ -131,8 +124,7 @@ const scaleKeys = {
     mixolydian: 'sharp',
     locrian: 'sharp',
     gypsy: 'sharp',
-    bhairav: 'flat',
-    todi: 'flat',
+    ...ragaKeys
 
   },
   aFlat: {
@@ -148,8 +140,7 @@ const scaleKeys = {
     mixolydian: 'flat',
     locrian: 'sharp',
     gypsy: 'flat',
-    bhairav: 'flat',
-    todi: 'flat',
+    ...ragaKeys
 
   },
   eFlat: {
@@ -165,8 +156,7 @@ const scaleKeys = {
     mixolydian: 'flat',
     locrian: 'sharp',
     gypsy: 'flat',
-    bhairav: 'flat',
-    todi: 'flat',
+    ...ragaKeys
 
   },
   bFlat: {
@@ -182,8 +172,7 @@ const scaleKeys = {
     mixolydian: 'flat',
     locrian: 'sharp',
     gypsy: 'flat',
-    bhairav: 'flat',
-    todi: 'flat',
+    ...ragaKeys
 
   },
   f: {
@@ -199,9 +188,6 @@ const scaleKeys = {
     mixolydian: 'flat',
     locrian: 'flat',
     gypsy: 'flat',
-    bhairav: 'flat',
-    todi: 'flat',
+    ...ragaKeys
   },
 };
-
-export default scaleKeys;

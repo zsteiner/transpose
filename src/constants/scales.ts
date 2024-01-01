@@ -1,4 +1,4 @@
-const scales = {
+export const scales = {
   major: ['c', 'd', 'e', 'f', 'g', 'a', 'b', 'c'],
   minor: ['c', 'd', 'eFlat', 'f', 'g', 'aFlat', 'bFlat', 'c'],
   majorPentatonic: ['c', 'd', 'e', 'g', 'a', 'c'],
@@ -14,5 +14,3 @@ const scales = {
   bhairav: ['c', 'dFlat', 'e', 'f', 'g ', 'aFlat', 'b', 'c'],
   todi: ['c', 'dFlat', 'eFlat', 'gFlat', 'g ', 'aFlat', 'b', 'c'],
 };
-
-export default scales;
