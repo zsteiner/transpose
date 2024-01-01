@@ -4,7 +4,8 @@
     <CircleFifths />
     <SelectList v-model="scaleName" name="scales" label="Scales" :options="scaleOptions" />
     <Notes v-if="originalNote.note" :scale="originalScale" :scale-key="originalScaleKey" type="scale" />
-    <Notes v-if="transposedNote.note && originalNote.note !== transposedNote.note" :scale="transposedScale"
+    <Notes
+v-if="transposedNote.note && originalNote.note !== transposedNote.note" :scale="transposedScale"
       :scale-key="transposedScaleKey" :transpose="transposeFactor" type="scale" />
   </section>
 </template>
