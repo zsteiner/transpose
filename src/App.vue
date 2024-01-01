@@ -1,5 +1,8 @@
 <template>
-  <div id="app" class="app">
+  <div
+    id="app"
+    class="app"
+  >
     <MainNav />
     <Switcher />
     <router-view />
@@ -42,7 +45,7 @@ export default {
   --warning: #ffca4c;
   --success: #39ea28;
   --default: hsl(220deg 3% 23%);
-  --default-transparent: hsl(220deg 3% 23% 95%);
+  --default-transparent: hsl(220deg 3% 23% / 10%);
   --default-light: hsl(220deg 3% 38%);
   --info: #959ea5;
   --white: #fff;

@@ -1,11 +1,26 @@
 <template>
   <div class="scrim">
     <section class="picker">
-      <button class="close" @click="handleClose">close</button>
+      <button
+        class="close"
+        @click="handleClose"
+      >
+        close
+      </button>
       <ul>
-        <li v-for="instrument in instruments" :key="instrument.iconName" class="item">
-          <button class="button" @click="selectInstrument(instrument.iconName)">
-            <Instrument :instrument="instrument" stretch />
+        <li
+          v-for="instrument in instruments"
+          :key="instrument.iconName"
+          class="item"
+        >
+          <button
+            class="button"
+            @click="selectInstrument(instrument.iconName)"
+          >
+            <Instrument
+              :instrument="instrument"
+              stretch
+            />
           </button>
         </li>
       </ul>
@@ -106,7 +121,6 @@ export default {
   outline: 0;
 }
 
-
 @media (width >= 45rem) {
   .picker {
     border: var(--list-border);
@@ -131,7 +145,6 @@ export default {
 .item:nth-last-of-type(-n + 4) {
   border-bottom: 0;
 }
-
 
 .button {
   background: none;
