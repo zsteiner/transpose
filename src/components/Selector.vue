@@ -1,13 +1,21 @@
 <template>
   <div class="selection">
-    <button :class="{ button: true, empty: isEmpty }" @click="handleClick">
-      <Instrument :instrument="instrument" :empty="isEmpty" />
+    <button
+      :class="{ button: true, empty: isEmpty }"
+      @click="handleClick"
+    >
+      <Instrument
+        :instrument="instrument"
+        :is-empty="isEmpty"
+      />
     </button>
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import Instrument from '@/components/Instrument.vue';
+import { Instrument as InstrumentType } from '@/types';
+import { PropType } from 'vue';
 
 export default {
   name: 'Selector',
@@ -18,8 +26,8 @@ export default {
 
   props: {
     instrument: {
-      type: Object,
-      required: true,
+      type: Object as PropType<InstrumentType>,
+      default: () => null,
     },
   },
 
@@ -27,7 +35,7 @@ export default {
 
   computed: {
     isEmpty() {
-      return !this.instrument.name;
+      return !this.instrument?.name;
     },
   },
 
@@ -72,7 +80,6 @@ export default {
   color: var(--secondary);
   outline: 0;
 }
-
 
 .empty {
   border: 0.25em dashed var(--info);

@@ -9,7 +9,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import MainNav from '@/components/MainNav.vue';
 import Switcher from '@/components/Switcher.vue';
 

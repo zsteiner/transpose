@@ -10,7 +10,7 @@
   />
 </template>
 
-<script>
+<script lang="ts">
 import altoSax from '@/assets/icons/altoSax.svg?component';
 import arrowRight from '@/assets/icons/arrowRight.svg?component';
 import banjo from '@/assets/icons/banjo.svg?component';

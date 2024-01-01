@@ -2,14 +2,26 @@
   <header class="header">
     <Logo class="logo" />
     <nav class="nav">
-      <router-link class="link" to="/">Notes</router-link>
-      <router-link class="link" to="/chords">Chords</router-link>
-      <router-link class="link" to="/scales">Scales</router-link>
+      <router-link
+        class="link"
+        to="/"
+        >Notes</router-link
+      >
+      <router-link
+        class="link"
+        to="/chords"
+        >Chords</router-link
+      >
+      <router-link
+        class="link"
+        to="/scales"
+        >Scales</router-link
+      >
     </nav>
   </header>
 </template>
 
-<script>
+<script lang="ts">
 import Logo from '@/assets/transpose-logo.svg?component';
 
 export default {

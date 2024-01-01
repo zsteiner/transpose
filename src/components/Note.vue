@@ -29,7 +29,7 @@
   </span>
 </template>
 
-<script>
+<script lang="ts">
 const symbols = {
   flat: '♭',
   sharp: '♯',

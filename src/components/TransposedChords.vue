@@ -2,17 +2,31 @@
   <section>
     <TransposeMessage />
     <CircleFifths />
-    <SelectList v-model="chordName" name="chords" label="Chords" :options="chordOptions" />
+    <SelectList
+      v-model="chordName"
+      name="chords"
+      label="Chords"
+      :options="chordOptions"
+    />
     <div class="chords">
-      <Notes v-if="originalNote.note" :scale="originalChord" :scale-key="originalScaleKey" type="chord" />
       <Notes
-v-if="transposedNote.note && originalNote.note !== transposedNote.note" :scale="transposedChord"
-        :scale-key="transposedScaleKey" :transpose="transposeFactor" type="chord" />
+        v-if="originalNote.note"
+        :scale="originalChord"
+        :scale-key="originalScaleKey"
+        type="chord"
+      />
+      <Notes
+        v-if="transposedNote.note && originalNote.note !== transposedNote.note"
+        :scale="transposedChord"
+        :scale-key="transposedScaleKey"
+        :transpose="transposeFactor"
+        type="chord"
+      />
     </div>
   </section>
 </template>
 
-<script>
+<script lang="ts">
 import { mapState } from 'vuex';
 import CircleFifths from '@/components/CircleFifths.vue';
 import Notes from '@/components/Notes.vue';
@@ -21,6 +35,7 @@ import TransposeMessage from '@/components/TransposeMessage.vue';
 import chords from '@/constants/chords';
 import { scaleKeys } from '@/constants/scaleKeys';
 import transposeScale from '@/utils/transposeScale';
+import { chordOptions } from '@/constants/options';
 
 export default {
   name: 'TransposedChords',
@@ -35,20 +50,7 @@ export default {
   data() {
     return {
       chordName: 'major',
-      chordOptions: [
-        { value: 'major', label: 'Major', scale: 'major' },
-        { value: 'power', label: 'Power Fifth', scale: 'major' },
-        { value: 'suspended4th', label: 'Suspended 4th', scale: 'major' },
-        { value: 'majorAdd9', label: 'Major (add 9)', scale: 'major' },
-        { value: 'major7', label: 'Major 7', scale: 'major' },
-        { value: 'major7Sharp', label: 'Major 7th Sharp 11th', scale: 'major' },
-        { value: 'major9', label: 'Major 9th', scale: 'major' },
-        { value: 'major13', label: 'Major 13th', scale: 'major' },
-        { value: 'minor', label: 'Minor', scale: 'minor' },
-        { value: 'minorAdd9', label: 'Minor Add 9th', scale: 'minor' },
-        { value: 'minor6', label: 'Minor 6', scale: 'minor' },
-        { value: 'minorAdd11', label: 'Minor Add 11', scale: 'minor' },
-      ],
+      chordOptions,
     };
   },
 

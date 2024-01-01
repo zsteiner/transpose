@@ -1,26 +1,30 @@
 <template>
   <span
-:class="[
-    'instrument',
-    {
-      stretch: stretch,
-    },
-  ]">
-    <span
-:class="[
-      'icon',
+    :class="[
+      'instrument',
       {
-        'key-icon': !instrument.icon && !empty,
+        stretch: stretch,
       },
-    ]">
+    ]"
+  >
+    <span
+      :class="[
+        'icon',
+        {
+          'key-icon': !instrument?.icon,
+        },
+      ]"
+    >
       <Icon :icon="displayIcon" />
     </span>
     <span class="name">{{ displayText }}</span>
   </span>
 </template>
 
-<script>
+<script lang="ts">
 import Icon from '@/components/Icon.vue';
+import { Instrument } from '@/types';
+import { PropType } from 'vue';
 
 export default {
   name: 'Instrument',
@@ -30,26 +34,29 @@ export default {
   },
 
   props: {
-    empty: Boolean,
     instrument: {
-      type: Object,
-      required: true,
+      type: Object as PropType<Instrument> | null,
+      default: () => null,
     },
     stretch: Boolean,
   },
 
   computed: {
+    isEmpty() {
+      return !this.instrument;
+    },
     displayIcon() {
-      if (this.empty) {
+      if (this.isEmpty) {
         return 'plus';
       }
+
       const { icon, iconName, key } = this.instrument;
 
       return icon ? iconName : key;
     },
 
     displayText() {
-      return this.empty ? 'add instrument' : this.instrument.name;
+      return this.isEmpty ? 'add instrument' : this.instrument?.name;
     },
   },
 };
@@ -99,7 +106,6 @@ export default {
   justify-content: center;
   padding: 0.5rem;
   width: 1em;
-
 }
 
 @media (width >= 45rem) {
