@@ -11,6 +11,8 @@ const scales = {
   mixolydian: ['c', 'd', 'e', 'f', 'g', 'a', 'bFlat', 'c'],
   locrian: ['c', 'dFlat', 'eFlat', 'f', 'gFlat', 'aFlat', 'bFlat', 'c'],
   gypsy: ['c', 'dFlat', 'e', 'f', 'g', 'aFlat', 'bFlat', 'c'],
+  bhairav: ['c', 'dFlat', 'e', 'f', 'g ', 'aFlat', 'b', 'c'],
+  todi: ['c', 'dFlat', 'eFlat', 'gFlat', 'g ', 'aFlat', 'b', 'c'],
 };
 
 export default scales;

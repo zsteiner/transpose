@@ -12,6 +12,9 @@ const scaleKeys = {
     mixolydian: 'flat',
     locrian: 'flat',
     gypsy: 'flat',
+    bhairav: 'flat',
+    todi: 'flat',
+
   },
   g: {
     major: 'sharp',
@@ -26,6 +29,9 @@ const scaleKeys = {
     mixolydian: 'natural',
     locrian: 'flat',
     gypsy: 'flat',
+    bhairav: 'flat',
+    todi: 'flat',
+
   },
   d: {
     major: 'sharp',
@@ -40,6 +46,9 @@ const scaleKeys = {
     mixolydian: 'sharp',
     locrian: 'flat',
     gypsy: 'flat',
+    bhairav: 'flat',
+    todi: 'flat',
+
   },
   a: {
     major: 'sharp',
@@ -54,6 +63,9 @@ const scaleKeys = {
     mixolydian: 'sharp',
     locrian: 'flat',
     gypsy: 'sharp',
+    bhairav: 'flat',
+    todi: 'flat',
+
   },
   e: {
     major: 'sharp',
@@ -68,6 +80,9 @@ const scaleKeys = {
     mixolydian: 'sharp',
     locrian: 'flat',
     gypsy: 'sharp',
+    bhairav: 'flat',
+    todi: 'flat',
+
   },
   b: {
     major: 'sharp',
@@ -82,6 +97,9 @@ const scaleKeys = {
     mixolydian: 'sharp',
     locrian: 'natrual',
     gypsy: 'sharp',
+    bhairav: 'flat',
+    todi: 'flat',
+
   },
   gFlat: {
     major: 'sharp',
@@ -96,6 +114,9 @@ const scaleKeys = {
     mixolydian: 'sharp',
     locrian: 'sharp',
     gypsy: 'sharp',
+    bhairav: 'flat',
+    todi: 'flat',
+
   },
   dFlat: {
     major: 'flat',
@@ -110,6 +131,9 @@ const scaleKeys = {
     mixolydian: 'sharp',
     locrian: 'sharp',
     gypsy: 'sharp',
+    bhairav: 'flat',
+    todi: 'flat',
+
   },
   aFlat: {
     major: 'sharp',
@@ -124,6 +148,9 @@ const scaleKeys = {
     mixolydian: 'flat',
     locrian: 'sharp',
     gypsy: 'flat',
+    bhairav: 'flat',
+    todi: 'flat',
+
   },
   eFlat: {
     major: 'flat',
@@ -138,6 +165,9 @@ const scaleKeys = {
     mixolydian: 'flat',
     locrian: 'sharp',
     gypsy: 'flat',
+    bhairav: 'flat',
+    todi: 'flat',
+
   },
   bFlat: {
     major: 'flat',
@@ -152,6 +182,9 @@ const scaleKeys = {
     mixolydian: 'flat',
     locrian: 'sharp',
     gypsy: 'flat',
+    bhairav: 'flat',
+    todi: 'flat',
+
   },
   f: {
     major: 'flat',
@@ -166,6 +199,8 @@ const scaleKeys = {
     mixolydian: 'flat',
     locrian: 'flat',
     gypsy: 'flat',
+    bhairav: 'flat',
+    todi: 'flat',
   },
 };
 
