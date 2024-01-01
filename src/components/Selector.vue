@@ -4,10 +4,7 @@
       :class="{ button: true, empty: isEmpty }"
       @click="handleClick"
     >
-      <Instrument
-        :instrument="instrument"
-        :is-empty="isEmpty"
-      />
+      <Instrument :instrument="instrument" />
     </button>
   </div>
 </template>
