@@ -51,7 +51,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .switcher {
   align-items: center;
   display: grid;
@@ -60,19 +60,21 @@ export default {
   grid-template-rows: 8rem;
   justify-content: center;
   margin: 2rem auto 0;
-
-  @media (min-width: $medium) {
-    grid-gap: 2rem;
-    grid-template-columns: 10rem min-content 10rem;
-    grid-template-rows: 10rem;
-  }
 }
 
 .arrow {
-  color: $info;
+  color: var(--info);
   font-size: 1em;
+}
 
-  @media (min-width: $medium) {
+@media (width >= 45rem) {
+  .switcher {
+    gap: 2rem;
+    grid-template-columns: 10rem min-content 10rem;
+    grid-template-rows: 10rem;
+  }
+
+  .arrow {
     font-size: 2em;
   }
 }

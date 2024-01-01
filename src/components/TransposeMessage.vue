@@ -1,14 +1,16 @@
 <template>
   <p class="message">
     <span v-if="showMessage">
-      <strong><Note :note="originalNote" display="both" /></strong> on the
+      <strong>
+        <Note :note="originalNote" display="both" />
+      </strong> on the
       {{ instrument1.name }} sounds the same as
-      <strong><Note :note="transposedNote" display="both" /></strong> on the
+      <strong>
+        <Note :note="transposedNote" display="both" />
+      </strong> on the
       {{ instrument2.name }}.
     </span>
-    <span v-if="instrument2.name && transposeFactor === 0"
-      >There's no need to transpose.</span
-    >
+    <span v-if="instrument2.name && transposeFactor === 0">There's no need to transpose.</span>
   </p>
 </template>
 
@@ -43,14 +45,16 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .message {
   font-size: 0.875rem;
   margin: 0;
   min-height: 2em;
 
-  @media (min-width: $medium) {
+}
+
+@media (width >= 45rem) {
+  .message {
     font-size: 1.5rem;
   }
-}
-</style>
+}</style>

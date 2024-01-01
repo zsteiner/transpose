@@ -21,7 +21,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .header {
   display: flex;
   gap: 1.5rem;
@@ -42,16 +42,16 @@ export default {
 
 .link {
   border-bottom: 0.25rem solid transparent;
-  color: $secondary;
+  color: var(--secondary);
   padding: 0.5rem 0;
   text-decoration-line: none;
+}
 
-  &:not(:last-of-type) {
-    margin-right: 1rem;
-  }
+.link:not(:last-of-type) {
+  margin-right: 1rem;
+}
 
-  &.router-link-exact-active {
-    border-color: currentcolor;
-  }
+.link.router-link-exact-active {
+  border-color: currentcolor;
 }
 </style>

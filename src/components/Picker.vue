@@ -3,11 +3,7 @@
     <section class="picker">
       <button class="close" @click="handleClose">close</button>
       <ul>
-        <li
-          v-for="instrument in instruments"
-          :key="instrument.iconName"
-          class="item"
-        >
+        <li v-for="instrument in instruments" :key="instrument.iconName" class="item">
           <button class="button" @click="selectInstrument(instrument.iconName)">
             <Instrument :instrument="instrument" stretch />
           </button>
@@ -64,13 +60,10 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-$list-border: 0.0625rem solid $info;
-$size: 38rem;
-
+<style scoped>
 .scrim {
   backdrop-filter: blur(0.25rem);
-  background: color.adjust($default, $alpha: -0.95);
+  background: var(--default-transparent);
   display: flex;
   inset: 0;
   position: fixed;
@@ -78,60 +71,67 @@ $size: 38rem;
 }
 
 .picker {
-  border-bottom: $list-border;
+  --list-border: 0.0625rem solid var(--info);
+  --size: 38rem;
+
+  border-bottom: var(--list-border);
   margin: auto;
   position: relative;
-  
-  @media (min-width: $medium) {
-    border: $list-border;
-    max-height: $size;
-    max-width: $size;
-  }
+}
 
-  ul {
-    background: color.adjust($white, $alpha: -0.05);
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    height: 100%;
-    list-style: none;
-    margin: 0;
-    overflow: scroll;
-    padding: 0;
-  }
+.picker ul {
+  background: rgb(255 255 255 / 95%);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  height: 100%;
+  list-style: none;
+  margin: 0;
+  overflow: scroll;
+  padding: 0;
 }
 
 .close {
   background: none;
   border: 0;
-  color: $primary;
+  color: var(--primary);
   font-size: 1.75rem;
   position: absolute;
   right: 0;
   top: -2em;
+}
 
-  &:hover,
-  &:focus {
-    color: $secondary;
-    outline: 0;
+.close:hover,
+.close:focus {
+  color: var(--secondary);
+  outline: 0;
+}
+
+
+@media (width >= 45rem) {
+  .picker {
+    border: var(--list-border);
+    max-height: var(--size);
+    max-width: var(--size);
   }
 }
 
 .item {
-  border-bottom: $list-border;
-  border-right: $list-border;
+  border-bottom: var(--list-border);
+  border-right: var(--list-border);
   height: 7rem;
   position: relative;
   text-align: center;
-
-  &:nth-child(4n) {
-    border-bottom: $list-border;
-    border-right: 0;
-  }
-
-  &:nth-last-of-type(-n + 4) {
-    border-bottom: 0;
-  }
 }
+
+.item:nth-child(4n) {
+  border-bottom: var(--list-border);
+  border-right: 0;
+}
+
+.item:nth-last-of-type(-n + 4) {
+  border-bottom: 0;
+}
+
 
 .button {
   background: none;
@@ -142,7 +142,7 @@ $size: 38rem;
   width: 100%;
 
   &:hover {
-    color: $secondary;
+    color: var(--secondary);
   }
 }
 </style>

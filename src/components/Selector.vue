@@ -39,7 +39,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .selection {
   align-items: stretch;
   align-self: stretch;
@@ -50,10 +50,10 @@ export default {
 }
 
 .button {
-  background-color: $white;
-  border: 0.0625rem solid color.adjust($info, $lightness: 15%);
+  background-color: var(--white);
+  border: var(--border-width) solid var(--default-light);
   border-radius: 0.25em;
-  color: $default;
+  color: var(--default);
   cursor: pointer;
   display: block;
   line-height: 1;
@@ -62,28 +62,29 @@ export default {
   text-align: center;
   transition: all 0.1s linear;
   width: 100%;
-
-  &:focus,
-  &.is-selected,
-  &:hover {
-    border-color: transparent;
-    box-shadow: 0 0 0 0.25rem $secondary;
-    color: $secondary;
-    outline: 0;
-  }
 }
 
-.empty {
-  border: 0.25em dashed $info;
-  color: $info;
-  padding: 0.25rem;
+.button:focus,
+.button.is-selected,
+.button:hover {
+  border-color: transparent;
+  box-shadow: 0 0 0 0.25rem var(--secondary);
+  color: var(--secondary);
+  outline: 0;
+}
 
-  &.is-selected,
-  &:hover {
-    background-color: $white;
-    border-color: $secondary;
-    box-shadow: none;
-    color: $secondary;
-  }
+
+.empty {
+  border: 0.25em dashed var(--info);
+  color: var(--info);
+  padding: 0.25rem;
+}
+
+.empty.is-selected,
+.empty:hover {
+  background-color: var(--white);
+  border-color: var(--secondary);
+  box-shadow: none;
+  color: var(--secondary);
 }
 </style>

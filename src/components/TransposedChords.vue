@@ -2,26 +2,12 @@
   <section>
     <TransposeMessage />
     <CircleFifths />
-    <SelectList
-      v-model="chordName"
-      name="chords"
-      label="Chords"
-      :options="chordOptions"
-    />
+    <SelectList v-model="chordName" name="chords" label="Chords" :options="chordOptions" />
     <div class="chords">
+      <Notes v-if="originalNote.note" :scale="originalChord" :scale-key="originalScaleKey" type="chord" />
       <Notes
-        v-if="originalNote.note"
-        :scale="originalChord"
-        :scale-key="originalScaleKey"
-        type="chord"
-      />
-      <Notes
-        v-if="transposedNote.note && originalNote.note !== transposedNote.note"
-        :scale="transposedChord"
-        :scale-key="transposedScaleKey"
-        :transpose="transposeFactor"
-        type="chord"
-      />
+v-if="transposedNote.note && originalNote.note !== transposedNote.note" :scale="transposedChord"
+        :scale-key="transposedScaleKey" :transpose="transposeFactor" type="chord" />
     </div>
   </section>
 </template>
@@ -102,13 +88,13 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .chords {
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(2, minmax(12rem, 50%));
   margin: auto;
-  max-width: $medium;
+  max-width: var(--medium);
   width: 100%;
 }
 </style>

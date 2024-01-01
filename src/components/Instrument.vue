@@ -1,20 +1,18 @@
 <template>
   <span
-    :class="[
-      'instrument',
-      {
-        stretch: stretch,
-      },
-    ]"
-  >
+:class="[
+    'instrument',
+    {
+      stretch: stretch,
+    },
+  ]">
     <span
-      :class="[
-        'icon',
-        {
-          'key-icon': !instrument.icon && !empty,
-        },
-      ]"
-    >
+:class="[
+      'icon',
+      {
+        'key-icon': !instrument.icon && !empty,
+      },
+    ]">
       <Icon :icon="displayIcon" />
     </span>
     <span class="name">{{ displayText }}</span>
@@ -57,10 +55,10 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-$icon-size: 2.5rem;
-
+<style scoped>
 .instrument {
+  --icon-size: 2.5rem;
+
   height: 100%;
 }
 
@@ -73,12 +71,14 @@ $icon-size: 2.5rem;
 
 .icon {
   display: inline-block;
-  font-size: $icon-size * 0.75;
+  font-size: calc(var(--icon-size) * 0.75);
   line-height: 1;
   margin-bottom: 0.5rem;
+}
 
-  @media (min-width: $medium) {
-    font-size: $icon-size;
+@media (width >= 45rem) {
+  .icon {
+    font-size: var(--icon-size);
     margin-bottom: 0.5rem;
   }
 }
@@ -90,18 +90,21 @@ $icon-size: 2.5rem;
 
 .key-icon {
   align-items: center;
-  background: color.adjust($info, $lightness: 15%);
+  background: var(--link-light);
   border-radius: 50%;
-  color: $white;
+  color: var(--white);
   display: inline-flex;
-  font-size: $icon-size;
-  height: $icon-size;
+  font-size: var(--icon-size);
+  height: 1em;
   justify-content: center;
   padding: 0.5rem;
-  width: $icon-size;
+  width: 1em;
 
-  @media (min-width: $medium) {
-    font-size: $icon-size;
+}
+
+@media (width >= 45rem) {
+  .key-icon {
+    font-size: var(--icon-size);
     margin-bottom: 1rem;
   }
 }
