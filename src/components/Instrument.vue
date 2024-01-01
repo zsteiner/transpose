@@ -83,13 +83,6 @@ export default {
   margin-bottom: 0.5rem;
 }
 
-@media (width >= 45rem) {
-  .icon {
-    font-size: var(--icon-size);
-    margin-bottom: 0.5rem;
-  }
-}
-
 .name {
   display: block;
   font-size: 0.875rem;
@@ -97,7 +90,7 @@ export default {
 
 .key-icon {
   align-items: center;
-  background: var(--link-light);
+  background: var(--info);
   border-radius: 50%;
   color: var(--white);
   display: inline-flex;
@@ -109,6 +102,11 @@ export default {
 }
 
 @media (width >= 45rem) {
+  .icon {
+    font-size: var(--icon-size);
+    margin-bottom: 0.5rem;
+  }
+
   .key-icon {
     font-size: var(--icon-size);
     margin-bottom: 1rem;
