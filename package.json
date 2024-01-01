@@ -2,6 +2,7 @@
   "name": "transpose",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "serve": "vite preview",
@@ -13,7 +14,6 @@
     "lint:style:fix": "npm run lint:style -- --fix"
   },
   "dependencies": {
-    "autoprefixer": "^10.4.16",
     "vue": "^3.4.3",
     "vue-router": "^4.2.5",
     "vuex": "^4.1.0"
@@ -28,7 +28,6 @@
     "eslint-plugin-prettier": "^5.1.2",
     "eslint-plugin-vue": "9",
     "eslint-plugin-vuejs-accessibility": "^2.2.0",
-    "postcss-html": "^1.5.0",
     "prettier": "^3.1.1",
     "stylelint": "^16.1.0",
     "stylelint-config-recommended-vue": "^1.5.0",
