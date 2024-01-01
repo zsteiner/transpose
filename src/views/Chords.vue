@@ -4,7 +4,7 @@
   </article>
 </template>
 
-<script>
+<script lang="ts">
 import TransposedChords from '@/components/TransposedChords.vue';
 
 export default {

@@ -1,26 +1,33 @@
 <template>
   <span
-:class="[
-    'instrument',
-    {
-      stretch: stretch,
-    },
-  ]">
-    <span
-:class="[
-      'icon',
+    :class="[
+      'instrument',
       {
-        'key-icon': !instrument.icon && !empty,
+        stretch: stretch,
       },
-    ]">
-      <Icon :icon="displayIcon" />
+    ]"
+  >
+    <span
+      :class="[
+        'icon',
+        {
+          'key-icon': !instrument?.icon,
+        },
+      ]"
+    >
+      <Icon
+        class="iconInternal"
+        :icon="displayIcon"
+      />
     </span>
     <span class="name">{{ displayText }}</span>
   </span>
 </template>
 
-<script>
+<script lang="ts">
 import Icon from '@/components/Icon.vue';
+import { Instrument } from '@/types';
+import { PropType } from 'vue';
 
 export default {
   name: 'Instrument',
@@ -30,26 +37,29 @@ export default {
   },
 
   props: {
-    empty: Boolean,
     instrument: {
-      type: Object,
-      required: true,
+      type: Object as PropType<Instrument> | null,
+      default: () => null,
     },
     stretch: Boolean,
   },
 
   computed: {
+    isEmpty() {
+      return !this.instrument;
+    },
     displayIcon() {
-      if (this.empty) {
+      if (this.isEmpty) {
         return 'plus';
       }
+
       const { icon, iconName, key } = this.instrument;
 
       return icon ? iconName : key;
     },
 
     displayText() {
-      return this.empty ? 'add instrument' : this.instrument.name;
+      return this.isEmpty ? 'add instrument' : this.instrument?.name;
     },
   },
 };
@@ -76,13 +86,6 @@ export default {
   margin-bottom: 0.5rem;
 }
 
-@media (width >= 45rem) {
-  .icon {
-    font-size: var(--icon-size);
-    margin-bottom: 0.5rem;
-  }
-}
-
 .name {
   display: block;
   font-size: 0.875rem;
@@ -90,19 +93,26 @@ export default {
 
 .key-icon {
   align-items: center;
-  background: var(--link-light);
+  background: currentcolor;
   border-radius: 50%;
-  color: var(--white);
   display: inline-flex;
   font-size: var(--icon-size);
   height: 1em;
   justify-content: center;
   padding: 0.5rem;
   width: 1em;
+}
 
+.key-icon .iconInternal {
+  color: var(--white);
 }
 
 @media (width >= 45rem) {
+  .icon {
+    font-size: var(--icon-size);
+    margin-bottom: 0.5rem;
+  }
+
   .key-icon {
     font-size: var(--icon-size);
     margin-bottom: 1rem;

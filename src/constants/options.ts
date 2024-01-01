@@ -16,3 +16,18 @@ export const scaleOptions = [
   { value: 'purvi', label: 'Raga (Purvi)' },
   { value: 'todi', label: 'Raga (Todi)' },
 ];
+
+export const chordOptions = [
+  { value: 'major', label: 'Major', scale: 'major' },
+  { value: 'power', label: 'Power Fifth', scale: 'major' },
+  { value: 'suspended4th', label: 'Suspended 4th', scale: 'major' },
+  { value: 'majorAdd9', label: 'Major (add 9)', scale: 'major' },
+  { value: 'major7', label: 'Major 7', scale: 'major' },
+  { value: 'major7Sharp', label: 'Major 7th Sharp 11th', scale: 'major' },
+  { value: 'major9', label: 'Major 9th', scale: 'major' },
+  { value: 'major13', label: 'Major 13th', scale: 'major' },
+  { value: 'minor', label: 'Minor', scale: 'minor' },
+  { value: 'minorAdd9', label: 'Minor Add 9th', scale: 'minor' },
+  { value: 'minor6', label: 'Minor 6', scale: 'minor' },
+  { value: 'minorAdd11', label: 'Minor Add 11', scale: 'minor' },
+];

@@ -1,19 +1,28 @@
 <template>
   <section class="container">
     <p
-:class="[
-      'display',
-      {
-        'display-chord': type === 'chord',
-      },
-    ]">
-      <Note v-for="(note, index) in scale" :key="index" :note="note" :display="scaleKey" />
+      :class="[
+        'display',
+        {
+          'display-chord': type === 'chord',
+        },
+      ]"
+    >
+      <Note
+        v-for="(note, index) in scale"
+        :key="index"
+        :note="note"
+        :display="scaleKey"
+      />
     </p>
-    <div ref="notes" class="notes"></div>
+    <div
+      ref="notes"
+      class="notes"
+    ></div>
   </section>
 </template>
 
-<script>
+<script lang="ts">
 import abcjs from 'abcjs';
 import 'abcjs/abcjs-audio.css';
 import Note from '@/components/Note.vue';
@@ -62,7 +71,7 @@ export default {
 
   methods: {
     renderScale() {
-      const responsive = this.type === 'scale' ? 'resize' : '';
+      const responsive = this.type === 'scale' ? 'resize' : null;
 
       abcjs.renderAbc(this.$refs.notes, this.syntax, {
         paddingleft: 0,

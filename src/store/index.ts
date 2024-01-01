@@ -1,14 +1,23 @@
 import { createStore } from 'vuex';
-import instruments from '@/constants/instruments';
+import { instruments } from '@/constants/instruments';
 import { notes } from '@/constants/notes';
 import transposeNotes from '@/utils/transposeNotes';
+import { Instrument, Note } from '@/types';
 
-export default createStore({
+export type State = {
+  instrument1: Instrument;
+  instrument2: Instrument | null;
+  transposeFactor: number;
+  originalNote: Note;
+  transposedNote: Note | null;
+};
+
+export default createStore<State>({
   state: {
     instrument1: {
       ...instruments.piano,
     },
-    instrument2: {},
+    instrument2: null,
     transposeFactor: 0,
     originalNote: {
       position: 1,
@@ -17,7 +26,7 @@ export default createStore({
       displayFlat: notes[1].displayFlat,
       displaySharp: notes[1].displaySharp,
     },
-    transposedNote: {},
+    transposedNote: null,
   },
   mutations: {
     SET_INSTRUMENT(state, { selection, instrument }) {
@@ -56,7 +65,7 @@ export default createStore({
     },
     updateTransposingFactor({ state, commit }) {
       const transposeFactor =
-        state.instrument2.transposeFactor - state.instrument1.transposeFactor;
+        state.instrument2?.transposeFactor - state.instrument1.transposeFactor;
 
       commit('SET_TRANSPOSING', transposeFactor);
       if (state.originalNote.note) {

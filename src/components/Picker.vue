@@ -28,9 +28,9 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { mapActions } from 'vuex';
-import instruments from '@/constants/instruments';
+import { instruments } from '@/constants/instruments';
 
 import Instrument from '@/components/Instrument.vue';
 
@@ -149,6 +149,7 @@ export default {
 .button {
   background: none;
   border: 0;
+  color: var(--default-light);
   height: 100%;
   padding: 1rem;
   text-align: inherit;

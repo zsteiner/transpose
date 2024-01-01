@@ -15,7 +15,7 @@
       type="scale"
     />
     <Notes
-      v-if="transposedNote.note && originalNote.note !== transposedNote.note"
+      v-if="transposedNote?.note && originalNote.note !== transposedNote.note"
       :scale="transposedScale"
       :scale-key="transposedScaleKey"
       :transpose="transposeFactor"
@@ -24,7 +24,7 @@
   </section>
 </template>
 
-<script>
+<script lang="ts">
 import { mapState } from 'vuex';
 import CircleFifths from '@/components/CircleFifths.vue';
 import Notes from '@/components/Notes.vue';
@@ -33,7 +33,7 @@ import TransposeMessage from '@/components/TransposeMessage.vue';
 import { scaleKeys } from '@/constants/scaleKeys';
 import { scales } from '@/constants/scales';
 import transposeScale from '@/utils/transposeScale';
-import { scaleOptions } from '@/constants/scaleOptions';
+import { scaleOptions } from '@/constants/options';
 
 export default {
   name: 'TransposedScales',
@@ -76,7 +76,7 @@ export default {
     },
 
     transposedScaleKey() {
-      if (this.transposedNote.note) {
+      if (this.transposedNote?.note) {
         return scaleKeys[this.transposedNote.note][this.scaleName];
       }
       return null;

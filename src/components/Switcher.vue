@@ -1,13 +1,26 @@
 <template>
   <section class="switcher">
-    <Selector :instrument="instrument1" @click="togglePicker(1)" />
-    <Icon class="arrow" icon="arrow-right" />
-    <Selector :instrument="instrument2" @click="togglePicker(2)" />
-    <Picker v-if="showPicker" :selection="selection" @click="togglePicker" />
+    <Selector
+      :instrument="instrument1"
+      @click="togglePicker(1)"
+    />
+    <Icon
+      class="arrow"
+      icon="arrow-right"
+    />
+    <Selector
+      :instrument="instrument2"
+      @click="togglePicker(2)"
+    />
+    <Picker
+      v-if="showPicker"
+      :selection="selection"
+      @click="togglePicker"
+    />
   </section>
 </template>
 
-<script>
+<script lang="ts">
 import { mapState } from 'vuex';
 
 import Icon from '@/components/Icon.vue';

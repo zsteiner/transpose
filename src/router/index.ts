@@ -1,7 +1,7 @@
 import { createWebHistory, createRouter } from 'vue-router';
-import Home from '../views/Home.vue';
-import Chords from '../views/Chords.vue';
-import Scales from '../views/Scales.vue';
+import Home from '@/views/Home.vue';
+import Chords from '@/views/Chords.vue';
+import Scales from '@/views/Scales.vue';
 
 const routes = [
   {

@@ -1,17 +1,32 @@
 <template>
   <div class="wrapper">
-    <select v-model="inputValue" class="select input" :name="name">
-      <option disabled selected :value="label">
+    <select
+      v-model="inputValue"
+      class="select input"
+      :name="name"
+    >
+      <option
+        disabled
+        selected
+        :value="label"
+      >
         {{ label }}
       </option>
-      <option v-for="option in options" :key="option.value" :value="option.value">
+      <option
+        v-for="option in options"
+        :key="option.value"
+        :value="option.value"
+      >
         {{ option.label }}
       </option>
     </select>
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import { Option } from '@/types';
+import { PropType } from 'vue';
+
 export default {
   name: 'SelectList',
 
@@ -29,7 +44,7 @@ export default {
       default: '',
     },
     options: {
-      type: Array,
+      type: [] as PropType<Option[]>,
       required: true,
     },
     readonly: Boolean,
@@ -69,7 +84,6 @@ export default {
 .wrapper select {
   color: var(--default);
 }
-
 
 .input {
   border: var(--border-width) solid transparent;

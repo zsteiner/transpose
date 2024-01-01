@@ -4,7 +4,7 @@
   </article>
 </template>
 
-<script>
+<script lang="ts">
 import TransposedScales from '@/components/TransposedScales.vue';
 
 export default {
