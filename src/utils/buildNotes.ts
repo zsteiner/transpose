@@ -8,6 +8,5 @@ export default function buildNotes(scale) {
     mapScale = scale.map((note) => findNotePosition(note));
   }
 
-  const notatedScale = mapScale.map((note) => notes[note - 1]);
-  return notatedScale;
+  return mapScale.map((note) => notes[note - 1])
 }
