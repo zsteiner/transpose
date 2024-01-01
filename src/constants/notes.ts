@@ -1,12 +1,4 @@
-import { ScaleNotes } from "../types";
-
-export type Note = {
-  position: number;
-  note: ScaleNotes;
-  display?: string;
-  displayFlat?: string;
-  displaySharp?: string;
-};
+import { Note } from "@/types";
 
 export const notes = [
   {

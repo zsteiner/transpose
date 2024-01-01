@@ -30,7 +30,7 @@
 
 <script>
 import { mapActions } from 'vuex';
-import instruments from '@/constants/instruments';
+import { instruments } from '@/constants/instruments';
 
 import Instrument from '@/components/Instrument.vue';
 

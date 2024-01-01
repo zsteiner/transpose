@@ -1,4 +1,10 @@
-const instruments = {
+import { Instrument } from "@/types";
+
+type InstrumentList = {
+  [key: string]: Instrument;
+};
+
+export const instruments = {
   piano: {
     name: 'piano',
     key: 'c',
@@ -139,6 +145,4 @@ const instruments = {
     icon: true,
     iconName: 'violin',
   },
-};
-
-export default instruments;
+} as InstrumentList;
