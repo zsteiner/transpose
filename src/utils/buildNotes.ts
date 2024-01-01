@@ -1,4 +1,4 @@
-import notes from '../constants/notes';
+import { notes } from '../constants/notes';
 import findNotePosition from './findNotePosition';
 
 export default function buildNotes(scale) {

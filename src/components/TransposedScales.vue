@@ -61,11 +61,13 @@ export default {
 
     originalScale() {
       const offset = this.originalNote.position - 1;
+
       return transposeScale(this.selectedScale, offset);
     },
 
     transposedScale() {
       const offset = this.transposedNote.position - 1;
+
       return transposeScale(this.selectedScale, offset);
     },
 

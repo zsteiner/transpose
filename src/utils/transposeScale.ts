@@ -11,5 +11,6 @@ export default function transposeScale(scale, transposeFactor) {
     return transposedNote;
   });
   const builtScale = buildNotes(transposedScale);
+
   return builtScale;
 }
