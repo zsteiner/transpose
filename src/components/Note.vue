@@ -70,7 +70,6 @@ export default defineComponent({
 }
 
 .position {
-  display: none;
   font-size: 0.75rem;
   margin-left: 0.25rem;
 }
