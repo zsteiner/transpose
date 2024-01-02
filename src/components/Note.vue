@@ -1,6 +1,6 @@
 <template>
   <span>
-    {{ this.display }}
+    {{ this.baseNote }}
     <span
       v-if="this.accidental"
       class="accidental"
@@ -17,38 +17,38 @@
 import { Note } from '@/types';
 import { defineComponent, PropType } from 'vue';
 
-const symbols = {
-  flat: '♭',
-  sharp: '♯',
-};
-
 export default defineComponent({
   name: 'Note',
 
-  data: () => ({
-    accidental: null,
-  }),
-
   computed: {
-    display() {
-      const previousNote = this.previousNote?.note;
-      const isAccidental = !!this.note?.previousNote;
-
+    accidental() {
+      if (this.isAccidental) {
+        return this.isSharp ? '♯' : '♭';
+      } else {
+        return null;
+      }
+    },
+    baseNote() {
       let baseNote;
 
-      const isSharpOrFlat = previousNote
-        ? this.note?.previousNote[previousNote]
-        : false;
-
-      if (isAccidental) {
-        baseNote = this.note[isSharpOrFlat] || this.note.displayFlat;
+      if (this.isAccidental) {
+        baseNote = this.note[this.accidentalNote] || this.note.displayFlat;
       } else {
         baseNote = this.note.display;
       }
 
-      this.setAccidental(isSharpOrFlat === 'displaySharp', isAccidental);
-
       return baseNote;
+    },
+    isAccidental() {
+      return !!this.note?.previousNote;
+    },
+    isSharp() {
+      return this.accidentalNote === 'displaySharp';
+    },
+    accidentalNote() {
+      return this.previousNote
+        ? this.note?.previousNote[this.previousNote?.note]
+        : '';
     },
   },
 
@@ -62,18 +62,6 @@ export default defineComponent({
       default: () => {},
     },
   },
-
-  methods: {
-    setAccidental(isSharp: boolean, isAccidental: boolean) {
-      if (isAccidental) {
-        this.accidental = isSharp ? symbols.sharp : symbols.flat;
-      } else {
-        this.accidental = null;
-      }
-    },
-  },
-
-  symbols,
 });
 </script>
 
