@@ -23,4 +23,7 @@ export type Note = {
   display: string;
   displayFlat?: string;
   displaySharp?: string;
+  previousNote?: {
+    [key: string]: 'displaySharp' | 'displayFlat';
+  };
 };

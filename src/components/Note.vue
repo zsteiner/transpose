@@ -1,61 +1,76 @@
 <template>
-  <span v-if="note.displayFlat && display === 'both'">
-    {{ note.displayFlat }}<span class="flat">{{ $options.symbols.flat }}</span>
-    {{ ' / ' }}
-    {{ note.displaySharp
-    }}<span class="sharp">{{ $options.symbols.sharp }}</span>
-    <div class="position">
-      {{ note.position }}
-    </div>
-  </span>
-  <span v-else-if="note.displayFlat && display === 'sharp'">
-    {{ note.displaySharp
-    }}<span class="sharp">{{ $options.symbols.sharp }}</span>
-    <div class="position">
-      {{ note.position }}
-    </div>
-  </span>
-  <span v-else-if="note.displayFlat && display === 'flat'">
-    {{ note.displayFlat }}<span class="flat">{{ $options.symbols.flat }}</span>
-    <div class="position">
-      {{ note.position }}
-    </div>
-  </span>
-  <span v-else>
-    {{ note.display }}
-    <div class="position">
-      {{ note.position }}
-    </div>
+  <span>
+    {{ this.display }}
+    <span class="accidental">
+      {{ this.accidental }}
+    </span>
+    <span class="position">
+      {{ this.note.position }}
+    </span>
   </span>
 </template>
 
 <script lang="ts">
+import { Note } from '@/types';
+import { defineComponent, PropType } from 'vue';
+
 const symbols = {
   flat: '♭',
   sharp: '♯',
 };
 
-export default {
+export default defineComponent({
   name: 'Note',
+
+  data: () => ({
+    accidental: null,
+  }),
+
+  computed: {
+    display() {
+      const previousNote = this.previousNote.note;
+      const isAccidental = !!this.note.previousNote;
+
+      let baseNote;
+
+      if (isAccidental) {
+        const isSharpOrFlat = this.note.previousNote[previousNote];
+
+        baseNote =
+          this.note[isSharpOrFlat] || this.note.previousNote.displayFlat;
+
+        this.setAccidental(isSharpOrFlat === 'displaySharp');
+      } else {
+        baseNote = this.note.display;
+      }
+
+      return baseNote;
+    },
+  },
 
   props: {
     note: {
-      type: Object,
-      default: () => ({}),
+      type: Object as PropType<Note>,
+      required: true,
     },
-    display: {
-      type: String,
-      default: '',
+    previousNote: {
+      type: Object as PropType<Note>,
+      default: () => null,
+    },
+  },
+
+  methods: {
+    setAccidental(isSharp: boolean) {
+      this.accidental = isSharp ? symbols.sharp : symbols.flat;
     },
   },
 
   symbols,
-};
+});
 </script>
 
 <style>
-.sharp,
-.flat {
+.accidental {
   bottom: 0.25em;
   font-size: 0.625em;
   position: relative;

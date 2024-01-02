@@ -6,15 +6,15 @@ function octaveDown(note) {
   return `${note},`;
 }
 
-export default function writeNotiona(scale, scaleKey) {
+export default function writeNotation(scale) {
   // let previous = {
   //   position: 0,
   // };
   const notatedScale = scale.map((note, index) => {
     let notation;
-    if (note.displayFlat && scaleKey === 'flat') {
+    if (note.displayFlat === 'flat') {
       notation = `_${note.displayFlat}`;
-    } else if (note.displaySharp && scaleKey === 'sharp') {
+    } else if (note.displaySharp) {
       notation = `^${note.displaySharp}`;
     } else {
       notation = note.display;
