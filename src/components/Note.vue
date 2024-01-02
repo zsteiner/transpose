@@ -1,7 +1,10 @@
 <template>
   <span>
     {{ this.display }}
-    <span class="accidental">
+    <span
+      v-if="this.accidental"
+      class="accidental"
+    >
       {{ this.accidental }}
     </span>
     <span class="position">
@@ -33,16 +36,17 @@ export default defineComponent({
 
       let baseNote;
 
+      const isSharpOrFlat = previousNote
+        ? this.note?.previousNote[previousNote]
+        : false;
+
       if (isAccidental) {
-        const isSharpOrFlat = this.note?.previousNote[previousNote];
-
-        baseNote =
-          this.note[isSharpOrFlat] || this.note?.previousNote.displayFlat;
-
-        this.setAccidental(isSharpOrFlat === 'displaySharp');
+        baseNote = this.note[isSharpOrFlat] || this.note.displayFlat;
       } else {
         baseNote = this.note.display;
       }
+
+      this.setAccidental(isSharpOrFlat === 'displaySharp', isAccidental);
 
       return baseNote;
     },
@@ -60,8 +64,12 @@ export default defineComponent({
   },
 
   methods: {
-    setAccidental(isSharp: boolean) {
-      this.accidental = isSharp ? symbols.sharp : symbols.flat;
+    setAccidental(isSharp: boolean, isAccidental: boolean) {
+      if (isAccidental) {
+        this.accidental = isSharp ? symbols.sharp : symbols.flat;
+      } else {
+        this.accidental = null;
+      }
     },
   },
 

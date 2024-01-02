@@ -72,7 +72,7 @@ export const notes = [
     previousNote: {
       e: 'displaySharp',
       d: 'displayFlat',
-      eFlat: 'displayFlat',
+      eFlat: 'displaySharp',
     },
   },
   {
