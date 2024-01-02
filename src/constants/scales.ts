@@ -1,7 +1,22 @@
-import { ScaleNotes } from "../types";
+import { ScaleNotes } from '../types';
 
 type Scales = {
-  [key: string]: ScaleNotes[];
+  major: ScaleNotes[];
+  minor: ScaleNotes[];
+  majorPentatonic: ScaleNotes[];
+  minorPentatonic: ScaleNotes[];
+  bluesMinor: ScaleNotes[];
+  bluesMajor: ScaleNotes[];
+  dorian: ScaleNotes[];
+  phyrygian: ScaleNotes[];
+  lydian: ScaleNotes[];
+  mixolydian: ScaleNotes[];
+  locrian: ScaleNotes[];
+  gypsy: ScaleNotes[];
+  bhairav: ScaleNotes[];
+  marwa: ScaleNotes[];
+  purvi: ScaleNotes[];
+  todi: ScaleNotes[];
 };
 
 export const scales = {
@@ -22,3 +37,5 @@ export const scales = {
   purvi: ['c', 'dFlat', 'e', 'gFlat', 'g', 'aFlat', 'b', 'c'],
   todi: ['c', 'dFlat', 'eFlat', 'gFlat', 'g', 'aFlat', 'b', 'c'],
 } as Scales;
+
+export type Scale = keyof Scales;

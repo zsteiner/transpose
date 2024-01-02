@@ -1,7 +1,4 @@
-import {
-  getBaseNote,
-  getAccidentalNote,
-} from '@/utils/accidentals';
+import { getBaseNote, getAccidentalNote } from '@/utils/accidentals';
 
 export function octaveUp(note) {
   return `${note}'`;
@@ -20,12 +17,12 @@ export default function writeNotation(scale) {
     const baseNote = getBaseNote({
       note,
       previousNote,
-      nextNote
+      nextNote,
     });
     const { isAccidental, isSharp } = getAccidentalNote({
       note,
       previousNote,
-      nextNote
+      nextNote,
     });
 
     if (isAccidental) {
@@ -35,9 +32,7 @@ export default function writeNotation(scale) {
       notation = baseNote;
     }
 
-    if (
-      index === scale.length - 1
-    ) {
+    if (index === scale.length - 1) {
       notation = octaveUp(notation);
     }
 
