@@ -28,16 +28,16 @@ export default defineComponent({
 
   computed: {
     display() {
-      const previousNote = this.previousNote.note;
-      const isAccidental = !!this.note.previousNote;
+      const previousNote = this.previousNote?.note;
+      const isAccidental = !!this.note?.previousNote;
 
       let baseNote;
 
       if (isAccidental) {
-        const isSharpOrFlat = this.note.previousNote[previousNote];
+        const isSharpOrFlat = this.note?.previousNote[previousNote];
 
         baseNote =
-          this.note[isSharpOrFlat] || this.note.previousNote.displayFlat;
+          this.note[isSharpOrFlat] || this.note?.previousNote.displayFlat;
 
         this.setAccidental(isSharpOrFlat === 'displaySharp');
       } else {
@@ -55,7 +55,7 @@ export default defineComponent({
     },
     previousNote: {
       type: Object as PropType<Note>,
-      default: () => null,
+      default: () => {},
     },
   },
 
