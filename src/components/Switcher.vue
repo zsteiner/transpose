@@ -127,7 +127,7 @@ export default {
   visibility: visible;
 }
 
-@media (width >= 45rem) {
+@media (width >=45rem) {
   .switcher {
     --switch-gap: 3rem;
     --switch-size: 10rem;
