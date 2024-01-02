@@ -13,6 +13,7 @@
         :key="index"
         :note="note"
         :previous-note="scale[index - 1]"
+        :next-note="scale[index + 1]"
       />
     </p>
     <div
@@ -54,7 +55,7 @@ export default {
 
   computed: {
     syntax() {
-      return `L:4/4\n${writeNotation(this.scale)}\n"`;
+      return `L:4/4\nK:C\n${writeNotation(this.scale)}\n`;
     },
   },
 
@@ -89,6 +90,7 @@ export default {
 .container {
   margin: 0 auto;
   max-width: var(--medium);
+  padding-block-end: 4rem;
   width: 100%;
 }
 

@@ -1,16 +1,18 @@
 import { Note } from "@/types";
 
-type BothNotes = {
+type SiblingNotes = {
   note: Note,
   previousNote: Note,
+  nextNote: Note,
 };
 
-export function getBaseNote({ note, previousNote }: BothNotes) {
+export function getBaseNote({ note, previousNote, nextNote }: SiblingNotes) {
   let baseNote;
 
   const { accidentalNote, isAccidental } = getAccidentalNote({
     note,
     previousNote,
+    nextNote
   });
 
   if (isAccidental) {
@@ -22,16 +24,14 @@ export function getBaseNote({ note, previousNote }: BothNotes) {
   return baseNote;
 }
 
-export function getAccidentalNote({ note, previousNote }: BothNotes) {
+export function getAccidentalNote({ note, previousNote, nextNote }: SiblingNotes) {
   let accidentalNote = '';
   let isSharp = false;
   const isAccidental = getIsAccidental(note);
 
   if (isAccidental) {
+    accidentalNote = note?.siblingNote[nextNote?.note] || note?.siblingNote[previousNote?.note];
     isSharp = getIsSharp(accidentalNote);
-    accidentalNote = previousNote
-      ? note?.previousNote[previousNote?.note]
-      : ''
   }
 
 
@@ -43,7 +43,7 @@ export function getAccidentalNote({ note, previousNote }: BothNotes) {
 }
 
 export function getIsAccidental(note: Note) {
-  return !!note?.previousNote;
+  return !!note?.siblingNote;
 }
 
 export function getIsSharp(accidentalNote: string) {

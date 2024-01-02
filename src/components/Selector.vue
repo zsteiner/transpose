@@ -46,21 +46,19 @@ export default {
 
 <style scoped>
 .selection {
-  align-items: stretch;
   align-self: stretch;
   display: flex;
-  overflow: auto;
-  padding: 1rem;
   text-align: center;
 }
 
 .button {
   background-color: var(--white);
   border: var(--border-width) solid var(--default-light);
-  border-radius: 0.25em;
+  border-radius: var(--border-radius);
   color: var(--default-light);
   cursor: pointer;
   display: block;
+  height: var(--switch-size);
   line-height: 1;
   padding: 1rem;
   -webkit-tap-highlight-color: transparent;

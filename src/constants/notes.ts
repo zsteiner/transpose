@@ -36,7 +36,8 @@ export const notes = [
     note: 'gFlat',
     displayFlat: 'G',
     displaySharp: 'F',
-    previousNote: {
+    siblingNote: {
+      e: 'displaySharp',
       g: 'displaySharp',
       f: 'displayFlat',
       gFlat: 'displaySharp',
@@ -47,7 +48,8 @@ export const notes = [
     note: 'dFlat',
     displayFlat: 'D',
     displaySharp: 'C',
-    previousNote: {
+    siblingNote: {
+      b: 'displaySharp',
       d: 'displaySharp',
       c: 'displayFlat',
       dFlat: 'displaySharp',
@@ -58,10 +60,11 @@ export const notes = [
     note: 'aFlat',
     displayFlat: 'A',
     displaySharp: 'G',
-    previousNote: {
+    siblingNote: {
       a: 'displaySharp',
       g: 'displayFlat',
       gFlat: 'displayFlat',
+      aFlat: 'displaySharp',
     },
   },
   {
@@ -69,10 +72,11 @@ export const notes = [
     note: 'eFlat',
     displayFlat: 'E',
     displaySharp: 'D',
-    previousNote: {
+    siblingNote: {
       e: 'displaySharp',
       d: 'displayFlat',
       eFlat: 'displaySharp',
+      dFlat: 'displayFlat',
     },
   },
   {
@@ -80,9 +84,10 @@ export const notes = [
     note: 'bFlat',
     displayFlat: 'B',
     displaySharp: 'A',
-    previousNote: {
+    siblingNote: {
       b: 'displaySharp',
       a: 'displayFlat',
+      bFlat: 'displaySharp',
       aFlat: 'displayFlat',
     },
   },

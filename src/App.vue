@@ -54,6 +54,7 @@ export default {
   --spacer: 1rem;
   --input-padding: 0.75rem 1rem;
   --border-width: 0.0625rem;
+  --border-radius: 0.75rem;
 }
 
 *,

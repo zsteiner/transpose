@@ -1,6 +1,10 @@
 <template>
   <div class="scrim">
-    <section class="picker">
+    <section
+      class="picker"
+      tabindex="0"
+      @keydown.escape="handleClose"
+    >
       <button
         class="close"
         @click="handleClose"
@@ -35,7 +39,7 @@ import { instruments } from '@/constants/instruments';
 import Instrument from '@/components/Instrument.vue';
 
 export default {
-  name: 'Picker',
+  name: 'InstrumentPicker',
 
   components: {
     Instrument,
@@ -48,7 +52,7 @@ export default {
     },
   },
 
-  emits: ['click'],
+  emits: ['close'],
 
   data() {
     return {
@@ -60,7 +64,7 @@ export default {
     ...mapActions(['updateSelection']),
 
     handleClose() {
-      this.$emit('click');
+      this.$emit('close');
     },
 
     selectInstrument(instrument) {
@@ -90,12 +94,14 @@ export default {
   --size: 38rem;
 
   border-bottom: var(--list-border);
+  border-radius: var(--border-radius);
   margin: auto;
   position: relative;
 }
 
 .picker ul {
   background: rgb(255 255 255 / 95%);
+  border-radius: var(--border-radius);
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   height: 100%;

@@ -14,15 +14,18 @@ export function octaveDown(note) {
 export default function writeNotation(scale) {
   const notatedScale = scale.map((note, index) => {
     const previousNote = scale[index - 1];
+    const nextNote = scale[index + 1];
     let notation;
 
     const baseNote = getBaseNote({
       note,
-      previousNote
+      previousNote,
+      nextNote
     });
     const { isAccidental, isSharp } = getAccidentalNote({
       note,
       previousNote,
+      nextNote
     });
 
     if (isAccidental) {

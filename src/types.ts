@@ -23,7 +23,7 @@ export type Note = {
   display: string;
   displayFlat?: string;
   displaySharp?: string;
-  previousNote?: {
+  siblingNote?: {
     [key: string]: 'displaySharp' | 'displayFlat';
   };
 };

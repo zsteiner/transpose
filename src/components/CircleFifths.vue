@@ -678,10 +678,12 @@ export default {
 }
 
 .circle-menu {
-  height: 18em;
-  margin: 1rem auto;
+  --menu-size: 19rem;
+
+  height: var(--menu-size);
+  margin: var(--spacer) auto;
   max-width: 100%;
-  width: 18em;
+  width: var(--menu-size);
 }
 
 .circle-menu svg {
@@ -704,8 +706,7 @@ export default {
 
 @media (width >= 45rem) {
   .circle-menu {
-    height: 20em;
-    width: 20em;
+    --menu-size: 20rem;
   }
 }
 
@@ -737,7 +738,7 @@ export default {
 }
 
 .item .sector {
-  fill: #fff;
+  fill: var(--white);
   stroke: var(--info);
   transition: all 0.1s linear;
 }

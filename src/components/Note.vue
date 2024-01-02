@@ -26,6 +26,7 @@ export default defineComponent({
       const { isAccidental, isSharp } = getAccidentalNote({
         note: this.note,
         previousNote: this.previousNote,
+        nextNote: this.nextNote,
       });
 
       if (isAccidental) {
@@ -38,6 +39,7 @@ export default defineComponent({
       return getBaseNote({
         note: this.note,
         previousNote: this.previousNote,
+        nextNote: this.nextNote,
       });
     },
   },
@@ -51,14 +53,19 @@ export default defineComponent({
       type: Object as PropType<Note>,
       default: () => {},
     },
+    nextNote: {
+      type: Object as PropType<Note>,
+      default: () => {},
+    },
   },
 });
 </script>
 
 <style>
 .accidental {
-  bottom: 0.25em;
   font-size: 0.625em;
+  inset-block-end: 0.25em;
+  inset-inline-start: -0.5em;
   position: relative;
 }
 

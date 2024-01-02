@@ -15,7 +15,7 @@
     "lint:fix": "npm run lint:eslint && yarn run lint:style:fix",
     "lint:eslint": "eslint --ext .ts,.js,.vue --ignore-path .gitignore --fix src",
     "lint:style": "stylelint 'src/**/*.{css,vue}'",
-    "lint:style:fix": "npm run lint:style --fix"
+    "lint:style:fix": "npm run lint:style -- --fix"
   },
   "dependencies": {
     "vue": "^3.4.3",
