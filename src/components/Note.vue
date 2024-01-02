@@ -2,10 +2,10 @@
   <span>
     {{ this.baseNote }}
     <span
-      v-if="this.accidental"
+      v-if="this.accidentalLabel"
       class="accidental"
     >
-      {{ this.accidental }}
+      {{ this.accidentalLabel }}
     </span>
     <span class="position">
       {{ this.note.position }}
@@ -16,39 +16,29 @@
 <script lang="ts">
 import { Note } from '@/types';
 import { defineComponent, PropType } from 'vue';
+import { getAccidentalNote, getBaseNote } from '@/utils/accidentals';
 
 export default defineComponent({
   name: 'Note',
 
   computed: {
-    accidental() {
-      if (this.isAccidental) {
-        return this.isSharp ? '♯' : '♭';
+    accidentalLabel() {
+      const { isAccidental, isSharp } = getAccidentalNote({
+        note: this.note,
+        previousNote: this.previousNote,
+      });
+
+      if (isAccidental) {
+        return isSharp ? '♯' : '♭';
       } else {
         return null;
       }
     },
     baseNote() {
-      let baseNote;
-
-      if (this.isAccidental) {
-        baseNote = this.note[this.accidentalNote] || this.note.displayFlat;
-      } else {
-        baseNote = this.note.display;
-      }
-
-      return baseNote;
-    },
-    isAccidental() {
-      return !!this.note?.previousNote;
-    },
-    isSharp() {
-      return this.accidentalNote === 'displaySharp';
-    },
-    accidentalNote() {
-      return this.previousNote
-        ? this.note?.previousNote[this.previousNote?.note]
-        : '';
+      return getBaseNote({
+        note: this.note,
+        previousNote: this.previousNote,
+      });
     },
   },
 

@@ -53,11 +53,8 @@ export default {
   },
 
   computed: {
-    notation() {
-      return writeNotation(this.scale);
-    },
     syntax() {
-      return `L:4/4\n${this.notation}\n"`;
+      return `L:4/4\n${writeNotation(this.scale)}\n"`;
     },
   },
 

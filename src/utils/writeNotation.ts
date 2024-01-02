@@ -1,40 +1,45 @@
-function octaveUp(note) {
+import {
+  getBaseNote,
+  getAccidentalNote,
+} from '@/utils/accidentals';
+
+export function octaveUp(note) {
   return `${note}'`;
 }
 
-function octaveDown(note) {
+export function octaveDown(note) {
   return `${note},`;
 }
 
 export default function writeNotation(scale) {
-  // let previous = {
-  //   position: 0,
-  // };
   const notatedScale = scale.map((note, index) => {
+    const previousNote = scale[index - 1];
     let notation;
-    if (note.displayFlat === 'flat') {
-      notation = `_${note.displayFlat}`;
-    } else if (note.displaySharp) {
-      notation = `^${note.displaySharp}`;
+
+    const baseNote = getBaseNote({
+      note,
+      previousNote
+    });
+    const { isAccidental, isSharp } = getAccidentalNote({
+      note,
+      previousNote,
+    });
+
+    if (isAccidental) {
+      const modifier = isSharp ? '^' : '_';
+      notation = `${modifier}${baseNote}`;
     } else {
-      notation = note.display;
+      notation = baseNote;
     }
 
     if (
-      note.position === scale[0].position
-      && index !== 0
-      && note.position !== 11
-      && note.position !== 6
+      index === scale.length - 1
     ) {
       notation = octaveUp(notation);
     }
 
-    if ((note.position === 11 || note.position === 6) && index === 0) {
-      notation = octaveDown(notation);
-    }
-
-    // previous = note;
     return notation;
   });
+
   return notatedScale.join('');
 }
