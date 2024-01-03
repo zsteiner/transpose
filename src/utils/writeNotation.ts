@@ -14,7 +14,6 @@ export default function writeNotation(scale: Note[]) {
 
   const notatedScale = scale.map((note, index) => {
     const scalePosition = index + 1;
-    const circleOfFifthsPosition = note.position;
     const previousNote = scale[index - 1];
     const nextNote = scale[index + 1];
     let notation;
@@ -38,19 +37,15 @@ export default function writeNotation(scale: Note[]) {
     }
 
     const isC = note.note === 'c';
-    const isG = note.note === 'g';
-    const isD = note.note === 'd';
-    const isA = note.note === 'a';
-    const isE = note.note === 'e';
-    const isB = note.note === 'b';
-    const isGFlat = circleOfFifthsPosition === 7;
-    const isDFlat = circleOfFifthsPosition === 8;
-    const isAFlat = circleOfFifthsPosition === 9;
-    const isEFlat = circleOfFifthsPosition === 10;
-    const isBFlat = circleOfFifthsPosition === 11;
+    const isG = note.note === 'g' || note.note === 'gFlat';
+    const isD = note.note === 'd' || note.note === 'dFlat';
+    const isA = note.note === 'a' || note.note === 'aFlat';
+    const isE = note.note === 'e' || note.note === 'eFlat';
+    const isB = note.note === 'b' || note.note === 'bFlat';
     const isF = note.note === 'f';
 
     const isFirstNote = scalePosition === 1;
+    const isSecondNote = scalePosition === 2;
     const isFirstNoteB =
       (firstNote.note === 'b' || firstNote.note === 'bFlat') && !isFirstNote;
     const isFirstNoteG =
@@ -64,46 +59,35 @@ export default function writeNotation(scale: Note[]) {
     const isFirstNoteF = firstNote.note === 'f' && !isFirstNote;
 
     if (
-      (scalePosition === scale.length && !isB) ||
+      scalePosition === scale.length ||
       (isFirstNoteG && isC) ||
       (isFirstNoteG && isD) ||
       (isFirstNoteG && isE) ||
-      (isFirstNoteG && isDFlat) ||
-      (isFirstNoteG && isEFlat) ||
       (isFirstNoteG && isF) ||
       (isFirstNoteA && isC) ||
       (isFirstNoteA && isD) ||
-      (isFirstNoteA && isDFlat) ||
       (isFirstNoteA && isG) ||
-      (isFirstNoteA && isGFlat) ||
       (isFirstNoteA && isE) ||
-      (isFirstNoteA && isAFlat) ||
-      (isFirstNoteA && isEFlat) ||
+      (isFirstNoteA && isA && !isSecondNote) ||
+      (isFirstNoteA && isE) ||
       (isFirstNoteA && isF) ||
       (isFirstNoteB && isC) ||
-      (isFirstNoteB && isB && !(scalePosition === 2)) ||
+      (isFirstNoteB && isB && !isSecondNote) ||
       (isFirstNoteB && isD) ||
       (isFirstNoteB && isE) ||
-      (isFirstNoteB && isDFlat) ||
-      (isFirstNoteB && isEFlat) ||
       (isFirstNoteB && isF) ||
       (isFirstNoteB && isG) ||
-      (isFirstNoteB && isGFlat) ||
       (isFirstNoteB && isA) ||
-      (isFirstNoteB && isAFlat) ||
-      (isFirstNoteB && isBFlat) ||
-      (isFirstNoteE && isDFlat) ||
-      (isFirstNoteE && isEFlat) ||
       (isFirstNoteE && isC) ||
       (isFirstNoteE && isD) ||
-      (isFirstNoteG && isGFlat) ||
+      (isFirstNoteE && isE && !isSecondNote) ||
+      (isFirstNoteG && isG && !isSecondNote) ||
       (isFirstNoteD && isC) ||
-      (isFirstNoteD && isDFlat) ||
+      (isFirstNoteD && isD && !isSecondNote) ||
       (isFirstNoteF && isC) ||
       (isFirstNoteF && isD) ||
-      (isFirstNoteF && isDFlat) ||
-      (isFirstNoteF && isE) ||
-      (isFirstNoteF && isEFlat)
+      (isFirstNoteF && isD) ||
+      (isFirstNoteF && isE)
     ) {
       notation = octaveUp(notation);
     }
