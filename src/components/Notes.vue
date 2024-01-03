@@ -88,10 +88,7 @@ export default {
 
 <style scoped>
 .container {
-  margin: 0 auto;
-  max-width: var(--medium);
   padding-block-end: 4rem;
-  width: 100%;
 }
 
 .notes {
@@ -99,12 +96,19 @@ export default {
 }
 
 .display {
+  --notes-left-offset: 1.25rem;
+
   display: grid;
   font-size: 1.25rem;
   grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
-  margin: 2rem 0 1rem;
-  padding-left: 2.25rem;
+  padding-left: var(--notes-left-offset);
   text-align: left;
+}
+
+@media (width >= 45rem) {
+  .display {
+    --notes-left-offset: 2.25rem;
+  }
 }
 
 .display-chord {

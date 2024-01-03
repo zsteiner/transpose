@@ -96,8 +96,6 @@ export default {
   gap: var(--switch-gap);
   grid-template-columns: var(--switch-size) min-content var(--switch-size);
   justify-content: center;
-  margin: 0 auto;
-  padding: 2rem 0;
 }
 
 .arrow {

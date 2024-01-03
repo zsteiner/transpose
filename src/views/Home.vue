@@ -1,5 +1,5 @@
 <template>
-  <article class="container">
+  <article class="layout-selection">
     <TransposeMessage />
     <CircleFifths />
   </article>

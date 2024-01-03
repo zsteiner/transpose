@@ -74,7 +74,7 @@ export default {
 .wrapper {
   border: var(--border-width) solid var(--info);
   color: var(--default);
-  margin: 2rem auto 4rem;
+  margin: 0 auto;
   max-width: 25rem;
   min-width: 18rem;
   position: relative;
