@@ -41,25 +41,21 @@ export default function writeNotation(scale: Note[]) {
     const isD = note.note === 'd' || note.note === 'dFlat';
     const isA = note.note === 'a' || note.note === 'aFlat';
     const isE = note.note === 'e' || note.note === 'eFlat';
-    const isB = note.note === 'b' || note.note === 'bFlat';
     const isF = note.note === 'f';
 
     const isFirstNote = scalePosition === 1;
     const isSecondNote = scalePosition === 2;
-    const isFirstNoteB =
-      (firstNote.note === 'b' || firstNote.note === 'bFlat') && !isFirstNote;
-    const isFirstNoteG =
-      (firstNote.note === 'g' || firstNote.note === 'gFlat') && !isFirstNote;
-    const isFirstNoteD =
-      (firstNote.note === 'd' || firstNote.note === 'dFlat') && !isFirstNote;
-    const isFirstNoteA =
-      (firstNote.note === 'a' || firstNote.note === 'aFlat') && !isFirstNote;
-    const isFirstNoteE =
-      (firstNote.note === 'e' || firstNote.note === 'eFlat') && !isFirstNote;
+    const isFirstNoteB = firstNote.note === 'b' || firstNote.note === 'bFlat';
+    const isFirstNoteG = firstNote.note === 'g' || firstNote.note === 'gFlat';
+    const isFirstNoteD = firstNote.note === 'd' || firstNote.note === 'dFlat';
+    const isFirstNoteA = firstNote.note === 'a' || firstNote.note === 'aFlat';
+    const isFirstNoteE = firstNote.note === 'e' || firstNote.note === 'eFlat';
     const isFirstNoteF = firstNote.note === 'f' && !isFirstNote;
 
+    const isNotFirstTwoNotes = !isFirstNote && !isSecondNote;
+
     if (
-      scalePosition === scale.length ||
+      (scalePosition === scale.length && !isFirstNoteB) ||
       (isFirstNoteG && isC) ||
       (isFirstNoteG && isD) ||
       (isFirstNoteG && isE) ||
@@ -68,28 +64,23 @@ export default function writeNotation(scale: Note[]) {
       (isFirstNoteA && isD) ||
       (isFirstNoteA && isG) ||
       (isFirstNoteA && isE) ||
-      (isFirstNoteA && isA && !isSecondNote) ||
+      (isFirstNoteA && isA && isNotFirstTwoNotes) ||
       (isFirstNoteA && isE) ||
       (isFirstNoteA && isF) ||
-      (isFirstNoteB && isC) ||
-      (isFirstNoteB && isB && !isSecondNote) ||
-      (isFirstNoteB && isD) ||
-      (isFirstNoteB && isE) ||
-      (isFirstNoteB && isF) ||
-      (isFirstNoteB && isG) ||
-      (isFirstNoteB && isA) ||
       (isFirstNoteE && isC) ||
       (isFirstNoteE && isD) ||
-      (isFirstNoteE && isE && !isSecondNote) ||
-      (isFirstNoteG && isG && !isSecondNote) ||
+      (isFirstNoteE && isE && isNotFirstTwoNotes) ||
+      (isFirstNoteG && isG && isNotFirstTwoNotes) ||
       (isFirstNoteD && isC) ||
-      (isFirstNoteD && isD && !isSecondNote) ||
+      (isFirstNoteD && isD && isNotFirstTwoNotes) ||
       (isFirstNoteF && isC) ||
       (isFirstNoteF && isD) ||
       (isFirstNoteF && isD) ||
       (isFirstNoteF && isE)
     ) {
       notation = octaveUp(notation);
+    } else if (isFirstNote && isFirstNoteB) {
+      notation = octaveDown(notation);
     }
 
     return notation;
