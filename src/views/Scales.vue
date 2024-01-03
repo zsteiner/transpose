@@ -1,5 +1,5 @@
 <template>
-  <article class="container">
+  <article>
     <TransposedScales />
   </article>
 </template>

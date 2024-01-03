@@ -25,16 +25,27 @@ export default {
 
 <style scoped>
 .app {
+  display: grid;
+  gap: var(--layout-gap);
   font-family: 'Source Serif Variable', 'Source Serif', Georgia, serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  max-width: var(--medium);
+  padding: var(--spacer) var(--spacer) 6rem;
+  margin: 0 auto;
 }
 
-.container {
-  margin: 0 auto;
-  max-width: 75rem;
-  padding: var(--spacer) (--spacer) 6rem;
-  text-align: center;
+.app >>> .layout-selection {
+  align-content: center;
+  grid-template-rows: auto 1fr;
+  display: grid;
+}
+
+.app >>> .layout-tools {
+  display: grid;
+  padding-top: var(--layout-gap);
+  gap: var(--layout-gap);
+  width: 100%;
 }
 </style>
 
@@ -51,7 +62,10 @@ export default {
   --white: #fff;
   --link-light: hsl(197deg 100% 50%);
   --medium: 45rem;
+  --large: 75rem;
   --spacer: 1rem;
+  --spacer-double: 2rem;
+  --layout-gap: var(--spacer);
   --input-padding: 0.75rem 1rem;
   --border-width: 0.0625rem;
   --border-radius: 0.75rem;
@@ -90,5 +104,11 @@ body {
   inset: 0;
   position: fixed;
   z-index: 1;
+}
+
+@media (width >= 45rem) {
+  :root {
+    --layout-gap: var(--spacer-double);
+  }
 }
 </style>

@@ -1,24 +1,26 @@
 <template>
-  <section>
+  <section class="layout-selection">
     <TransposeMessage />
     <CircleFifths />
-    <SelectList
-      v-model="scaleName"
-      name="scales"
-      label="Scales"
-      :options="scaleOptions"
-    />
-    <Notes
-      v-if="originalNote.note"
-      :scale="originalScale"
-      type="scale"
-    />
-    <Notes
-      v-if="transposedNote?.note && originalNote.note !== transposedNote.note"
-      :scale="transposedScale"
-      :transpose="transposeFactor"
-      type="scale"
-    />
+    <div class="layout-tools">
+      <SelectList
+        v-model="scaleName"
+        name="scales"
+        label="Scales"
+        :options="scaleOptions"
+      />
+      <Notes
+        v-if="originalNote.note"
+        :scale="originalScale"
+        type="scale"
+      />
+      <Notes
+        v-if="transposedNote?.note && originalNote.note !== transposedNote.note"
+        :scale="transposedScale"
+        :transpose="transposeFactor"
+        type="scale"
+      />
+    </div>
   </section>
 </template>
 
@@ -70,10 +72,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.scale {
-  margin: auto;
-  max-width: var(--medium);
-}
-</style>

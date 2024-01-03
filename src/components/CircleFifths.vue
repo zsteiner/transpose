@@ -681,14 +681,13 @@ export default {
   --menu-size: 19rem;
 
   height: var(--menu-size);
-  margin: var(--spacer) auto;
   max-width: 100%;
   width: var(--menu-size);
+  margin: 0 auto;
 }
 
 .circle-menu svg {
   display: block;
-  margin: 0 auto;
   overflow: visible;
   position: relative;
 }
