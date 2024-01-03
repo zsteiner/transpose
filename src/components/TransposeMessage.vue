@@ -55,9 +55,9 @@ export default {
 
 <style scoped>
 .message {
-  text-align: center;
   font-size: 0.875rem;
   min-height: 2em;
+  text-align: center;
 }
 
 @media (width >= 45rem) {
