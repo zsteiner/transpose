@@ -74,10 +74,10 @@ export default {
 .wrapper {
   border: var(--border-width) solid var(--info);
   color: var(--default);
+  margin: 0 auto;
   max-width: 25rem;
   min-width: 18rem;
   position: relative;
-  margin: 0 auto;
 }
 
 .wrapper input,

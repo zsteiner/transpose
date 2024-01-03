@@ -26,25 +26,25 @@ export default {
 <style scoped>
 .app {
   display: grid;
-  gap: var(--layout-gap);
   font-family: 'Source Serif Variable', 'Source Serif', Georgia, serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  gap: var(--layout-gap);
+  margin: 0 auto;
   max-width: var(--medium);
   padding: var(--spacer) var(--spacer) 6rem;
-  margin: 0 auto;
 }
 
 .app >>> .layout-selection {
   align-content: center;
-  grid-template-rows: auto 1fr;
   display: grid;
+  grid-template-rows: auto 1fr;
 }
 
 .app >>> .layout-tools {
   display: grid;
-  padding-top: var(--layout-gap);
   gap: var(--layout-gap);
+  padding-top: var(--layout-gap);
   width: 100%;
 }
 </style>
