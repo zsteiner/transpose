@@ -8,14 +8,26 @@
       class="arrow"
       icon="arrow-right"
     />
-    <Selector
-      :instrument="instrument2"
-      @click="togglePicker(2)"
-    />
-    <Picker
+    <div class="buttonContainer">
+      <Selector
+        :instrument="instrument2"
+        @click="togglePicker(2)"
+      />
+      <button
+        v-show="instrument2"
+        :class="{
+          clearVisible: instrument2,
+          clear: true,
+        }"
+        @click="clearSelection(2)"
+      >
+        clear selection
+      </button>
+    </div>
+    <InstrumentPicker
       v-if="showPicker"
       :selection="selection"
-      @click="togglePicker"
+      @close="togglePicker"
     />
   </section>
 </template>
@@ -24,15 +36,16 @@
 import { mapState } from 'vuex';
 
 import Icon from '@/components/Icon.vue';
-import Picker from '@/components/Picker.vue';
+import InstrumentPicker from '@/components/InstrumentPicker.vue';
 import Selector from '@/components/Selector.vue';
+import { mapActions } from 'vuex';
 
 export default {
   name: 'Switcher',
 
   components: {
     Icon,
-    Picker,
+    InstrumentPicker,
     Selector,
   },
 
@@ -48,6 +61,15 @@ export default {
   },
 
   methods: {
+    ...mapActions(['updateSelection']),
+
+    clearSelection(selection) {
+      this.updateSelection({
+        selection: selection,
+        instrument: null,
+      });
+    },
+
     togglePicker(selection) {
       this.selection = selection;
       this.showPicker = !this.showPicker;
@@ -66,29 +88,50 @@ export default {
 
 <style scoped>
 .switcher {
+  --switch-size: 8rem;
+  --switch-gap: var(--spacer);
+
   align-items: center;
   display: grid;
-  grid-gap: 1rem;
-  grid-template-columns: 8rem min-content 8rem;
-  grid-template-rows: 8rem;
+  gap: var(--switch-gap);
+  grid-template-columns: var(--switch-size) min-content var(--switch-size);
   justify-content: center;
-  margin: 2rem auto 0;
+  margin: 0 auto;
+  padding: 2rem 0;
 }
 
 .arrow {
   color: var(--info);
-  font-size: 1em;
+  font-size: var(--arrow-size, var(--spacer));
 }
 
-@media (width >= 45rem) {
-  .switcher {
-    gap: 2rem;
-    grid-template-columns: 10rem min-content 10rem;
-    grid-template-rows: 10rem;
-  }
+.buttonContainer {
+  align-self: start;
+  display: grid;
+  gap: var(--spacer);
+  grid-template-rows: 1fr auto;
+}
 
-  .arrow {
-    font-size: 2em;
+.clear {
+  background: none;
+  border: 0;
+  color: var(--link-light);
+  font-size: 0.75rem;
+  opacity: 0;
+  text-decoration: underline;
+  visibility: hidden;
+}
+
+.clearVisible {
+  opacity: 1;
+  visibility: visible;
+}
+
+@media (width >=45rem) {
+  .switcher {
+    --switch-gap: 3rem;
+    --switch-size: 10rem;
+    --arrow-size: 2rem;
   }
 }
 </style>

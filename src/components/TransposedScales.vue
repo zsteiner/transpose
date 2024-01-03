@@ -11,13 +11,11 @@
     <Notes
       v-if="originalNote.note"
       :scale="originalScale"
-      :scale-key="originalScaleKey"
       type="scale"
     />
     <Notes
       v-if="transposedNote?.note && originalNote.note !== transposedNote.note"
       :scale="transposedScale"
-      :scale-key="transposedScaleKey"
       :transpose="transposeFactor"
       type="scale"
     />
@@ -30,7 +28,6 @@ import CircleFifths from '@/components/CircleFifths.vue';
 import Notes from '@/components/Notes.vue';
 import SelectList from '@/components/SelectList.vue';
 import TransposeMessage from '@/components/TransposeMessage.vue';
-import { scaleKeys } from '@/constants/scaleKeys';
 import { scales } from '@/constants/scales';
 import transposeScale from '@/utils/transposeScale';
 import { scaleOptions } from '@/constants/options';
@@ -69,17 +66,6 @@ export default {
       const offset = this.transposedNote.position - 1;
 
       return transposeScale(this.selectedScale, offset);
-    },
-
-    originalScaleKey() {
-      return scaleKeys[this.originalNote.note][this.scaleName];
-    },
-
-    transposedScaleKey() {
-      if (this.transposedNote?.note) {
-        return scaleKeys[this.transposedNote.note][this.scaleName];
-      }
-      return null;
     },
   },
 };

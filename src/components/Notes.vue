@@ -12,7 +12,8 @@
         v-for="(note, index) in scale"
         :key="index"
         :note="note"
-        :display="scaleKey"
+        :previous-note="scale[index - 1]"
+        :next-note="scale[index + 1]"
       />
     </p>
     <div
@@ -27,6 +28,8 @@ import abcjs from 'abcjs';
 import 'abcjs/abcjs-audio.css';
 import Note from '@/components/Note.vue';
 import writeNotation from '@/utils/writeNotation';
+import { PropType } from 'vue';
+import { Note as NoteType } from '@/types';
 
 export default {
   name: 'Notes',
@@ -37,7 +40,7 @@ export default {
 
   props: {
     scale: {
-      type: Array,
+      type: Array as PropType<NoteType[]>,
       default: () => [],
     },
     scaleKey: {
@@ -51,11 +54,8 @@ export default {
   },
 
   computed: {
-    notation() {
-      return writeNotation(this.scale, this.scaleKey);
-    },
     syntax() {
-      return `L:4/4\n${this.notation}\n"`;
+      return `L:4/4\nK:C\n${writeNotation(this.scale)}\n`;
     },
   },
 
@@ -85,10 +85,12 @@ export default {
   },
 };
 </script>
+
 <style scoped>
 .container {
   margin: 0 auto;
   max-width: var(--medium);
+  padding-block-end: 4rem;
   width: 100%;
 }
 

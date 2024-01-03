@@ -44,7 +44,7 @@ export default {
       default: '',
     },
     options: {
-      type: [] as PropType<Option[]>,
+      type: Array as PropType<Option[]>,
       required: true,
     },
     readonly: Boolean,

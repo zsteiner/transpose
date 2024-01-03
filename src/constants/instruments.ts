@@ -1,4 +1,4 @@
-import { Instrument } from "@/types";
+import { Instrument } from '@/types';
 
 type InstrumentList = {
   [key: string]: Instrument;

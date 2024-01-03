@@ -1,63 +1,71 @@
 <template>
-  <span v-if="note.displayFlat && display === 'both'">
-    {{ note.displayFlat }}<span class="flat">{{ $options.symbols.flat }}</span>
-    {{ ' / ' }}
-    {{ note.displaySharp
-    }}<span class="sharp">{{ $options.symbols.sharp }}</span>
-    <div class="position">
-      {{ note.position }}
-    </div>
-  </span>
-  <span v-else-if="note.displayFlat && display === 'sharp'">
-    {{ note.displaySharp
-    }}<span class="sharp">{{ $options.symbols.sharp }}</span>
-    <div class="position">
-      {{ note.position }}
-    </div>
-  </span>
-  <span v-else-if="note.displayFlat && display === 'flat'">
-    {{ note.displayFlat }}<span class="flat">{{ $options.symbols.flat }}</span>
-    <div class="position">
-      {{ note.position }}
-    </div>
-  </span>
-  <span v-else>
-    {{ note.display }}
-    <div class="position">
-      {{ note.position }}
-    </div>
+  <span>
+    {{ this.baseNote }}
+    <span
+      v-if="this.accidentalLabel"
+      class="accidental"
+    >
+      {{ this.accidentalLabel }}
+    </span>
+    <span class="position">
+      {{ this.note.position }}
+    </span>
   </span>
 </template>
 
 <script lang="ts">
-const symbols = {
-  flat: '♭',
-  sharp: '♯',
-};
+import { Note } from '@/types';
+import { defineComponent, PropType } from 'vue';
+import { getAccidentalNote, getBaseNote } from '@/utils/accidentals';
 
-export default {
+export default defineComponent({
   name: 'Note',
 
-  props: {
-    note: {
-      type: Object,
-      default: () => ({}),
+  computed: {
+    accidentalLabel() {
+      const { isAccidental, isSharp } = getAccidentalNote({
+        note: this.note,
+        previousNote: this.previousNote,
+        nextNote: this.nextNote,
+      });
+
+      if (isAccidental) {
+        return isSharp ? '♯' : '♭';
+      } else {
+        return null;
+      }
     },
-    display: {
-      type: String,
-      default: '',
+    baseNote() {
+      return getBaseNote({
+        note: this.note,
+        previousNote: this.previousNote,
+        nextNote: this.nextNote,
+      });
     },
   },
 
-  symbols,
-};
+  props: {
+    note: {
+      type: Object as PropType<Note>,
+      required: true,
+    },
+    previousNote: {
+      type: Object as PropType<Note>,
+      default: () => {},
+    },
+    nextNote: {
+      type: Object as PropType<Note>,
+      default: () => {},
+    },
+  },
+});
 </script>
 
 <style>
-.sharp,
-.flat {
-  bottom: 0.25em;
+.accidental {
   font-size: 0.625em;
+  inset-block-end: 0.25em;
+  inset-inline-start: -0.5em;
   position: relative;
 }
 
