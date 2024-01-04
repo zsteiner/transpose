@@ -1,5 +1,5 @@
 <template>
-  <section class="container">
+  <section>
     <p :class="'display'">
       <Note
         v-for="(note, index) in scale"
@@ -81,10 +81,6 @@ export default {
 </script>
 
 <style scoped>
-.container {
-  padding-block-end: 4rem;
-}
-
 .notes {
   width: 100%;
 }

@@ -35,16 +35,26 @@ export default {
 
 <style scoped>
 .header {
+  --logo-height: 2rem;
+  --header-gap: var(--spacer);
+
   display: flex;
-  gap: 1.5rem;
+  gap: var(--header-gap);
   justify-content: center;
-  padding-top: 1.5rem;
+  align-items: center;
   text-align: center;
 }
 
 .logo {
-  height: 3rem;
+  height: var(--logo-height);
   width: auto;
+}
+
+@media (width >= 45rem) {
+  .header {
+    --logo-height: 3rem;
+    --header-gap: 2rem;
+  }
 }
 
 .nav {
