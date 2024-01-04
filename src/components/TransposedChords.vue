@@ -1,25 +1,29 @@
 <template>
-  <section>
+  <section class="layout-selection">
     <TransposeMessage />
     <CircleFifths />
-    <SelectList
-      v-model="chordName"
-      name="chords"
-      label="Chords"
-      :options="chordOptions"
-    />
-    <div class="chords">
-      <Notes
-        v-if="originalNote.note"
-        :scale="originalChord"
-        type="chord"
+    <div class="layout-tools">
+      <SelectList
+        v-model="chordName"
+        name="chords"
+        label="Chords"
+        :options="chordOptions"
       />
-      <Notes
-        v-if="transposedNote?.note && originalNote.note !== transposedNote.note"
-        :scale="transposedChord"
-        :transpose="transposeFactor"
-        type="chord"
-      />
+      <div class="chords">
+        <Notes
+          v-if="originalNote.note"
+          :scale="originalChord"
+          type="chord"
+        />
+        <Notes
+          v-if="
+            transposedNote?.note && originalNote.note !== transposedNote.note
+          "
+          :scale="transposedChord"
+          :transpose="transposeFactor"
+          type="chord"
+        />
+      </div>
     </div>
   </section>
 </template>
