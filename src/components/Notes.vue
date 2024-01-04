@@ -86,7 +86,7 @@ export default {
 }
 
 .display {
-  --notes-left-offset: 1.25rem;
+  --notes-left-offset: 2rem;
 
   display: grid;
   font-size: 1.25rem;

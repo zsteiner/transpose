@@ -78,6 +78,6 @@ export default {
 .chords {
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(2, minmax(12rem, 50%));
+  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
 }
 </style>
