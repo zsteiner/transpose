@@ -38,10 +38,10 @@ export default {
   --logo-height: 2rem;
   --header-gap: var(--spacer);
 
+  align-items: center;
   display: flex;
   gap: var(--header-gap);
   justify-content: center;
-  align-items: center;
   text-align: center;
 }
 
