@@ -65,7 +65,7 @@ export default defineComponent({
 .accidental {
   font-size: 0.625em;
   inset-block-end: 0.25em;
-  inset-inline-start: -0.5em;
+  inset-inline-start: -0.325em;
   position: relative;
 }
 
