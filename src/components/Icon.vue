@@ -90,6 +90,6 @@ export default {
 
 .inline {
   bottom: -0.125em;
-  margin-right: 0.25em;
+  margin-inline-end: 0.25em;
 }
 </style>

@@ -83,7 +83,7 @@ export default {
   display: inline-block;
   font-size: calc(var(--icon-size) * 0.75);
   line-height: 1;
-  margin-bottom: 0.5rem;
+  margin-block-end: 0.5rem;
 }
 
 .name {
@@ -110,12 +110,12 @@ export default {
 @media (width >= 45rem) {
   .icon {
     font-size: var(--icon-size);
-    margin-bottom: 0.5rem;
+    margin-block-end: 0.5rem;
   }
 
   .key-icon {
     font-size: var(--icon-size);
-    margin-bottom: 1rem;
+    margin-block-end: 1rem;
   }
 }
 </style>

@@ -44,7 +44,7 @@ export default {
 .app >>> .layout-tools {
   display: grid;
   gap: var(--layout-gap);
-  padding-top: var(--layout-gap);
+  padding-block-start: var(--layout-gap);
   width: 100%;
 }
 </style>

@@ -60,6 +60,7 @@ export default {
 .nav {
   align-items: center;
   display: flex;
+  gap: var(--spacer);
 }
 
 .link {
@@ -67,10 +68,6 @@ export default {
   color: var(--secondary);
   padding: 0.5rem 0;
   text-decoration-line: none;
-}
-
-.link:not(:last-of-type) {
-  margin-right: 1rem;
 }
 
 .link.router-link-exact-active {
