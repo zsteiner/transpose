@@ -1,7 +1,7 @@
 import { createStore } from 'vuex';
 import { instruments } from '@/constants/instruments';
 import { notes } from '@/constants/notes';
-import transposeNotes from '@/utils/transposeNotes';
+import { transposeNote } from '@/utils/transposeNote';
 import { Instrument, Note } from '@/types';
 
 export type State = {
@@ -34,7 +34,7 @@ export default createStore<State>({
     },
     SET_NOTES(state, originalNote) {
       const { transposeFactor } = state;
-      const transposedNote = transposeNotes(originalNote, transposeFactor);
+      const transposedNote = transposeNote(originalNote, transposeFactor);
 
       state.originalNote = {
         position: originalNote,

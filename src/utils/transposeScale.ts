@@ -1,11 +1,11 @@
-import transposeNotes from './transposeNotes';
+import { transposeNote } from './transposeNote';
 import findNotePosition from './findNotePosition';
 import buildNotes from './buildNotes';
-import { ScaleNotes } from '../types';
+import { ScaleConfig } from '../types';
 
-export default function transposeScale(scale: ScaleNotes[], transposeFactor) {
-  const transposedScale = scale.map((note) => {
-    const transposedNote = transposeNotes(
+export default function transposeScale(scale: ScaleConfig, transposeFactor) {
+  const transposedScale = scale.notes.map((note) => {
+    const transposedNote = transposeNote(
       findNotePosition(note),
       transposeFactor,
     );

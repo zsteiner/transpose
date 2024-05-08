@@ -15,6 +15,11 @@ export type ScaleNotes =
   | 'aFlat'
   | 'gFlat';
 
+export type ScaleConfig = {
+  notes: ScaleNotes[];
+  key: string;
+};
+
 export type Key = 'eFlat' | 'bFlat' | 'c' | 'f';
 
 export type Option = {

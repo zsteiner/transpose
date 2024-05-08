@@ -32,13 +32,17 @@ export default {
   },
 
   props: {
+    scaleKey: {
+      type: String,
+      default: '',
+    },
     scale: {
       type: Array as PropType<NoteType[]>,
       default: () => [],
     },
-    scaleKey: {
-      type: String,
-      default: '',
+    transpose: {
+      type: Number,
+      default: 0,
     },
     type: {
       type: String,
@@ -48,7 +52,7 @@ export default {
 
   computed: {
     syntax() {
-      return `L:4/4\nK:C\n${writeNotation(this.scale)}`;
+      return `L:4/4\nK:${this.scaleKey}\n${writeNotation(this.scale)}`;
     },
   },
 
@@ -74,6 +78,7 @@ export default {
         viewportHorizontal: false,
         responsive: 'resize',
         staffwidth,
+        visualTranspose: this.transpose,
       });
     },
   },

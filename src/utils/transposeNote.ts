@@ -1,7 +1,4 @@
-export default function transposeNotes(
-  originalNote: number,
-  transposeFactor: number,
-) {
+export function transposeNote(originalNote: number, transposeFactor: number) {
   let transposedNote;
 
   if (originalNote + transposeFactor <= 0) {

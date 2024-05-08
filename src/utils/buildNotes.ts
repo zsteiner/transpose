@@ -5,7 +5,7 @@ export default function buildNotes(scale) {
   let mapScale = scale;
 
   if (typeof scale[0] === 'string') {
-    mapScale = scale.map((note) => findNotePosition(note));
+    mapScale = scale.notes.map((note) => findNotePosition(note));
   }
 
   return mapScale.map((note) => notes[note - 1]);

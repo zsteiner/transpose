@@ -1,16 +1,16 @@
 const scales = {
-  major: ['c', 'e', 'g'],
-  power: ['c', 'g'],
-  suspended4th: ['c', 'f', 'g'],
-  majorAdd9: ['c', 'e', 'g', 'd'],
-  major7: ['c', 'e', 'g', 'b'],
-  major7Sharp: ['c', 'e', 'g', 'gFlat'],
-  major9: ['c', 'e', 'g', 'b', 'd'],
-  major13: ['c', 'e', 'g', 'b', 'd', 'a'],
-  minor: ['c', 'eFlat', 'g'],
-  minorAdd9: ['c', 'eFlat', 'g', 'd'],
-  minor6: ['c', 'eFlat', 'g', 'a'],
-  minorAdd11: ['c', 'eFlat', 'g', 'f'],
+  major: { notes: ['c', 'e', 'g'], key: 'c' },
+  power: { note: ['c', 'g'], key: 'c' },
+  suspended4th: { note: ['c', 'f', 'g'], key: 'c' },
+  majorAdd9: { note: ['c', 'e', 'g', 'd'], key: 'c' },
+  major7: { note: ['c', 'e', 'g', 'b'], key: 'c' },
+  major7Sharp: { note: ['c', 'e', 'g', 'gFlat'], key: 'c' },
+  major9: { note: ['c', 'e', 'g', 'b', 'd'], key: 'c' },
+  major13: { note: ['c', 'e', 'g', 'b', 'd', 'a'], key: 'c' },
+  minor: { note: ['c', 'eFlat', 'g'], key: 'c' },
+  minorAdd9: { note: ['c', 'eFlat', 'g', 'd'], key: 'c' },
+  minor6: { note: ['c', 'eFlat', 'g', 'a'], key: 'c' },
+  minorAdd11: { note: ['c', 'eFlat', 'g', 'f'], key: 'c' },
 };
 
 export default scales;

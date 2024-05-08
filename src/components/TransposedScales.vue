@@ -12,11 +12,13 @@
       <Notes
         v-if="originalNote.note"
         :scale="originalScale"
+        :scale-key="originalKey"
         type="scale"
       />
       <Notes
         v-if="transposedNote?.note && originalNote.note !== transposedNote.note"
         :scale="transposedScale"
+        :scale-key="transposedKey"
         :transpose="transposeFactor"
         type="scale"
       />
@@ -32,6 +34,7 @@ import SelectList from '@/components/SelectList.vue';
 import TransposeMessage from '@/components/TransposeMessage.vue';
 import { scales } from '@/constants/scales';
 import transposeScale from '@/utils/transposeScale';
+import { transposeNote } from '@/utils/transposeNote';
 import { scaleOptions } from '@/constants/options';
 
 export default {
@@ -64,10 +67,22 @@ export default {
       return transposeScale(this.selectedScale, offset);
     },
 
+    originalKey() {
+      const offset = this.originalNote.position - 1;
+
+      return transposeNote(this.selectedScale.key, offset);
+    },
+
     transposedScale() {
       const offset = this.transposedNote.position - 1;
 
       return transposeScale(this.selectedScale, offset);
+    },
+
+    transposedKey() {
+      const offset = this.transposedNote.position - 1;
+
+      return transposeNote(this.selectedScale.key, offset);
     },
   },
 };
