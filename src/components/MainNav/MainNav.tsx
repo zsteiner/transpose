@@ -1,32 +1,54 @@
 'use client'
+import classnames from 'classnames';
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 import { Logo } from './Logo';
 import styles from "./nav.module.css";
 
+type NavLinkProps = {
+  href: string;
+  children: React.ReactNode;
+};
+
 export const MainNav = () => {
+  const pathname = usePathname();
+
+  const NavLink = ({ href, children }: NavLinkProps) => {
+    return (
+      <Link
+        className={classnames(styles.link, {
+          [styles.active]: pathname === href,
+        })}
+        href={href}
+      >
+        {children}
+      </Link>
+    )
+  }
+
   return (
     <header className={styles.header}>
-      <Logo className={styles.logo} />
+      <Link className={styles.logoLink} href="/">
+        <Logo className={styles.logo} />
+      </Link>
       <nav className={styles.nav}>
-        <Link
-          className={styles.link}
+        <NavLink
+
           href="/"
         >
           Notes
-        </Link>
-        <Link
-          className={styles.link}
+        </NavLink>
+        <NavLink
           href="/chords"
         >
           Chords
-        </Link>
-        <Link
-          className={styles.link}
+        </NavLink>
+        <NavLink
           href="/scales"
         >
           Scales
-        </Link>
+        </NavLink>
       </nav>
     </header>
   )

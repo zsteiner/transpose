@@ -9,13 +9,13 @@
   text-align: center;
 }
 
+.logoLink {
+  display: block;
+}
+
 .logo {
   height: var(--logo-height);
   width: auto;
-}
-
-.logo img {
-  object-fit: cover;
 }
 
 @media (width >= 45rem) {
@@ -38,6 +38,6 @@
   text-decoration-line: none;
 }
 
-.link.router-link-exact-active {
+.active {
   border-color: currentcolor;
 }
