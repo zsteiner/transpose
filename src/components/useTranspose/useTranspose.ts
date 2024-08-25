@@ -52,18 +52,12 @@ export const useTransposeState = () => {
     const instrument2TransposeFactor = instrument2?.transposeFactor || 0;
     const transposeFactor = instrument2TransposeFactor - instrument1TransposeFactor;
 
-    console.log({
-      instrument1TransposeFactor,
-      instrument2TransposeFactor,
-      transposeFactor,
-    })
-
     if (instrument2) {
       setTransposedNote(
         notes[transposeNote(originalNote.position, transposeFactor) - 1]
       );
     }
-  }, [originalNote, instrument1, instrument2]);
+  }, [originalNote, instrument1, instrument2, setTransposedNote]);
 
   return {
     originalNote,

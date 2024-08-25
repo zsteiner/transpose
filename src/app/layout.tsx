@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import { Source_Serif_4 } from "next/font/google";
 import { ReactNode } from 'react';
 
-import { IconSet } from '@/components/IconSet';
+import { IconSet } from '@/components/Icon';
 
 const fontFamily = Source_Serif_4({ subsets: ["latin"], style: ['normal', 'italic'], });
 
