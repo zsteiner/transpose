@@ -248,19 +248,19 @@ export const CircleFifths = () => {
             <use
               className={styles.note}
               height="40"
+              href="#icon-1"
               transform="rotate(90 415 210)"
               width="40"
               x="394.2073974609375"
-              xlinkHref="#icon-1"
               y="186.00076293945312"
             ></use>
             <use
               className={styles.indicator}
               height="40"
+              href="#indicator"
               transform="rotate(210 457 182)"
               width="40"
               x="394.2073974609375"
-              xlinkHref="#indicator"
               y="186.00076293945312"
             ></use>
           </NoteItem>
@@ -276,19 +276,19 @@ export const CircleFifths = () => {
             <use
               className={styles.note}
               height="40"
+              href="#icon-2"
               transform="rotate(60 415 210)"
               width="40"
               x="394.2073974609375"
-              xlinkHref="#icon-2"
               y="186.00076293945312"
             ></use>
             <use
               className={styles.indicator}
               height="40"
+              href="#indicator"
               transform="rotate(210 457 182)"
               width="40"
               x="394.2073974609375"
-              xlinkHref="#indicator"
               y="186.00076293945312"
             ></use>
           </NoteItem>
@@ -305,19 +305,19 @@ export const CircleFifths = () => {
             <use
               className={styles.note}
               height="40"
+              href="#icon-3"
               transform="rotate(30 415 210)"
               width="40"
               x="394.2073974609375"
-              xlinkHref="#icon-3"
               y="186.00076293945312"
             ></use>
             <use
               className={styles.indicator}
               height="40"
+              href="#indicator"
               transform="rotate(210 457 182)"
               width="40"
               x="394.2073974609375"
-              xlinkHref="#indicator"
               y="186.00076293945312"
             ></use>
           </NoteItem>
@@ -334,19 +334,19 @@ export const CircleFifths = () => {
             <use
               className={styles.note}
               height="40"
+              href="#icon-4"
               transform="rotate(0 415 210)"
               width="40"
               x="394.2073974609375"
-              xlinkHref="#icon-4"
               y="186.00076293945312"
             ></use>
             <use
               className={styles.indicator}
               height="40"
+              href="#indicator"
               transform="rotate(210 457 182)"
               width="40"
               x="394.2073974609375"
-              xlinkHref="#indicator"
               y="186.00076293945312"
             ></use>
           </NoteItem>
@@ -363,19 +363,19 @@ export const CircleFifths = () => {
             <use
               className={styles.note}
               height="40"
+              href="#icon-5"
               transform="rotate(330 415 210)"
               width="40"
               x="394.2073974609375"
-              xlinkHref="#icon-5"
               y="186.00076293945312"
             ></use>
             <use
               className={styles.indicator}
               height="40"
+              href="#indicator"
               transform="rotate(210 457 182)"
               width="40"
               x="394.2073974609375"
-              xlinkHref="#indicator"
               y="186.00076293945312"
             ></use>
           </NoteItem>
@@ -392,19 +392,19 @@ export const CircleFifths = () => {
             <use
               className={styles.note}
               height="40"
+              href="#icon-6"
               transform="rotate(300 415 210)"
               width="40"
               x="394.2073974609375"
-              xlinkHref="#icon-6"
               y="186.00076293945312"
             ></use>
             <use
               className={styles.indicator}
               height="40"
+              href="#indicator"
               transform="rotate(210 457 182)"
               width="40"
               x="394.2073974609375"
-              xlinkHref="#indicator"
               y="186.00076293945312"
             ></use>
           </NoteItem>
@@ -421,19 +421,19 @@ export const CircleFifths = () => {
             <use
               className={styles.note}
               height="40"
+              href="#icon-7"
               transform="rotate(270 412 207)"
               width="40"
               x="394.2073974609375"
-              xlinkHref="#icon-7"
               y="186.00076293945312"
             ></use>
             <use
               className={styles.indicator}
               height="40"
+              href="#indicator"
               transform="rotate(210 457 182)"
               width="40"
               x="394.2073974609375"
-              xlinkHref="#indicator"
               y="186.00076293945312"
             ></use>
           </NoteItem>
@@ -450,19 +450,19 @@ export const CircleFifths = () => {
             <use
               className={styles.note}
               height="40"
+              href="#icon-8"
               transform="rotate(240 412 207)"
               width="40"
               x="394.2073974609375"
-              xlinkHref="#icon-8"
               y="186.00076293945312"
             ></use>
             <use
               className={styles.indicator}
               height="40"
+              href="#indicator"
               transform="rotate(210 457 182)"
               width="40"
               x="394.2073974609375"
-              xlinkHref="#indicator"
               y="186.00076293945312"
             ></use>
           </NoteItem>
@@ -479,19 +479,19 @@ export const CircleFifths = () => {
             <use
               className={styles.note}
               height="40"
+              href="#icon-9"
               transform="rotate(210 412 207)"
               width="40"
               x="394.2073974609375"
-              xlinkHref="#icon-9"
               y="186.00076293945312"
             ></use>
             <use
               className={styles.indicator}
               height="40"
+              href="#indicator"
               transform="rotate(210 457 182)"
               width="40"
               x="394.2073974609375"
-              xlinkHref="#indicator"
               y="186.00076293945312"
             ></use>
           </NoteItem>
@@ -508,19 +508,19 @@ export const CircleFifths = () => {
             <use
               className={styles.note}
               height="40"
+              href="#icon-10"
               transform="rotate(180 412 207)"
               width="40"
               x="394.2073974609375"
-              xlinkHref="#icon-10"
               y="186.00076293945312"
             ></use>
             <use
               className={styles.indicator}
               height="40"
+              href="#indicator"
               transform="rotate(210 457 182)"
               width="40"
               x="394.2073974609375"
-              xlinkHref="#indicator"
               y="186.00076293945312"
             ></use>
           </NoteItem >
@@ -537,19 +537,19 @@ export const CircleFifths = () => {
             <use
               className={styles.note}
               height="40"
+              href="#icon-11"
               transform="rotate(150 412 207)"
               width="40"
               x="394.2073974609375"
-              xlinkHref="#icon-11"
               y="186.00076293945312"
             ></use>
             <use
               className={styles.indicator}
               height="40"
+              href="#indicator"
               transform="rotate(210 457 182)"
               width="40"
               x="394.2073974609375"
-              xlinkHref="#indicator"
               y="186.00076293945312"
             ></use>
           </NoteItem>
@@ -566,19 +566,19 @@ export const CircleFifths = () => {
             <use
               className={styles.note}
               height="40"
+              href="#icon-12"
               transform="rotate(120 415 210)"
               width="40"
               x="394.2073974609375"
-              xlinkHref="#icon-12"
               y="186.00076293945312"
             ></use>
             <use
               className={styles.indicator}
               height="40"
+              href="#indicator"
               transform="rotate(210 457 182)"
               width="40"
               x="394.2073974609375"
-              xlinkHref="#indicator"
               y="186.00076293945312"
             ></use>
           </NoteItem>

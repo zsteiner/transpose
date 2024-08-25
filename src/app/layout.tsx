@@ -4,6 +4,8 @@ import type { Metadata } from "next";
 import { Source_Serif_4 } from "next/font/google";
 import { ReactNode } from 'react';
 
+import { IconSet } from '@/components/IconSet';
+
 const fontFamily = Source_Serif_4({ subsets: ["latin"], style: ['normal', 'italic'], });
 
 export const metadata: Metadata = {
@@ -18,7 +20,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={fontFamily.className}>{children}</body>
+
+      <body className={fontFamily.className}>
+        <IconSet />
+        {children}
+      </body>
     </html>
   );
 }

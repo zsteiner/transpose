@@ -3,6 +3,7 @@ import classnames from 'classnames';
 
 import { Instrument } from '@/types';
 
+import { Icon } from '../Icon';
 import styles from './InstrumentItem.module.css';
 
 type InstrumentProps = {
@@ -16,6 +17,7 @@ export const InstrumentItem = ({
 }: InstrumentProps) => {
   const isEmpty = !instrument;
   const displayText = isEmpty ? 'add instrument' : instrument?.name;
+
   const displayIcon = () => {
     if (isEmpty) {
       return 'plus';
@@ -42,10 +44,10 @@ export const InstrumentItem = ({
           },
         )}
       >
-        {/* <Icon
-          class={styles.iconInternal}
-          icon={displayIcon}
-        /> */}
+        <Icon
+          className={styles.iconInternal}
+          icon={displayIcon()}
+        />
       </span >
       <span className={styles.name}>{displayText}</span>
     </span >
