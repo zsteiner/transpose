@@ -1,10 +1,6 @@
-const Chords = () => {
-  return (
-    <div>
-      <h1>Chords</h1>
-      <p>Coming soon...</p>
-    </div>
-  );
-}
+import { TransposeChords } from '@/components/TransposeChords'
+
+const Chords = () =>
+  <TransposeChords />
 
 export default Chords;
