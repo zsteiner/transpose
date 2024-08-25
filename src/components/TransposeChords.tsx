@@ -11,8 +11,7 @@ import { Select } from './Select';
 
 export const TransposeChords = () => {
   const [value, setValue] = useState(chordOptions[0].value);
-  const activeChord = chords[value as keyof typeof chords];
-  const { notes, key } = activeChord;
+  const { notes, key } = chords[value as keyof typeof chords];
 
   return (
     <PageContainer>

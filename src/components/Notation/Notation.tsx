@@ -9,7 +9,9 @@ export const Notation = ({ notes, notationKey, transposeSteps }: NotationProps) 
   return (
     <div>
       {notes.join('')}
-      {notationKey}
+      <div>
+        Key: {notationKey}
+      </div>
     </div>
   )
 }
