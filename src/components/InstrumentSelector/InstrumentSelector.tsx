@@ -1,6 +1,7 @@
 import classnames from 'classnames';
 import { useState } from 'react';
 
+import { Icon } from '../Icon';
 import { InstrumentPicker } from './InstrumentPicker';
 import styles from './InstrumentSelector.module.css';
 import { InstrumentSelectorItem } from './InstrumentSelectorItem';
@@ -24,13 +25,11 @@ export const InstrumentSelector = () => {
       instrument={instrument1}
       onClick={() => setPickerVisible(1)}
     />
-    <div>
 
-      {/* <Icon
-      class="arrow"
-      icon="arrow-right"
-    /> */}
-    </div>
+    <Icon
+      className={styles.arrow}
+      icon="arrowRight"
+    />
 
     <div className={styles.buttonContainer}>
       <InstrumentSelectorItem
