@@ -1,7 +1,8 @@
+'use client'
 import Link from 'next/link'
 
-import styles from "./page.module.css";
-import Logo from './transpose-logo.svg';
+import { Logo } from './Logo';
+import styles from "./nav.module.css";
 
 export const MainNav = () => {
   return (
@@ -11,15 +12,21 @@ export const MainNav = () => {
         <Link
           className={styles.link}
           href="/"
-        >Notes</Link>
+        >
+          Notes
+        </Link>
         <Link
           className={styles.link}
           href="/chords"
-        >Chords</Link>
+        >
+          Chords
+        </Link>
         <Link
           className={styles.link}
           href="/scales"
-        >Scales</Link>
+        >
+          Scales
+        </Link>
       </nav>
     </header>
   )
