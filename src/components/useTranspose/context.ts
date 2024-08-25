@@ -5,25 +5,23 @@ import { notes } from '@/constants/notes';
 import { Instrument, Note } from '@/types';
 
 export type TransposeContextType = {
-  baseNote: Note;
+  originalNote: Note;
   instrument1?: Instrument;
   instrument2?: Instrument;
-  setBaseNote: (note: Note) => void;
+  setOriginalNote: (note: Note) => void;
   setInstrument1: (instrument?: Instrument) => void;
   setInstrument2: (instrument?: Instrument) => void;
-  setTransposedNote: (note: Note) => void;
-  transposeFactor?: number;
+  setTransposedNote: (note?: Note) => void;
   transposedNote?: Note;
 };
 
 export const TransposeContext = createContext<TransposeContextType>({
-  baseNote: notes[0],
+  originalNote: notes[0],
   instrument1: instruments.piano,
   instrument2: undefined,
   setInstrument1: () => { },
   setInstrument2: () => { },
-  setBaseNote: () => { },
+  setOriginalNote: () => { },
   setTransposedNote: () => { },
   transposedNote: undefined,
-  transposeFactor: 0,
 });

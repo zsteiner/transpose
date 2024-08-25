@@ -8,11 +8,11 @@ import { TransposeContext, useCreateTransposeState } from './useTranspose';
 
 export const TransposeNote = ({ children }: Container) => {
   const {
-    baseNote,
+    originalNote,
     transposedNote,
     instrument1,
     instrument2,
-    setBaseNote,
+    setOriginalNote,
     setInstrument1,
     setInstrument2,
     setTransposedNote
@@ -21,12 +21,12 @@ export const TransposeNote = ({ children }: Container) => {
   return (
     <TransposeContext.Provider value={
       {
-        baseNote,
+        originalNote,
         instrument1,
         instrument2,
         setInstrument1,
         setInstrument2,
-        setBaseNote,
+        setOriginalNote,
         setTransposedNote,
         transposedNote,
       }} >

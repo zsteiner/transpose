@@ -7,31 +7,32 @@ import { notes } from '@/constants/notes';
 import { useTransposeState } from '../useTranspose';
 import styles from './CircleFifths.module.css';
 
-type CircleFifthsProps = {
-  selectedNote: string;
-  transposedNote: string | undefined;
-}
-
 type NoteItemProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
   position: number;
 }
 
 export const CircleFifths = () => {
   const {
-    baseNote,
-    setBaseNote,
+    originalNote,
+    setOriginalNote,
     transposedNote
   } = useTransposeState();
 
   const selectNote = (position: number) => {
-    setBaseNote(notes[position - 1]);
+    setOriginalNote(notes[position - 1]);
   }
 
   const NoteItem = ({ position, children, ...rest }: NoteItemProps) => {
-    const isBaseNote = baseNote.position === position;
+    const isOriginalNoteMarker = originalNote.position === position;
+    let isTransposedNoteMarker = isOriginalNoteMarker;
+
+    if (transposedNote) {
+      isTransposedNoteMarker = transposedNote?.position === position;
+    }
+
     const classes = classnames(styles.item, {
-      [styles.selected]: isBaseNote,
-      [styles.transposed]: transposedNote?.position === position || isBaseNote,
+      [styles.selected]: isOriginalNoteMarker,
+      [styles.transposed]: isTransposedNoteMarker,
     });
 
     return (
