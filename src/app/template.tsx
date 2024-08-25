@@ -1,11 +1,14 @@
 import { MainNav } from '@/components/MainNav';
+import { NoteSelector } from '@/components/NoteSelector';
 import { Container } from '@/types';
 
 const MainAppPage = ({ children }: Container) => {
   return (
     <>
       <MainNav />
-      {children}
+      <NoteSelector>
+        {children}
+      </NoteSelector>
     </>
   );
 }

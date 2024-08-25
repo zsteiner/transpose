@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 import { Logo } from './Logo';
-import styles from "./nav.module.css";
+import styles from "./MainNav.module.css";
 
 type NavLinkProps = {
   href: string;
