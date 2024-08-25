@@ -4,6 +4,7 @@ import { InstrumentSelector } from '@/components/InstrumentSelector';
 import { TransposeContext, useCreateTransposeState } from '@/components/useTranspose';
 import { Container } from '@/types';
 
+import { PageContainer } from './PageContainer';
 import styles from './TransposeContainer.module.css';
 
 export const TransposeContainer = ({ children }: Container) => {
@@ -32,11 +33,11 @@ export const TransposeContainer = ({ children }: Container) => {
         transposeFactor,
         transposedNote,
       }} >
-      <div className={styles.container}>
+      <PageContainer>
         <InstrumentSelector />
         <CircleFifths />
         {children}
-      </div>
+      </PageContainer>
     </TransposeContext.Provider >
   );
 }

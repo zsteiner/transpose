@@ -1,5 +1,5 @@
 .container {
   display: grid;
-  padding-block: var(--spacer);
   gap: var(--spacer);
+  padding-block: var(--spacer);
 }
