@@ -1,8 +1,7 @@
 import classnames from 'classnames';
 import { useState } from 'react';
 
-import { InstrumentPicker } from '@/components/InstrumentPicker';
-
+import { InstrumentPicker } from './InstrumentPicker';
 import styles from './InstrumentSelector.module.css';
 import { InstrumentSelectorItem } from './InstrumentSelectorItem';
 import { useInstrumentSelector } from './useInstrumentSelector';
