@@ -1,10 +1,10 @@
 'use client'
 import { CircleFifths } from '@/components/CircleFifths';
+import { InstrumentSelector } from '@/components/InstrumentSelector';
+import { TransposeContext, useCreateTransposeState } from '@/components/useTranspose';
 import { Container } from '@/types';
 
-import { InstrumentSelector } from './InstrumentSelector';
 import styles from './TransposeNote.module.css';
-import { TransposeContext, useCreateTransposeState } from './useTranspose';
 
 export const TransposeNote = ({ children }: Container) => {
   const {
