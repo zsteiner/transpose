@@ -46,7 +46,7 @@
 }
 
 .selected .sector.sector {
-    fill: var(--secondary);
+  fill: var(--secondary);
 }
 
 .selected .note.note {
@@ -77,7 +77,7 @@
   fill: #eee;
 }
 
-.item.selected:hover .sector {
+.selected:hover .sector {
   fill: var(--secondary);
 }
 
@@ -86,7 +86,7 @@
   display: block;
 }
 
-.menu-trigger {
+.menuTrigger {
   fill: var(--info);
   pointer-events: auto;
 }

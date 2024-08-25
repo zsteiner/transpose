@@ -125,7 +125,7 @@ export const CircleFifths = () => {
             </text>
           </symbol>
           <symbol
-            className={classnames(styles.note, styles.enharmonic)}
+            className={classnames(styles.note, styles.withEnharmonic)}
             id="icon-7"
             viewBox="0 0 40 40"
           >
@@ -142,7 +142,7 @@ export const CircleFifths = () => {
             />
           </symbol>
           <symbol
-            className={classnames(styles.note, styles.enharmonic)}
+            className={classnames(styles.note, styles.withEnharmonic)}
             id="icon-8"
             viewBox="0 0 40 40"
           >
@@ -159,7 +159,7 @@ export const CircleFifths = () => {
             />
           </symbol>
           <symbol
-            className={classnames(styles.note, styles.enharmonic)}
+            className={classnames(styles.note, styles.withEnharmonic)}
             id="icon-9"
             viewBox="0 0 40 40"
           >
@@ -176,7 +176,7 @@ export const CircleFifths = () => {
             />
           </symbol>
           <symbol
-            className={classnames(styles.note, styles.enharmonic)}
+            className={classnames(styles.note, styles.withEnharmonic)}
             id="icon-10"
             viewBox="0 0 40 40"
           >
@@ -193,7 +193,7 @@ export const CircleFifths = () => {
             />
           </symbol>
           <symbol
-            className={classnames(styles.note, styles.enharmonic)}
+            className={classnames(styles.note, styles.withEnharmonic)}
             id="icon-11"
             viewBox="0 0 40 40"
           >
