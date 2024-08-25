@@ -1,0 +1,39 @@
+.header {
+  --logo-height: 2rem;
+  --header-gap: var(--spacer);
+
+  align-items: center;
+  display: flex;
+  gap: var(--header-gap);
+  justify-content: center;
+  text-align: center;
+}
+
+.logo {
+  height: var(--logo-height);
+  width: auto;
+}
+
+@media (width >= 45rem) {
+  .header {
+    --logo-height: 3rem;
+    --header-gap: 2rem;
+  }
+}
+
+.nav {
+  align-items: center;
+  display: flex;
+  gap: var(--spacer);
+}
+
+.link {
+  border-bottom: 0.25rem solid transparent;
+  color: var(--secondary);
+  padding: 0.5rem 0;
+  text-decoration-line: none;
+}
+
+.link.router-link-exact-active {
+  border-color: currentcolor;
+}
