@@ -2,10 +2,10 @@ import classnames from 'classnames';
 import { useState } from 'react';
 
 import { Icon } from '../Icon';
+import { useTransposeState } from '../useTranspose/useTranspose';
 import { InstrumentPicker } from './InstrumentPicker';
 import styles from './InstrumentSelector.module.css';
 import { InstrumentSelectorItem } from './InstrumentSelectorItem';
-import { useInstrumentSelector } from './useInstrumentSelector';
 
 export const InstrumentSelector = () => {
   const [pickerVisible, setPickerVisible] = useState<number | null>(null);
@@ -17,7 +17,7 @@ export const InstrumentSelector = () => {
     setInstrument1,
     setInstrument2,
     clearSelection,
-  } = useInstrumentSelector();
+  } = useTransposeState();
 
 
   return (<section className={styles.switcher}>
