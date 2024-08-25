@@ -1,14 +1,14 @@
 import { MainNav } from '@/components/MainNav';
-import { NoteSelector } from '@/components/NoteSelector';
+import { TransposeNote } from '@/components/TransposeNote';
 import { Container } from '@/types';
 
 const MainAppPage = ({ children }: Container) => {
   return (
     <>
       <MainNav />
-      <NoteSelector>
+      <TransposeNote>
         {children}
-      </NoteSelector>
+      </TransposeNote>
     </>
   );
 }

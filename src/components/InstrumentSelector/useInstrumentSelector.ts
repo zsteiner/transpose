@@ -6,7 +6,7 @@ import { Instrument } from '@/types';
 import { InstrumentSelectorContext } from './context';
 
 export const useCreateInstrumentSelectorState = () => {
-  const [instrument1, setInstrument1] = useState<Instrument>(instruments.piano);
+  const [instrument1, setInstrument1] = useState<Instrument | undefined>(instruments.piano);
   const [instrument2, setInstrument2] = useState<Instrument | undefined>(undefined);
 
   return {

@@ -3,8 +3,9 @@ import { CircleFifths } from '@/components/CircleFifths';
 import { Container } from '@/types';
 
 import { InstrumentSelector, InstrumentSelectorContext, useCreateInstrumentSelectorState } from './InstrumentSelector';
+import styles from './TransposeNote.module.css';
 
-export const NoteSelector = ({ children }: Container) => {
+export const TransposeNote = ({ children }: Container) => {
   const { instrument1, instrument2, setInstrument1, setInstrument2 } = useCreateInstrumentSelectorState();
 
   return (
@@ -15,9 +16,11 @@ export const NoteSelector = ({ children }: Container) => {
         setInstrument1,
         setInstrument2,
       }} >
-      <InstrumentSelector />
-      <CircleFifths />
-      {children}
+      <div className={styles.container}>
+        <InstrumentSelector />
+        <CircleFifths />
+        {children}
+      </div>
     </InstrumentSelectorContext.Provider >
   );
 }
