@@ -29,7 +29,7 @@ export const InstrumentPicker = ({ isOpen, onClose, onSelect }: InstrumentPicker
   }
 
   return (
-    <div className="scrim">
+    <div className={styles.scrim}>
       <section
         className={styles.picker}
         onKeyDown={handleKeyDown}
