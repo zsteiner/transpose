@@ -1,0 +1,52 @@
+.instrument {
+  --icon-size: 2.5rem;
+
+  height: 100%;
+}
+
+.stretch {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.icon {
+  display: inline-block;
+  font-size: calc(var(--icon-size) * 0.75);
+  line-height: 1;
+  margin-block-end: 0.5rem;
+}
+
+.name {
+  display: block;
+  font-size: 0.875rem;
+}
+
+.keyIcon {
+  align-items: center;
+  background: currentcolor;
+  border-radius: 50%;
+  display: inline-flex;
+  font-size: var(--icon-size);
+  height: 1em;
+  justify-content: center;
+  padding: 0.5rem;
+  width: 1em;
+}
+
+.keyIcon .iconInternal {
+  color: var(--white);
+}
+
+@media (width >= 45rem) {
+  .icon {
+    font-size: var(--icon-size);
+    margin-block-end: 0.5rem;
+  }
+
+  .keyIcon {
+    font-size: var(--icon-size);
+    margin-block-end: 1rem;
+  }
+}
