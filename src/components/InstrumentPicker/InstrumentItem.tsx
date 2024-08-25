@@ -1,15 +1,14 @@
-
+'use client';
 import classnames from 'classnames';
 
 import { Instrument } from '@/types';
 
-import styles from './Instrument.module.css';
+import styles from './InstrumentItem.module.css';
 
 type InstrumentProps = {
   instrument: Instrument;
   stretch: boolean;
 };
-
 
 export const InstrumentItem = ({
   instrument,
@@ -43,10 +42,10 @@ export const InstrumentItem = ({
           },
         )}
       >
-        <Icon
+        {/* <Icon
           class={styles.iconInternal}
           icon={displayIcon}
-        />
+        /> */}
       </span >
       <span className={styles.name}>{displayText}</span>
     </span >
