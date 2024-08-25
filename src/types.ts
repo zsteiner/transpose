@@ -11,4 +11,4 @@ export type Instrument = {
   transposeFactor: number;
   icon: boolean;
   iconName: string;
-};
+} | null;

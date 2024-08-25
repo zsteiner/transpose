@@ -1,0 +1,90 @@
+.selection {
+  align-self: stretch;
+  display: flex;
+  text-align: center;
+}
+
+.button {
+  background-color: var(--white);
+  border: var(--border-width) solid var(--default-light);
+  border-radius: var(--border-radius);
+  color: var(--default-light);
+  cursor: pointer;
+  display: block;
+  height: var(--switch-size);
+  line-height: 1;
+  padding: 1rem;
+  -webkit-tap-highlight-color: transparent;
+  text-align: center;
+  transition: all 0.1s linear;
+  width: 100%;
+}
+
+.button:focus,
+.button.is-selected,
+.button:hover {
+  border-color: transparent;
+  box-shadow: 0 0 0 0.25rem var(--secondary);
+  color: var(--secondary);
+  outline: 0;
+}
+
+.empty {
+  border: 0.25em dashed var(--info);
+  color: var(--info);
+  padding: 0.25rem;
+}
+
+.empty.selected,
+.empty:hover {
+  background-color: var(--white);
+  border-color: var(--secondary);
+  box-shadow: none;
+  color: var(--secondary);
+}
+
+.switcher {
+  --switch-size: 8rem;
+  --switch-gap: var(--spacer);
+
+  align-items: center;
+  display: grid;
+  gap: var(--switch-gap);
+  grid-template-columns: var(--switch-size) min-content var(--switch-size);
+  justify-content: center;
+}
+
+.arrow {
+  color: var(--info);
+  font-size: var(--arrow-size, var(--spacer));
+}
+
+.buttonContainer {
+  align-self: start;
+  display: grid;
+  gap: var(--spacer);
+  grid-template-rows: 1fr auto;
+}
+
+.clear {
+  background: none;
+  border: 0;
+  color: var(--link-light);
+  font-size: 0.75rem;
+  opacity: 0;
+  text-decoration: underline;
+  visibility: hidden;
+}
+
+.clearVisible {
+  opacity: 1;
+  visibility: visible;
+}
+
+@media (width >=45rem) {
+  .switcher {
+    --switch-gap: 3rem;
+    --switch-size: 10rem;
+    --arrow-size: 2rem;
+  }
+}

@@ -1,22 +1,23 @@
 'use client'
 import { CircleFifths } from '@/components/CircleFifths';
-import { InstrumentPicker } from '@/components/InstrumentPicker';
 import { Container } from '@/types';
 
-export const NoteSelector = ({ children }: Container) => {
-  const handleSelectInstrument = (iconName: string) => {
-    console.log(iconName);
-  }
+import { InstrumentSelector, InstrumentSelectorContext, useCreateInstrumentSelectorState } from './InstrumentSelector';
 
-  const handleClose = () => {
-    console.log('close');
-  }
+export const NoteSelector = ({ children }: Container) => {
+  const { instrument1, instrument2, setInstrument1, setInstrument2 } = useCreateInstrumentSelectorState();
 
   return (
-    <div>
-      <InstrumentPicker onClose={handleClose} onSelectInstrument={handleSelectInstrument} />
+    <InstrumentSelectorContext.Provider value={
+      {
+        instrument1,
+        instrument2,
+        setInstrument1,
+        setInstrument2,
+      }} >
+      <InstrumentSelector />
       <CircleFifths />
       {children}
-    </div>
+    </InstrumentSelectorContext.Provider >
   );
 }

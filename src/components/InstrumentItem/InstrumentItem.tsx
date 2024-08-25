@@ -6,13 +6,13 @@ import { Instrument } from '@/types';
 import styles from './InstrumentItem.module.css';
 
 type InstrumentProps = {
-  instrument: Instrument;
-  stretch: boolean;
+  instrument?: Instrument;
+  stretch?: boolean;
 };
 
 export const InstrumentItem = ({
   instrument,
-  stretch,
+  stretch = false,
 }: InstrumentProps) => {
   const isEmpty = !instrument;
   const displayText = isEmpty ? 'add instrument' : instrument?.name;

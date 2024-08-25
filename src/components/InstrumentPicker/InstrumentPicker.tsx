@@ -1,15 +1,18 @@
 'use client'
+import { InstrumentItem } from '@/components/InstrumentItem';
 import { instrumentsArray } from '@/constants/instruments';
+import { Instrument } from '@/types';
 
-import { InstrumentItem } from './InstrumentItem';
 import styles from './InstrumentPicker.module.css';
 
 type InstrumentPickerProps = {
+  isOpen?: boolean;
   onClose: () => void;
-  onSelectInstrument: (iconName: string) => void;
+  onSelect: (instrument?: Instrument) => void;
+  selectedInstrument?: Instrument;
 };
 
-export const InstrumentPicker = ({ onClose, onSelectInstrument }: InstrumentPickerProps) => {
+export const InstrumentPicker = ({ isOpen, onClose, onSelect }: InstrumentPickerProps) => {
   const handleClose = () => {
     console.log('close');
     onClose();
@@ -20,6 +23,10 @@ export const InstrumentPicker = ({ onClose, onSelectInstrument }: InstrumentPick
       handleClose();
     }
   };
+
+  if (!isOpen) {
+    return null;
+  }
 
   return (
     <div className="scrim">
@@ -36,11 +43,11 @@ export const InstrumentPicker = ({ onClose, onSelectInstrument }: InstrumentPick
         <ul>
           {instrumentsArray.map((instrument) => (<li
             className={styles.item}
-            key={instrument.iconName}
+            key={instrument?.iconName}
           >
             <button
               className={styles.button}
-              onClick={() => onSelectInstrument(instrument.iconName)}
+              onClick={() => onSelect(instrument)}
             >
               <InstrumentItem instrument={instrument}
                 stretch
