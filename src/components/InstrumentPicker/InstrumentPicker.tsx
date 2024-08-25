@@ -1,23 +1,24 @@
-'use client';
+'use client'
 import { instrumentsArray } from '@/constants/instruments';
-import { Container } from '@/types';
 
 import { InstrumentItem } from './InstrumentItem';
 import styles from './InstrumentPicker.module.css';
 
-export const InstrumentPicker = ({ children }: Container) => {
+type InstrumentPickerProps = {
+  onClose: () => void;
+  onSelectInstrument: (iconName: string) => void;
+};
+
+export const InstrumentPicker = ({ onClose, onSelectInstrument }: InstrumentPickerProps) => {
   const handleClose = () => {
     console.log('close');
+    onClose();
   };
 
   const handleKeyDown = (event: React.KeyboardEvent) => {
     if (event.key === 'Escape') {
       handleClose();
     }
-  };
-
-  const selectInstrument = (iconName: string) => {
-    console.log(iconName);
   };
 
   return (
@@ -39,7 +40,7 @@ export const InstrumentPicker = ({ children }: Container) => {
           >
             <button
               className={styles.button}
-              onClick={() => selectInstrument(instrument.iconName)}
+              onClick={() => onSelectInstrument(instrument.iconName)}
             >
               <InstrumentItem instrument={instrument}
                 stretch
