@@ -13,16 +13,16 @@ type InstrumentPickerProps = {
 };
 
 export const InstrumentPicker = ({ isOpen, onClose, onSelect }: InstrumentPickerProps) => {
-  const handleClose = () => {
-    console.log('close');
-    onClose();
-  };
-
   const handleKeyDown = (event: React.KeyboardEvent) => {
     if (event.key === 'Escape') {
-      handleClose();
+      onClose();
     }
   };
+
+  const handleSelect = (instrument: Instrument) => {
+    onClose();
+    onSelect(instrument)
+  }
 
   if (!isOpen) {
     return null;
@@ -36,7 +36,7 @@ export const InstrumentPicker = ({ isOpen, onClose, onSelect }: InstrumentPicker
       >
         <button
           className={styles.close}
-          onClick={handleClose}
+          onClick={onClose}
         >
           close
         </button>
@@ -47,7 +47,7 @@ export const InstrumentPicker = ({ isOpen, onClose, onSelect }: InstrumentPicker
           >
             <button
               className={styles.button}
-              onClick={() => onSelect(instrument)}
+              onClick={() => handleSelect(instrument)}
             >
               <InstrumentItem instrument={instrument}
                 stretch
