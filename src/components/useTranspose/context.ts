@@ -12,6 +12,7 @@ export type TransposeContextType = {
   setInstrument1: (instrument?: Instrument) => void;
   setInstrument2: (instrument?: Instrument) => void;
   setTransposedNote: (note?: Note) => void;
+  transposeFactor: number;
   transposedNote?: Note;
 };
 
@@ -23,5 +24,6 @@ export const TransposeContext = createContext<TransposeContextType>({
   setInstrument2: () => { },
   setOriginalNote: () => { },
   setTransposedNote: () => { },
+  transposeFactor: 0,
   transposedNote: undefined,
 });

@@ -1,40 +1,41 @@
 'use client'
-import { CircleFifths } from '@/components/CircleFifths';
-import { InstrumentSelector } from '@/components/InstrumentSelector';
-import { TransposeContext, useCreateTransposeState } from '@/components/useTranspose';
-import { Container } from '@/types';
+import { useTransposeState } from '@/components/useTranspose';
 
+import { Note } from './Note';
 import styles from './TransposeNote.module.css';
 
-export const TransposeNote = ({ children }: Container) => {
+export const TransposeNote = () => {
   const {
-    originalNote,
-    transposedNote,
     instrument1,
     instrument2,
-    setOriginalNote,
-    setInstrument1,
-    setInstrument2,
-    setTransposedNote
-  } = useCreateTransposeState();
+    originalNote,
+    transposedNote,
+    transposeFactor,
+  } = useTransposeState();
+
+  if (!instrument1 || !instrument2) {
+    return null;
+  }
 
   return (
-    <TransposeContext.Provider value={
-      {
-        originalNote,
-        instrument1,
-        instrument2,
-        setInstrument1,
-        setInstrument2,
-        setOriginalNote,
-        setTransposedNote,
-        transposedNote,
-      }} >
-      <div className={styles.container}>
-        <InstrumentSelector />
-        <CircleFifths />
-        {children}
-      </div>
-    </TransposeContext.Provider >
+    <p className={styles.message}>
+      <span>
+        <strong>
+          <Note note={originalNote}
+            showBothAccidentals
+          />
+        </strong> {' '}
+        on the {instrument1?.name} sounds the same as {' '}
+        <strong>
+          <Note note={transposedNote}
+            showBothAccidentals
+          />
+        </strong>{' '}
+        on the {instrument2?.name}.
+      </span>
+      {transposeFactor === 0 ? <span>
+        There is no need to transpose.
+      </span> : null}
+    </p>
   );
 }

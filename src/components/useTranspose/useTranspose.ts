@@ -12,6 +12,14 @@ export const useCreateTransposeState = () => {
   const [transposedNote, setTransposedNote] = useState<Note | undefined>(undefined);
   const [instrument1, setInstrument1] = useState<Instrument | undefined>(instruments.piano);
   const [instrument2, setInstrument2] = useState<Instrument | undefined>(undefined);
+  const [transposeFactor, setTransposeFactor] = useState<number>(0);
+
+  useEffect(() => {
+    const instrument1TransposeFactor = instrument1?.transposeFactor || 0;
+    const instrument2TransposeFactor = instrument2?.transposeFactor || 0;
+
+    setTransposeFactor(instrument2TransposeFactor - instrument1TransposeFactor);
+  }, [instrument1, instrument2]);
 
   return {
     originalNote,
@@ -21,6 +29,7 @@ export const useCreateTransposeState = () => {
     setInstrument1,
     setInstrument2,
     setTransposedNote,
+    transposeFactor,
     transposedNote,
   };
 }
@@ -34,6 +43,7 @@ export const useTransposeState = () => {
     setInstrument2,
     setOriginalNote,
     setTransposedNote,
+    transposeFactor,
     transposedNote,
   } = useContext(TransposeContext);
 
@@ -48,16 +58,12 @@ export const useTransposeState = () => {
 
 
   useEffect(() => {
-    const instrument1TransposeFactor = instrument1?.transposeFactor || 0;
-    const instrument2TransposeFactor = instrument2?.transposeFactor || 0;
-    const transposeFactor = instrument2TransposeFactor - instrument1TransposeFactor;
-
     if (instrument2) {
       setTransposedNote(
         notes[transposeNote(originalNote.position, transposeFactor) - 1]
       );
     }
-  }, [originalNote, instrument1, instrument2, setTransposedNote]);
+  }, [originalNote, instrument1, instrument2, setTransposedNote, transposeFactor]);
 
   return {
     originalNote,
@@ -69,5 +75,6 @@ export const useTransposeState = () => {
     setOriginalNote,
     setTransposedNote,
     transposedNote,
+    transposeFactor,
   };
 }

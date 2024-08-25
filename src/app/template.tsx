@@ -1,5 +1,5 @@
 import { MainNav } from '@/components/MainNav';
-import { TransposeNote } from '@/components/TransposeNote';
+import { TransposeContainer } from '@/components/TransposeContainer/TransposeContainer';
 import { Container } from '@/types';
 
 import styles from './page.module.css';
@@ -8,11 +8,11 @@ const MainAppPage = ({ children }: Container) => {
   return (
     <>
       <MainNav />
-      <TransposeNote>
+      <TransposeContainer>
         <div className={styles.content}>
           {children}
         </div>
-      </TransposeNote>
+      </TransposeContainer>
     </>
   );
 }
