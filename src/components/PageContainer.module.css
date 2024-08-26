@@ -2,4 +2,6 @@
   display: grid;
   gap: var(--spacer);
   padding-block: var(--spacer);
+  max-block-size: var(--large);
+  block-size: 100%;
 }

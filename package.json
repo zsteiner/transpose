@@ -10,6 +10,7 @@
     "lint:fix": "next lint --fix"
   },
   "dependencies": {
+    "abcjs": "^6.4.2",
     "classnames": "^2.5.1",
     "next": "14.2.6",
     "react": "^18",

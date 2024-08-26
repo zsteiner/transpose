@@ -1,5 +1,11 @@
-import { Note } from '@/types';
+function capitalizeFirstLetter(string: string, isLower = false) {
+  if (isLower) {
+    return string;
+  }
 
-export default function writeNotation(scale: Note[]) {
-  return scale.map((note) => note).join('');
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+export default function writeNotation(scale: string[]) {
+  return scale.map((note, index) => capitalizeFirstLetter(note.replace('Flat', 'b'), index === scale.length - 1)).join('');
 }
