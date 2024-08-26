@@ -6,14 +6,9 @@ import styles from './page.module.css';
 
 const MainAppPage = ({ children }: Container) => {
   return (
-    <>
-      <MainNav />
-      <TransposeContainer>
-        <div className={styles.content}>
-          {children}
-        </div>
-      </TransposeContainer>
-    </>
+    <div className={styles.content}>
+      {children}
+    </div>
   );
 }
 
