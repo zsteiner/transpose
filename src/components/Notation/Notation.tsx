@@ -1,9 +1,11 @@
 'use client'
 import abcjs, { Selector } from 'abcjs';
-import { use, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 import { Container } from '@/types';
 import writeNotation from '@/utils/writeNotation';
+
+import { NotesDisplay } from '../NotesDisplay/NotesDisplay';
 
 type NotationProps = Container & {
   notes: string[];
@@ -36,6 +38,9 @@ export const Notation = ({ className, notes, notationKey, transposeSemitones }: 
 
 
   return (
-    <div className={className} ref={notationRef} />
+    <div>
+      <div className={className} ref={notationRef} />
+      <NotesDisplay notes={notes} />
+    </div>
   )
 }

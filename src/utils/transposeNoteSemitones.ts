@@ -9,12 +9,12 @@ export function transposeNoteSemitones(originalNote: number, transposedNote: num
   if (transposedNote === originalNote) {
     transposeSemitones = 0;
   } if (startingSemitones > FULL_CIRCLE) {
-    console.log('over 12');
+    // console.log('over 12');
     transposeSemitones = startingSemitones - FULL_CIRCLE;
   } else {
     transposeSemitones = startingSemitones;
   }
-  console.log({ originalNote, transposedNote, startingSemitones, transposeSemitones });
+  // console.log({ originalNote, transposedNote, startingSemitones, transposeSemitones });
 
   return transposeSemitones;
 }

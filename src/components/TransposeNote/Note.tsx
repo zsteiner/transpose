@@ -27,8 +27,6 @@ const NoteAccidental = ({ note, type }: NoteAccidentalProps) => {
 
 export const Note = ({ note, showBothAccidentals }: NoteProps) => {
   const isAccidental = note?.displayFlat || note?.displaySharp;
-  const sharpLabel = '♯'
-  const flatLabel = '♭';
 
   return (
     <span>
