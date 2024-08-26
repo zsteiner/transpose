@@ -21,15 +21,15 @@ type Scales = {
 
 export const scales = {
   major: {
-    notes: ['c', 'd', 'e', 'f', 'g', 'a', 'b', 'c'],
+    notes: ['C', 'D', 'D', 'F', 'G', 'A', 'B', 'c'],
     key: 'C',
   },
   minor: {
-    notes: ['c', 'd', 'eFlat', 'f', 'g', 'aFlat', 'bFlat', 'c'],
+    notes: ['C', 'D', 'EFlat', 'f', 'g', 'aFlat', 'bFlat', 'c'],
     key: 'Eb',
   },
   majorPentatonic: {
-    notes: ['c', 'd', 'e', 'g', 'a', 'c'],
+    notes: ['C', 'D', 'E', 'G', 'A', 'c'],
     key: 'C',
   },
   minorPentatonic: {

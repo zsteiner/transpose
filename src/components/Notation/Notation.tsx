@@ -31,7 +31,7 @@ export const Notation = ({ notes, notationKey, transposeSteps }: NotationProps) 
       staffwidth,
       visualTranspose: transposeSteps,
     });
-  }, [notationRef]);
+  }, [notationRef, notation, transposeSteps]);
 
 
   return (
