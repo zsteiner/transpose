@@ -11,5 +11,5 @@ export const useTransposeSemitones = ({ originalNote, transposedNote }: UseTrans
 
   const transposeSemitonesTransposed = transposeNoteSemitones(1, transposedNote?.position || 1);
 
-  return { transposeSemitonesOriginal, transposeSemitonesTransposed };
+  return { transposeSemitonesOriginal, transposeSemitonesTransposed }
 }

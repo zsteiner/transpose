@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "lint:fix": "next lint --fix"
+    "lint:fix": "next lint --fix",
+    "stylelint": "stylelint 'src/**/*.css' --fix"
   },
   "dependencies": {
     "abcjs": "^6.4.2",
@@ -24,6 +25,9 @@
     "eslint-config-next": "14.2.6",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-simple-import-sort": "^12.1.1",
+    "stylelint": "^16.8.2",
+    "stylelint-config-standard": "^36.0.1",
+    "stylelint-order": "^6.0.4",
     "typescript": "^5"
   }
 }

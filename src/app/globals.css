@@ -4,7 +4,7 @@
   --warning: #ffca4c;
   --success: #39ea28;
   --default: hsl(220deg 3% 23%);
-  --default-transparent: hsl(220deg 3% 23% / 10%);
+  --default-transparent: hsl(220deg 3% 23% / 0.1);
   --default-light: hsl(220deg 3% 38%);
   --info: #959ea5;
   --white: #fff;
@@ -46,14 +46,14 @@ body {
 
 .no-scroll::before {
   backdrop-filter: blur(0.325rem);
-  background-color: rgb(255 255 255 / 25%);
+  background-color: rgb(255 255 255 / 0.25);
   content: '';
   inset: 0;
   position: fixed;
   z-index: 1;
 }
 
-@media (block-size >= 45rem) {
+@media (width >= 45rem) {
   :root {
     --layout-gap: var(--spacer-double);
   }

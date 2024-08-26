@@ -20,8 +20,6 @@
 }
 
 .select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
   appearance: none;
   background-color: transparent;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath fill='%23007fb2' fill-rule='evenodd' d='M14.5452263,4 L16,5.499604 L8.24120675,13.497492 L8,13.248 L7.75879325,13.497492 L5.64881475e-13,5.499604 L1.45477373,4 L8,10.746 L14.5452263,4 Z'/%3E%3C/svg%3E%0A");
