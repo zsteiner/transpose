@@ -11,15 +11,14 @@ import { PageContainer } from './PageContainer';
 import { Select } from './Select';
 import styles from './TransposeContainer.module.css';
 import { useTransposeState } from './useTranspose';
+import { useTransposeSemitones } from './useTransposeSemitones';
 
 export const TransposeScales = () => {
   const { originalNote, transposedNote } = useTransposeState();
+  const { transposeSemitonesOriginal, transposeSemitonesTransposed } = useTransposeSemitones({ originalNote, transposedNote });
 
   const [value, setValue] = useState(scaleOptions[0].value);
   const { notes, key } = scales[value as keyof typeof scales];
-
-  const transposeSemitonesOriginal = transposeNoteSemitones(1, originalNote.position);
-  const transposeSemitonesTransposed = transposeNoteSemitones(1, transposedNote?.position || 1);
 
   return (
     <PageContainer>

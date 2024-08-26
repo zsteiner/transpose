@@ -10,15 +10,16 @@ import { PageContainer } from './PageContainer';
 import { Select } from './Select';
 import styles from './TransposeContainer.module.css';
 import { useTransposeState } from './useTranspose';
+import { useTransposeSemitones } from './useTransposeSemitones';
 
 export const TransposeChords = () => {
   const { originalNote, transposedNote } = useTransposeState();
+  const { transposeSemitonesOriginal, transposeSemitonesTransposed } = useTransposeSemitones({ originalNote, transposedNote });
 
   const [value, setValue] = useState(chordOptions[0].value);
   const { notes, key } = chords[value as keyof typeof chords];
 
-  const transposeSemitonesOriginal = transposeNoteSemitones(1, originalNote.position);
-  const transposeSemitonesTransposed = transposeNoteSemitones(1, transposedNote?.position || 1);
+
 
   return (
     <PageContainer>
