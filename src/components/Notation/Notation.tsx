@@ -8,10 +8,10 @@ import writeNotation from '@/utils/writeNotation';
 type NotationProps = Container & {
   notes: string[];
   notationKey: string;
-  transposeSteps: number;
+  transposeSemitones: number;
 };
 
-export const Notation = ({ className, notes, notationKey, transposeSteps }: NotationProps) => {
+export const Notation = ({ className, notes, notationKey, transposeSemitones }: NotationProps) => {
   const notation = `L:4/4\nK:${notationKey}\n${writeNotation(notes)}`;
   const notationRef = useRef<HTMLDivElement>(null);
 
@@ -30,9 +30,9 @@ export const Notation = ({ className, notes, notationKey, transposeSteps }: Nota
       viewportHorizontal: false,
       responsive: 'resize',
       staffwidth,
-      visualTranspose: transposeSteps,
+      visualTranspose: transposeSemitones,
     });
-  }, [notationRef, notation, transposeSteps]);
+  }, [notationRef, notation, transposeSemitones]);
 
 
   return (
