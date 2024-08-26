@@ -18,7 +18,6 @@ export const TransposeScales = () => {
   const [value, setValue] = useState(scaleOptions[0].value);
   const { notes, key } = scales[value as keyof typeof scales];
 
-  console.log('originalNote', originalNote.position);
   const transposeSemitonesOriginal = transposeNoteSemitones(1, originalNote.position);
   const transposeSemitonesTransposed = transposeNoteSemitones(1, transposedNote?.position || 1);
 
