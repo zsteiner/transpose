@@ -19,7 +19,7 @@ export const CircleFifths = () => {
   } = useTransposeState();
 
   const selectNote = (position: number) => {
-    setOriginalNote(notes[position - 1]);
+    setOriginalNote(notes[position]);
   }
 
   const NoteItem = ({ position, children, ...rest }: NoteItemProps) => {
@@ -249,7 +249,7 @@ export const CircleFifths = () => {
         <g>
           <NoteItem
             data-svg-origin="250 250"
-            position={1}
+            position={0}
             transform="matrix(0,-1,1,0,0,500)"
           >
             <path
@@ -277,7 +277,7 @@ export const CircleFifths = () => {
             ></use>
           </NoteItem>
           <NoteItem data-svg-origin="250 250"
-            position={2}
+            position={1}
             transform="matrix(0.5,-0.86602,0.86602,0.5,-91.5063509461097,341.5063509461096)"
           >
             <path
@@ -306,7 +306,7 @@ export const CircleFifths = () => {
           </NoteItem>
           <NoteItem
             data-svg-origin="250 250"
-            position={3}
+            position={2}
             transform="matrix(0.86602,-0.49999,0.49999,0.86602,-91.50635094610965,158.4936490538903)"
           >
             <path
@@ -335,7 +335,7 @@ export const CircleFifths = () => {
           </NoteItem>
           <NoteItem
             data-svg-origin="250 250"
-            position={4}
+            position={3}
             transform="matrix(1,0,0,1,0,0)"
           >
             <path
@@ -364,7 +364,7 @@ export const CircleFifths = () => {
           </NoteItem>
           <NoteItem
             data-svg-origin="250 250"
-            position={5}
+            position={4}
             transform="matrix(0.86602,0.5,-0.5,0.86602,158.49364905389052,-91.5063509461097)"
           >
             <path
@@ -393,7 +393,7 @@ export const CircleFifths = () => {
           </NoteItem>
           <NoteItem
             data-svg-origin="250 250"
-            position={6}
+            position={5}
             transform="matrix(0.5,0.86602,-0.86602,0.5,341.5063509461096,-91.5063509461097)"
           >
             <path
@@ -422,7 +422,7 @@ export const CircleFifths = () => {
           </NoteItem>
           <NoteItem
             data-svg-origin="250 250"
-            position={7}
+            position={6}
             transform="matrix(0,1,-1,0,500.00000000000006,0)"
           >
             <path
@@ -451,7 +451,7 @@ export const CircleFifths = () => {
           </NoteItem>
           <NoteItem
             data-svg-origin="250 250"
-            position={8}
+            position={7}
             transform="matrix(-0.5,0.86602,-0.86602,-0.5,591.5063509461097,158.4936490538905)"
           >
             <path
@@ -480,7 +480,7 @@ export const CircleFifths = () => {
           </NoteItem>
           <NoteItem
             data-svg-origin="250 250"
-            position={9}
+            position={8}
             transform="matrix(-0.86602,0.5,-0.5,-0.86602,591.5063509461097,341.5063509461096)"
           >
             <path
@@ -509,7 +509,7 @@ export const CircleFifths = () => {
           </NoteItem>
           <NoteItem
             data-svg-origin="250 250"
-            position={10}
+            position={9}
             transform="matrix(-1,0,0,-1,500,500)"
           >
             <path
@@ -538,7 +538,7 @@ export const CircleFifths = () => {
           </NoteItem >
           <NoteItem
             data-svg-origin="250 250"
-            position={11}
+            position={10}
             transform="matrix(-0.86602,-0.49999,0.49999,-0.86602,341.5063509461097,591.5063509461097)"
           >
             <path
@@ -567,7 +567,7 @@ export const CircleFifths = () => {
           </NoteItem>
           <NoteItem
             data-svg-origin="250 250"
-            position={12}
+            position={11}
             transform="matrix(-0.49999,-0.86602,0.86602,-0.49999,158.49364905389024,591.5063509461097)"
           >
             <path
