@@ -21,7 +21,7 @@ export type ScaleNotes =
   | 'gFlat';
 
 export type ScaleConfig = {
-  notes: ScaleNotes[];
+  notes: string[];
   key: string;
 };
 

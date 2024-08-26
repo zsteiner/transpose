@@ -35,6 +35,8 @@ export const Notation = ({ notes, notationKey, transposeSteps }: NotationProps) 
 
 
   return (
-    <div ref={notationRef} />
+    <>
+      <div ref={notationRef} />
+    </>
   )
 }
