@@ -4,4 +4,6 @@
   padding-block: var(--spacer);
   max-block-size: var(--large);
   block-size: 100%;
+  margin: auto;
+  padding-inline: var(--spacer);
 }
