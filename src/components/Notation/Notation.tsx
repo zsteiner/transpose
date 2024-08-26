@@ -2,15 +2,16 @@
 import abcjs, { Selector } from 'abcjs';
 import { use, useEffect, useRef } from 'react';
 
+import { Container } from '@/types';
 import writeNotation from '@/utils/writeNotation';
 
-type NotationProps = {
+type NotationProps = Container & {
   notes: string[];
   notationKey: string;
   transposeSteps: number;
 };
 
-export const Notation = ({ notes, notationKey, transposeSteps }: NotationProps) => {
+export const Notation = ({ className, notes, notationKey, transposeSteps }: NotationProps) => {
   const notation = `L:4/4\nK:${notationKey}\n${writeNotation(notes)}`;
   const notationRef = useRef<HTMLDivElement>(null);
 
@@ -35,8 +36,6 @@ export const Notation = ({ notes, notationKey, transposeSteps }: NotationProps) 
 
 
   return (
-    <>
-      <div ref={notationRef} />
-    </>
+    <div className={className} ref={notationRef} />
   )
 }

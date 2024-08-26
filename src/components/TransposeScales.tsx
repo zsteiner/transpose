@@ -8,6 +8,7 @@ import { scales } from '@/constants/scales';
 import { Notation } from './Notation/Notation';
 import { PageContainer } from './PageContainer';
 import { Select } from './Select';
+import styles from './TransposeContainer.module.css';
 
 export const TransposeScales = () => {
   const [value, setValue] = useState(scaleOptions[0].value);
@@ -16,7 +17,7 @@ export const TransposeScales = () => {
   return (
     <PageContainer>
       <Select onChange={setValue} options={scaleOptions} value={value} />
-      <Notation notationKey={key} notes={notes} transposeSteps={0} />
+      <Notation className={styles.scales} notationKey={key} notes={notes} transposeSteps={0} />
     </PageContainer>
   );
 }

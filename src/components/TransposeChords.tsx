@@ -7,7 +7,7 @@ import { chordOptions } from '@/constants/options';
 import { Notation } from './Notation/Notation';
 import { PageContainer } from './PageContainer';
 import { Select } from './Select';
-
+import styles from './TransposeContainer.module.css';
 
 export const TransposeChords = () => {
   const [value, setValue] = useState(chordOptions[0].value);
@@ -16,7 +16,7 @@ export const TransposeChords = () => {
   return (
     <PageContainer>
       <Select onChange={setValue} options={chordOptions} value={value} />
-      <Notation notationKey={key} notes={notes} transposeSteps={0} />
+      <Notation className={styles.chords} notationKey={key} notes={notes} transposeSteps={0} />
     </PageContainer>
   );
 }

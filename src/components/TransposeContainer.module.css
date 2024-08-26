@@ -1,0 +1,9 @@
+.chords {
+  max-inline-size: 25rem;
+  margin: auto;
+}
+
+.scales {
+  max-inline-size: var(--large);
+  margin: auto;
+}
