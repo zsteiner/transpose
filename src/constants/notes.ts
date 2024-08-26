@@ -1,5 +1,13 @@
 import { Note } from '@/types';
 
+export const noteAbcNotationMap = {
+  gFlat: '_G',
+  dFlat: '_D',
+  aFlat: '_A',
+  eFlat: '_E',
+  bFlat: '_B',
+};
+
 export const notes = [
   {
     position: 1,
