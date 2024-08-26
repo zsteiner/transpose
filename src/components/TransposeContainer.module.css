@@ -4,6 +4,6 @@
 }
 
 .scales {
-  max-inline-size: var(--large);
+  max-inline-size: 50rem;
   margin: auto;
 }
