@@ -40,13 +40,13 @@ export const Note = ({ className, note, showBothAccidentals }: NoteProps) => {
       {isAccidental ?
         <>
           <NoteAccidental
-            note={note?.displaySharp}
-            type="sharp"
+            note={note?.displayFlat}
+            type="flat"
           />
           {showBothAccidentals ? <>/
             <NoteAccidental
-              note={note?.displayFlat}
-              type="flat"
+              note={note?.displaySharp}
+              type="sharp"
             />
           </> : null}
         </> : null
