@@ -3,7 +3,6 @@ import { useState } from 'react';
 
 import { chords } from '@/constants/chords';
 import { chordOptions } from '@/constants/options';
-import { transposeNoteSemitones } from '@/utils/transposeNoteSemitones';
 
 import { Notation } from './Notation/Notation';
 import { PageContainer } from './PageContainer';
@@ -24,16 +23,18 @@ export const TransposeChords = () => {
   return (
     <PageContainer>
       <Select onChange={setValue} options={chordOptions} value={value} />
-      <Notation className={styles.chords} notationKey={key} notes={notes} transposeSemitones={transposeSemitonesOriginal} />
-      {transposedNote ? (
-        <Notation
-          className={styles.chords}
-          isTransposed
-          notationKey={key}
-          notes={notes}
-          transposeSemitones={transposeSemitonesTransposed}
-        />) : null
-      }
+      <div className={styles.chordContainer}>
+        <Notation className={styles.chords} notationKey={key} notes={notes} transposeSemitones={transposeSemitonesOriginal} />
+        {transposedNote ? (
+          <Notation
+            className={styles.chords}
+            isTransposed
+            notationKey={key}
+            notes={notes}
+            transposeSemitones={transposeSemitonesTransposed}
+          />) : null
+        }
+      </div>
     </PageContainer>
   );
 }

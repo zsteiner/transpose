@@ -30,6 +30,8 @@ export const Notation = ({ className, notes, notationKey, transposeSemitones, is
       paddingright: 0,
       paddingtop: 0,
       paddingbottom: 0,
+      expandToWidest: true,
+      minPadding: 32,
       viewportHorizontal: false,
       responsive: 'resize',
       staffwidth,
