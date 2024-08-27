@@ -18,8 +18,6 @@ export const TransposeChords = () => {
   const [value, setValue] = useState(chordOptions[0].value);
   const { notes, key } = chords[value as keyof typeof chords];
 
-
-
   return (
     <PageContainer>
       <Select onChange={setValue} options={chordOptions} value={value} />
