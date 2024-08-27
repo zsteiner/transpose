@@ -1,10 +1,10 @@
 'use client'
+import { Note } from '@/components/Note';
 import { useTransposeState } from '@/components/useTranspose';
 
-import { Note } from './Note';
-import styles from './TransposeNote.module.css';
+import styles from './TransposeMessage.module.css';
 
-export const TransposeNote = () => {
+export const TransposeMessage = () => {
   const {
     instrument1,
     instrument2,

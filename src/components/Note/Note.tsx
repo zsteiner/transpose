@@ -1,6 +1,6 @@
 import { Note as NoteType } from '@/types';
 
-import styles from './TransposeNote.module.css';
+import styles from './Note.module.css';
 
 type NoteProps = {
   note?: NoteType;
