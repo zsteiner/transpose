@@ -74,7 +74,7 @@
 }
 
 .item:hover .sector {
-  fill: #eee;
+  fill: var(--hover-color);
 }
 
 .selected:hover .sector {
