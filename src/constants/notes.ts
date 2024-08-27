@@ -1,76 +1,76 @@
 import { Note } from '@/types';
 
 export const noteAbcNotationMap = {
-  gFlat: '_G',
-  dFlat: '_D',
-  aFlat: '_A',
-  eFlat: '_E',
-  bFlat: '_B',
+  gFlat: 'G',
+  dFlat: 'D',
+  aFlat: 'A',
+  eFlat: 'E',
+  bFlat: 'B',
 };
 
 export const notes = [
   {
-    position: 1,
+    position: 0,
     note: 'c',
     display: 'C',
   },
   {
-    position: 2,
+    position: 1,
     note: 'g',
     display: 'G',
   },
   {
-    position: 3,
+    position: 2,
     note: 'd',
     display: 'D',
   },
   {
-    position: 4,
+    position: 3,
     note: 'a',
     display: 'A',
   },
   {
-    position: 5,
+    position: 4,
     note: 'e',
     display: 'E',
   },
   {
-    position: 6,
+    position: 5,
     note: 'b',
     display: 'B',
   },
   {
-    position: 7,
+    position: 6,
     note: 'gFlat',
     displayFlat: 'G',
     displaySharp: 'F',
   },
   {
-    position: 8,
+    position: 7,
     note: 'dFlat',
     displayFlat: 'D',
     displaySharp: 'C',
   },
   {
-    position: 9,
+    position: 8,
     note: 'aFlat',
     displayFlat: 'A',
     displaySharp: 'G',
   },
   {
-    position: 10,
+    position: 9,
     note: 'eFlat',
     displayFlat: 'E',
     displaySharp: 'D',
   },
   {
-    position: 11,
+    position: 10,
     note: 'bFlat',
     displayFlat: 'B',
     displaySharp: 'A',
   },
   {
-    position: 12,
+    position: 11,
     note: 'f',
     display: 'F',
   },

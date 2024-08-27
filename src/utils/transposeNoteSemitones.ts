@@ -1,20 +1,21 @@
-const SEMITONES_STEP = 7;
-const FULL_CIRCLE = 12;
+const circleFifthsSemitoneMap = {
+  0: 0,
+  1: 7,
+  2: 2,
+  3: 9,
+  4: 4,
+  5: -1,
+  6: 6,
+  7: 1,
+  8: 8,
+  9: 3,
+  10: -2,
+  11: 5,
+};
 
 export function transposeNoteSemitones(originalNote: number, transposedNote: number) {
-  let transposeSemitones;
+  const stepsMoved = transposedNote - originalNote;
+  const semitones = circleFifthsSemitoneMap[stepsMoved as keyof typeof circleFifthsSemitoneMap];
 
-  const startingSemitones = ((transposedNote - originalNote) * SEMITONES_STEP)
-
-  if (transposedNote === originalNote) {
-    transposeSemitones = 0;
-  } if (startingSemitones > FULL_CIRCLE) {
-    // console.log('over 12');
-    transposeSemitones = startingSemitones - FULL_CIRCLE;
-  } else {
-    transposeSemitones = startingSemitones;
-  }
-  // console.log({ originalNote, transposedNote, startingSemitones, transposeSemitones });
-
-  return transposeSemitones;
+  return semitones;
 }

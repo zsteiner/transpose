@@ -25,7 +25,14 @@ export const TransposeChords = () => {
     <PageContainer>
       <Select onChange={setValue} options={chordOptions} value={value} />
       <Notation className={styles.chords} notationKey={key} notes={notes} transposeSemitones={transposeSemitonesOriginal} />
-      {transposedNote ? (<Notation className={styles.chords} notationKey={key} notes={notes} transposeSemitones={transposeSemitonesTransposed} />) : null
+      {transposedNote ? (
+        <Notation
+          className={styles.chords}
+          isTransposed
+          notationKey={key}
+          notes={notes}
+          transposeSemitones={transposeSemitonesTransposed}
+        />) : null
       }
     </PageContainer>
   );

@@ -7,9 +7,9 @@ type UseTransposeSemitonesParams = {
 };
 
 export const useTransposeSemitones = ({ originalNote, transposedNote }: UseTransposeSemitonesParams) => {
-  const transposeSemitonesOriginal = transposeNoteSemitones(1, originalNote.position);
+  const transposeSemitonesOriginal = transposeNoteSemitones(0, originalNote.position);
 
-  const transposeSemitonesTransposed = transposeNoteSemitones(1, transposedNote?.position || 1);
+  const transposeSemitonesTransposed = transposeNoteSemitones(0, transposedNote?.position || 1);
 
   return { transposeSemitonesOriginal, transposeSemitonesTransposed }
 }

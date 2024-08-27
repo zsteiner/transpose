@@ -23,8 +23,20 @@ export const TransposeScales = () => {
   return (
     <PageContainer>
       <Select onChange={setValue} options={scaleOptions} value={value} />
-      <Notation className={styles.scales} notationKey={key} notes={notes} transposeSemitones={transposeSemitonesOriginal} />
-      {transposedNote ? (<Notation className={styles.scales} notationKey={key} notes={notes} transposeSemitones={transposeSemitonesTransposed} />) : null
+      <Notation
+        className={styles.scales}
+        notationKey={key}
+        notes={notes}
+        transposeSemitones={transposeSemitonesOriginal}
+      />
+      {transposedNote ? (
+        <Notation
+          className={styles.scales}
+          isTransposed
+          notationKey={key}
+          notes={notes}
+          transposeSemitones={transposeSemitonesTransposed}
+        />) : null
       }
     </PageContainer>
   );

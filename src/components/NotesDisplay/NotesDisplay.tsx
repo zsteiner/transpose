@@ -1,21 +1,45 @@
 import { notes as notesMap } from '@/constants/notes';
+import { transposeNote } from '@/utils/transposeNote';
 
 import { Note } from '../TransposeNote/Note';
+import { useTransposeState } from '../useTranspose';
 import styles from './NotesDisplay.module.css';
 
 type NotesDisplayProps = {
+  isTransposed?: boolean;
   notes: string[];
 };
 
-export const NotesDisplay = ({ notes }: NotesDisplayProps) => {
+export const NotesDisplay = ({ isTransposed, notes }: NotesDisplayProps) => {
+  const { originalNote, transposedNote, transposeFactor } = useTransposeState();
+
   return (
     <div className={styles.notes}>
       <strong>Notes: </strong>
       {notes.map((note) => {
-        const noteObject = notesMap.find((noteObject) => noteObject.note.toLowerCase() === note.toLowerCase());
-        console.log({ noteObject });
+        const noteObject = notesMap.find((noteObject) => noteObject.note.toLowerCase() === note.toLowerCase()) || notesMap[0];
+
+        if (isTransposed) {
+          const displayNote = notesMap[
+            transposeNote(noteObject.position, (transposedNote?.position ?? 0))
+          ];
+
+          return <Note
+            key={note}
+            note={displayNote}
+            showBothAccidentals />
+        }
+
+        const displayNote = notesMap[
+          transposeNote(noteObject.position, originalNote.position)
+        ];
+
         return (
-          <Note key={note} note={noteObject} showBothAccidentals />
+          <Note
+            key={note}
+            note={displayNote}
+            showBothAccidentals
+          />
         )
       })}
     </div>

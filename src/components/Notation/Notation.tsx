@@ -8,12 +8,13 @@ import writeNotation from '@/utils/writeNotation';
 import { NotesDisplay } from '../NotesDisplay/NotesDisplay';
 
 type NotationProps = Container & {
+  isTransposed?: boolean;
   notes: string[];
   notationKey: string;
   transposeSemitones: number;
 };
 
-export const Notation = ({ className, notes, notationKey, transposeSemitones }: NotationProps) => {
+export const Notation = ({ className, notes, notationKey, transposeSemitones, isTransposed }: NotationProps) => {
   const notation = `L:4/4\nK:${notationKey}\n${writeNotation(notes)}`;
   const notationRef = useRef<HTMLDivElement>(null);
 
@@ -40,7 +41,7 @@ export const Notation = ({ className, notes, notationKey, transposeSemitones }: 
   return (
     <div>
       <div className={className} ref={notationRef} />
-      <NotesDisplay notes={notes} />
+      <NotesDisplay isTransposed={isTransposed} notes={notes} />
     </div>
   )
 }
