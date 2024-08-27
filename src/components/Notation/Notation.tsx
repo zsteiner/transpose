@@ -40,8 +40,8 @@ export const Notation = ({ className, notes, notationKey, transposeSemitones, is
 
   return (
     <div>
-      <div className={className} ref={notationRef} />
       <NotesDisplay isTransposed={isTransposed} notes={notes} />
+      <div className={className} ref={notationRef} />
     </div>
   )
 }

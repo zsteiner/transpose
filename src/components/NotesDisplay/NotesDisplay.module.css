@@ -1,6 +1,5 @@
 .notes {
-    block-size: 100%;
     display: flex;
-    gap: var(--spacer-double);
+    gap: 1rem;
     padding: var(--spacer) 0;
 }

@@ -33,10 +33,7 @@ export const Note = ({ note, showBothAccidentals }: NoteProps) => {
       {note?.display}
       {isAccidental ?
         <>
-          <NoteAccidental note={note?.displaySharp} type="sharp" />
-          {showBothAccidentals ? <>
-            {' '} / {' '}
-            < NoteAccidental note={note?.displayFlat} type="flat" /></> : null}
+          <NoteAccidental note={note?.displaySharp} type="sharp" />{showBothAccidentals ? <>/< NoteAccidental note={note?.displayFlat} type="flat" /></> : null}
         </> : null
       }
     </span>

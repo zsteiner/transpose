@@ -27,18 +27,16 @@ export const NotesDisplay = ({ isTransposed, notes }: NotesDisplayProps) => {
           return <Note
             key={note}
             note={displayNote}
-            showBothAccidentals />
+          />
         }
 
         const displayNote = notesMap[
-          transposeNote(noteObject.position, originalNote.position)
-        ];
+          transposeNote(noteObject.position, originalNote.position)];
 
         return (
           <Note
             key={note}
             note={displayNote}
-            showBothAccidentals
           />
         )
       })}
