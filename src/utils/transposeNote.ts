@@ -3,7 +3,7 @@ const FULL_CIRCLE = 12;
 export function transposeNote(originalNote: number, transposeFactor: number) {
   let transposedNote;
 
-  const adjustedTransposeFactor = transposeFactor + 1;
+  const adjustedTransposeFactor = transposeFactor;
 
   if (transposeFactor === 0) {
     transposedNote = originalNote;

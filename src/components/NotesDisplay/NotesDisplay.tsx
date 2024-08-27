@@ -12,7 +12,7 @@ type NotesDisplayProps = {
 
 export const NotesDisplay = ({ isTransposed, notes }: NotesDisplayProps) => {
   const { originalNote, transposedNote, transposeFactor } = useTransposeState();
-
+  console.log('originalNote', originalNote);
   return (
     <div className={styles.notes}>
       <strong>Notes: </strong>

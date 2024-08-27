@@ -60,10 +60,16 @@ export const useTransposeState = () => {
   useEffect(() => {
     if (instrument2) {
       setTransposedNote(
-        notes[transposeNote(originalNote.position, transposeFactor) - 1]
+        notes[transposeNote(originalNote.position, transposeFactor)]
       );
     }
-  }, [originalNote, instrument1, instrument2, setTransposedNote, transposeFactor]);
+  }, [
+    originalNote,
+    instrument1,
+    instrument2,
+    setTransposedNote,
+    transposeFactor
+  ]);
 
   return {
     originalNote,
