@@ -1,7 +1,7 @@
 import { notes as notesMap } from '@/constants/notes';
 import { transposeNote } from '@/utils/transposeNote';
 
-import { Note } from '../TransposeNote/Note';
+import { Note } from '../Note';
 import { useTransposeState } from '../useTranspose';
 import styles from './NotesDisplay.module.css';
 
@@ -25,8 +25,10 @@ export const NotesDisplay = ({ isTransposed, notes }: NotesDisplayProps) => {
           ] || notesMap[0];
 
           return <Note
+            className={styles.note}
             key={note}
             note={displayNote}
+            showBothAccidentals
           />
         }
 
@@ -35,8 +37,10 @@ export const NotesDisplay = ({ isTransposed, notes }: NotesDisplayProps) => {
 
         return (
           <Note
+            className={styles.note}
             key={note}
             note={displayNote}
+            showBothAccidentals
           />
         )
       })}

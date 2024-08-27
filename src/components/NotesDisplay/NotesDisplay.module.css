@@ -1,5 +1,15 @@
 .notes {
-    display: flex;
-    gap: 1rem;
-    padding: var(--spacer) 0;
+  --gap: 0.325rem;
+
+  display: flex;
+  gap: var(--gap);
+  padding: var(--spacer) 0;
+}
+
+.note:not(:last-child)::after {
+  color: var(--default-light);
+  content: '—';
+  display: inline-block;
+  margin-inline-start: var(--gap);
+  opacity: 0.5;
 }

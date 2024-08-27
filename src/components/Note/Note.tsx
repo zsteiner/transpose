@@ -1,8 +1,10 @@
-import { Note as NoteType } from '@/types';
+import classnames from 'classnames';
+
+import { Container, Note as NoteType } from '@/types';
 
 import styles from './Note.module.css';
 
-type NoteProps = {
+type NoteProps = Container & {
   note?: NoteType;
   showBothAccidentals?: boolean;
 };
@@ -13,27 +15,40 @@ type NoteAccidentalProps = {
 };
 
 const NoteAccidental = ({ note, type }: NoteAccidentalProps) => {
-  const label = type === 'sharp' ? ' ♯' : '♭';
+  const isFlat = type === 'flat';
+  const label = isFlat ? '♭' : '♯';
 
   return (
     <span>
       {note}
-      <span className={styles.accidental}>
+      <span className={classnames(styles.accidental, {
+        [styles.flat]: isFlat,
+        [styles.sharp]: !isFlat
+      })}>
         {label}
       </span>
-    </span>
+    </span >
   );
 }
 
-export const Note = ({ note, showBothAccidentals }: NoteProps) => {
+export const Note = ({ className, note, showBothAccidentals }: NoteProps) => {
   const isAccidental = note?.displayFlat || note?.displaySharp;
 
   return (
-    <span>
+    <span className={className}>
       {note?.display}
       {isAccidental ?
         <>
-          <NoteAccidental note={note?.displaySharp} type="sharp" />{showBothAccidentals ? <>/< NoteAccidental note={note?.displayFlat} type="flat" /></> : null}
+          <NoteAccidental
+            note={note?.displaySharp}
+            type="sharp"
+          />
+          {showBothAccidentals ? <>/
+            <NoteAccidental
+              note={note?.displayFlat}
+              type="flat"
+            />
+          </> : null}
         </> : null
       }
     </span>

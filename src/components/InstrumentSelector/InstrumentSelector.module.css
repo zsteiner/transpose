@@ -57,6 +57,7 @@
 .arrow {
   color: var(--info);
   font-size: var(--arrow-size, var(--spacer));
+  margin-block-end: 2rem;
 }
 
 .buttonContainer {
