@@ -6,9 +6,14 @@
   padding: var(--spacer) 0;
 }
 
+.label {
+  display: block;
+  margin-inline-end: var(--spacer);
+}
+
 .note:not(:last-child)::after {
   color: var(--default-light);
-  content: '—';
+  content: '·';
   display: inline-block;
   margin-inline-start: var(--gap);
   opacity: 0.5;

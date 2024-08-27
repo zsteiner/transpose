@@ -13,9 +13,11 @@ type NotesDisplayProps = {
 export const NotesDisplay = ({ isTransposed, notes }: NotesDisplayProps) => {
   const { originalNote, transposedNote, transposeFactor } = useTransposeState();
 
+  const label = isTransposed ? 'Transposed' : 'Original';
+
   return (
     <div className={styles.notes}>
-      <strong>Notes: </strong>
+      <strong className={styles.label}>{label}:</strong>
       {notes.map((note) => {
         const noteObject = notesMap.find((noteObject) => noteObject.note.toLowerCase() === note.toLowerCase()) || notesMap[0];
 

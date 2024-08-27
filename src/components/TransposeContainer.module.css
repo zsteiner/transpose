@@ -1,8 +1,13 @@
 .chordContainer {
   align-items: start;
-  display: grid;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
   gap: var(--spacer-double);
-  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+}
+
+.chords {
+  min-inline-size: 20rem;
 }
 
 .scales {
