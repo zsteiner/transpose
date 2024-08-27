@@ -1,13 +1,8 @@
-.chords {
-  margin: auto;
-  max-inline-size: 25rem;
-}
-
 .chordContainer {
-  align-items: end;
+  align-items: start;
   display: grid;
   gap: var(--spacer-double);
-  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
 }
 
 .scales {

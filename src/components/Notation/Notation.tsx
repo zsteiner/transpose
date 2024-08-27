@@ -6,6 +6,7 @@ import { Container } from '@/types';
 import writeNotation from '@/utils/writeNotation';
 
 import { NotesDisplay } from '../NotesDisplay/NotesDisplay';
+import styles from './Notation.module.css';
 
 type NotationProps = Container & {
   isTransposed?: boolean;
@@ -41,7 +42,7 @@ export const Notation = ({ className, notes, notationKey, transposeSemitones, is
 
 
   return (
-    <div>
+    <div className={styles.container}>
       <NotesDisplay isTransposed={isTransposed} notes={notes} />
       <div className={className} ref={notationRef} />
     </div>
