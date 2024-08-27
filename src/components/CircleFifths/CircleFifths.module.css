@@ -50,7 +50,7 @@
 }
 
 .selected .note.note {
-    fill: var(--white);
+  fill: var(--white);
 }
 
 .item {

@@ -18,7 +18,7 @@
 }
 
 .picker ul {
-  background: rgb(255 255 255 / 0.95);
+  background: var(--picker-background);
   border-radius: var(--border-radius);
   display: grid;
   grid-template-columns: repeat(4, 1fr);

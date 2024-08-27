@@ -17,6 +17,7 @@
   --input-padding: 0.75rem 1rem;
   --border-width: 0.0625rem;
   --border-radius: 0.75rem;
+  --picker-background: rgb(255 255 255 / 0.95);
 }
 
 *,
@@ -59,8 +60,17 @@ body {
   }
 }
 
-/* @media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
   }
-} */
+
+  :root {
+    --background: hsl(0deg 0% 10%);
+    --default: hsl(0deg 0% 76%);
+    --default-light: hsl(0deg 0% 86%);
+    --info: #959ea5;
+    --white: var(--background);
+    --picker-background: var(--background);
+  }
+}
