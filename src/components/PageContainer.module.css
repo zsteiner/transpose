@@ -5,5 +5,4 @@
   margin: auto;
   max-block-size: var(--large);
   padding-block: var(--spacer);
-  padding-inline: var(--spacer);
 }

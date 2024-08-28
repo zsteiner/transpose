@@ -8,6 +8,8 @@ import { IconSet } from '@/components/Icon';
 import { MainNav } from '@/components/MainNav';
 import { TransposeContainer } from '@/components/TransposeContainer';
 
+import styles from './page.module.css';
+
 const fontFamily = Source_Serif_4({ subsets: ["latin"], style: ['normal', 'italic'], });
 
 export const metadata: Metadata = {
@@ -22,14 +24,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-
       <body className={fontFamily.className}>
-        <IconSet />
-        <MainNav />
-        <TransposeContainer>
+        <div className={styles.container}>
+          <IconSet />
+          <MainNav />
+          <TransposeContainer>
 
-          {children}
-        </TransposeContainer>
+            {children}
+          </TransposeContainer>
+        </div>
       </body>
     </html>
   );
