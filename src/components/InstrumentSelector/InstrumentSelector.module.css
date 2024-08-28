@@ -61,7 +61,7 @@
 }
 
 .buttonContainer {
-  align-self: start;
+  align-self: flex-start;
   display: grid;
   gap: var(--spacer);
   grid-template-rows: 1fr auto;
