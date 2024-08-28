@@ -22,7 +22,10 @@ export const TransposeScales = () => {
 
   return (
     <PageContainer>
-      <Select onChange={setValue} options={scaleOptions} value={value} />
+      <Select
+        onChange={setValue}
+        options={scaleOptions}
+        value={value} />
       <Notation
         className={styles.scales}
         notationKey={key}
