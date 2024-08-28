@@ -1,0 +1,16 @@
+.chordContainer {
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacer-double);
+  justify-content: center;
+}
+
+.chords {
+  min-inline-size: 20rem;
+}
+
+.scales {
+  margin: auto;
+  max-inline-size: 50rem;
+}

@@ -1,3 +1,8 @@
+export type Container = {
+  className?: string;
+  children?: React.ReactNode;
+}
+
 export type ScaleNotes =
   | 'c'
   | 'd'
@@ -14,6 +19,11 @@ export type ScaleNotes =
   | 'dFlat'
   | 'aFlat'
   | 'gFlat';
+
+export type ScaleConfig = {
+  notes: string[];
+  key: string;
+};
 
 export type Key = 'eFlat' | 'bFlat' | 'c' | 'f';
 

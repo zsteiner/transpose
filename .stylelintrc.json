@@ -1,41 +1,20 @@
 {
-  "extends": [
-    "stylelint-config-standard",
-    "stylelint-config-recommended-vue"
-  ],
+  "extends": "stylelint-config-standard",
   "plugins": [
     "stylelint-order"
   ],
   "rules": {
+    "alpha-value-notation": "number",
+    "custom-property-pattern": null,
+    "import-notation": "string",
+    "no-descending-specificity": null,
     "order/order": [
+      "at-rules",
       "custom-properties",
       "declarations",
       "rules"
     ],
-    "order/properties-alphabetical-order": [
-      true
-    ],
-    "property-no-vendor-prefix": [
-      true,
-      {
-        "ignoreProperties": [
-          "appearance"
-        ]
-      }
-    ],
-    "selector-id-pattern": null,
-    "selector-class-pattern": null,
-    "unit-allowed-list": [
-      "ch",
-      "em",
-      "rem",
-      "vh",
-      "vw",
-      "vmin",
-      "deg",
-      "%",
-      "s",
-      "fr"
-    ]
+    "order/properties-alphabetical-order": true,
+    "selector-class-pattern": null
   }
 }

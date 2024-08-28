@@ -146,3 +146,5 @@ export const instruments = {
     iconName: 'violin',
   },
 } as InstrumentList;
+
+export const instrumentsArray = Object.values(instruments);

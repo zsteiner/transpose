@@ -1,0 +1,78 @@
+:root {
+  --primary: #ff951e;
+  --secondary: hsl(197deg 100% 35%);
+  --warning: #ffca4c;
+  --success: #39ea28;
+  --default: hsl(220deg 3% 23%);
+  --default-transparent: hsl(220deg 3% 23% / 0.1);
+  --default-light: hsl(220deg 3% 38%);
+  --info: #959ea5;
+  --white: #fff;
+  --link-light: hsl(197deg 100% 50%);
+  --medium: 45rem;
+  --large: 75rem;
+  --spacer: 1rem;
+  --spacer-double: 2rem;
+  --layout-gap: var(--spacer);
+  --input-padding: 0.75rem 1rem;
+  --border-width: 0.0625rem;
+  --border-radius: 0.75rem;
+  --picker-background: rgb(255 255 255 / 0.95);
+  --hover-color: hsl(0deg 0% 93%);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+button {
+  font-family: inherit;
+}
+
+html,
+body {
+  min-block-size: 100%;
+}
+
+.no-scroll {
+  overflow: hidden;
+  position: relative;
+  z-index: 100;
+}
+
+.no-scroll::before {
+  backdrop-filter: blur(0.325rem);
+  background-color: rgb(255 255 255 / 0.25);
+  content: '';
+  inset: 0;
+  position: fixed;
+  z-index: 1;
+}
+
+@media (width >= 45rem) {
+  :root {
+    --layout-gap: var(--spacer-double);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+
+  :root {
+    --background: hsl(0deg 0% 10%);
+    --default: hsl(0deg 0% 76%);
+    --default-light: hsl(0deg 0% 86%);
+    --info: #959ea5;
+    --white: var(--background);
+    --picker-background: var(--background);
+    --hover-color: hsl(0deg 0% 20%);
+  }
+}

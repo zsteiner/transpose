@@ -1,0 +1,92 @@
+.circle {
+  touch-action: none;
+  transform: translate3d(0, 0, 0);
+  transform-origin: 50% 50% 0;
+  user-select: none;
+}
+
+.circleMenu {
+  --menu-size: 19rem;
+
+  height: var(--menu-size);
+  margin: 0 auto;
+  max-width: 100%;
+  width: var(--menu-size);
+}
+
+.circleMenu svg {
+  display: block;
+  overflow: visible;
+  position: relative;
+}
+
+.circleMenu a {
+  cursor: pointer;
+  outline: none;
+}
+
+.circleMenu symbol {
+  /* KEEP THIS so that text will not get cut off
+  it it is wider than the icon width */
+  overflow: visible;
+}
+
+@media (width >= 45rem) {
+  .circleMenu {
+    --menu-size: 20rem;
+  }
+}
+
+.note {
+  font-size: 2rem;
+}
+
+.enharmonic {
+  fill: var(--info);
+}
+
+.selected .sector.sector {
+  fill: var(--secondary);
+}
+
+.selected .note.note {
+  fill: var(--white);
+}
+
+.item {
+  color: var(--default);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.item .note {
+  fill: var(--default-light);
+}
+
+.item .sector {
+  fill: var(--white);
+  stroke: var(--info);
+  transition: all 0.1s linear;
+}
+
+.item .indicator {
+  display: none;
+  fill: var(--primary);
+}
+
+.item:hover .sector {
+  fill: var(--hover-color);
+}
+
+.selected:hover .sector {
+  fill: var(--secondary);
+}
+
+.transposed .indicator,
+.transposed:hover .indicator {
+  display: block;
+}
+
+.menuTrigger {
+  fill: var(--info);
+  pointer-events: auto;
+}

@@ -1,0 +1,16 @@
+.accidental {
+  block-size: 2ch;
+  display: inline-block;
+  font-size: 0.625em;
+  line-height: 1.25;
+  overflow: hidden;
+  position: relative;
+}
+
+.sharp {
+  margin-inline-start: .0625rem;
+}
+
+.flat {
+  margin-inline-start: -.125rem;
+}

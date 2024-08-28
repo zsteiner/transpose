@@ -1,0 +1,10 @@
+.message {
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+@media (width >= 45rem) {
+  .message {
+    font-size: 1.5rem;
+  }
+}
