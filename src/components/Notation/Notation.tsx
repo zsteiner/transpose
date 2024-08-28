@@ -43,7 +43,7 @@ export const Notation = ({ className, notes, notationKey, transposeSemitones, is
 
   return (
     <div className={styles.container}>
-      <NotesDisplay isTransposed={isTransposed} notes={notes} />
+      <NotesDisplay className={className} isTransposed={isTransposed} notes={notes} />
       <div className={className} ref={notationRef} />
     </div>
   )
