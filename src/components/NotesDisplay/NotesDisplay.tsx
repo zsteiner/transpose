@@ -20,36 +20,38 @@ export const NotesDisplay = ({ className, isTransposed, notes }: NotesDisplayPro
   const label = isTransposed ? 'Transposed' : 'Original';
 
   return (
-    <div className={classnames(styles.notes, className)}>
-      <strong className={styles.label}>{label}:</strong>
-      {notes.map((note) => {
-        const noteObject = notesMap.find((noteObject) => noteObject.note.toLowerCase() === note.toLowerCase()) || notesMap[0];
+    <div className={classnames(styles.notesContainer, className)}>
+      <strong>{label}:</strong>
+      <div className={styles.notes}>
+        {notes.map((note) => {
+          const noteObject = notesMap.find((noteObject) => noteObject.note.toLowerCase() === note.toLowerCase()) || notesMap[0];
 
-        if (isTransposed) {
+          if (isTransposed) {
+            const displayNote = notesMap[
+              transposeNote(noteObject.position, (transposedNote?.position ?? 0))
+            ] || notesMap[0];
+
+            return <Note
+              className={styles.note}
+              key={note}
+              note={displayNote}
+              showBothAccidentals
+            />
+          }
+
           const displayNote = notesMap[
-            transposeNote(noteObject.position, (transposedNote?.position ?? 0))
-          ] || notesMap[0];
+            transposeNote(noteObject.position, originalNote.position)] || notesMap[0];
 
-          return <Note
-            className={styles.note}
-            key={note}
-            note={displayNote}
-            showBothAccidentals
-          />
-        }
-
-        const displayNote = notesMap[
-          transposeNote(noteObject.position, originalNote.position)] || notesMap[0];
-
-        return (
-          <Note
-            className={styles.note}
-            key={note}
-            note={displayNote}
-            showBothAccidentals
-          />
-        )
-      })}
-    </div>
+          return (
+            <Note
+              className={styles.note}
+              key={note}
+              note={displayNote}
+              showBothAccidentals
+            />
+          )
+        })}
+      </div>
+    </div >
   );
 }

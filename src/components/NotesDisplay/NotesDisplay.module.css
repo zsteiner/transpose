@@ -1,15 +1,17 @@
-.notes {
-  --gap: 0.325rem;
-
+.notesContainer {
   display: flex;
-  gap: var(--gap);
+  flex-wrap: wrap;
+  gap: var(--spacer);
   inline-size: 100%;
   padding: var(--spacer) 0;
 }
 
-.label {
-  display: block;
-  margin-inline-end: var(--spacer);
+.notes {
+  --gap: 0.325rem;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap);
 }
 
 .note:not(:last-child)::after {
