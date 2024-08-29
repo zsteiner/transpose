@@ -5,23 +5,45 @@ import { Container } from '@/types';
 
 export type ReactAbcConfig = AbcVisualParams;
 
-type ReactAbcProps = Container & {
-  config: ReactAbcConfig;
+type ReactAbcProps = Container & ReactAbcConfig & {
+  isResponsive?: boolean;
   notation: string;
 };
 
-export const ReactAbc = ({ className, config, notation }: ReactAbcProps) => {
+export const ReactAbc = ({
+  className,
+  notation,
+  paddingbottom = 0,
+  paddingleft = 0,
+  paddingright = 0,
+  paddingtop = 0,
+  ...rest
+}: ReactAbcProps) => {
   const notationRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    let staffwidth = 100;
+    let staffwidth = rest.staffwidth || 100;
 
     if (notationRef.current) {
       staffwidth = notationRef?.current.clientWidth;
     }
 
-    abcjs.renderAbc(notationRef.current as Selector, notation, { ...config, staffwidth });
-  }, [config, notation]);
+    abcjs.renderAbc(notationRef.current as Selector, notation, {
+      ...rest,
+      paddingbottom,
+      paddingleft,
+      paddingright,
+      paddingtop,
+      staffwidth,
+    });
+  }, [
+    notation,
+    paddingbottom,
+    paddingleft,
+    paddingright,
+    paddingtop,
+    rest,
+  ]);
 
   return <div className={className} ref={notationRef} />;
 }
