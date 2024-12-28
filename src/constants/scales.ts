@@ -68,6 +68,10 @@ export const scales = {
     notes: ['C', 'dFlat', 'E', 'F', 'G', 'aFlat', 'bFlat', 'c'],
     key: 'Eb',
   },
+  doubleHarmonic: {
+    notes: ['C', 'dFlat', 'E', 'F', 'G', 'aFlat', 'B', 'c'],
+    key: 'Bb',
+  },
   bhairav: {
     notes: ['C', 'dFlat', 'E', 'F', 'G', 'aFlat', 'B', 'c'],
     key: 'Bb',

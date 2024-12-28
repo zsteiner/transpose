@@ -11,6 +11,7 @@ export const scaleOptions = [
   { value: 'mixolydian', label: 'Mixolydian' },
   { value: 'locrian', label: 'Locrian' },
   { value: 'gypsy', label: 'Spanish Gypsy' },
+  { value: 'doubleHarmonic', label: 'Double Harmonic' },
   { value: 'bhairav', label: 'Raga (Bhairav)' },
   { value: 'marwa', label: 'Raga (Marwa)' },
   { value: 'purvi', label: 'Raga (Purvi)' },
