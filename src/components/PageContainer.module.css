@@ -3,6 +3,6 @@
   display: grid;
   gap: var(--spacer);
   margin: auto;
-  max-block-size: var(--large);
+  max-inline-size: var(--medium);
   padding-block: var(--spacer);
 }

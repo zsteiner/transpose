@@ -11,21 +11,21 @@
     "stylelint": "stylelint 'src/**/*.css' --fix"
   },
   "dependencies": {
-    "abcjs": "^6.4.2",
+    "abcjs": "^6.4.4",
     "classnames": "^2.5.1",
-    "next": "14.2.6",
-    "react": "^18",
-    "react-dom": "^18"
+    "next": "15.1.3",
+    "react": "^19",
+    "react-dom": "^19"
   },
   "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.6",
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.1.3",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-simple-import-sort": "^12.1.1",
-    "stylelint": "^16.8.2",
+    "stylelint": "^16.12.0",
     "stylelint-config-standard": "^36.0.1",
     "stylelint-order": "^6.0.4",
     "typescript": "^5"
