@@ -1,4 +1,5 @@
-{
+
+const config = {
   "useTabs": false,
   "printWidth": 80,
   "tabWidth": 2,
@@ -6,4 +7,6 @@
   "singleQuote": true,
   "singleAttributePerLine": true,
   "trailingComma": "all"
-}
+};
+
+export default config;

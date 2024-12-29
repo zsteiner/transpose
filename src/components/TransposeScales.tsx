@@ -4,7 +4,6 @@ import { useState } from 'react';
 
 import { scaleOptions } from '@/constants/options';
 import { scales } from '@/constants/scales';
-import { transposeNoteSemitones } from '@/utils/transposeNoteSemitones';
 
 import { Notation } from './Notation/Notation';
 import { PageContainer } from './PageContainer';

@@ -5,7 +5,6 @@ import { TransposeContext, useCreateTransposeState } from '@/components/useTrans
 import { Container } from '@/types';
 
 import { PageContainer } from './PageContainer';
-import styles from './TransposeContainer.module.css';
 
 export const TransposeContainer = ({ children }: Container) => {
   const {

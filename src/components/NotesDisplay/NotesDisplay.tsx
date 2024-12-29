@@ -15,7 +15,7 @@ type NotesDisplayProps = Container & {
 };
 
 export const NotesDisplay = ({ className, isTransposed, notes }: NotesDisplayProps) => {
-  const { originalNote, transposedNote, transposeFactor } = useTransposeState();
+  const { originalNote, transposedNote } = useTransposeState();
 
   const label = isTransposed ? 'Transposed' : 'Original';
 
