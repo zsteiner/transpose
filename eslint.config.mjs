@@ -27,6 +27,17 @@ const eslintConfig = [
     },
   },
   eslintPluginPrettierRecommended,
+  {
+    rules: {
+      'prettier/prettier': [
+        'error',
+        {},
+        {
+          usePrettierrc: true,
+        },
+      ],
+    },
+  },
 ];
 
 export default eslintConfig;
