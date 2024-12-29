@@ -5,10 +5,11 @@ import { Container } from '@/types';
 
 export type ReactAbcConfig = AbcVisualParams;
 
-type ReactAbcProps = Container & ReactAbcConfig & {
-  isResponsive?: boolean;
-  notation: string;
-};
+type ReactAbcProps = Container &
+  ReactAbcConfig & {
+    isResponsive?: boolean;
+    notation: string;
+  };
 
 export const ReactAbc = ({
   className,
@@ -36,14 +37,12 @@ export const ReactAbc = ({
       paddingtop,
       staffwidth,
     });
-  }, [
-    notation,
-    paddingbottom,
-    paddingleft,
-    paddingright,
-    paddingtop,
-    rest,
-  ]);
+  }, [notation, paddingbottom, paddingleft, paddingright, paddingtop, rest]);
 
-  return <div className={className} ref={notationRef} />;
-}
+  return (
+    <div
+      className={className}
+      ref={notationRef}
+    />
+  );
+};

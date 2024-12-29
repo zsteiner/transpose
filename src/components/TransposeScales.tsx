@@ -1,10 +1,9 @@
-'use client'
+'use client';
 
 import { useState } from 'react';
 
 import { scaleOptions } from '@/constants/options';
 import { scales } from '@/constants/scales';
-import { transposeNoteSemitones } from '@/utils/transposeNoteSemitones';
 
 import { Notation } from './Notation/Notation';
 import { PageContainer } from './PageContainer';
@@ -15,7 +14,8 @@ import { useTransposeSemitones } from './useTransposeSemitones';
 
 export const TransposeScales = () => {
   const { originalNote, transposedNote } = useTransposeState();
-  const { transposeSemitonesOriginal, transposeSemitonesTransposed } = useTransposeSemitones({ originalNote, transposedNote });
+  const { transposeSemitonesOriginal, transposeSemitonesTransposed } =
+    useTransposeSemitones({ originalNote, transposedNote });
 
   const [value, setValue] = useState(scaleOptions[0].value);
   const { notes, key } = scales[value as keyof typeof scales];
@@ -25,7 +25,8 @@ export const TransposeScales = () => {
       <Select
         onChange={setValue}
         options={scaleOptions}
-        value={value} />
+        value={value}
+      />
       <Notation
         className={styles.scales}
         notationKey={key}
@@ -39,8 +40,8 @@ export const TransposeScales = () => {
           notationKey={key}
           notes={notes}
           transposeSemitones={transposeSemitonesTransposed}
-        />) : null
-      }
+        />
+      ) : null}
     </PageContainer>
   );
-}
+};

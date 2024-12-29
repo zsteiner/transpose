@@ -21,15 +21,17 @@ const NoteAccidental = ({ note, type }: NoteAccidentalProps) => {
   return (
     <span>
       {note}
-      <span className={classnames(styles.accidental, {
-        [styles.flat]: isFlat,
-        [styles.sharp]: !isFlat
-      })}>
+      <span
+        className={classnames(styles.accidental, {
+          [styles.flat]: isFlat,
+          [styles.sharp]: !isFlat,
+        })}
+      >
         {label}
       </span>
-    </span >
+    </span>
   );
-}
+};
 
 export const Note = ({ className, note, showBothAccidentals }: NoteProps) => {
   const isAccidental = note?.displayFlat || note?.displaySharp;
@@ -37,20 +39,23 @@ export const Note = ({ className, note, showBothAccidentals }: NoteProps) => {
   return (
     <span className={className}>
       {note?.display}
-      {isAccidental ?
+      {isAccidental ? (
         <>
           <NoteAccidental
             note={note?.displayFlat}
             type="flat"
           />
-          {showBothAccidentals ? <>/
-            <NoteAccidental
-              note={note?.displaySharp}
-              type="sharp"
-            />
-          </> : null}
-        </> : null
-      }
+          {showBothAccidentals ? (
+            <>
+              /
+              <NoteAccidental
+                note={note?.displaySharp}
+                type="sharp"
+              />
+            </>
+          ) : null}
+        </>
+      ) : null}
     </span>
   );
-}
+};

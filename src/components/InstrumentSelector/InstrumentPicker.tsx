@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import { InstrumentItem } from '@/components/InstrumentItem';
 import { instrumentsArray } from '@/constants/instruments';
 import { Instrument } from '@/types';
@@ -12,7 +12,11 @@ type InstrumentPickerProps = {
   selectedInstrument?: Instrument;
 };
 
-export const InstrumentPicker = ({ isOpen, onClose, onSelect }: InstrumentPickerProps) => {
+export const InstrumentPicker = ({
+  isOpen,
+  onClose,
+  onSelect,
+}: InstrumentPickerProps) => {
   const handleKeyDown = (event: React.KeyboardEvent) => {
     if (event.key === 'Escape') {
       onClose();
@@ -21,8 +25,8 @@ export const InstrumentPicker = ({ isOpen, onClose, onSelect }: InstrumentPicker
 
   const handleSelect = (instrument: Instrument) => {
     onClose();
-    onSelect(instrument)
-  }
+    onSelect(instrument);
+  };
 
   if (!isOpen) {
     return null;
@@ -41,21 +45,24 @@ export const InstrumentPicker = ({ isOpen, onClose, onSelect }: InstrumentPicker
           close
         </button>
         <ul>
-          {instrumentsArray.map((instrument) => (<li
-            className={styles.item}
-            key={instrument?.iconName}
-          >
-            <button
-              className={styles.button}
-              onClick={() => handleSelect(instrument)}
+          {instrumentsArray.map((instrument) => (
+            <li
+              className={styles.item}
+              key={instrument?.iconName}
             >
-              <InstrumentItem instrument={instrument}
-                stretch
-              />
-            </button>
-          </li >))}
-        </ul >
-      </section >
-    </div >
+              <button
+                className={styles.button}
+                onClick={() => handleSelect(instrument)}
+              >
+                <InstrumentItem
+                  instrument={instrument}
+                  stretch
+                />
+              </button>
+            </li>
+          ))}
+        </ul>
+      </section>
+    </div>
   );
-}
+};

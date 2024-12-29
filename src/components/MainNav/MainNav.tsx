@@ -1,10 +1,10 @@
-'use client'
+'use client';
 import classnames from 'classnames';
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 import { Logo } from './Logo';
-import styles from "./MainNav.module.css";
+import styles from './MainNav.module.css';
 
 type NavLinkProps = {
   href: string;
@@ -24,32 +24,22 @@ export const MainNav = () => {
       >
         {children}
       </Link>
-    )
-  }
+    );
+  };
 
   return (
     <header className={styles.header}>
-      <Link className={styles.logoLink} href="/">
+      <Link
+        className={styles.logoLink}
+        href="/"
+      >
         <Logo className={styles.logo} />
       </Link>
       <nav className={styles.nav}>
-        <NavLink
-
-          href="/"
-        >
-          Notes
-        </NavLink>
-        <NavLink
-          href="/chords"
-        >
-          Chords
-        </NavLink>
-        <NavLink
-          href="/scales"
-        >
-          Scales
-        </NavLink>
+        <NavLink href="/">Notes</NavLink>
+        <NavLink href="/chords">Chords</NavLink>
+        <NavLink href="/scales">Scales</NavLink>
       </nav>
     </header>
-  )
-}
+  );
+};

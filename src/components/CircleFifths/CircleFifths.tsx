@@ -1,6 +1,6 @@
-'use client'
+'use client';
 import classnames from 'classnames';
-import { AnchorHTMLAttributes, useState } from 'react';
+import { AnchorHTMLAttributes } from 'react';
 
 import { notes } from '@/constants/notes';
 
@@ -9,18 +9,14 @@ import styles from './CircleFifths.module.css';
 
 type NoteItemProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
   position: number;
-}
+};
 
 export const CircleFifths = () => {
-  const {
-    originalNote,
-    setOriginalNote,
-    transposedNote
-  } = useTransposeState();
+  const { originalNote, setOriginalNote, transposedNote } = useTransposeState();
 
   const selectNote = (position: number) => {
     setOriginalNote(notes[position]);
-  }
+  };
 
   const NoteItem = ({ position, children, ...rest }: NoteItemProps) => {
     const isOriginalNoteMarker = originalNote.position === position;
@@ -36,10 +32,16 @@ export const CircleFifths = () => {
     });
 
     return (
-      <a {...rest} className={classes} onClick={() => selectNote(position)}
-        tabIndex={0}>{children}</a>
-    )
-  }
+      <a
+        {...rest}
+        className={classes}
+        onClick={() => selectNote(position)}
+        tabIndex={0}
+      >
+        {children}
+      </a>
+    );
+  };
 
   return (
     <section className={styles.circleMenu}>
@@ -49,9 +51,7 @@ export const CircleFifths = () => {
         viewBox="-2 -2 504 504"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <g
-          id="symbolsContainer"
-        >
+        <g id="symbolsContainer">
           <symbol
             className={styles.note}
             id="icon-1"
@@ -276,7 +276,8 @@ export const CircleFifths = () => {
               y="186.00076293945312"
             ></use>
           </NoteItem>
-          <NoteItem data-svg-origin="250 250"
+          <NoteItem
+            data-svg-origin="250 250"
             position={1}
             transform="matrix(0.5,-0.86602,0.86602,0.5,-91.5063509461097,341.5063509461096)"
           >
@@ -535,7 +536,7 @@ export const CircleFifths = () => {
               x="394.2073974609375"
               y="186.00076293945312"
             ></use>
-          </NoteItem >
+          </NoteItem>
           <NoteItem
             data-svg-origin="250 250"
             position={10}
@@ -594,7 +595,7 @@ export const CircleFifths = () => {
               y="186.00076293945312"
             ></use>
           </NoteItem>
-        </g >
+        </g>
         <g
           className={classnames(styles.trigger, styles.menuTrigger)}
           id="trigger"
@@ -606,7 +607,7 @@ export const CircleFifths = () => {
             r="30"
           ></circle>
         </g>
-      </svg >
-    </section >
+      </svg>
+    </section>
   );
-}
+};

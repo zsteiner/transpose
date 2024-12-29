@@ -13,9 +13,13 @@ const circleFifthsSemitoneMap = {
   11: 5, // F
 };
 
-export function transposeNoteSemitones(originalNote: number, transposedNote: number) {
+export function transposeNoteSemitones(
+  originalNote: number,
+  transposedNote: number,
+) {
   const stepsMoved = transposedNote - originalNote;
-  const semitones = circleFifthsSemitoneMap[stepsMoved as keyof typeof circleFifthsSemitoneMap];
+  const semitones =
+    circleFifthsSemitoneMap[stepsMoved as keyof typeof circleFifthsSemitoneMap];
 
   return semitones;
 }
