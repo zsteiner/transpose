@@ -3,7 +3,6 @@ import { fileURLToPath } from 'node:url';
 
 import { FlatCompat } from '@eslint/eslintrc';
 import js from '@eslint/js';
-import eslintConfigPrettier from 'eslint-config-prettier';
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
 
@@ -28,7 +27,6 @@ const eslintConfig = [
     },
   },
   eslintPluginPrettierRecommended,
-  eslintConfigPrettier,
 ];
 
 export default eslintConfig;
