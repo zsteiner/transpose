@@ -10,7 +10,10 @@ type InstrumentSelectorItemProps = {
   onClick: () => void;
 };
 
-export const InstrumentSelectorItem = ({ instrument, onClick }: InstrumentSelectorItemProps) => {
+export const InstrumentSelectorItem = ({
+  instrument,
+  onClick,
+}: InstrumentSelectorItemProps) => {
   const isEmpty = !instrument;
 
   return (
@@ -25,4 +28,4 @@ export const InstrumentSelectorItem = ({ instrument, onClick }: InstrumentSelect
       </button>
     </div>
   );
-}
+};

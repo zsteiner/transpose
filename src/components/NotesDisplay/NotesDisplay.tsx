@@ -14,7 +14,11 @@ type NotesDisplayProps = Container & {
   notes: string[];
 };
 
-export const NotesDisplay = ({ className, isTransposed, notes }: NotesDisplayProps) => {
+export const NotesDisplay = ({
+  className,
+  isTransposed,
+  notes,
+}: NotesDisplayProps) => {
   const { originalNote, transposedNote } = useTransposeState();
 
   const label = isTransposed ? 'Transposed' : 'Original';
@@ -24,23 +28,35 @@ export const NotesDisplay = ({ className, isTransposed, notes }: NotesDisplayPro
       <strong>{label}:</strong>
       <div className={styles.notes}>
         {notes.map((note) => {
-          const noteObject = notesMap.find((noteObject) => noteObject.note.toLowerCase() === note.toLowerCase()) || notesMap[0];
+          const noteObject =
+            notesMap.find(
+              (noteObject) =>
+                noteObject.note.toLowerCase() === note.toLowerCase(),
+            ) || notesMap[0];
 
           if (isTransposed) {
-            const displayNote = notesMap[
-              transposeNote(noteObject.position, (transposedNote?.position ?? 0))
-            ] || notesMap[0];
+            const displayNote =
+              notesMap[
+                transposeNote(
+                  noteObject.position,
+                  transposedNote?.position ?? 0,
+                )
+              ] || notesMap[0];
 
-            return <Note
-              className={styles.note}
-              key={note}
-              note={displayNote}
-              showBothAccidentals
-            />
+            return (
+              <Note
+                className={styles.note}
+                key={note}
+                note={displayNote}
+                showBothAccidentals
+              />
+            );
           }
 
-          const displayNote = notesMap[
-            transposeNote(noteObject.position, originalNote.position)] || notesMap[0];
+          const displayNote =
+            notesMap[
+              transposeNote(noteObject.position, originalNote.position)
+            ] || notesMap[0];
 
           return (
             <Note
@@ -49,9 +65,9 @@ export const NotesDisplay = ({ className, isTransposed, notes }: NotesDisplayPro
               note={displayNote}
               showBothAccidentals
             />
-          )
+          );
         })}
       </div>
-    </div >
+    </div>
   );
-}
+};

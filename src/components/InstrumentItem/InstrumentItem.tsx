@@ -29,27 +29,22 @@ export const InstrumentItem = ({
   };
 
   return (
-    <span className={classnames(
-      styles.instrument,
-      {
+    <span
+      className={classnames(styles.instrument, {
         [styles.stretch]: stretch,
-      },)
-    }
+      })}
     >
-      <span className={
-        classnames(
-          styles.icon,
-          {
-            [styles.keyIcon]: !instrument?.icon,
-          },
-        )}
+      <span
+        className={classnames(styles.icon, {
+          [styles.keyIcon]: !instrument?.icon,
+        })}
       >
         <Icon
           className={styles.iconInternal}
           icon={displayIcon()}
         />
-      </span >
+      </span>
       <span className={styles.name}>{displayText}</span>
-    </span >
-  )
-}
+    </span>
+  );
+};

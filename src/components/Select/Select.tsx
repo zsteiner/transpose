@@ -29,7 +29,7 @@ export const Select = ({ value, onChange, options }: SelectProps) => {
             {option.label}
           </option>
         ))}
-      </select >
-    </div >
-  )
-}
+      </select>
+    </div>
+  );
+};

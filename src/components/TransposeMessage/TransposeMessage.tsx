@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import { Note } from '@/components/Note';
 import { useTransposeState } from '@/components/useTranspose';
 
@@ -21,21 +21,23 @@ export const TransposeMessage = () => {
     <p className={styles.message}>
       <span>
         <strong>
-          <Note note={originalNote}
+          <Note
+            note={originalNote}
             showBothAccidentals
           />
-        </strong> {' '}
-        on the {instrument1?.name} sounds the same as {' '}
+        </strong>{' '}
+        on the {instrument1?.name} sounds the same as{' '}
         <strong>
-          <Note note={transposedNote}
+          <Note
+            note={transposedNote}
             showBothAccidentals
           />
         </strong>{' '}
         on the {instrument2?.name}.
       </span>
-      {transposeFactor === 0 ? <span>
-        There is no need to transpose.
-      </span> : null}
+      {transposeFactor === 0 ? (
+        <span>There is no need to transpose.</span>
+      ) : null}
     </p>
   );
-}
+};

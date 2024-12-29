@@ -1,1 +1,1 @@
-export * from './TransposeMessage'
+export * from './TransposeMessage';

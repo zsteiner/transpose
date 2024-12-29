@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import { useState } from 'react';
 
 import { chords } from '@/constants/chords';
@@ -13,16 +13,26 @@ import { useTransposeSemitones } from './useTransposeSemitones';
 
 export const TransposeChords = () => {
   const { originalNote, transposedNote } = useTransposeState();
-  const { transposeSemitonesOriginal, transposeSemitonesTransposed } = useTransposeSemitones({ originalNote, transposedNote });
+  const { transposeSemitonesOriginal, transposeSemitonesTransposed } =
+    useTransposeSemitones({ originalNote, transposedNote });
 
   const [value, setValue] = useState(chordOptions[0].value);
   const { notes, key } = chords[value as keyof typeof chords];
 
   return (
     <PageContainer>
-      <Select onChange={setValue} options={chordOptions} value={value} />
+      <Select
+        onChange={setValue}
+        options={chordOptions}
+        value={value}
+      />
       <div className={styles.chordContainer}>
-        <Notation className={styles.chords} notationKey={key} notes={notes} transposeSemitones={transposeSemitonesOriginal} />
+        <Notation
+          className={styles.chords}
+          notationKey={key}
+          notes={notes}
+          transposeSemitones={transposeSemitonesOriginal}
+        />
         {transposedNote ? (
           <Notation
             className={styles.chords}
@@ -30,9 +40,9 @@ export const TransposeChords = () => {
             notationKey={key}
             notes={notes}
             transposeSemitones={transposeSemitonesTransposed}
-          />) : null
-        }
+          />
+        ) : null}
       </div>
     </PageContainer>
   );
-}
+};

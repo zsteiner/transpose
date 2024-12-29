@@ -12,12 +12,22 @@ type NotationProps = Container & {
   transposeSemitones: number;
 };
 
-export const Notation = ({ className, notes, notationKey, transposeSemitones, isTransposed }: NotationProps) => {
+export const Notation = ({
+  className,
+  notes,
+  notationKey,
+  transposeSemitones,
+  isTransposed,
+}: NotationProps) => {
   const notation = `L:4/4\nK:${notationKey}\n${writeNotation(notes)}`;
 
   return (
     <div className={styles.container}>
-      <NotesDisplay className={className} isTransposed={isTransposed} notes={notes} />
+      <NotesDisplay
+        className={className}
+        isTransposed={isTransposed}
+        notes={notes}
+      />
       <ReactAbc
         expandToWidest
         minPadding={32}
@@ -27,5 +37,5 @@ export const Notation = ({ className, notes, notationKey, transposeSemitones, is
         visualTranspose={transposeSemitones}
       />
     </div>
-  )
-}
+  );
+};

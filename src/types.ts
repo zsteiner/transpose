@@ -1,7 +1,7 @@
 export type Container = {
   className?: string;
   children?: React.ReactNode;
-}
+};
 
 export type ScaleNotes =
   | 'c'
