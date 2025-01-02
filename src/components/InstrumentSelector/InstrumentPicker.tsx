@@ -42,9 +42,12 @@ export const InstrumentPicker = ({
       id={id}
       ref={ref}
     >
-      <form method="dialog">
+      <form
+        className={styles.form}
+        method="dialog"
+      >
         <button className={styles.close}>close</button>
-        <ul>
+        <ul className={styles.list}>
           {instrumentsArray.map((instrument) => (
             <li
               className={styles.item}
