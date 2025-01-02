@@ -2,8 +2,8 @@
   border: var(--border-width) solid var(--info);
   color: var(--default);
   margin: 0 auto;
-  max-width: 25rem;
-  min-width: 20rem;
+  max-inline-size: 25rem;
+  min-inline-size: 20rem;
   position: relative;
 }
 
@@ -13,10 +13,10 @@
 }
 
 .input {
+  block-size: 100%;
   border: var(--border-width) solid transparent;
-  height: 100%;
+  inline-size: 100%;
   overflow: hidden;
-  width: 100%;
 }
 
 .select {
@@ -30,11 +30,11 @@
   cursor: pointer;
   display: block;
   font-size: 1rem;
+  inline-size: 100%;
   line-height: 1.25;
   outline: none;
   padding: var(--input-padding);
   position: relative;
-  width: 100%;
   z-index: 1;
 }
 

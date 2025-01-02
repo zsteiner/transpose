@@ -68,30 +68,30 @@
 }
 
 .item {
-  border-bottom: var(--list-border);
-  border-right: var(--list-border);
-  height: 7rem;
+  block-size: 7rem;
+  border-block-end: var(--list-border);
+  border-inline-end: var(--list-border);
   position: relative;
   text-align: center;
 }
 
 .item:nth-child(4n) {
-  border-bottom: var(--list-border);
-  border-right: 0;
+  border-block-end: var(--list-border);
+  border-inline-end: 0;
 }
 
 .item:nth-last-of-type(-n + 4) {
-  border-bottom: 0;
+  border-block-end: 0;
 }
 
 .button {
   background: none;
+  block-size: 100%;
   border: 0;
   color: var(--default-light);
-  height: 100%;
+  inline-size: 100%;
   padding: 1rem;
   text-align: inherit;
-  width: 100%;
 
   &:hover {
     color: var(--secondary);

@@ -6,9 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "lint:fix": "next lint --fix",
-    "stylelint": "stylelint 'src/**/*.css' --fix"
+    "lint": "npm run lint:js && yarn run lint:style",
+    "lint:fix": "npm run lint:js:fix && yarn lint:style",
+    "lint:js": "next lint",
+    "lint:js:fix": "next lint --fix",
+    "lint:style": "stylelint 'src/**/*.css' --fix"
   },
   "dependencies": {
     "abcjs": "^6.4.4",
@@ -31,6 +33,7 @@
     "stylelint": "^16.12.0",
     "stylelint-config-standard": "^36.0.1",
     "stylelint-order": "^6.0.4",
+    "stylelint-use-logical": "^2.1.2",
     "typescript": "^5"
   }
 }
