@@ -1,4 +1,5 @@
-'use client';
+import { RefObject, useRef } from 'react';
+
 import { InstrumentItem } from '@/components/InstrumentItem';
 import { instrumentsArray } from '@/constants/instruments';
 import { Instrument } from '@/types';
@@ -6,45 +7,46 @@ import { Instrument } from '@/types';
 import styles from './InstrumentPicker.module.css';
 
 type InstrumentPickerProps = {
-  isOpen?: boolean;
-  onClose: () => void;
+  id?: string;
   onSelect: (instrument?: Instrument) => void;
+  ref?: RefObject<HTMLDialogElement>;
   selectedInstrument?: Instrument;
 };
 
-export const InstrumentPicker = ({
-  isOpen,
-  onClose,
-  onSelect,
-}: InstrumentPickerProps) => {
-  const handleKeyDown = (event: React.KeyboardEvent) => {
-    if (event.key === 'Escape') {
-      onClose();
-    }
+export const useModal = () => {
+  const ref = useRef<HTMLDialogElement>(null) as RefObject<HTMLDialogElement>;
+
+  const onOpen = () => {
+    ref.current?.showModal();
   };
 
+  return {
+    ref,
+    onOpen,
+  };
+};
+
+export const InstrumentPicker = ({
+  id,
+  onSelect,
+  ref,
+}: InstrumentPickerProps) => {
   const handleSelect = (instrument: Instrument) => {
-    onClose();
     onSelect(instrument);
   };
 
-  if (!isOpen) {
-    return null;
-  }
-
   return (
-    <div className={styles.scrim}>
-      <section
-        className={styles.picker}
-        onKeyDown={handleKeyDown}
+    <dialog
+      className={styles.picker}
+      id={id}
+      ref={ref}
+    >
+      <form
+        className={styles.form}
+        method="dialog"
       >
-        <button
-          className={styles.close}
-          onClick={onClose}
-        >
-          close
-        </button>
-        <ul>
+        <button className={styles.close}>close</button>
+        <ul className={styles.list}>
           {instrumentsArray.map((instrument) => (
             <li
               className={styles.item}
@@ -62,7 +64,7 @@ export const InstrumentPicker = ({
             </li>
           ))}
         </ul>
-      </section>
-    </div>
+      </form>
+    </dialog>
   );
 };

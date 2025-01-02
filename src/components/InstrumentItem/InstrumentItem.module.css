@@ -1,7 +1,7 @@
 .instrument {
   --icon-size: 2.5rem;
 
-  height: 100%;
+  block-size: 100%;
 }
 
 .stretch {
@@ -26,13 +26,13 @@
 .keyIcon {
   align-items: center;
   background: currentcolor;
+  block-size: 1em;
   border-radius: 50%;
   display: inline-flex;
   font-size: var(--icon-size);
-  height: 1em;
+  inline-size: 1em;
   justify-content: center;
   padding: 0.5rem;
-  width: 1em;
 }
 
 .keyIcon .iconInternal {

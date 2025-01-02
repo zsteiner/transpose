@@ -13,6 +13,7 @@
   --large: 75rem;
   --spacer: 1rem;
   --spacer-double: 2rem;
+  --spacer-triple: 2rem;
   --layout-gap: var(--spacer);
   --input-padding: 0.75rem 1rem;
   --border-width: 0.0625rem;
@@ -27,7 +28,7 @@
   box-sizing: inherit;
 }
 
-html {
+body {
   box-sizing: border-box;
 }
 
@@ -38,21 +39,6 @@ button {
 html,
 body {
   min-block-size: 100%;
-}
-
-.no-scroll {
-  overflow: hidden;
-  position: relative;
-  z-index: 100;
-}
-
-.no-scroll::before {
-  backdrop-filter: blur(0.325rem);
-  background-color: rgb(255 255 255 / 0.25);
-  content: '';
-  inset: 0;
-  position: fixed;
-  z-index: 1;
 }
 
 @media (width >= 45rem) {

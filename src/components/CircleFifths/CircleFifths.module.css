@@ -8,10 +8,10 @@
 .circleMenu {
   --menu-size: 19rem;
 
-  height: var(--menu-size);
+  block-size: var(--menu-size);
+  inline-size: var(--menu-size);
   margin: 0 auto;
-  max-width: 100%;
-  width: var(--menu-size);
+  max-inline-size: 100%;
 }
 
 .circleMenu svg {

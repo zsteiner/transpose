@@ -1,15 +1,12 @@
 import classnames from 'classnames';
-import { useState } from 'react';
 
 import { Icon } from '../Icon';
 import { useTransposeState } from '../useTranspose/useTranspose';
-import { InstrumentPicker } from './InstrumentPicker';
+import { InstrumentPicker, useModal } from './InstrumentPicker';
 import styles from './InstrumentSelector.module.css';
 import { InstrumentSelectorItem } from './InstrumentSelectorItem';
 
 export const InstrumentSelector = () => {
-  const [pickerVisible, setPickerVisible] = useState<number | null>(null);
-
   const {
     instrument1,
     instrument2,
@@ -18,11 +15,14 @@ export const InstrumentSelector = () => {
     clearSelection,
   } = useTransposeState();
 
+  const { ref, onOpen } = useModal();
+  const { ref: refTranspose, onOpen: onOpenTranspose } = useModal();
+
   return (
     <section className={styles.switcher}>
       <InstrumentSelectorItem
         instrument={instrument1}
-        onClick={() => setPickerVisible(1)}
+        onClick={onOpen}
       />
 
       <Icon
@@ -33,7 +33,7 @@ export const InstrumentSelector = () => {
       <div className={styles.buttonContainer}>
         <InstrumentSelectorItem
           instrument={instrument2}
-          onClick={() => setPickerVisible(2)}
+          onClick={onOpenTranspose}
         />
         <button
           className={classnames(styles.clear, {
@@ -45,15 +45,13 @@ export const InstrumentSelector = () => {
         </button>
       </div>
       <InstrumentPicker
-        isOpen={pickerVisible === 1}
-        onClose={() => setPickerVisible(null)}
         onSelect={setInstrument1}
+        ref={ref}
         selectedInstrument={instrument1}
       />
       <InstrumentPicker
-        isOpen={pickerVisible === 2}
-        onClose={() => setPickerVisible(null)}
         onSelect={setInstrument2}
+        ref={refTranspose}
         selectedInstrument={instrument1}
       />
     </section>
