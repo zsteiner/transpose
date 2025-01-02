@@ -2,7 +2,7 @@ import classnames from 'classnames';
 
 import { Icon } from '../Icon';
 import { useTransposeState } from '../useTranspose/useTranspose';
-import { InstrumentPicker, useInstrumentPicker } from './InstrumentPicker';
+import { InstrumentPicker, useModal } from './InstrumentPicker';
 import styles from './InstrumentSelector.module.css';
 import { InstrumentSelectorItem } from './InstrumentSelectorItem';
 
@@ -15,8 +15,8 @@ export const InstrumentSelector = () => {
     clearSelection,
   } = useTransposeState();
 
-  const { ref, onOpen } = useInstrumentPicker();
-  const { ref: refTranspose, onOpen: onOpenTranspose } = useInstrumentPicker();
+  const { ref, onOpen } = useModal();
+  const { ref: refTranspose, onOpen: onOpenTranspose } = useModal();
 
   return (
     <section className={styles.switcher}>

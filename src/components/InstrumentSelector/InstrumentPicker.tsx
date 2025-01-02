@@ -1,4 +1,3 @@
-'use client';
 import { RefObject, useRef } from 'react';
 
 import { InstrumentItem } from '@/components/InstrumentItem';
@@ -14,8 +13,8 @@ type InstrumentPickerProps = {
   selectedInstrument?: Instrument;
 };
 
-export const useInstrumentPicker = () => {
-  const ref = useRef<HTMLDialogElement>(null);
+export const useModal = () => {
+  const ref = useRef<HTMLDialogElement>(null) as RefObject<HTMLDialogElement>;
 
   const onOpen = () => {
     ref.current?.showModal();
