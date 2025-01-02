@@ -1,4 +1,6 @@
 'use client';
+import { RefObject, useRef } from 'react';
+
 import { InstrumentItem } from '@/components/InstrumentItem';
 import { instrumentsArray } from '@/constants/instruments';
 import { Instrument } from '@/types';
@@ -6,44 +8,42 @@ import { Instrument } from '@/types';
 import styles from './InstrumentPicker.module.css';
 
 type InstrumentPickerProps = {
-  isOpen?: boolean;
-  onClose: () => void;
+  id?: string;
   onSelect: (instrument?: Instrument) => void;
+  ref?: RefObject<HTMLDialogElement>;
   selectedInstrument?: Instrument;
 };
 
-export const InstrumentPicker = ({
-  isOpen,
-  onClose,
-  onSelect,
-}: InstrumentPickerProps) => {
-  const handleKeyDown = (event: React.KeyboardEvent) => {
-    if (event.key === 'Escape') {
-      onClose();
-    }
+export const useInstrumentPicker = () => {
+  const ref = useRef<HTMLDialogElement>(null);
+
+  const onOpen = () => {
+    ref.current?.showModal();
   };
 
+  return {
+    ref,
+    onOpen,
+  };
+};
+
+export const InstrumentPicker = ({
+  id,
+  onSelect,
+  ref,
+}: InstrumentPickerProps) => {
   const handleSelect = (instrument: Instrument) => {
-    onClose();
     onSelect(instrument);
   };
 
-  if (!isOpen) {
-    return null;
-  }
-
   return (
-    <div className={styles.scrim}>
-      <section
-        className={styles.picker}
-        onKeyDown={handleKeyDown}
-      >
-        <button
-          className={styles.close}
-          onClick={onClose}
-        >
-          close
-        </button>
+    <dialog
+      className={styles.picker}
+      id={id}
+      ref={ref}
+    >
+      <form method="dialog">
+        <button className={styles.close}>close</button>
         <ul>
           {instrumentsArray.map((instrument) => (
             <li
@@ -62,7 +62,7 @@ export const InstrumentPicker = ({
             </li>
           ))}
         </ul>
-      </section>
-    </div>
+      </form>
+    </dialog>
   );
 };

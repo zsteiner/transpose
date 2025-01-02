@@ -1,32 +1,29 @@
-.scrim {
-  backdrop-filter: blur(0.25rem);
-  background: var(--default-transparent);
-  display: flex;
-  inset: 0;
-  position: fixed;
-  z-index: 100;
-}
 
 .picker {
   --list-border: 0.0625rem solid var(--info);
   --size: 38rem;
 
-  border-bottom: var(--list-border);
-  border-radius: var(--border-radius);
-  margin: auto;
-  position: relative;
+  background: none;
+  border: 0;
+  padding: 3rem;
+}
+
+.picker::backdrop {
+  backdrop-filter: blur(0.25rem);
+  background: var(--default-transparent);
 }
 
 .picker ul {
   background: var(--picker-background);
+  border: var(--list-border);
   border-radius: var(--border-radius);
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  height: 100%;
   list-style: none;
   margin: 0;
   overflow: scroll;
   padding: 0;
+  position: relative;
 }
 
 .close {
@@ -34,23 +31,16 @@
   border: 0;
   color: var(--primary);
   font-size: 1.75rem;
+  inset-block-start: 0;
+  inset-inline-end: 3rem;
   position: absolute;
-  right: 0;
-  top: -2em;
+  z-index: 1001;
 }
 
 .close:hover,
 .close:focus {
   color: var(--secondary);
   outline: 0;
-}
-
-@media (width >= 45rem) {
-  .picker {
-    border: var(--list-border);
-    max-height: var(--size);
-    max-width: var(--size);
-  }
 }
 
 .item {
