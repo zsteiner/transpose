@@ -10,6 +10,20 @@
   padding: 4rem var(--spacer) var(--spacer);
 }
 
+.picker[open] {
+  animation: fadein 0.3s linear forwards;
+}
+
+@keyframes fadein{
+  0%{
+    opacity:0;
+  }
+
+  100%{
+    opacity:1;
+  }
+}
+
 .picker::backdrop {
   backdrop-filter: blur(0.25rem);
   background: var(--default-transparent);
