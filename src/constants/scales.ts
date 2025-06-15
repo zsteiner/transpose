@@ -25,7 +25,7 @@ export const scales = {
     key: 'C',
   },
   minor: {
-    notes: ['C', 'D', 'E', 'F', 'G', 'aFlat', 'bFlat', 'c'],
+    notes: ['C', 'D', 'eFlat', 'F', 'G', 'aFlat', 'bFlat', 'c'],
     key: 'Eb',
   },
   majorPentatonic: {
