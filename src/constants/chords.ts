@@ -7,8 +7,8 @@ export const chords = {
   major7Sharp: { notes: ['C', 'E', 'G', 'gFlat'], key: 'C' },
   major9: { notes: ['C', 'E', 'G', 'B', 'd'], key: 'C' },
   major13: { notes: ['C', 'E', 'G', 'B', 'd', 'a'], key: 'C' },
-  minor: { notes: ['C', 'eFlat', 'G'], key: 'C' },
-  minorAdd9: { notes: ['C', 'eFlat', 'G', 'd'], key: 'C' },
-  minor6: { notes: ['C', 'eFlat', 'G', 'A'], key: 'C' },
-  minorAdd11: { notes: ['C', 'eFlat', 'G', 'f'], key: 'C' },
+  minor: { notes: ['C', 'eFlat', 'G'], key: 'Eb' },
+  minorAdd9: { notes: ['C', 'eFlat', 'G', 'd'], key: 'Eb' },
+  minor6: { notes: ['C', 'eFlat', 'G', 'A'], key: 'Eb' },
+  minorAdd11: { notes: ['C', 'eFlat', 'G', 'f'], key: 'Eb' },
 };
