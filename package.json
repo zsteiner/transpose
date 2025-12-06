@@ -8,8 +8,8 @@
     "start": "next start",
     "lint": "npm run lint:js && yarn run lint:style",
     "lint:fix": "npm run lint:js:fix && yarn lint:style",
-    "lint:js": "next lint",
-    "lint:js:fix": "next lint --fix",
+    "lint:js": "eslint .",
+    "lint:js:fix": "eslint --fix .",
     "lint:style": "stylelint 'src/**/*.css' --fix"
   },
   "dependencies": {
@@ -20,7 +20,6 @@
     "react-dom": "^19"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3.3.3",
     "@eslint/js": "^9.39.1",
     "@types/node": "^24",
     "@types/react": "^19",
