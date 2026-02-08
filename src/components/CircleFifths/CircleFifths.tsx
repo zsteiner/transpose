@@ -1,6 +1,6 @@
 'use client';
 import classnames from 'classnames';
-import { AnchorHTMLAttributes } from 'react';
+import { AnchorHTMLAttributes, useCallback } from 'react';
 
 import { notes } from '@/constants/notes';
 import { Note } from '@/types';
@@ -43,9 +43,12 @@ const NoteItem = ({ position, children, originalNote, transposedNote, onSelectNo
 export const CircleFifths = () => {
   const { originalNote, setOriginalNote, transposedNote } = useTranspose();
 
-  const selectNote = (position: number) => {
-    setOriginalNote(notes[position]);
-  };
+  const selectNote = useCallback(
+    (position: number) => {
+      setOriginalNote(notes[position]);
+    },
+    [setOriginalNote],
+  );
 
   return (
     <section className={styles.circleMenu}>

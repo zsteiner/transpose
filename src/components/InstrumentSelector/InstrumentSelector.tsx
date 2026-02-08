@@ -1,4 +1,5 @@
 import classnames from 'classnames';
+import { useCallback } from 'react';
 
 import { Icon } from '../Icon';
 import { useTranspose } from '../useTranspose';
@@ -17,6 +18,8 @@ export const InstrumentSelector = () => {
 
   const { ref, onOpen } = useModal();
   const { ref: refTranspose, onOpen: onOpenTranspose } = useModal();
+
+  const handleClearInstrument2 = useCallback(() => clearSelection(2), [clearSelection]);
 
   return (
     <section className={styles.switcher}>
@@ -39,7 +42,7 @@ export const InstrumentSelector = () => {
           className={classnames(styles.clear, {
             [styles.clearVisible]: instrument2,
           })}
-          onClick={() => clearSelection(2)}
+          onClick={handleClearInstrument2}
         >
           clear selection
         </button>
