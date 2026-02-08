@@ -30,7 +30,9 @@ export default function RootLayout({
       <body className={fontFamily.className}>
         <div className={styles.container}>
           <IconSet />
-          <MainNav />
+          <Suspense fallback={null}>
+            <MainNav />
+          </Suspense>
           <Suspense fallback={<div>Loading...</div>}>
             <TransposeContainer>{children}</TransposeContainer>
           </Suspense>
