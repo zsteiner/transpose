@@ -3,12 +3,41 @@ import classnames from 'classnames';
 import { AnchorHTMLAttributes } from 'react';
 
 import { notes } from '@/constants/notes';
+import { Note } from '@/types';
 
 import { useTransposeState } from '../useTranspose';
 import styles from './CircleFifths.module.css';
 
 type NoteItemProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
   position: number;
+  originalNote: Note;
+  transposedNote: Note | undefined;
+  onSelectNote: (position: number) => void;
+};
+
+const NoteItem = ({ position, children, originalNote, transposedNote, onSelectNote, ...rest }: NoteItemProps) => {
+  const isOriginalNoteMarker = originalNote.position === position;
+  let isTransposedNoteMarker = isOriginalNoteMarker;
+
+  if (transposedNote) {
+    isTransposedNoteMarker = transposedNote?.position === position;
+  }
+
+  const classes = classnames(styles.item, {
+    [styles.selected]: isOriginalNoteMarker,
+    [styles.transposed]: isTransposedNoteMarker,
+  });
+
+  return (
+    <a
+      {...rest}
+      className={classes}
+      onClick={() => onSelectNote(position)}
+      tabIndex={0}
+    >
+      {children}
+    </a>
+  );
 };
 
 export const CircleFifths = () => {
@@ -16,31 +45,6 @@ export const CircleFifths = () => {
 
   const selectNote = (position: number) => {
     setOriginalNote(notes[position]);
-  };
-
-  const NoteItem = ({ position, children, ...rest }: NoteItemProps) => {
-    const isOriginalNoteMarker = originalNote.position === position;
-    let isTransposedNoteMarker = isOriginalNoteMarker;
-
-    if (transposedNote) {
-      isTransposedNoteMarker = transposedNote?.position === position;
-    }
-
-    const classes = classnames(styles.item, {
-      [styles.selected]: isOriginalNoteMarker,
-      [styles.transposed]: isTransposedNoteMarker,
-    });
-
-    return (
-      <a
-        {...rest}
-        className={classes}
-        onClick={() => selectNote(position)}
-        tabIndex={0}
-      >
-        {children}
-      </a>
-    );
   };
 
   return (
@@ -249,8 +253,11 @@ export const CircleFifths = () => {
         <g>
           <NoteItem
             data-svg-origin="250 250"
+            onSelectNote={selectNote}
+            originalNote={originalNote}
             position={0}
             transform="matrix(0,-1,1,0,0,500)"
+            transposedNote={transposedNote}
           >
             <path
               className={styles.sector}
@@ -278,7 +285,10 @@ export const CircleFifths = () => {
           </NoteItem>
           <NoteItem
             data-svg-origin="250 250"
+            onSelectNote={selectNote}
+            originalNote={originalNote}
             position={1}
+            transposedNote={transposedNote}
             transform="matrix(0.5,-0.86602,0.86602,0.5,-91.5063509461097,341.5063509461096)"
           >
             <path
@@ -307,7 +317,10 @@ export const CircleFifths = () => {
           </NoteItem>
           <NoteItem
             data-svg-origin="250 250"
+            onSelectNote={selectNote}
+            originalNote={originalNote}
             position={2}
+            transposedNote={transposedNote}
             transform="matrix(0.86602,-0.49999,0.49999,0.86602,-91.50635094610965,158.4936490538903)"
           >
             <path
@@ -336,7 +349,10 @@ export const CircleFifths = () => {
           </NoteItem>
           <NoteItem
             data-svg-origin="250 250"
+            onSelectNote={selectNote}
+            originalNote={originalNote}
             position={3}
+            transposedNote={transposedNote}
             transform="matrix(1,0,0,1,0,0)"
           >
             <path
@@ -365,7 +381,10 @@ export const CircleFifths = () => {
           </NoteItem>
           <NoteItem
             data-svg-origin="250 250"
+            onSelectNote={selectNote}
+            originalNote={originalNote}
             position={4}
+            transposedNote={transposedNote}
             transform="matrix(0.86602,0.5,-0.5,0.86602,158.49364905389052,-91.5063509461097)"
           >
             <path
@@ -394,7 +413,10 @@ export const CircleFifths = () => {
           </NoteItem>
           <NoteItem
             data-svg-origin="250 250"
+            onSelectNote={selectNote}
+            originalNote={originalNote}
             position={5}
+            transposedNote={transposedNote}
             transform="matrix(0.5,0.86602,-0.86602,0.5,341.5063509461096,-91.5063509461097)"
           >
             <path
@@ -423,7 +445,10 @@ export const CircleFifths = () => {
           </NoteItem>
           <NoteItem
             data-svg-origin="250 250"
+            onSelectNote={selectNote}
+            originalNote={originalNote}
             position={6}
+            transposedNote={transposedNote}
             transform="matrix(0,1,-1,0,500.00000000000006,0)"
           >
             <path
@@ -452,7 +477,10 @@ export const CircleFifths = () => {
           </NoteItem>
           <NoteItem
             data-svg-origin="250 250"
+            onSelectNote={selectNote}
+            originalNote={originalNote}
             position={7}
+            transposedNote={transposedNote}
             transform="matrix(-0.5,0.86602,-0.86602,-0.5,591.5063509461097,158.4936490538905)"
           >
             <path
@@ -481,7 +509,10 @@ export const CircleFifths = () => {
           </NoteItem>
           <NoteItem
             data-svg-origin="250 250"
+            onSelectNote={selectNote}
+            originalNote={originalNote}
             position={8}
+            transposedNote={transposedNote}
             transform="matrix(-0.86602,0.5,-0.5,-0.86602,591.5063509461097,341.5063509461096)"
           >
             <path
@@ -510,7 +541,10 @@ export const CircleFifths = () => {
           </NoteItem>
           <NoteItem
             data-svg-origin="250 250"
+            onSelectNote={selectNote}
+            originalNote={originalNote}
             position={9}
+            transposedNote={transposedNote}
             transform="matrix(-1,0,0,-1,500,500)"
           >
             <path
@@ -539,7 +573,10 @@ export const CircleFifths = () => {
           </NoteItem>
           <NoteItem
             data-svg-origin="250 250"
+            onSelectNote={selectNote}
+            originalNote={originalNote}
             position={10}
+            transposedNote={transposedNote}
             transform="matrix(-0.86602,-0.49999,0.49999,-0.86602,341.5063509461097,591.5063509461097)"
           >
             <path
@@ -568,7 +605,10 @@ export const CircleFifths = () => {
           </NoteItem>
           <NoteItem
             data-svg-origin="250 250"
+            onSelectNote={selectNote}
+            originalNote={originalNote}
             position={11}
+            transposedNote={transposedNote}
             transform="matrix(-0.49999,-0.86602,0.86602,-0.49999,158.49364905389024,591.5063509461097)"
           >
             <path
