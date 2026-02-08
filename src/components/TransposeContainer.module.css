@@ -7,6 +7,8 @@
 }
 
 .chords {
+  flex: 1 1 20rem;
+  max-inline-size: 50rem;
   min-inline-size: 20rem;
 }
 

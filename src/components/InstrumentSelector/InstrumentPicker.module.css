@@ -1,13 +1,24 @@
-
 .picker {
   --list-border: 0.0625rem solid var(--info);
 
   background: none;
   block-size: 100vh;
   border: 0;
+  inline-size: 100vw;
   inset: 0;
+  max-block-size: 100vh;
+  max-inline-size: 100vw;
   overflow: hidden;
-  padding: 4rem var(--spacer) var(--spacer);
+}
+
+@media (width <= 768px) {
+  .picker {
+    padding: 2.5rem 0.5rem 0.5rem;
+  }
+
+  .form {
+    padding: 0;
+  }
 }
 
 .picker[open] {
@@ -31,6 +42,7 @@
 
 .form {
   overflow: hidden;
+  padding: var(--spacer);
 }
 
 .form, .list {
@@ -50,6 +62,17 @@
   padding: 0;
 }
 
+@media (width <= 768px) {
+  .list {
+    grid-template-columns: repeat(3, 1fr);
+    inline-size: 100%;
+    margin-inline: 0;
+    max-block-size: calc(100vh - 3rem);
+    max-inline-size: 100%;
+    overflow: hidden auto;
+  }
+}
+
 .close {
   background: none;
   border: 0;
@@ -67,10 +90,19 @@
   outline: 0;
 }
 
+@media (width <= 768px) {
+  .close {
+    font-size: 1.5rem;
+    inset-block-start: 0.5rem;
+    inset-inline-end: 0.5rem;
+  }
+}
+
 .item {
-  block-size: 7rem;
+  aspect-ratio: 1;
   border-block-end: var(--list-border);
   border-inline-end: var(--list-border);
+  inline-size: 100%;
   position: relative;
   text-align: center;
 }
@@ -84,6 +116,24 @@
   border-block-end: 0;
 }
 
+@media (width <= 768px) {
+  .item:nth-child(4n) {
+    border-inline-end: var(--list-border);
+  }
+
+  .item:nth-child(3n) {
+    border-inline-end: 0;
+  }
+
+  .item:nth-last-of-type(-n + 4) {
+    border-block-end: var(--list-border);
+  }
+
+  .item:nth-last-of-type(-n + 2) {
+    border-block-end: 0;
+  }
+}
+
 .button {
   background: none;
   block-size: 100%;
@@ -95,6 +145,12 @@
 
   &:hover {
     color: var(--secondary);
+  }
+}
+
+@media (width <= 768px) {
+  .button {
+    padding: 0.375rem;
   }
 }
 

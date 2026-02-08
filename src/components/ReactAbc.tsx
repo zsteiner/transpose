@@ -1,5 +1,5 @@
 import abcjs, { AbcVisualParams, Selector } from 'abcjs';
-import { useEffect, useRef } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 
 import { Container } from '@/types';
 
@@ -21,12 +21,35 @@ export const ReactAbc = ({
   ...rest
 }: ReactAbcProps) => {
   const notationRef = useRef<HTMLDivElement>(null);
+  const [containerWidth, setContainerWidth] = useState(0);
+
+  // Measure container width after layout
+  useLayoutEffect(() => {
+    if (notationRef.current) {
+      setContainerWidth(notationRef.current.clientWidth);
+    }
+  }, [notation]);
+
+  // Observe container resize
+  useEffect(() => {
+    if (!notationRef.current) return;
+
+    const resizeObserver = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        setContainerWidth(entry.contentRect.width);
+      }
+    });
+
+    resizeObserver.observe(notationRef.current);
+
+    return () => resizeObserver.disconnect();
+  }, []);
 
   useEffect(() => {
-    let staffwidth = rest.staffwidth || 100;
+    let staffwidth = rest.staffwidth || containerWidth || 100;
 
-    if (notationRef.current) {
-      staffwidth = notationRef?.current.clientWidth;
+    if (notationRef.current && containerWidth) {
+      staffwidth = containerWidth;
     }
 
     abcjs.renderAbc(notationRef.current as Selector, notation, {
@@ -37,7 +60,15 @@ export const ReactAbc = ({
       paddingtop,
       staffwidth,
     });
-  }, [notation, paddingbottom, paddingleft, paddingright, paddingtop, rest]);
+  }, [
+    containerWidth,
+    notation,
+    paddingbottom,
+    paddingleft,
+    paddingright,
+    paddingtop,
+    rest,
+  ]);
 
   return (
     <div
