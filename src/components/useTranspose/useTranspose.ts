@@ -1,97 +1,67 @@
-import { useContext, useEffect, useState } from 'react';
+import { useCallback, useContext } from 'react';
+import { useSelector } from '@xstate/react';
 
-import { instruments } from '@/constants/instruments';
-import { notes } from '@/constants/notes';
 import { Instrument, Note } from '@/types';
-import { transposeNote } from '@/utils/transposeNote';
 
-import { TransposeContext } from './context';
+import { TransposeMachineContext } from './provider';
 
-export type InitialTransposeState = {
-  note?: Note;
-  instrument1?: Instrument;
-  instrument2?: Instrument;
-};
+/**
+ * Hook that provides access to transpose state and actions.
+ * Components should use this hook instead of accessing the machine directly.
+ */
+export const useTranspose = () => {
+  const machine = useContext(TransposeMachineContext);
 
-export const useCreateTransposeState = (
-  initialState?: InitialTransposeState,
-) => {
-  const [originalNote, setOriginalNote] = useState<Note>(
-    initialState?.note || notes[0],
-  );
-  const [transposedNote, setTransposedNote] = useState<Note | undefined>(
-    undefined,
-  );
-  const [instrument1, setInstrument1] = useState<Instrument | undefined>(
-    initialState?.instrument1 || instruments.piano,
-  );
-  const [instrument2, setInstrument2] = useState<Instrument | undefined>(
-    initialState?.instrument2 || undefined,
+  if (!machine) {
+    throw new Error('useTranspose must be used within TransposeMachineProvider');
+  }
+
+  // Select all state values in a single selector for better performance
+  // XState's useSelector does shallow comparison, so this only re-renders when values actually change
+  const { originalNote, transposedNote, instrument1, instrument2, transposeFactor } = useSelector(
+    machine,
+    (state) => state.context,
   );
 
-  const instrument1TransposeFactor = instrument1?.transposeFactor || 0;
-  const instrument2TransposeFactor = instrument2?.transposeFactor || 0;
-  const transposeFactor = instrument2TransposeFactor - instrument1TransposeFactor;
+  // Memoize action creators to prevent unnecessary re-renders in child components
+  const setOriginalNote = useCallback(
+    (note: Note) => machine.send({ type: 'SET_ORIGINAL_NOTE', note }),
+    [machine],
+  );
 
+  const setInstrument1 = useCallback(
+    (instrument?: Instrument) => machine.send({ type: 'SET_INSTRUMENT1', instrument }),
+    [machine],
+  );
+
+  const setInstrument2 = useCallback(
+    (instrument?: Instrument) => machine.send({ type: 'SET_INSTRUMENT2', instrument }),
+    [machine],
+  );
+
+  const clearSelection = useCallback(
+    (index: number) => {
+      if (index === 1) {
+        machine.send({ type: 'CLEAR_INSTRUMENT1' });
+      } else {
+        machine.send({ type: 'CLEAR_INSTRUMENT2' });
+      }
+    },
+    [machine],
+  );
+
+  // Return clean API with state values and methods
   return {
+    // State values
     originalNote,
+    transposedNote,
     instrument1,
     instrument2,
+    transposeFactor,
+    // Methods
     setOriginalNote,
     setInstrument1,
     setInstrument2,
-    setTransposedNote,
-    transposeFactor,
-    transposedNote,
-  };
-};
-
-export const useTransposeState = () => {
-  const {
-    instrument1,
-    instrument2,
-    originalNote,
-    setInstrument1,
-    setInstrument2,
-    setOriginalNote,
-    setTransposedNote,
-    transposeFactor,
-    transposedNote,
-  } = useContext(TransposeContext);
-
-  const clearSelection = (index: number) => {
-    if (index === 1) {
-      setInstrument1(undefined);
-    } else {
-      setInstrument2(undefined);
-      setTransposedNote(undefined);
-    }
-  };
-
-  useEffect(() => {
-    if (instrument2) {
-      setTransposedNote(
-        notes[transposeNote(originalNote.position, transposeFactor)],
-      );
-    }
-  }, [
-    originalNote,
-    instrument1,
-    instrument2,
-    setTransposedNote,
-    transposeFactor,
-  ]);
-
-  return {
-    originalNote,
     clearSelection,
-    instrument1,
-    instrument2,
-    setInstrument1,
-    setInstrument2,
-    setOriginalNote,
-    setTransposedNote,
-    transposedNote,
-    transposeFactor,
   };
 };

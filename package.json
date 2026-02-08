@@ -12,11 +12,13 @@
     "lint:fix": "eslint . --fix && stylelint 'src/**/*.css' --fix"
   },
   "dependencies": {
+    "@xstate/react": "^6.0.0",
     "abcjs": "^6.6.1",
     "classnames": "^2.5.1",
     "next": "16.1.6",
     "react": "^19",
-    "react-dom": "^19"
+    "react-dom": "^19",
+    "xstate": "^5.26.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.3",

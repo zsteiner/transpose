@@ -1,3 +1,5 @@
+import { useMemo } from 'react';
+
 import { Note } from '@/types';
 import { transposeNoteSemitones } from '@/utils/transposeNoteSemitones';
 
@@ -10,14 +12,14 @@ export const useTransposeSemitones = ({
   originalNote,
   transposedNote,
 }: UseTransposeSemitonesParams) => {
-  const transposeSemitonesOriginal = transposeNoteSemitones(
-    0,
-    originalNote.position,
+  const transposeSemitonesOriginal = useMemo(
+    () => transposeNoteSemitones(0, originalNote.position),
+    [originalNote.position],
   );
 
-  const transposeSemitonesTransposed = transposeNoteSemitones(
-    0,
-    transposedNote?.position || 0,
+  const transposeSemitonesTransposed = useMemo(
+    () => transposeNoteSemitones(0, transposedNote?.position || 0),
+    [transposedNote?.position],
   );
 
   return { transposeSemitonesOriginal, transposeSemitonesTransposed };
