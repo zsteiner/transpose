@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useCallback, useContext } from 'react';
 import { useSelector } from '@xstate/react';
 
 import { Instrument, Note } from '@/types';
@@ -16,32 +16,39 @@ export const useTranspose = () => {
     throw new Error('useTranspose must be used within TransposeMachineProvider');
   }
 
-  const { send } = machine;
+  // Select all state values in a single selector for better performance
+  // XState's useSelector does shallow comparison, so this only re-renders when values actually change
+  const { originalNote, transposedNote, instrument1, instrument2, transposeFactor } = useSelector(
+    machine,
+    (state) => state.context,
+  );
 
-  // Select state values using selectors for optimal re-rendering
-  const originalNote = useSelector(machine, (state) => state.context.originalNote);
-  const transposedNote = useSelector(machine, (state) => state.context.transposedNote);
-  const instrument1 = useSelector(machine, (state) => state.context.instrument1);
-  const instrument2 = useSelector(machine, (state) => state.context.instrument2);
-  const transposeFactor = useSelector(machine, (state) => state.context.transposeFactor);
+  // Memoize action creators to prevent unnecessary re-renders in child components
+  const setOriginalNote = useCallback(
+    (note: Note) => machine.send({ type: 'SET_ORIGINAL_NOTE', note }),
+    [machine],
+  );
 
-  // Expose methods that wrap machine events
-  const setOriginalNote = (note: Note) => send({ type: 'SET_ORIGINAL_NOTE', note });
+  const setInstrument1 = useCallback(
+    (instrument?: Instrument) => machine.send({ type: 'SET_INSTRUMENT1', instrument }),
+    [machine],
+  );
 
+  const setInstrument2 = useCallback(
+    (instrument?: Instrument) => machine.send({ type: 'SET_INSTRUMENT2', instrument }),
+    [machine],
+  );
 
-  const setInstrument1 = (instrument?: Instrument) =>
-    send({ type: 'SET_INSTRUMENT1', instrument });
-
-  const setInstrument2 = (instrument?: Instrument) =>
-    send({ type: 'SET_INSTRUMENT2', instrument });
-
-  const clearSelection = (index: number) => {
-    if (index === 1) {
-      send({ type: 'CLEAR_INSTRUMENT1' });
-    } else {
-      send({ type: 'CLEAR_INSTRUMENT2' });
-    }
-  };
+  const clearSelection = useCallback(
+    (index: number) => {
+      if (index === 1) {
+        machine.send({ type: 'CLEAR_INSTRUMENT1' });
+      } else {
+        machine.send({ type: 'CLEAR_INSTRUMENT2' });
+      }
+    },
+    [machine],
+  );
 
   // Return clean API with state values and methods
   return {
