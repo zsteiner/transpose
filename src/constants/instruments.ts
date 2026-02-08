@@ -148,3 +148,10 @@ export const instruments = {
 } as InstrumentList;
 
 export const instrumentsArray = Object.values(instruments);
+
+/**
+ * Find an instrument by its key (e.g., 'piano', 'clarinet', 'altoSax')
+ */
+export const getInstrumentByKey = (key: string): Instrument | undefined => {
+  return instruments[key];
+};

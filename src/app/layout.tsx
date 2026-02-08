@@ -2,7 +2,7 @@ import './globals.css';
 
 import type { Metadata } from 'next';
 import { Source_Serif_4 } from 'next/font/google';
-import { ReactNode } from 'react';
+import { ReactNode, Suspense } from 'react';
 
 import { IconSet } from '@/components/Icon';
 import { MainNav } from '@/components/MainNav';
@@ -31,7 +31,9 @@ export default function RootLayout({
         <div className={styles.container}>
           <IconSet />
           <MainNav />
-          <TransposeContainer>{children}</TransposeContainer>
+          <Suspense fallback={<div>Loading...</div>}>
+            <TransposeContainer>{children}</TransposeContainer>
+          </Suspense>
         </div>
       </body>
     </html>
