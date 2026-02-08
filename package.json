@@ -8,10 +8,10 @@
     "start": "next start",
     "test": "jest",
     "test:watch": "jest --watch",
-    "lint": "npm run lint:js && yarn run lint:style",
-    "lint:fix": "npm run lint:js:fix && yarn lint:style",
-    "lint:js": "eslint .",
-    "lint:js:fix": "eslint --fix .",
+    "lint": "npm run lint:js && npm run lint:style",
+    "lint:fix": "npm run lint:js:fix && npm run lint:style",
+    "lint:js": "eslint --cache --max-warnings 0 src",
+    "lint:js:fix": "eslint --fix --cache src",
     "lint:style": "stylelint 'src/**/*.css' --fix"
   },
   "dependencies": {

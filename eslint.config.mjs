@@ -16,27 +16,34 @@ const compat = new FlatCompat({
   allConfig: js.configs.all,
 });
 
-const eslintConfig = [...nextCoreWebVitals, ...nextTypescript, ...compat.extends("prettier"), {
-  plugins: {
-    'simple-import-sort': simpleImportSort,
+const eslintConfig = [
+  {
+    ignores: ["node_modules/**", ".next/**", "out/**", "build/**", "next-env.d.ts", "*.config.js"]
   },
-
-  rules: {
-    'react/jsx-sort-props': 'error',
-    'simple-import-sort/imports': 'error',
+  ...nextCoreWebVitals,
+  ...nextTypescript,
+  ...compat.extends("prettier"),
+  {
+    plugins: {
+      'simple-import-sort': simpleImportSort,
+    },
+    rules: {
+      'react/jsx-sort-props': 'error',
+      'simple-import-sort/imports': 'error',
+    },
   },
-}, eslintPluginPrettierRecommended, {
-  rules: {
-    'prettier/prettier': [
-      'error',
-      {},
-      {
-        usePrettierrc: true,
-      },
-    ],
-  },
-}, {
-  ignores: ["node_modules/**", ".next/**", "out/**", "build/**", "next-env.d.ts"]
-}];
+  eslintPluginPrettierRecommended,
+  {
+    rules: {
+      'prettier/prettier': [
+        'error',
+        {},
+        {
+          usePrettierrc: true,
+        },
+      ],
+    },
+  }
+];
 
 export default eslintConfig;

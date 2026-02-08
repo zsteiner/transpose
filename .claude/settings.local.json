@@ -2,7 +2,15 @@
   "permissions": {
     "allow": [
       "Bash(npm install:*)",
-      "Bash(npm run lint)"
+      "Bash(npm run lint)",
+      "Bash(npm run lint:js:*)",
+      "Bash(npx eslint:*)",
+      "Bash(npx next lint --help:*)",
+      "Bash(npm run lint:style:*)",
+      "Bash(npx next lint:*)",
+      "Bash(npx next --version)",
+      "Bash(npm test)",
+      "Bash(npm run build:*)"
     ]
   }
 }
