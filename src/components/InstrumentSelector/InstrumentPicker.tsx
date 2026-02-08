@@ -45,15 +45,13 @@ export const InstrumentPicker = ({
         className={styles.form}
         method="dialog"
       >
-        <button className={styles.close}>close</button>
-        <ul className={styles.list}>
-          {instrumentsArray.map((instrument) => (
-            <li
-              className={styles.item}
-              key={instrument?.iconName}
-            >
+        <div className={styles.container}>
+          <button className={styles.close}>close</button>
+          <div className={styles.list}>
+            {instrumentsArray.map((instrument) => (
               <button
                 className={styles.button}
+                key={instrument?.iconName}
                 onClick={() => handleSelect(instrument)}
               >
                 <InstrumentItem
@@ -61,9 +59,9 @@ export const InstrumentPicker = ({
                   stretch
                 />
               </button>
-            </li>
-          ))}
-        </ul>
+            ))}
+          </div>
+        </div>
       </form>
     </dialog>
   );
