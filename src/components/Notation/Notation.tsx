@@ -22,9 +22,8 @@ export const Notation = ({
   const notation = `L:4/4\nK:${notationKey}\n${writeNotation(notes)}`;
 
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} ${className || ''}`}>
       <NotesDisplay
-        className={className}
         isTransposed={isTransposed}
         notes={notes}
       />
