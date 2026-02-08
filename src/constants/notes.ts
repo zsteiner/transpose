@@ -75,3 +75,10 @@ export const notes = [
     display: 'F',
   },
 ] as Note[];
+
+/**
+ * Find a note by its note identifier (e.g., 'c', 'bFlat', 'gFlat')
+ */
+export const getNoteByIdentifier = (identifier: string): Note | undefined => {
+  return notes.find((note) => note.note === identifier);
+};

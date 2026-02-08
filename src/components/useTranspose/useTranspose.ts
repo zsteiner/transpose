@@ -7,16 +7,26 @@ import { transposeNote } from '@/utils/transposeNote';
 
 import { TransposeContext } from './context';
 
-export const useCreateTransposeState = () => {
-  const [originalNote, setOriginalNote] = useState<Note>(notes[0]);
+export type InitialTransposeState = {
+  note?: Note;
+  instrument1?: Instrument;
+  instrument2?: Instrument;
+};
+
+export const useCreateTransposeState = (
+  initialState?: InitialTransposeState,
+) => {
+  const [originalNote, setOriginalNote] = useState<Note>(
+    initialState?.note || notes[0],
+  );
   const [transposedNote, setTransposedNote] = useState<Note | undefined>(
     undefined,
   );
   const [instrument1, setInstrument1] = useState<Instrument | undefined>(
-    instruments.piano,
+    initialState?.instrument1 || instruments.piano,
   );
   const [instrument2, setInstrument2] = useState<Instrument | undefined>(
-    undefined,
+    initialState?.instrument2 || undefined,
   );
 
   const instrument1TransposeFactor = instrument1?.transposeFactor || 0;
