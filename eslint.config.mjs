@@ -1,49 +1,10 @@
-import nextCoreWebVitals from "eslint-config-next/core-web-vitals";
-import nextTypescript from "eslint-config-next/typescript";
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
-
-import { FlatCompat } from '@eslint/eslintrc';
-import js from '@eslint/js';
-import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
-import simpleImportSort from 'eslint-plugin-simple-import-sort';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-  recommendedConfig: js.configs.recommended,
-  allConfig: js.configs.all,
-});
+import nextConfig from 'eslint-config-next';
 
 const eslintConfig = [
   {
-    ignores: ["node_modules/**", ".next/**", "out/**", "build/**", "next-env.d.ts", "*.config.js"]
+    ignores: ['node_modules/**', '.next/**', 'out/**', 'build/**'],
   },
-  ...nextCoreWebVitals,
-  ...nextTypescript,
-  ...compat.extends("prettier"),
-  {
-    plugins: {
-      'simple-import-sort': simpleImportSort,
-    },
-    rules: {
-      'react/jsx-sort-props': 'error',
-      'simple-import-sort/imports': 'error',
-    },
-  },
-  eslintPluginPrettierRecommended,
-  {
-    rules: {
-      'prettier/prettier': [
-        'error',
-        {},
-        {
-          usePrettierrc: true,
-        },
-      ],
-    },
-  }
+  ...nextConfig,
 ];
 
 export default eslintConfig;

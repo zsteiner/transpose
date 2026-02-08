@@ -1,34 +1,7 @@
 {
   "extends": "stylelint-config-standard",
-  "plugins": [
-    "stylelint-order",
-    "stylelint-use-logical"
-  ],
   "rules": {
-    "alpha-value-notation": "number",
-    "csstools/use-logical": "always",
-    "custom-property-pattern": null,
-    "import-notation": "string",
-    "no-descending-specificity": null,
-    "order/order": [
-      "at-rules",
-      "custom-properties",
-      "declarations",
-      "rules"
-    ],
-    "order/properties-alphabetical-order": true,
     "selector-class-pattern": null,
-    "unit-allowed-list": [
-      "ch",
-      "em",
-      "rem",
-      "vh",
-      "vw",
-      "vmin",
-      "deg",
-      "%",
-      "s",
-      "fr"
-    ]
+    "alpha-value-notation": null
   }
 }

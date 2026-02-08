@@ -9,23 +9,24 @@ import styles from './MainNav.module.css';
 type NavLinkProps = {
   href: string;
   children: React.ReactNode;
+  pathname: string;
+};
+
+const NavLink = ({ href, children, pathname }: NavLinkProps) => {
+  return (
+    <Link
+      className={classnames(styles.link, {
+        [styles.active]: pathname === href,
+      })}
+      href={href}
+    >
+      {children}
+    </Link>
+  );
 };
 
 export const MainNav = () => {
   const pathname = usePathname();
-
-  const NavLink = ({ href, children }: NavLinkProps) => {
-    return (
-      <Link
-        className={classnames(styles.link, {
-          [styles.active]: pathname === href,
-        })}
-        href={href}
-      >
-        {children}
-      </Link>
-    );
-  };
 
   return (
     <header className={styles.header}>
@@ -36,9 +37,9 @@ export const MainNav = () => {
         <Logo className={styles.logo} />
       </Link>
       <nav className={styles.nav}>
-        <NavLink href="/">Notes</NavLink>
-        <NavLink href="/chords">Chords</NavLink>
-        <NavLink href="/scales">Scales</NavLink>
+        <NavLink href="/" pathname={pathname}>Notes</NavLink>
+        <NavLink href="/chords" pathname={pathname}>Chords</NavLink>
+        <NavLink href="/scales" pathname={pathname}>Scales</NavLink>
       </nav>
     </header>
   );
