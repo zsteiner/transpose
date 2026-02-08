@@ -52,6 +52,19 @@ const calculateTransposedNote = (
   return notes[transposeNote(originalNote.position, transposeFactor)];
 };
 
+/**
+ * Helper function to compute derived values (transposeFactor and transposedNote)
+ * Call this after any context change that affects instruments or originalNote
+ */
+const computeDerivedValues = (
+  originalNote: Note,
+  instrument1?: Instrument,
+  instrument2?: Instrument,
+) => ({
+  transposeFactor: calculateTransposeFactor(instrument1, instrument2),
+  transposedNote: calculateTransposedNote(originalNote, instrument1, instrument2),
+});
+
 export const transposeMachine = setup({
   types: {
     context: {} as TransposeMachineContext,
@@ -69,42 +82,39 @@ export const transposeMachine = setup({
       originalNote,
       instrument1,
       instrument2,
-      transposedNote: calculateTransposedNote(originalNote, instrument1, instrument2),
+      ...computeDerivedValues(originalNote, instrument1, instrument2),
     };
   },
   on: {
     SET_ORIGINAL_NOTE: {
-      actions: assign({
-        originalNote: ({ event }) => event.note,
-        transposedNote: ({ context, event }) =>
-          calculateTransposedNote(event.note, context.instrument1, context.instrument2),
-      }),
+      actions: assign(({ context, event }) => ({
+        originalNote: event.note,
+        ...computeDerivedValues(event.note, context.instrument1, context.instrument2),
+      })),
     },
     SET_INSTRUMENT1: {
-      actions: assign({
-        instrument1: ({ event }) => event.instrument,
-        transposedNote: ({ context, event }) =>
-          calculateTransposedNote(context.originalNote, event.instrument, context.instrument2),
-      }),
+      actions: assign(({ context, event }) => ({
+        instrument1: event.instrument,
+        ...computeDerivedValues(context.originalNote, event.instrument, context.instrument2),
+      })),
     },
     SET_INSTRUMENT2: {
-      actions: assign({
-        instrument2: ({ event }) => event.instrument,
-        transposedNote: ({ context, event }) =>
-          calculateTransposedNote(context.originalNote, context.instrument1, event.instrument),
-      }),
+      actions: assign(({ context, event }) => ({
+        instrument2: event.instrument,
+        ...computeDerivedValues(context.originalNote, context.instrument1, event.instrument),
+      })),
     },
     CLEAR_INSTRUMENT1: {
-      actions: assign({
+      actions: assign(({ context }) => ({
         instrument1: undefined,
-        transposedNote: undefined,
-      }),
+        ...computeDerivedValues(context.originalNote, undefined, context.instrument2),
+      })),
     },
     CLEAR_INSTRUMENT2: {
-      actions: assign({
+      actions: assign(({ context }) => ({
         instrument2: undefined,
-        transposedNote: undefined,
-      }),
+        ...computeDerivedValues(context.originalNote, context.instrument1, undefined),
+      })),
     },
   },
 });

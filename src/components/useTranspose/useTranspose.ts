@@ -1,4 +1,4 @@
-import { useContext, useMemo } from 'react';
+import { useContext } from 'react';
 import { useSelector } from '@xstate/react';
 
 import { Instrument, Note } from '@/types';
@@ -16,37 +16,30 @@ export const useTranspose = () => {
     throw new Error('useTranspose must be used within TransposeMachineProvider');
   }
 
+  const { send } = machine;
+
   // Select state values using selectors for optimal re-rendering
   const originalNote = useSelector(machine, (state) => state.context.originalNote);
   const transposedNote = useSelector(machine, (state) => state.context.transposedNote);
   const instrument1 = useSelector(machine, (state) => state.context.instrument1);
   const instrument2 = useSelector(machine, (state) => state.context.instrument2);
-
-  // Compute derived values
-  const transposeFactor = useMemo(() => {
-    const instrument1TransposeFactor = instrument1?.transposeFactor || 0;
-    const instrument2TransposeFactor = instrument2?.transposeFactor || 0;
-    return instrument2TransposeFactor - instrument1TransposeFactor;
-  }, [instrument1, instrument2]);
+  const transposeFactor = useSelector(machine, (state) => state.context.transposeFactor);
 
   // Expose methods that wrap machine events
-  const setOriginalNote = (note: Note) => {
-    machine.send({ type: 'SET_ORIGINAL_NOTE', note });
-  };
+  const setOriginalNote = (note: Note) => send({ type: 'SET_ORIGINAL_NOTE', note });
 
-  const setInstrument1 = (instrument?: Instrument) => {
-    machine.send({ type: 'SET_INSTRUMENT1', instrument });
-  };
 
-  const setInstrument2 = (instrument?: Instrument) => {
-    machine.send({ type: 'SET_INSTRUMENT2', instrument });
-  };
+  const setInstrument1 = (instrument?: Instrument) =>
+    send({ type: 'SET_INSTRUMENT1', instrument });
+
+  const setInstrument2 = (instrument?: Instrument) =>
+    send({ type: 'SET_INSTRUMENT2', instrument });
 
   const clearSelection = (index: number) => {
     if (index === 1) {
-      machine.send({ type: 'CLEAR_INSTRUMENT1' });
+      send({ type: 'CLEAR_INSTRUMENT1' });
     } else {
-      machine.send({ type: 'CLEAR_INSTRUMENT2' });
+      send({ type: 'CLEAR_INSTRUMENT2' });
     }
   };
 
