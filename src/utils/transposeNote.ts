@@ -5,7 +5,7 @@ export function transposeNote(originalNote: number, transposeFactor: number) {
 
   if (transposeFactor === 0) {
     transposedNote = originalNote;
-  } else if (originalNote + transposeFactor <= 0) {
+  } else if (originalNote + transposeFactor < 0) {
     transposedNote = originalNote + transposeFactor + FULL_CIRCLE;
   } else if (originalNote + transposeFactor >= FULL_CIRCLE) {
     transposedNote = originalNote + transposeFactor - FULL_CIRCLE;
