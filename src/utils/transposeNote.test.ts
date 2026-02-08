@@ -18,6 +18,40 @@ describe('transposeNote', () => {
     expect(transposeNote(5, 0)).toBe(5);
   });
 
+  describe('multiple octave wrapping', () => {
+    it('should handle +12 (one full circle up)', () => {
+      expect(transposeNote(0, 12)).toBe(0); // C + 12 = C
+      expect(transposeNote(5, 12)).toBe(5); // B + 12 = B
+    });
+
+    it('should handle -12 (one full circle down)', () => {
+      expect(transposeNote(0, -12)).toBe(0); // C - 12 = C
+      expect(transposeNote(5, -12)).toBe(5); // B - 12 = B
+    });
+
+    it('should handle +24 (two full circles up)', () => {
+      expect(transposeNote(0, 24)).toBe(0); // C + 24 = C
+      expect(transposeNote(7, 24)).toBe(7); // Db + 24 = Db
+    });
+
+    it('should handle -24 (two full circles down)', () => {
+      expect(transposeNote(0, -24)).toBe(0); // C - 24 = C
+      expect(transposeNote(7, -24)).toBe(7); // Db - 24 = Db
+    });
+
+    it('should handle large positive factors with remainder', () => {
+      expect(transposeNote(0, 13)).toBe(1); // C + 13 = G (0 + 1)
+      expect(transposeNote(0, 25)).toBe(1); // C + 25 = G (0 + 1)
+      expect(transposeNote(2, 14)).toBe(4); // D + 14 = E (2 + 2)
+    });
+
+    it('should handle large negative factors with remainder', () => {
+      expect(transposeNote(0, -13)).toBe(11); // C - 13 = F (0 - 1)
+      expect(transposeNote(0, -25)).toBe(11); // C - 25 = F (0 - 1)
+      expect(transposeNote(5, -14)).toBe(3); // B - 14 = A (5 - 2)
+    });
+  });
+
   describe('tenor sax to piano transposition', () => {
     // Tenor sax is a Bb instrument (transposeFactor: 2)
     // Piano is concert pitch (transposeFactor: 0)

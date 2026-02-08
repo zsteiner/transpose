@@ -13,11 +13,25 @@ const circleFifthsSemitoneMap = {
   11: 5, // F
 };
 
+const FULL_CIRCLE = 12;
+
 export function transposeNoteSemitones(
   originalNote: number,
   transposedNote: number,
 ) {
-  const stepsMoved = transposedNote - originalNote;
+  let stepsMoved = transposedNote - originalNote;
+
+  // Wrap stepsMoved to be within 0-11 range using modulo arithmetic
+  stepsMoved = stepsMoved % FULL_CIRCLE;
+
+  // Handle negative results by adding FULL_CIRCLE
+  if (stepsMoved < 0) {
+    stepsMoved += FULL_CIRCLE;
+  }
+
+  // Convert -0 to 0 (JavaScript quirk)
+  stepsMoved = stepsMoved === 0 ? 0 : stepsMoved;
+
   const semitones =
     circleFifthsSemitoneMap[stepsMoved as keyof typeof circleFifthsSemitoneMap];
 
