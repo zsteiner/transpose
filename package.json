@@ -8,11 +8,8 @@
     "start": "next start",
     "test": "jest",
     "test:watch": "jest --watch",
-    "lint": "npm run lint:js && npm run lint:style",
-    "lint:fix": "npm run lint:js:fix && npm run lint:style",
-    "lint:js": "eslint --cache --max-warnings 0 src",
-    "lint:js:fix": "eslint --fix --cache src",
-    "lint:style": "stylelint 'src/**/*.css' --fix"
+    "lint": "eslint . && stylelint 'src/**/*.css'",
+    "lint:fix": "eslint . --fix && stylelint 'src/**/*.css' --fix"
   },
   "dependencies": {
     "abcjs": "^6.6.1",

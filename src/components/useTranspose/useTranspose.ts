@@ -18,14 +18,10 @@ export const useCreateTransposeState = () => {
   const [instrument2, setInstrument2] = useState<Instrument | undefined>(
     undefined,
   );
-  const [transposeFactor, setTransposeFactor] = useState<number>(0);
 
-  useEffect(() => {
-    const instrument1TransposeFactor = instrument1?.transposeFactor || 0;
-    const instrument2TransposeFactor = instrument2?.transposeFactor || 0;
-
-    setTransposeFactor(instrument2TransposeFactor - instrument1TransposeFactor);
-  }, [instrument1, instrument2]);
+  const instrument1TransposeFactor = instrument1?.transposeFactor || 0;
+  const instrument2TransposeFactor = instrument2?.transposeFactor || 0;
+  const transposeFactor = instrument2TransposeFactor - instrument1TransposeFactor;
 
   return {
     originalNote,
