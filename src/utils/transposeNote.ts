@@ -1,17 +1,14 @@
 const FULL_CIRCLE = 12;
 
 export function transposeNote(originalNote: number, transposeFactor: number) {
-  let transposedNote;
+  // Use modulo arithmetic to handle multiple wraps around the circle
+  let result = (originalNote + transposeFactor) % FULL_CIRCLE;
 
-  if (transposeFactor === 0) {
-    transposedNote = originalNote;
-  } else if (originalNote + transposeFactor <= 0) {
-    transposedNote = originalNote + transposeFactor + FULL_CIRCLE;
-  } else if (originalNote + transposeFactor >= FULL_CIRCLE) {
-    transposedNote = originalNote + transposeFactor - FULL_CIRCLE;
-  } else {
-    transposedNote = originalNote + transposeFactor;
+  // Handle negative results by adding FULL_CIRCLE
+  if (result < 0) {
+    result += FULL_CIRCLE;
   }
 
-  return transposedNote;
+  // Convert -0 to 0 (JavaScript quirk)
+  return result === 0 ? 0 : result;
 }

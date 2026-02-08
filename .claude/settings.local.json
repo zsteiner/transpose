@@ -11,6 +11,8 @@
       "Bash(npx next --version)",
       "Bash(npm test)",
       "Bash(npm run build:*)",
+      "Bash(npm test:*)",
+      "Bash(node -e:*)"
       "Bash(npm run lint:fix:*)"
     ]
   }
