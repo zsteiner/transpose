@@ -1,6 +1,6 @@
 'use client';
 import { Note } from '@/components/Note';
-import { useTransposeState } from '@/components/useTranspose';
+import { useTranspose } from '@/components/useTranspose';
 
 import styles from './TransposeMessage.module.css';
 
@@ -11,7 +11,7 @@ export const TransposeMessage = () => {
     originalNote,
     transposedNote,
     transposeFactor,
-  } = useTransposeState();
+  } = useTranspose();
 
   if (!instrument1 || !instrument2) {
     return null;

@@ -5,7 +5,7 @@ import { AnchorHTMLAttributes } from 'react';
 import { notes } from '@/constants/notes';
 import { Note } from '@/types';
 
-import { useTransposeState } from '../useTranspose';
+import { useTranspose } from '../useTranspose';
 import styles from './CircleFifths.module.css';
 
 type NoteItemProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
@@ -41,7 +41,7 @@ const NoteItem = ({ position, children, originalNote, transposedNote, onSelectNo
 };
 
 export const CircleFifths = () => {
-  const { originalNote, setOriginalNote, transposedNote } = useTransposeState();
+  const { originalNote, setOriginalNote, transposedNote } = useTranspose();
 
   const selectNote = (position: number) => {
     setOriginalNote(notes[position]);

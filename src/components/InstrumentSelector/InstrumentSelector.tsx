@@ -1,7 +1,7 @@
 import classnames from 'classnames';
 
 import { Icon } from '../Icon';
-import { useTransposeState } from '../useTranspose/useTranspose';
+import { useTranspose } from '../useTranspose';
 import { InstrumentPicker, useModal } from './InstrumentPicker';
 import styles from './InstrumentSelector.module.css';
 import { InstrumentSelectorItem } from './InstrumentSelectorItem';
@@ -13,7 +13,7 @@ export const InstrumentSelector = () => {
     setInstrument1,
     setInstrument2,
     clearSelection,
-  } = useTransposeState();
+  } = useTranspose();
 
   const { ref, onOpen } = useModal();
   const { ref: refTranspose, onOpen: onOpenTranspose } = useModal();

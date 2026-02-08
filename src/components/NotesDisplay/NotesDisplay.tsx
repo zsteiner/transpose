@@ -5,7 +5,7 @@ import { Container } from '@/types';
 import { transposeNote } from '@/utils/transposeNote';
 
 import { Note } from '../Note';
-import { useTransposeState } from '../useTranspose';
+import { useTranspose } from '../useTranspose';
 import styles from './NotesDisplay.module.css';
 
 type NotesDisplayProps = Container & {
@@ -19,7 +19,7 @@ export const NotesDisplay = ({
   isTransposed,
   notes,
 }: NotesDisplayProps) => {
-  const { originalNote, transposedNote } = useTransposeState();
+  const { originalNote, transposedNote } = useTranspose();
 
   const label = isTransposed ? 'Transposed' : 'Original';
 

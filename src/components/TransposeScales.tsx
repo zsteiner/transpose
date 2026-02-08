@@ -9,11 +9,11 @@ import { Notation } from './Notation/Notation';
 import { PageContainer } from './PageContainer';
 import { Select } from './Select';
 import styles from './TransposeContainer.module.css';
-import { useTransposeState } from './useTranspose';
+import { useTranspose } from './useTranspose';
 import { useTransposeSemitones } from './useTransposeSemitones';
 
 export const TransposeScales = () => {
-  const { originalNote, transposedNote } = useTransposeState();
+  const { originalNote, transposedNote } = useTranspose();
   const { transposeSemitonesOriginal, transposeSemitonesTransposed } =
     useTransposeSemitones({ originalNote, transposedNote });
 

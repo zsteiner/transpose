@@ -1,97 +1,67 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useMemo } from 'react';
+import { useSelector } from '@xstate/react';
 
-import { instruments } from '@/constants/instruments';
-import { notes } from '@/constants/notes';
 import { Instrument, Note } from '@/types';
-import { transposeNote } from '@/utils/transposeNote';
 
-import { TransposeContext } from './context';
+import { TransposeMachineContext } from './provider';
 
-export type InitialTransposeState = {
-  note?: Note;
-  instrument1?: Instrument;
-  instrument2?: Instrument;
-};
+/**
+ * Hook that provides access to transpose state and actions.
+ * Components should use this hook instead of accessing the machine directly.
+ */
+export const useTranspose = () => {
+  const machine = useContext(TransposeMachineContext);
 
-export const useCreateTransposeState = (
-  initialState?: InitialTransposeState,
-) => {
-  const [originalNote, setOriginalNote] = useState<Note>(
-    initialState?.note || notes[0],
-  );
-  const [transposedNote, setTransposedNote] = useState<Note | undefined>(
-    undefined,
-  );
-  const [instrument1, setInstrument1] = useState<Instrument | undefined>(
-    initialState?.instrument1 || instruments.piano,
-  );
-  const [instrument2, setInstrument2] = useState<Instrument | undefined>(
-    initialState?.instrument2 || undefined,
-  );
+  if (!machine) {
+    throw new Error('useTranspose must be used within TransposeMachineProvider');
+  }
 
-  const instrument1TransposeFactor = instrument1?.transposeFactor || 0;
-  const instrument2TransposeFactor = instrument2?.transposeFactor || 0;
-  const transposeFactor = instrument2TransposeFactor - instrument1TransposeFactor;
+  // Select state values using selectors for optimal re-rendering
+  const originalNote = useSelector(machine, (state) => state.context.originalNote);
+  const transposedNote = useSelector(machine, (state) => state.context.transposedNote);
+  const instrument1 = useSelector(machine, (state) => state.context.instrument1);
+  const instrument2 = useSelector(machine, (state) => state.context.instrument2);
 
-  return {
-    originalNote,
-    instrument1,
-    instrument2,
-    setOriginalNote,
-    setInstrument1,
-    setInstrument2,
-    setTransposedNote,
-    transposeFactor,
-    transposedNote,
+  // Compute derived values
+  const transposeFactor = useMemo(() => {
+    const instrument1TransposeFactor = instrument1?.transposeFactor || 0;
+    const instrument2TransposeFactor = instrument2?.transposeFactor || 0;
+    return instrument2TransposeFactor - instrument1TransposeFactor;
+  }, [instrument1, instrument2]);
+
+  // Expose methods that wrap machine events
+  const setOriginalNote = (note: Note) => {
+    machine.send({ type: 'SET_ORIGINAL_NOTE', note });
   };
-};
 
-export const useTransposeState = () => {
-  const {
-    instrument1,
-    instrument2,
-    originalNote,
-    setInstrument1,
-    setInstrument2,
-    setOriginalNote,
-    setTransposedNote,
-    transposeFactor,
-    transposedNote,
-  } = useContext(TransposeContext);
+  const setInstrument1 = (instrument?: Instrument) => {
+    machine.send({ type: 'SET_INSTRUMENT1', instrument });
+  };
+
+  const setInstrument2 = (instrument?: Instrument) => {
+    machine.send({ type: 'SET_INSTRUMENT2', instrument });
+  };
 
   const clearSelection = (index: number) => {
     if (index === 1) {
-      setInstrument1(undefined);
+      machine.send({ type: 'CLEAR_INSTRUMENT1' });
     } else {
-      setInstrument2(undefined);
-      setTransposedNote(undefined);
+      machine.send({ type: 'CLEAR_INSTRUMENT2' });
     }
   };
 
-  useEffect(() => {
-    if (instrument2) {
-      setTransposedNote(
-        notes[transposeNote(originalNote.position, transposeFactor)],
-      );
-    }
-  }, [
-    originalNote,
-    instrument1,
-    instrument2,
-    setTransposedNote,
-    transposeFactor,
-  ]);
-
+  // Return clean API with state values and methods
   return {
+    // State values
     originalNote,
-    clearSelection,
+    transposedNote,
     instrument1,
     instrument2,
+    transposeFactor,
+    // Methods
+    setOriginalNote,
     setInstrument1,
     setInstrument2,
-    setOriginalNote,
-    setTransposedNote,
-    transposedNote,
-    transposeFactor,
+    clearSelection,
   };
 };
