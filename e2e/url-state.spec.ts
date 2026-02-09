@@ -18,16 +18,12 @@ test.describe('URL State Management', () => {
     await page.goto('/');
 
     // Select instrument2
-    await page.locator('button').filter({ hasText: 'add instrument' }).click();
+    await page.getByRole('button', { name: 'add instrument' }).click();
     const dialog = page.getByRole('dialog');
-    await dialog
-      .locator('button')
-      .filter({ hasText: 'clarinet' })
-      .first()
-      .click();
+    await dialog.getByRole('button', { name: 'trumpet', exact: true }).click();
 
     // URL should contain instrument2
-    await expect(page).toHaveURL(/instrument2=clarinet/);
+    await expect(page).toHaveURL(/instrument2=trumpet/);
   });
 
   test('should survive page reload', async ({ page }) => {
