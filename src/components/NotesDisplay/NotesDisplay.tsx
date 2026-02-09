@@ -1,11 +1,10 @@
 import classnames from 'classnames';
 
-import { notes as notesMap } from '@/constants/notes';
 import { Container } from '@/types';
-import { transposeNote } from '@/utils/transposeNote';
 
 import { Note } from '../Note';
 import { useTranspose } from '../useTranspose';
+import { useTransposedNotes } from '../useTransposedNotes';
 import styles from './NotesDisplay.module.css';
 
 type NotesDisplayProps = Container & {
@@ -21,52 +20,32 @@ export const NotesDisplay = ({
 }: NotesDisplayProps) => {
   const { originalNote, transposedNote } = useTranspose();
 
+  // Calculate the appropriate transpose factor based on whether we're showing
+  // original or transposed notes
+  const displayTransposeFactor = isTransposed
+    ? transposedNote?.position ?? 0
+    : originalNote.position;
+
+  // Use the hook to get transposed notes
+  const displayNotes = useTransposedNotes({
+    noteIdentifiers: notes,
+    transposeFactor: displayTransposeFactor,
+  });
+
   const label = isTransposed ? 'Transposed' : 'Original';
 
   return (
     <div className={classnames(styles.notesContainer, className)}>
       <strong>{label}:</strong>
       <div className={styles.notes}>
-        {notes.map((note) => {
-          const noteObject =
-            notesMap.find(
-              (noteObject) =>
-                noteObject.note.toLowerCase() === note.toLowerCase(),
-            ) || notesMap[0];
-
-          if (isTransposed) {
-            const displayNote =
-              notesMap[
-                transposeNote(
-                  noteObject.position,
-                  transposedNote?.position ?? 0,
-                )
-              ] || notesMap[0];
-
-            return (
-              <Note
-                className={styles.note}
-                key={note}
-                note={displayNote}
-                showBothAccidentals
-              />
-            );
-          }
-
-          const displayNote =
-            notesMap[
-              transposeNote(noteObject.position, originalNote.position)
-            ] || notesMap[0];
-
-          return (
-            <Note
-              className={styles.note}
-              key={note}
-              note={displayNote}
-              showBothAccidentals
-            />
-          );
-        })}
+        {displayNotes.map((note, index) => (
+          <Note
+            className={styles.note}
+            key={`${notes[index]}-${index}`}
+            note={note}
+            showBothAccidentals
+          />
+        ))}
       </div>
     </div>
   );
