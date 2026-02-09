@@ -6,3 +6,9 @@
   max-inline-size: var(--medium);
   padding-block: var(--spacer);
 }
+
+@media (width >= 45rem) {
+  .container {
+    padding-block: var(--spacer-triple);
+  }
+}
