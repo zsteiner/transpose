@@ -4,7 +4,7 @@ import { Container } from '@/types';
 
 import { Note } from '../Note';
 import { useTranspose } from '../useTranspose';
-import { useTransposedNotes } from '../useTransposedNotes';
+import { useTransposedNotes } from './useTransposedNotes';
 import styles from './NotesDisplay.module.css';
 
 type NotesDisplayProps = Container & {

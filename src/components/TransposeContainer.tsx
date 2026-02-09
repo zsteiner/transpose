@@ -2,7 +2,7 @@
 import { CircleFifths } from '@/components/CircleFifths';
 import { InstrumentSelector } from '@/components/InstrumentSelector';
 import { TransposeMachineProvider } from '@/components/useTranspose';
-import { useUrlState } from '@/hooks/useUrlState';
+import { useUrlState } from './useUrlState';
 import { Container } from '@/types';
 
 import { PageContainer } from './PageContainer';

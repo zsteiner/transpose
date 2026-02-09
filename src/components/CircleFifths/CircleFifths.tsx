@@ -13,6 +13,7 @@ type NoteItemProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
   originalNote: Note;
   transposedNote: Note | undefined;
   onSelectNote: (position: number) => void;
+  transform?: string;
 };
 
 const NoteItem = ({ position, children, originalNote, transposedNote, onSelectNote, ...rest }: NoteItemProps) => {
