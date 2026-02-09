@@ -1,24 +1,28 @@
 import { useMemo } from 'react';
 
 import { Note } from '@/types';
-import { transposeNoteSemitones } from '@/utils/transposeNoteSemitones';
+import { circleFifthsPositionToSemitones } from '@/utils/circleFifthsPositionToSemitones';
 
 type UseTransposeSemitonesParams = {
   originalNote: Note;
   transposedNote?: Note;
 };
 
+/**
+ * Hook that converts circle of fifths positions to semitones for ABCJS notation.
+ * Used by TransposeNotation component for rendering musical notation.
+ */
 export const useTransposeSemitones = ({
   originalNote,
   transposedNote,
 }: UseTransposeSemitonesParams) => {
   const transposeSemitonesOriginal = useMemo(
-    () => transposeNoteSemitones(0, originalNote.position),
+    () => circleFifthsPositionToSemitones(originalNote.position),
     [originalNote.position],
   );
 
   const transposeSemitonesTransposed = useMemo(
-    () => transposeNoteSemitones(0, transposedNote?.position || 0),
+    () => circleFifthsPositionToSemitones(transposedNote?.position || 0),
     [transposedNote?.position],
   );
 

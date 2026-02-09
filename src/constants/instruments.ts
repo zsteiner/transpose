@@ -147,8 +147,6 @@ export const instruments = {
   },
 } as InstrumentList;
 
-export const instrumentsArray = Object.values(instruments);
-
 /**
  * Find an instrument by its key (e.g., 'piano', 'clarinet', 'altoSax')
  */
