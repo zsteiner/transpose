@@ -32,6 +32,7 @@ const NoteItem = ({ position, children, originalNote, transposedNote, onSelectNo
     <a
       {...rest}
       className={classes}
+      data-position={position}
       onClick={() => onSelectNote(position)}
       tabIndex={0}
     >
