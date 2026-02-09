@@ -1,5 +1,5 @@
 [build]
-  command = "npm run lint && npm test && npm run build"
+  command = "npx playwright install --with-deps chromium && npm run lint && npm test && npm run build"
   publish = ".next"
 
 [[plugins]]
