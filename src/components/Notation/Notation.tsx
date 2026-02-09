@@ -1,3 +1,5 @@
+import classnames from 'classnames';
+
 import { Container } from '@/types';
 import writeNotation from '@/utils/writeNotation';
 
@@ -22,7 +24,7 @@ export const Notation = ({
   const notation = `L:4/4\nK:${notationKey}\n${writeNotation(notes)}`;
 
   return (
-    <div className={`${styles.container} ${className || ''}`}>
+    <div className={classnames(styles.container, className)}>
       <NotesDisplay
         isTransposed={isTransposed}
         notes={notes}

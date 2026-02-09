@@ -2,8 +2,8 @@
 import { ReactNode, useEffect, useRef } from 'react';
 
 import { useTranspose } from '@/components/useTranspose';
-import { useUrlState, UrlState } from '@/hooks/useUrlState';
-import { useUrlSync } from '@/hooks/useUrlSync';
+import { useUrlState, UrlState } from './useUrlState';
+import { useUrlSync } from './useUrlSync';
 
 type UrlSyncWrapperProps = {
   children: ReactNode;
