@@ -1,0 +1,77 @@
+import { expect, test } from '@playwright/test';
+
+test.describe('URL State Management', () => {
+  test('should initialize state from URL parameters', async ({ page }) => {
+    await page.goto('/?note=g&instrument1=piano&instrument2=clarinet');
+
+    // Instrument1 should show piano
+    await expect(page.getByText('piano').first()).toBeVisible();
+    // Instrument2 should show clarinet
+    await expect(page.getByText(/on the clarinet/)).toBeVisible();
+    // Transposition message should reference the correct note
+    await expect(
+      page.getByText(/on the piano sounds the same as/),
+    ).toBeVisible();
+  });
+
+  test('should update URL when instrument is selected', async ({ page }) => {
+    await page.goto('/');
+
+    // Select instrument2
+    await page.locator('button').filter({ hasText: 'add instrument' }).click();
+    const dialog = page.getByRole('dialog');
+    await dialog
+      .locator('button')
+      .filter({ hasText: 'clarinet' })
+      .first()
+      .click();
+
+    // URL should contain instrument2
+    await expect(page).toHaveURL(/instrument2=clarinet/);
+  });
+
+  test('should survive page reload', async ({ page }) => {
+    await page.goto('/?note=e&instrument1=piano&instrument2=trumpet');
+
+    // Verify state is loaded
+    await expect(
+      page.getByText(/on the piano sounds the same as/),
+    ).toBeVisible();
+    await expect(page.getByText(/on the trumpet/)).toBeVisible();
+
+    // Reload page
+    await page.reload();
+
+    // State should persist
+    await expect(
+      page.getByText(/on the piano sounds the same as/),
+    ).toBeVisible();
+    await expect(page.getByText(/on the trumpet/)).toBeVisible();
+    await expect(page).toHaveURL(/note=e/);
+    await expect(page).toHaveURL(/instrument1=piano/);
+    await expect(page).toHaveURL(/instrument2=trumpet/);
+  });
+
+  test('should handle invalid URL parameters gracefully', async ({ page }) => {
+    await page.goto(
+      '/?note=invalid&instrument1=unknown&instrument2=fake',
+    );
+
+    // Page should load without errors
+    await expect(page.locator('svg#menu')).toBeVisible();
+    // Should fall back to defaults (piano as instrument1, no instrument2 message)
+    await expect(
+      page.getByText(/sounds the same as/),
+    ).not.toBeVisible();
+  });
+
+  test('should handle partial URL parameters', async ({ page }) => {
+    await page.goto('/?instrument1=piano');
+
+    // Should load with piano but no transpose message
+    await expect(page.getByText('piano').first()).toBeVisible();
+    await expect(
+      page.getByText(/sounds the same as/),
+    ).not.toBeVisible();
+  });
+});
