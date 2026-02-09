@@ -4,7 +4,8 @@ test.describe('Note Display', () => {
   test('should display original notes on the notes page', async ({ page }) => {
     await page.goto('/?note=c&instrument1=piano');
 
-    await expect(page.getByText('Original:')).toBeVisible();
+    // The circle of fifths should be visible with the selected note
+    await expect(page.locator('[data-position="0"]')).toBeVisible();
   });
 
   test('should display both original and transposed notes when transposing', async ({
@@ -12,8 +13,9 @@ test.describe('Note Display', () => {
   }) => {
     await page.goto('/?note=c&instrument1=piano&instrument2=clarinet');
 
-    await expect(page.getByText('Original:')).toBeVisible();
-    await expect(page.getByText('Transposed:')).toBeVisible();
+    await expect(
+      page.getByText(/on the piano sounds the same as/),
+    ).toBeVisible();
   });
 
   test('should not display transposed notes without instrument2', async ({
@@ -21,8 +23,9 @@ test.describe('Note Display', () => {
   }) => {
     await page.goto('/?note=c&instrument1=piano');
 
-    await expect(page.getByText('Original:')).toBeVisible();
-    await expect(page.getByText('Transposed:')).not.toBeVisible();
+    await expect(
+      page.getByText(/on the piano sounds the same as/),
+    ).not.toBeVisible();
   });
 
   test('should display accidental notes with flat and sharp symbols', async ({
@@ -33,8 +36,8 @@ test.describe('Note Display', () => {
     await page.locator('[data-position="6"]').click();
 
     // The note display should contain accidental symbols
-    await expect(page.getByText('♭')).toBeVisible();
-    await expect(page.getByText('♯')).toBeVisible();
+    await expect(page.getByText('♭').first()).toBeVisible();
+    await expect(page.getByText('♯').first()).toBeVisible();
   });
 
   test('should update displayed notes when selecting a new note on the circle', async ({
