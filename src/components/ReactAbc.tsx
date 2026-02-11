@@ -24,8 +24,11 @@ export const ReactAbc = ({
 }: ReactAbcProps) => {
   const notationRef = useRef<HTMLDivElement>(null);
   const onParseWarningsRef = useRef(onParseWarnings);
-  onParseWarningsRef.current = onParseWarnings;
   const [containerWidth, setContainerWidth] = useState(0);
+
+  useEffect(() => {
+    onParseWarningsRef.current = onParseWarnings;
+  }, [onParseWarnings]);
 
   // Measure container width after layout
   useLayoutEffect(() => {
