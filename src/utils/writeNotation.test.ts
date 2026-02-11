@@ -5,16 +5,16 @@ describe('writeNotation', () => {
     expect(writeNotation(['C', 'D', 'E'])).toBe('C D E');
   });
 
-  it('should map enharmonic note identifiers to ABC notation', () => {
-    expect(writeNotation(['gFlat'])).toBe('G');
-    expect(writeNotation(['dFlat'])).toBe('D');
-    expect(writeNotation(['aFlat'])).toBe('A');
-    expect(writeNotation(['eFlat'])).toBe('E');
-    expect(writeNotation(['bFlat'])).toBe('B');
+  it('should strip flat accidentals from ABC note names', () => {
+    expect(writeNotation(['Gb'])).toBe('G');
+    expect(writeNotation(['Db'])).toBe('D');
+    expect(writeNotation(['Ab'])).toBe('A');
+    expect(writeNotation(['Eb'])).toBe('E');
+    expect(writeNotation(['Bb'])).toBe('B');
   });
 
-  it('should handle a mix of plain and enharmonic notes', () => {
-    expect(writeNotation(['C', 'eFlat', 'G'])).toBe('C E G');
+  it('should handle a mix of plain and accidental notes', () => {
+    expect(writeNotation(['C', 'Eb', 'G'])).toBe('C E G');
   });
 
   it('should return an empty string for an empty array', () => {
@@ -25,7 +25,7 @@ describe('writeNotation', () => {
     expect(writeNotation(['X', 'Y'])).toBe('X Y');
   });
 
-  it('should pass through lowercase notes not in the map', () => {
+  it('should pass through lowercase notes unchanged', () => {
     expect(writeNotation(['c', 'd'])).toBe('c d');
   });
 
@@ -37,18 +37,18 @@ describe('writeNotation', () => {
 
   it('should produce valid ABC notation for a C minor scale', () => {
     expect(
-      writeNotation(['C', 'D', 'eFlat', 'F', 'G', 'aFlat', 'bFlat', 'c']),
+      writeNotation(['C', 'D', 'Eb', 'F', 'G', 'Ab', 'Bb', 'c']),
     ).toBe('C D E F G A B c');
   });
 
   it('should produce valid ABC notation for a blues minor scale', () => {
     expect(
-      writeNotation(['C', 'eFlat', 'F', 'gFlat', 'G', 'bFlat', 'c']),
+      writeNotation(['C', 'Eb', 'F', 'Gb', 'G', 'Bb', 'c']),
     ).toBe('C E F G G B c');
   });
 
   it('should handle single note arrays', () => {
     expect(writeNotation(['C'])).toBe('C');
-    expect(writeNotation(['eFlat'])).toBe('E');
+    expect(writeNotation(['Eb'])).toBe('E');
   });
 });

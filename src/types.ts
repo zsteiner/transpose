@@ -4,28 +4,25 @@ export type Container = {
 };
 
 export type ScaleNotes =
-  | 'c'
-  | 'd'
-  | 'e'
-  | 'f'
-  | 'g'
-  | 'a'
-  | 'b'
-  | 'c'
-  | 'eFlat'
-  | 'dFlat'
-  | 'gFlat'
-  | 'bFlat'
-  | 'dFlat'
-  | 'aFlat'
-  | 'gFlat';
+  | 'C'
+  | 'D'
+  | 'E'
+  | 'F'
+  | 'G'
+  | 'A'
+  | 'B'
+  | 'Eb'
+  | 'Db'
+  | 'Gb'
+  | 'Bb'
+  | 'Ab';
 
 export type ScaleConfig = {
   notes: string[];
   key: string;
 };
 
-export type Key = 'eFlat' | 'bFlat' | 'c' | 'f';
+export type Key = 'Eb' | 'Bb' | 'C' | 'F';
 
 export type Option = {
   value: string;

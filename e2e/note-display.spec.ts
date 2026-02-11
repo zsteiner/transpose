@@ -2,7 +2,7 @@ import { expect, test } from '@playwright/test';
 
 test.describe('Note Display', () => {
   test('should display original notes on the notes page', async ({ page }) => {
-    await page.goto('/?note=c&instrument1=piano');
+    await page.goto('/?note=C&instrument1=piano');
 
     // The circle of fifths should be visible with the selected note
     await expect(page.locator('[data-position="0"]')).toBeVisible();
@@ -11,7 +11,7 @@ test.describe('Note Display', () => {
   test('should display both original and transposed notes when transposing', async ({
     page,
   }) => {
-    await page.goto('/?note=c&instrument1=piano&instrument2=clarinet');
+    await page.goto('/?note=C&instrument1=piano&instrument2=clarinet');
 
     await expect(
       page.getByText(/on the piano sounds the same as/),
@@ -21,7 +21,7 @@ test.describe('Note Display', () => {
   test('should not display transposed notes without instrument2', async ({
     page,
   }) => {
-    await page.goto('/?note=c&instrument1=piano');
+    await page.goto('/?note=C&instrument1=piano');
 
     await expect(
       page.getByText(/on the piano sounds the same as/),
@@ -43,7 +43,7 @@ test.describe('Note Display', () => {
   test('should update displayed notes when selecting a new note on the circle', async ({
     page,
   }) => {
-    await page.goto('/?note=c&instrument1=piano&instrument2=clarinet');
+    await page.goto('/?note=C&instrument1=piano&instrument2=clarinet');
 
     // Initial state - verify message is visible
     await expect(
@@ -52,7 +52,7 @@ test.describe('Note Display', () => {
 
     // Change to G
     await page.locator('[data-position="1"]').click();
-    await expect(page).toHaveURL(/note=g/);
+    await expect(page).toHaveURL(/note=G/);
 
     // Message should still be visible with updated note
     await expect(

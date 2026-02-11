@@ -5,7 +5,7 @@ describe('getInstrumentByKey', () => {
     const instrument = getInstrumentByKey('piano');
     expect(instrument).toBeDefined();
     expect(instrument?.name).toBe('piano');
-    expect(instrument?.key).toBe('c');
+    expect(instrument?.key).toBe('C');
     expect(instrument?.transposeFactor).toBe(0);
   });
 
@@ -13,7 +13,7 @@ describe('getInstrumentByKey', () => {
     const instrument = getInstrumentByKey('clarinet');
     expect(instrument).toBeDefined();
     expect(instrument?.name).toBe('clarinet');
-    expect(instrument?.key).toBe('bFlat');
+    expect(instrument?.key).toBe('Bb');
     expect(instrument?.transposeFactor).toBe(2);
   });
 
@@ -21,7 +21,7 @@ describe('getInstrumentByKey', () => {
     const instrument = getInstrumentByKey('altoSax');
     expect(instrument).toBeDefined();
     expect(instrument?.name).toBe('alto sax');
-    expect(instrument?.key).toBe('eFlat');
+    expect(instrument?.key).toBe('Eb');
     expect(instrument?.transposeFactor).toBe(3);
   });
 
@@ -29,7 +29,7 @@ describe('getInstrumentByKey', () => {
     const instrument = getInstrumentByKey('frenchHorn');
     expect(instrument).toBeDefined();
     expect(instrument?.name).toBe('french horn');
-    expect(instrument?.key).toBe('f');
+    expect(instrument?.key).toBe('F');
     expect(instrument?.transposeFactor).toBe(1);
   });
 

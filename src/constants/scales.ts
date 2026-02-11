@@ -25,68 +25,68 @@ export const scales = {
     key: 'C',
   },
   minor: {
-    notes: ['C', 'D', 'eFlat', 'F', 'G', 'aFlat', 'bFlat', 'c'],
-    key: 'Eb',
+    notes: ['C', 'D', 'Eb', 'F', 'G', 'Ab', 'Bb', 'c'],
+    key: 'Cm',
   },
   majorPentatonic: {
     notes: ['C', 'D', 'E', 'G', 'A', 'c'],
     key: 'C',
   },
   minorPentatonic: {
-    notes: ['C', 'eFlat', 'F', 'G', 'bFlat', 'c'],
-    key: 'Bb',
+    notes: ['C', 'Eb', 'F', 'G', 'Bb', 'c'],
+    key: 'Cm',
   },
   bluesMinor: {
-    notes: ['C', 'eFlat', 'F', 'gFlat', 'G', 'bFlat', 'c'],
-    key: 'Eb',
+    notes: ['C', 'Eb', 'F', 'Gb', 'G', 'Bb', 'c'],
+    key: 'Cm',
   },
   bluesMajor: {
-    notes: ['C', 'D', 'eFlat', 'E', 'G', 'A', 'c'],
-    key: 'F',
+    notes: ['C', 'D', 'Eb', 'E', 'G', 'A', 'c'],
+    key: 'C',
   },
   dorian: {
-    notes: ['C', 'D', 'eFlat', 'F', 'G', 'A', 'bFlat', 'c'],
-    key: 'Bb',
+    notes: ['C', 'D', 'Eb', 'F', 'G', 'A', 'Bb', 'c'],
+    key: 'CDor',
   },
   phyrygian: {
-    notes: ['C', 'dFlat', 'eFlat', 'F', 'G', 'aFlat', 'bFlat', 'c'],
-    key: 'Ab',
+    notes: ['C', 'Db', 'Eb', 'F', 'G', 'Ab', 'Bb', 'c'],
+    key: 'CPhr',
   },
   lydian: {
-    notes: ['C', 'D', 'E', 'gFlat', 'G', 'A', 'B', 'c'],
-    key: 'F',
+    notes: ['C', 'D', 'E', 'Gb', 'G', 'A', 'B', 'c'],
+    key: 'CLyd',
   },
   mixolydian: {
-    notes: ['C', 'D', 'E', 'F', 'G', 'A', 'bFlat', 'c'],
-    key: 'F',
+    notes: ['C', 'D', 'E', 'F', 'G', 'A', 'Bb', 'c'],
+    key: 'CMix',
   },
   locrian: {
-    notes: ['C', 'dFlat', 'eFlat', 'F', 'gFlat', 'aFlat', 'bFlat', 'c'],
-    key: 'Db',
+    notes: ['C', 'Db', 'Eb', 'F', 'Gb', 'Ab', 'Bb', 'c'],
+    key: 'CLoc',
   },
   gypsy: {
-    notes: ['C', 'dFlat', 'E', 'F', 'G', 'aFlat', 'bFlat', 'c'],
-    key: 'Eb',
+    notes: ['C', 'Db', 'E', 'F', 'G', 'Ab', 'Bb', 'c'],
+    key: 'CPhr',
   },
   doubleHarmonic: {
-    notes: ['C', 'dFlat', 'E', 'F', 'G', 'aFlat', 'B', 'c'],
-    key: 'Bb',
+    notes: ['C', 'Db', 'E', 'F', 'G', 'Ab', 'B', 'c'],
+    key: 'C',
   },
   bhairav: {
-    notes: ['C', 'dFlat', 'E', 'F', 'G', 'aFlat', 'B', 'c'],
-    key: 'Bb',
+    notes: ['C', 'Db', 'E', 'F', 'G', 'Ab', 'B', 'c'],
+    key: 'C',
   },
   marwa: {
-    notes: ['C', 'dFlat', 'E', 'gFlat', 'G', 'A', 'B', 'c'],
-    key: 'Bb',
+    notes: ['C', 'Db', 'E', 'Gb', 'G', 'A', 'B', 'c'],
+    key: 'CLyd',
   },
   purvi: {
-    notes: ['C', 'dFlat', 'E', 'gFlat', 'G', 'aFlat', 'B', 'c'],
-    key: 'Eb',
+    notes: ['C', 'Db', 'E', 'Gb', 'G', 'Ab', 'B', 'c'],
+    key: 'CLyd',
   },
   todi: {
-    notes: ['C', 'dFlat', 'eFlat', 'gFlat', 'G', 'aFlat', 'B', 'c'],
-    key: 'Ab',
+    notes: ['C', 'Db', 'Eb', 'Gb', 'G', 'Ab', 'B', 'c'],
+    key: 'CPhr',
   },
 } as Scales;
 

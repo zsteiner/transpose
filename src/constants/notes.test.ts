@@ -2,29 +2,29 @@ import { getNoteByIdentifier, notes } from './notes';
 
 describe('getNoteByIdentifier', () => {
   it('should find C note by identifier', () => {
-    const note = getNoteByIdentifier('c');
+    const note = getNoteByIdentifier('C');
     expect(note).toBeDefined();
     expect(note?.position).toBe(0);
     expect(note?.display).toBe('C');
   });
 
   it('should find G note by identifier', () => {
-    const note = getNoteByIdentifier('g');
+    const note = getNoteByIdentifier('G');
     expect(note).toBeDefined();
     expect(note?.position).toBe(1);
     expect(note?.display).toBe('G');
   });
 
-  it('should find enharmonic note bFlat by identifier', () => {
-    const note = getNoteByIdentifier('bFlat');
+  it('should find enharmonic note Bb by identifier', () => {
+    const note = getNoteByIdentifier('Bb');
     expect(note).toBeDefined();
     expect(note?.position).toBe(10);
     expect(note?.displayFlat).toBe('B');
     expect(note?.displaySharp).toBe('A');
   });
 
-  it('should find gFlat note by identifier', () => {
-    const note = getNoteByIdentifier('gFlat');
+  it('should find Gb note by identifier', () => {
+    const note = getNoteByIdentifier('Gb');
     expect(note).toBeDefined();
     expect(note?.position).toBe(6);
     expect(note?.displayFlat).toBe('G');
@@ -37,9 +37,9 @@ describe('getNoteByIdentifier', () => {
   });
 
   it('should be case-sensitive', () => {
-    // Notes use lowercase identifiers like 'c', not 'C'
-    expect(getNoteByIdentifier('C')).toBeUndefined();
-    expect(getNoteByIdentifier('BFLAT')).toBeUndefined();
+    // Notes use ABC identifiers like 'C', not 'c'
+    expect(getNoteByIdentifier('c')).toBeUndefined();
+    expect(getNoteByIdentifier('bb')).toBeUndefined();
   });
 
   it('should find all 12 notes by their identifiers', () => {

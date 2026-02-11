@@ -12,7 +12,7 @@ describe('transposeMachine', () => {
       actor.start();
       const { context } = actor.getSnapshot();
 
-      expect(context.originalNote.note).toBe('c');
+      expect(context.originalNote.note).toBe('C');
       expect(context.originalNote.position).toBe(0);
       expect(context.instrument1?.name).toBe('piano');
       expect(context.instrument2).toBeUndefined();
@@ -33,7 +33,7 @@ describe('transposeMachine', () => {
       actor.start();
       const { context } = actor.getSnapshot();
 
-      expect(context.originalNote.note).toBe('g');
+      expect(context.originalNote.note).toBe('G');
       expect(context.instrument1?.name).toBe('piano');
       expect(context.instrument2?.name).toBe('clarinet');
       expect(context.transposeFactor).toBe(2); // clarinet(2) - piano(0)
@@ -54,7 +54,7 @@ describe('transposeMachine', () => {
       actor.start();
       const { context } = actor.getSnapshot();
 
-      expect(context.transposedNote?.note).toBe('d');
+      expect(context.transposedNote?.note).toBe('D');
       expect(context.transposedNote?.position).toBe(2);
 
       actor.stop();
@@ -74,10 +74,10 @@ describe('transposeMachine', () => {
       actor.send({ type: 'SET_ORIGINAL_NOTE', note: notes[1] }); // G
       const { context } = actor.getSnapshot();
 
-      expect(context.originalNote.note).toBe('g');
+      expect(context.originalNote.note).toBe('G');
       expect(context.transposedNote).toBeDefined();
       // G (position 1) + factor 2 = position 3 = A
-      expect(context.transposedNote?.note).toBe('a');
+      expect(context.transposedNote?.note).toBe('A');
 
       actor.stop();
     });
@@ -91,7 +91,7 @@ describe('transposeMachine', () => {
       actor.send({ type: 'SET_ORIGINAL_NOTE', note: notes[4] }); // E
       const { context } = actor.getSnapshot();
 
-      expect(context.originalNote.note).toBe('e');
+      expect(context.originalNote.note).toBe('E');
       expect(context.transposedNote).toBeUndefined();
 
       actor.stop();
@@ -259,7 +259,7 @@ describe('transposeMachine', () => {
       });
       actor.start();
 
-      expect(actor.getSnapshot().context.transposedNote?.note).toBe('d');
+      expect(actor.getSnapshot().context.transposedNote?.note).toBe('D');
 
       actor.stop();
     });
@@ -274,7 +274,7 @@ describe('transposeMachine', () => {
       });
       actor.start();
 
-      expect(actor.getSnapshot().context.transposedNote?.note).toBe('a');
+      expect(actor.getSnapshot().context.transposedNote?.note).toBe('A');
 
       actor.stop();
     });
@@ -289,7 +289,7 @@ describe('transposeMachine', () => {
       });
       actor.start();
 
-      expect(actor.getSnapshot().context.transposedNote?.note).toBe('g');
+      expect(actor.getSnapshot().context.transposedNote?.note).toBe('G');
 
       actor.stop();
     });
@@ -306,7 +306,7 @@ describe('transposeMachine', () => {
       const { context } = actor.getSnapshot();
 
       expect(context.transposeFactor).toBe(0);
-      expect(context.transposedNote?.note).toBe('c');
+      expect(context.transposedNote?.note).toBe('C');
 
       actor.stop();
     });

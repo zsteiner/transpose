@@ -1,83 +1,75 @@
 import { Note } from '@/types';
 
-export const noteAbcNotationMap = {
-  gFlat: 'G',
-  dFlat: 'D',
-  aFlat: 'A',
-  eFlat: 'E',
-  bFlat: 'B',
-};
-
 export const notes = [
   {
     position: 0,
-    note: 'c',
+    note: 'C',
     display: 'C',
   },
   {
     position: 1,
-    note: 'g',
+    note: 'G',
     display: 'G',
   },
   {
     position: 2,
-    note: 'd',
+    note: 'D',
     display: 'D',
   },
   {
     position: 3,
-    note: 'a',
+    note: 'A',
     display: 'A',
   },
   {
     position: 4,
-    note: 'e',
+    note: 'E',
     display: 'E',
   },
   {
     position: 5,
-    note: 'b',
+    note: 'B',
     display: 'B',
   },
   {
     position: 6,
-    note: 'gFlat',
+    note: 'Gb',
     displayFlat: 'G',
     displaySharp: 'F',
   },
   {
     position: 7,
-    note: 'dFlat',
+    note: 'Db',
     displayFlat: 'D',
     displaySharp: 'C',
   },
   {
     position: 8,
-    note: 'aFlat',
+    note: 'Ab',
     displayFlat: 'A',
     displaySharp: 'G',
   },
   {
     position: 9,
-    note: 'eFlat',
+    note: 'Eb',
     displayFlat: 'E',
     displaySharp: 'D',
   },
   {
     position: 10,
-    note: 'bFlat',
+    note: 'Bb',
     displayFlat: 'B',
     displaySharp: 'A',
   },
   {
     position: 11,
-    note: 'f',
+    note: 'F',
     display: 'F',
   },
 ] as Note[];
 
 /**
- * Find a note by its note identifier (e.g., 'c', 'bFlat', 'gFlat')
+ * Find a note by its ABC identifier (e.g., 'C', 'Bb', 'Gb')
  */
 export const getNoteByIdentifier = (identifier: string): Note | undefined => {
   return notes.find((note) => note.note === identifier);
