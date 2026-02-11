@@ -60,15 +60,18 @@ export const TransposeCustom = () => {
 
   const [warnings, setWarnings] = useState<string[]>([]);
   const customNotationRef = useRef(customNotation);
-  customNotationRef.current = customNotation;
   const skipKLineUpdate = useRef(false);
 
   // Use refs for comparison in the parse effect so it only fires
   // when customNotation changes, not when note/scale change.
   const originalNoteRef = useRef(originalNote);
-  originalNoteRef.current = originalNote;
   const selectedScaleRef = useRef(selectedScale);
-  selectedScaleRef.current = selectedScale;
+
+  useEffect(() => {
+    customNotationRef.current = customNotation;
+    originalNoteRef.current = originalNote;
+    selectedScaleRef.current = selectedScale;
+  });
 
   const handleParseWarnings = useCallback((newWarnings: string[]) => {
     const formatted = newWarnings.map(sanitizeWarningHtml);
@@ -123,7 +126,7 @@ export const TransposeCustom = () => {
         setCustomNotation(updated);
       }
     }
-  }, [originalNote.note, selectedScale, setCustomNotation]);
+  }, [originalNote, selectedScale, setCustomNotation]);
 
   const transposeSemitones =
     transposeSemitonesTransposed - transposeSemitonesOriginal;
