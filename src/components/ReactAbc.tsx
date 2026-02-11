@@ -9,11 +9,13 @@ type ReactAbcProps = Container &
   ReactAbcConfig & {
     isResponsive?: boolean;
     notation: string;
+    onParseWarnings?: (warnings: string[]) => void;
   };
 
 export const ReactAbc = ({
   className,
   notation,
+  onParseWarnings,
   paddingbottom = 0,
   paddingleft = 0,
   paddingright = 0,
@@ -21,6 +23,8 @@ export const ReactAbc = ({
   ...rest
 }: ReactAbcProps) => {
   const notationRef = useRef<HTMLDivElement>(null);
+  const onParseWarningsRef = useRef(onParseWarnings);
+  onParseWarningsRef.current = onParseWarnings;
   const [containerWidth, setContainerWidth] = useState(0);
 
   // Measure container width after layout
@@ -52,7 +56,7 @@ export const ReactAbc = ({
       staffwidth = containerWidth;
     }
 
-    abcjs.renderAbc(notationRef.current as Selector, notation, {
+    const tuneObjects = abcjs.renderAbc(notationRef.current as Selector, notation, {
       ...rest,
       paddingbottom,
       paddingleft,
@@ -60,6 +64,10 @@ export const ReactAbc = ({
       paddingtop,
       staffwidth,
     });
+
+    if (onParseWarningsRef.current && tuneObjects?.[0]) {
+      onParseWarningsRef.current(tuneObjects[0].warnings || []);
+    }
   }, [
     containerWidth,
     notation,

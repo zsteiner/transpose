@@ -18,7 +18,7 @@ export const useTranspose = () => {
 
   // Select all state values in a single selector for better performance
   // XState's useSelector does shallow comparison, so this only re-renders when values actually change
-  const { originalNote, transposedNote, instrument1, instrument2, transposeFactor, selectedScale, selectedChord } = useSelector(
+  const { originalNote, transposedNote, instrument1, instrument2, transposeFactor, selectedScale, selectedChord, customNotation } = useSelector(
     machine,
     (state) => state.context,
   );
@@ -60,6 +60,11 @@ export const useTranspose = () => {
     [machine],
   );
 
+  const setCustomNotation = useCallback(
+    (value: string) => machine.send({ type: 'SET_CUSTOM_NOTATION', value }),
+    [machine],
+  );
+
   // Return clean API with state values and methods
   return {
     // State values
@@ -70,6 +75,7 @@ export const useTranspose = () => {
     transposeFactor,
     selectedScale,
     selectedChord,
+    customNotation,
     // Methods
     setOriginalNote,
     setInstrument1,
@@ -77,5 +83,6 @@ export const useTranspose = () => {
     clearSelection,
     setSelectedScale,
     setSelectedChord,
+    setCustomNotation,
   };
 };

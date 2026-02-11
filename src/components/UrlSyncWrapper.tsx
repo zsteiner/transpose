@@ -47,9 +47,18 @@ export const UrlSyncWrapper = ({ children }: UrlSyncWrapperProps) => {
     const urlInstrument2Changed = urlState.instrument2 !== previousUrlState.current.instrument2;
     const urlScaleChanged = urlState.scale !== previousUrlState.current.scale;
     const urlChordChanged = urlState.chord !== previousUrlState.current.chord;
+    const urlKeyChanged = urlState.key !== previousUrlState.current.key;
+
+    // When URL key param changes, it takes precedence for note and scale
+    if (urlKeyChanged && urlState.keyNote) {
+      setOriginalNote(urlState.keyNote);
+      if (urlState.keyScale) {
+        setSelectedScale(urlState.keyScale);
+      }
+    }
 
     // When URL changes (e.g., browser back/forward), update the machine
-    if (urlNoteChanged && urlState.note) {
+    if (!urlKeyChanged && urlNoteChanged && urlState.note) {
       setOriginalNote(urlState.note);
     }
 

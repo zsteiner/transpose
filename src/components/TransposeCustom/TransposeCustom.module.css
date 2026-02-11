@@ -1,0 +1,87 @@
+.container {
+  display: grid;
+  gap: var(--spacer);
+  grid-template-rows: auto auto;
+}
+
+.textareaWrapper {
+  border: var(--border-width) solid var(--info);
+  color: var(--default);
+  margin: 0 auto;
+  max-inline-size: 25rem;
+  min-inline-size: 20rem;
+  position: relative;
+}
+
+.textarea {
+  background-color: transparent;
+  border: var(--border-width) solid transparent;
+  color: var(--default);
+  display: block;
+  font-family: monospace;
+  font-size: 1rem;
+  inline-size: 100%;
+  line-height: 1.25;
+  outline: none;
+  padding: var(--input-padding);
+  resize: vertical;
+  white-space: pre-wrap;
+}
+
+@supports (field-sizing: content) {
+  .textarea {
+    field-sizing: content;
+    min-block-size: 3lh;
+    resize: none;
+  }
+}
+
+.textarea:focus {
+  outline: none;
+}
+
+.textarea::placeholder {
+  color: var(--info);
+}
+
+.helpText {
+  color: var(--info);
+  font-size: 0.875rem;
+  margin: 0;
+  text-align: center;
+}
+
+.helpLink {
+  color: var(--secondary);
+}
+
+.warnings {
+  color: var(--warning);
+  font-size: 0.875rem;
+  list-style: none;
+  margin: 0 auto;
+  max-inline-size: 25rem;
+  min-inline-size: 20rem;
+  padding: 0;
+}
+
+.warning {
+  padding: 0.25rem 0;
+}
+
+.notationGroup {
+  display: grid;
+  gap: var(--spacer-double);
+}
+
+.notationGroupHidden {
+  display: none;
+}
+
+.notationItem {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacer-half);
+  inline-size: 100%;
+  min-inline-size: 0;
+}

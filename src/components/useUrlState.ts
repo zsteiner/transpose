@@ -2,6 +2,7 @@
 
 import { useSearchParams } from 'next/navigation';
 
+import { getAbcKeyNote, parseAbcKey } from '@/constants/abcNotation';
 import { getNoteByIdentifier } from '@/constants/notes';
 import { getInstrumentByKey } from '@/constants/instruments';
 import { scales } from '@/constants/scales';
@@ -14,6 +15,9 @@ export type UrlState = {
   instrument2?: Instrument;
   scale?: string;
   chord?: string;
+  key?: string;
+  keyNote?: Note;
+  keyScale?: string;
 };
 
 /**
@@ -27,6 +31,7 @@ export const useUrlState = (): UrlState => {
   const instrument2Param = searchParams.get('instrument2');
   const scaleParam = searchParams.get('scale');
   const chordParam = searchParams.get('chord');
+  const keyParam = searchParams.get('key');
 
   const note = noteParam ? getNoteByIdentifier(noteParam) : undefined;
   const instrument1 = instrument1Param
@@ -40,11 +45,20 @@ export const useUrlState = (): UrlState => {
   const chord =
     chordParam && chordParam in chords ? chordParam : undefined;
 
+  // Parse the ABC key param (e.g., "Am" → note A, scale minor)
+  const key = keyParam && getAbcKeyNote(keyParam) ? keyParam : undefined;
+  const parsedKey = key ? parseAbcKey(key) : undefined;
+  const keyNote = key ? getAbcKeyNote(key) : undefined;
+  const keyScale = parsedKey?.scale;
+
   return {
     note,
     instrument1,
     instrument2,
     scale,
     chord,
+    key,
+    keyNote,
+    keyScale,
   };
 };

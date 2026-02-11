@@ -6,7 +6,7 @@ import { usePathname, useSearchParams } from 'next/navigation';
 import { Logo } from './Logo';
 import styles from './MainNav.module.css';
 
-const ROUTE_SPECIFIC_PARAMS = ['scale', 'chord'];
+const ROUTE_SPECIFIC_PARAMS = ['scale', 'chord', 'notation', 'key'];
 
 type NavLinkProps = {
   href: string;
@@ -49,6 +49,7 @@ export const MainNav = () => {
         <NavLink href="/" pathname={pathname} searchParams={searchParams}>Notes</NavLink>
         <NavLink href="/chords" pathname={pathname} searchParams={searchParams}>Chords</NavLink>
         <NavLink href="/scales" pathname={pathname} searchParams={searchParams}>Scales</NavLink>
+        <NavLink href="/custom" pathname={pathname} searchParams={searchParams}>Custom</NavLink>
       </nav>
     </header>
   );

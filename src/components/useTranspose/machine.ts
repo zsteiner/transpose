@@ -13,6 +13,7 @@ export type TransposeMachineContext = {
   transposeFactor: number;
   selectedScale: string;
   selectedChord: string;
+  customNotation: string;
 };
 
 export type TransposeMachineEvents =
@@ -22,7 +23,8 @@ export type TransposeMachineEvents =
   | { type: 'CLEAR_INSTRUMENT1' }
   | { type: 'CLEAR_INSTRUMENT2' }
   | { type: 'SET_SELECTED_SCALE'; value: string }
-  | { type: 'SET_SELECTED_CHORD'; value: string };
+  | { type: 'SET_SELECTED_CHORD'; value: string }
+  | { type: 'SET_CUSTOM_NOTATION'; value: string };
 
 export type TransposeMachineInput = {
   note?: Note;
@@ -30,6 +32,7 @@ export type TransposeMachineInput = {
   instrument2?: Instrument;
   selectedScale?: string;
   selectedChord?: string;
+  customNotation?: string;
 };
 
 /**
@@ -90,6 +93,7 @@ export const transposeMachine = setup({
       instrument2,
       selectedScale: input.selectedScale || 'major',
       selectedChord: input.selectedChord || 'major',
+      customNotation: input.customNotation || '',
       ...computeDerivedValues(originalNote, instrument1, instrument2),
     };
   },
@@ -132,6 +136,11 @@ export const transposeMachine = setup({
     SET_SELECTED_CHORD: {
       actions: assign(({ event }) => ({
         selectedChord: event.value,
+      })),
+    },
+    SET_CUSTOM_NOTATION: {
+      actions: assign(({ event }) => ({
+        customNotation: event.value,
       })),
     },
   },
