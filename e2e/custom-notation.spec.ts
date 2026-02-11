@@ -14,7 +14,7 @@ test.describe('Custom Notation Page', () => {
 
     const textarea = page.locator('textarea');
     await textarea.click();
-    await textarea.pressSequentially('K:C', { delay: 50 });
+    await textarea.fill('K:C\nC D E F |');
 
     await expect(page.getByText('Original:')).toBeVisible();
   });
@@ -26,7 +26,7 @@ test.describe('Custom Notation Page', () => {
 
     const textarea = page.locator('textarea');
     await textarea.click();
-    await textarea.pressSequentially('K:C', { delay: 50 });
+    await textarea.fill('K:C\nC D E F |');
 
     await expect(page.getByText('Original:')).toBeVisible();
     await expect(page.getByText('Transposed:')).toBeVisible();
