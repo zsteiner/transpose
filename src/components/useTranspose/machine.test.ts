@@ -208,6 +208,46 @@ describe('transposeMachine', () => {
     });
   });
 
+  describe('SET_CUSTOM_NOTATION event', () => {
+    it('should default customNotation to empty string', () => {
+      const actor = createActor(transposeMachine, { input: {} });
+      actor.start();
+
+      expect(actor.getSnapshot().context.customNotation).toBe('');
+
+      actor.stop();
+    });
+
+    it('should accept initial customNotation input', () => {
+      const actor = createActor(transposeMachine, {
+        input: { customNotation: 'L:4/4\nK:C\nC D E F |' },
+      });
+      actor.start();
+
+      expect(actor.getSnapshot().context.customNotation).toBe(
+        'L:4/4\nK:C\nC D E F |',
+      );
+
+      actor.stop();
+    });
+
+    it('should update customNotation via SET_CUSTOM_NOTATION event', () => {
+      const actor = createActor(transposeMachine, { input: {} });
+      actor.start();
+
+      actor.send({
+        type: 'SET_CUSTOM_NOTATION',
+        value: 'K:G\nG A B c |',
+      });
+
+      expect(actor.getSnapshot().context.customNotation).toBe(
+        'K:G\nG A B c |',
+      );
+
+      actor.stop();
+    });
+  });
+
   describe('transposition correctness', () => {
     it('should correctly transpose C from piano to Bb clarinet (D)', () => {
       const actor = createActor(transposeMachine, {

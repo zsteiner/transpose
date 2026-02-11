@@ -10,6 +10,7 @@ test.describe('Navigation', () => {
     await expect(nav.getByText('Notes')).toBeVisible();
     await expect(nav.getByText('Chords')).toBeVisible();
     await expect(nav.getByText('Scales')).toBeVisible();
+    await expect(nav.getByText('Custom')).toBeVisible();
   });
 
   test('should navigate to the Chords page', async ({ page }) => {

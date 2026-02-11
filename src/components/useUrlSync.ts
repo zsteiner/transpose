@@ -3,12 +3,13 @@
 import { useEffect, useRef } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 
+import { getAbcKey } from '@/constants/abcNotation';
 import { instruments } from '@/constants/instruments';
 import type { Instrument, Note } from '@/types';
 
 /**
  * Hook to sync app state changes to URL query parameters.
- * Scale and chord params are only written on their respective routes.
+ * Scale, chord, and key params are only written on their respective routes.
  */
 export const useUrlSync = (
   note: Note,
@@ -68,6 +69,11 @@ export const useUrlSync = (
     // Only include chord param on the /chords route
     if (pathname === '/chords' && selectedChord) {
       params.set('chord', selectedChord);
+    }
+
+    // Only include key param on the /custom route
+    if (pathname === '/custom' && note && selectedScale) {
+      params.set('key', getAbcKey(note, selectedScale));
     }
 
     // Build new URL
