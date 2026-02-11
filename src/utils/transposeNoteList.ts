@@ -5,14 +5,14 @@ import { transposeNote } from './transposeNote';
 /**
  * Transposes a list of note identifiers by a given transpose factor.
  *
- * @param noteIdentifiers - Array of note identifier strings (e.g., ['c', 'd', 'eFlat'])
+ * @param noteIdentifiers - Array of ABC note identifiers (e.g., ['C', 'D', 'Eb'])
  * @param transposeFactor - Number of steps to transpose on the circle of fifths
  * @returns Array of Note objects after transposition
  *
  * @example
  * // Transpose ['C', 'E', 'G'] up by 2 steps (to D major chord)
- * transposeNoteList(['c', 'e', 'g'], 2)
- * // Returns [Note for D, Note for F#, Note for A]
+ * transposeNoteList(['C', 'E', 'G'], 2)
+ * // Returns [Note for D, Note for Gb, Note for A]
  */
 export function transposeNoteList(
   noteIdentifiers: string[],

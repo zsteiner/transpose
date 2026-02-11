@@ -16,15 +16,15 @@ test.describe('Circle of Fifths Note Selection', () => {
     // Click on the G note (position 1)
     await page.locator('[data-position="1"]').click();
 
-    // URL should update with note=g
-    await expect(page).toHaveURL(/note=g/);
+    // URL should update with note=G
+    await expect(page).toHaveURL(/note=G/);
 
     // The transposition message should reference G
     await expect(page.getByText(/on the piano sounds the same as/)).toBeVisible();
   });
 
   test('should update transposition when note changes', async ({ page }) => {
-    await page.goto('/?note=c&instrument1=piano&instrument2=clarinet');
+    await page.goto('/?note=C&instrument1=piano&instrument2=clarinet');
 
     // Verify initial message contains the transposition
     await expect(
@@ -35,7 +35,7 @@ test.describe('Circle of Fifths Note Selection', () => {
     await page.locator('[data-position="4"]').click();
 
     // URL should update
-    await expect(page).toHaveURL(/note=e/);
+    await expect(page).toHaveURL(/note=E/);
   });
 
   test('should allow clicking through multiple notes', async ({ page }) => {
@@ -43,12 +43,12 @@ test.describe('Circle of Fifths Note Selection', () => {
 
     // Click through several notes
     await page.locator('[data-position="2"]').click(); // D
-    await expect(page).toHaveURL(/note=d/);
+    await expect(page).toHaveURL(/note=D/);
 
     await page.locator('[data-position="5"]').click(); // B
-    await expect(page).toHaveURL(/note=b/);
+    await expect(page).toHaveURL(/note=B/);
 
     await page.locator('[data-position="0"]').click(); // C
-    await expect(page).toHaveURL(/note=c/);
+    await expect(page).toHaveURL(/note=C/);
   });
 });

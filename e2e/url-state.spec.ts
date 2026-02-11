@@ -2,7 +2,7 @@ import { expect, test } from '@playwright/test';
 
 test.describe('URL State Management', () => {
   test('should initialize state from URL parameters', async ({ page }) => {
-    await page.goto('/?note=g&instrument1=piano&instrument2=clarinet');
+    await page.goto('/?note=G&instrument1=piano&instrument2=clarinet');
 
     // Instrument1 should show piano
     await expect(page.getByText('piano').first()).toBeVisible();
@@ -27,7 +27,7 @@ test.describe('URL State Management', () => {
   });
 
   test('should survive page reload', async ({ page }) => {
-    await page.goto('/?note=e&instrument1=piano&instrument2=trumpet');
+    await page.goto('/?note=E&instrument1=piano&instrument2=trumpet');
 
     // Verify state is loaded
     await expect(
@@ -43,7 +43,7 @@ test.describe('URL State Management', () => {
       page.getByText(/on the piano sounds the same as/),
     ).toBeVisible();
     await expect(page.getByText(/on the trumpet/)).toBeVisible();
-    await expect(page).toHaveURL(/note=e/);
+    await expect(page).toHaveURL(/note=E/);
     await expect(page).toHaveURL(/instrument1=piano/);
     await expect(page).toHaveURL(/instrument2=trumpet/);
   });

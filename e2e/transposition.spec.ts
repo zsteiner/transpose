@@ -4,7 +4,7 @@ test.describe('Transposition Correctness', () => {
   test('should show correct transposition for piano to Bb clarinet', async ({
     page,
   }) => {
-    await page.goto('/?note=c&instrument1=piano&instrument2=clarinet');
+    await page.goto('/?note=C&instrument1=piano&instrument2=clarinet');
 
     await expect(
       page.getByText(/on the piano sounds the same as/),
@@ -15,7 +15,7 @@ test.describe('Transposition Correctness', () => {
   test('should show correct transposition for piano to alto sax', async ({
     page,
   }) => {
-    await page.goto('/?note=c&instrument1=piano&instrument2=altoSax');
+    await page.goto('/?note=C&instrument1=piano&instrument2=altoSax');
 
     await expect(
       page.getByText(/on the piano sounds the same as/),
@@ -26,7 +26,7 @@ test.describe('Transposition Correctness', () => {
   test('should show correct transposition for piano to french horn', async ({
     page,
   }) => {
-    await page.goto('/?note=c&instrument1=piano&instrument2=frenchHorn');
+    await page.goto('/?note=C&instrument1=piano&instrument2=frenchHorn');
 
     await expect(
       page.getByText(/on the piano sounds the same as/),
@@ -37,7 +37,7 @@ test.describe('Transposition Correctness', () => {
   test('should show "no need to transpose" for same key instruments', async ({
     page,
   }) => {
-    await page.goto('/?note=c&instrument1=piano&instrument2=flute');
+    await page.goto('/?note=C&instrument1=piano&instrument2=flute');
 
     await expect(
       page.getByText(/on the piano sounds the same as/),
@@ -62,7 +62,7 @@ test.describe('Transposition Correctness', () => {
     page,
   }) => {
     await page.goto(
-      '/?note=c&instrument1=clarinet&instrument2=altoSax',
+      '/?note=C&instrument1=clarinet&instrument2=altoSax',
     );
 
     await expect(

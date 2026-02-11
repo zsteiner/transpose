@@ -35,30 +35,6 @@ export const ABC_MODE_MAP: Record<string, string> = {
 };
 
 /**
- * Reverse map: ABC key name → internal note identifier.
- * Supports both flat and sharp spellings for enharmonic notes.
- */
-const ABC_KEY_TO_NOTE_ID: Record<string, string> = {
-  C: 'c',
-  G: 'g',
-  D: 'd',
-  A: 'a',
-  E: 'e',
-  B: 'b',
-  F: 'f',
-  Gb: 'gFlat',
-  'F#': 'gFlat',
-  Db: 'dFlat',
-  'C#': 'dFlat',
-  Ab: 'aFlat',
-  'G#': 'aFlat',
-  Eb: 'eFlat',
-  'D#': 'eFlat',
-  Bb: 'bFlat',
-  'A#': 'bFlat',
-};
-
-/**
  * Reverse map: ABC mode suffix (lowercased) → app scale value.
  * Only the first 3 characters of a mode are significant in ABC v2.1.
  * Ambiguous suffixes ('' and 'm') map to the most common scale.
@@ -86,10 +62,15 @@ const ABC_MODE_TO_SCALE: Record<string, string> = {
   aeolian: 'minor',
 };
 
-const noteToAbcKey = (note: Note): string => {
-  if (note.display) return note.display;
-  if (note.displayFlat) return `${note.displayFlat}b`;
-  return 'C';
+/**
+ * Sharp → flat enharmonic equivalents for ABC key parsing.
+ */
+const SHARP_TO_FLAT: Record<string, string> = {
+  'F#': 'Gb',
+  'C#': 'Db',
+  'G#': 'Ab',
+  'D#': 'Eb',
+  'A#': 'Bb',
 };
 
 /**
@@ -97,16 +78,15 @@ const noteToAbcKey = (note: Note): string => {
  * e.g. (A, 'minor') → 'Am', (D, 'dorian') → 'DDor'
  */
 export const getAbcKey = (note: Note, scale: string): string => {
-  const noteName = noteToAbcKey(note);
   const mode = ABC_MODE_MAP[scale] || '';
-  return `${noteName}${mode}`;
+  return `${note.note}${mode}`;
 };
 
 /**
  * Parse an ABC key string into a note identifier and scale value.
- * e.g. 'Am' → { noteId: 'a', scale: 'minor' }
- *      'Bb' → { noteId: 'bFlat', scale: 'major' }
- *      'DDor' → { noteId: 'd', scale: 'dorian' }
+ * e.g. 'Am' → { noteId: 'A', scale: 'minor' }
+ *      'Bb' → { noteId: 'Bb', scale: 'major' }
+ *      'DDor' → { noteId: 'D', scale: 'dorian' }
  * Returns null if the key string is invalid.
  */
 export const parseAbcKey = (
@@ -116,9 +96,15 @@ export const parseAbcKey = (
   if (!match) return null;
 
   const [, noteLetter, accidental, modeSuffix] = match;
-  const abcNote = `${noteLetter}${accidental}`;
-  const noteId = ABC_KEY_TO_NOTE_ID[abcNote];
-  if (!noteId) return null;
+  let noteId = `${noteLetter}${accidental}`;
+
+  // Normalize sharps to flat equivalents
+  if (accidental === '#') {
+    noteId = SHARP_TO_FLAT[noteId] || noteId;
+  }
+
+  // Verify the note exists
+  if (!getNoteByIdentifier(noteId)) return null;
 
   const scale = ABC_MODE_TO_SCALE[modeSuffix.trim().toLowerCase()];
   if (scale === undefined) return null;
