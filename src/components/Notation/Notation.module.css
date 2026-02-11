@@ -1,6 +1,7 @@
 .container {
-  align-items: flex-start;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: var(--spacer-half);
+  inline-size: 100%;
+  min-inline-size: 0;
 }

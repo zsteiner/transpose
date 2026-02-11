@@ -74,6 +74,7 @@ export const ReactAbc = ({
     <div
       className={className}
       ref={notationRef}
+      style={{ inlineSize: '100%' }}
     />
   );
 };

@@ -6,15 +6,20 @@ import { usePathname, useSearchParams } from 'next/navigation';
 import { Logo } from './Logo';
 import styles from './MainNav.module.css';
 
+const ROUTE_SPECIFIC_PARAMS = ['scale', 'chord'];
+
 type NavLinkProps = {
   href: string;
   children: React.ReactNode;
   pathname: string;
-  searchParams: string;
+  searchParams: URLSearchParams;
 };
 
 const NavLink = ({ href, children, pathname, searchParams }: NavLinkProps) => {
-  const fullHref = searchParams ? `${href}?${searchParams}` : href;
+  const filtered = new URLSearchParams(searchParams);
+  ROUTE_SPECIFIC_PARAMS.forEach((param) => filtered.delete(param));
+  const queryString = filtered.toString();
+  const fullHref = queryString ? `${href}?${queryString}` : href;
 
   return (
     <Link
@@ -31,20 +36,19 @@ const NavLink = ({ href, children, pathname, searchParams }: NavLinkProps) => {
 export const MainNav = () => {
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const searchParamsString = searchParams.toString();
 
   return (
     <header className={styles.header}>
       <Link
         className={styles.logoLink}
-        href={searchParamsString ? `/?${searchParamsString}` : '/'}
+        href={searchParams.size ? `/?${searchParams.toString()}` : '/'}
       >
         <Logo className={styles.logo} />
       </Link>
       <nav className={styles.nav}>
-        <NavLink href="/" pathname={pathname} searchParams={searchParamsString}>Notes</NavLink>
-        <NavLink href="/chords" pathname={pathname} searchParams={searchParamsString}>Chords</NavLink>
-        <NavLink href="/scales" pathname={pathname} searchParams={searchParamsString}>Scales</NavLink>
+        <NavLink href="/" pathname={pathname} searchParams={searchParams}>Notes</NavLink>
+        <NavLink href="/chords" pathname={pathname} searchParams={searchParams}>Chords</NavLink>
+        <NavLink href="/scales" pathname={pathname} searchParams={searchParams}>Scales</NavLink>
       </nav>
     </header>
   );

@@ -7,12 +7,15 @@ import { instruments } from '@/constants/instruments';
 import type { Instrument, Note } from '@/types';
 
 /**
- * Hook to sync app state changes to URL query parameters
+ * Hook to sync app state changes to URL query parameters.
+ * Scale and chord params are only written on their respective routes.
  */
 export const useUrlSync = (
   note: Note,
   instrument1?: Instrument,
   instrument2?: Instrument,
+  selectedScale?: string,
+  selectedChord?: string,
 ) => {
   const router = useRouter();
   const pathname = usePathname();
@@ -57,6 +60,16 @@ export const useUrlSync = (
       }
     }
 
+    // Only include scale param on the /scales route
+    if (pathname === '/scales' && selectedScale) {
+      params.set('scale', selectedScale);
+    }
+
+    // Only include chord param on the /chords route
+    if (pathname === '/chords' && selectedChord) {
+      params.set('chord', selectedChord);
+    }
+
     // Build new URL
     const queryString = params.toString();
     const newUrl = queryString ? `${pathname}?${queryString}` : pathname;
@@ -66,5 +79,5 @@ export const useUrlSync = (
       lastUrlRef.current = newUrl;
       router.replace(newUrl, { scroll: false });
     }
-  }, [note, instrument1, instrument2, router, pathname]);
+  }, [note, instrument1, instrument2, selectedScale, selectedChord, router, pathname]);
 };

@@ -3,7 +3,7 @@
   flex-wrap: wrap;
   gap: var(--spacer);
   inline-size: 100%;
-  padding: var(--spacer) 0;
+  padding: var(--spacer-half) 0;
 }
 
 .notes {

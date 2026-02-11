@@ -33,7 +33,6 @@ export const Notation = ({
         expandToWidest
         minPadding={32}
         notation={notation}
-        responsive="resize"
         viewportHorizontal={false}
         visualTranspose={transposeSemitones}
       />

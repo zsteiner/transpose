@@ -1,13 +1,10 @@
 'use client';
 
-import { useState } from 'react';
-
-import { Note } from '@/types';
+import classnames from 'classnames';
 
 import { Notation } from './Notation/Notation';
-import { PageContainer } from './PageContainer';
 import { Select } from './Select';
-import styles from './TransposeContainer.module.css';
+import styles from './TransposeNotation.module.css';
 import { useTranspose } from './useTranspose';
 import { useTransposeSemitones } from './useTransposeSemitones';
 
@@ -24,40 +21,39 @@ type SelectOption = {
 type TransposeNotationProps = {
   options: SelectOption[];
   data: Record<string, NotationData>;
-  notationClassName: string;
-  containerClassName?: string;
+  value: string;
+  onChange: (value: string) => void;
+  grid?: boolean;
 };
 
 export const TransposeNotation = ({
   options,
   data,
-  notationClassName,
-  containerClassName,
+  value,
+  onChange,
+  grid,
 }: TransposeNotationProps) => {
   const { originalNote, transposedNote } = useTranspose();
   const { transposeSemitonesOriginal, transposeSemitonesTransposed } =
     useTransposeSemitones({ originalNote, transposedNote });
 
-  const [value, setValue] = useState(options[0].value);
   const { notes, key } = data[value as keyof typeof data];
 
   return (
-    <PageContainer>
+    <div className={styles.container}>
       <Select
-        onChange={setValue}
+        onChange={onChange}
         options={options}
         value={value}
       />
-      <div className={containerClassName}>
+      <div className={classnames(styles.notationGroup, grid && styles.grid)}>
         <Notation
-          className={notationClassName}
           notationKey={key}
           notes={notes}
           transposeSemitones={transposeSemitonesOriginal}
         />
         {transposedNote ? (
           <Notation
-            className={notationClassName}
             isTransposed
             notationKey={key}
             notes={notes}
@@ -65,6 +61,6 @@ export const TransposeNotation = ({
           />
         ) : null}
       </div>
-    </PageContainer>
+    </div>
   );
 };
