@@ -3,15 +3,18 @@
 import { scaleOptions } from '@/constants/options';
 import { scales } from '@/constants/scales';
 
-import styles from './TransposeContainer.module.css';
 import { TransposeNotation } from './TransposeNotation';
+import { useTranspose } from './useTranspose';
 
 export const TransposeScales = () => {
+  const { selectedScale, setSelectedScale } = useTranspose();
+
   return (
     <TransposeNotation
       data={scales}
-      notationClassName={styles.scales}
+      onChange={setSelectedScale}
       options={scaleOptions}
+      value={selectedScale}
     />
   );
 };

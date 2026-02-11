@@ -10,10 +10,10 @@ import { UrlSyncWrapper } from './UrlSyncWrapper';
 
 export const TransposeContainer = ({ children }: Container) => {
   // Read initial state from URL
-  const urlState = useUrlState();
+  const { scale, chord, ...urlState } = useUrlState();
 
   return (
-    <TransposeMachineProvider initialState={urlState}>
+    <TransposeMachineProvider initialState={{ ...urlState, selectedScale: scale, selectedChord: chord }}>
       <UrlSyncWrapper>
         <PageContainer>
           <InstrumentSelector />

@@ -18,9 +18,13 @@ export const UrlSyncWrapper = ({ children }: UrlSyncWrapperProps) => {
     originalNote,
     instrument1,
     instrument2,
+    selectedScale,
+    selectedChord,
     setOriginalNote,
     setInstrument1,
     setInstrument2,
+    setSelectedScale,
+    setSelectedChord,
   } = useTranspose();
 
   // Read URL state (this updates when URL changes)
@@ -41,6 +45,8 @@ export const UrlSyncWrapper = ({ children }: UrlSyncWrapperProps) => {
     const urlNoteChanged = urlState.note?.note !== previousUrlState.current.note?.note;
     const urlInstrument1Changed = urlState.instrument1 !== previousUrlState.current.instrument1;
     const urlInstrument2Changed = urlState.instrument2 !== previousUrlState.current.instrument2;
+    const urlScaleChanged = urlState.scale !== previousUrlState.current.scale;
+    const urlChordChanged = urlState.chord !== previousUrlState.current.chord;
 
     // When URL changes (e.g., browser back/forward), update the machine
     if (urlNoteChanged && urlState.note) {
@@ -55,6 +61,14 @@ export const UrlSyncWrapper = ({ children }: UrlSyncWrapperProps) => {
       setInstrument2(urlState.instrument2);
     }
 
+    if (urlScaleChanged && urlState.scale) {
+      setSelectedScale(urlState.scale);
+    }
+
+    if (urlChordChanged && urlState.chord) {
+      setSelectedChord(urlState.chord);
+    }
+
     // Track the previous URL state
     previousUrlState.current = urlState;
   }, [
@@ -62,10 +76,12 @@ export const UrlSyncWrapper = ({ children }: UrlSyncWrapperProps) => {
     setOriginalNote,
     setInstrument1,
     setInstrument2,
+    setSelectedScale,
+    setSelectedChord,
   ]);
 
   // Sync state changes FROM the machine back to URL
-  useUrlSync(originalNote, instrument1, instrument2);
+  useUrlSync(originalNote, instrument1, instrument2, selectedScale, selectedChord);
 
   return <>{children}</>;
 };

@@ -11,6 +11,7 @@
   --link-light: hsl(197deg 100% 50%);
   --medium: 45rem;
   --large: 75rem;
+  --spacer-half: 0.5rem;
   --spacer: 1rem;
   --spacer-double: 2rem;
   --spacer-triple: 3rem;

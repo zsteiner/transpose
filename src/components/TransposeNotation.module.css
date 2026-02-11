@@ -1,0 +1,16 @@
+.container {
+  display: grid;
+  gap: var(--spacer);
+  grid-template-rows: auto auto;
+}
+
+.notationGroup {
+  display: grid;
+  gap: var(--spacer-double);
+}
+
+@media (width >= 45rem) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}

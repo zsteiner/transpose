@@ -3,16 +3,19 @@
 import { chords } from '@/constants/chords';
 import { chordOptions } from '@/constants/options';
 
-import styles from './TransposeContainer.module.css';
 import { TransposeNotation } from './TransposeNotation';
+import { useTranspose } from './useTranspose';
 
 export const TransposeChords = () => {
+  const { selectedChord, setSelectedChord } = useTranspose();
+
   return (
     <TransposeNotation
-      containerClassName={styles.chordContainer}
       data={chords}
-      notationClassName={styles.chords}
+      grid
+      onChange={setSelectedChord}
       options={chordOptions}
+      value={selectedChord}
     />
   );
 };
