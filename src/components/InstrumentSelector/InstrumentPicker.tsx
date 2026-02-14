@@ -1,4 +1,4 @@
-import { RefObject, useRef } from 'react';
+import { RefObject } from 'react';
 
 import { instruments } from '@/constants/instruments';
 import { Instrument } from '@/types';
@@ -9,21 +9,7 @@ import styles from './InstrumentPicker.module.css';
 type InstrumentPickerProps = {
   id?: string;
   onSelect: (instrument?: Instrument) => void;
-  ref?: RefObject<HTMLDialogElement>;
-  selectedInstrument?: Instrument;
-};
-
-export const useModal = () => {
-  const ref = useRef<HTMLDialogElement>(null) as RefObject<HTMLDialogElement>;
-
-  const onOpen = () => {
-    ref.current?.showModal();
-  };
-
-  return {
-    ref,
-    onOpen,
-  };
+  ref: RefObject<HTMLDialogElement | null>;
 };
 
 export const InstrumentPicker = ({
