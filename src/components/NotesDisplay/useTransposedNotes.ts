@@ -1,5 +1,3 @@
-import { useMemo } from 'react';
-
 import { Note } from '@/types';
 import { transposeNoteList } from '@/utils/transposeNoteList';
 
@@ -10,11 +8,11 @@ type UseTransposedNotesParams = {
 
 /**
  * Hook that transposes a list of note identifiers by a given factor.
- * Returns memoized array of Note objects.
+ * Returns array of Note objects.
  *
  * @param noteIdentifiers - Array of note identifier strings
  * @param transposeFactor - Number of steps to transpose on circle of fifths
- * @returns Memoized array of transposed Note objects
+ * @returns Array of transposed Note objects
  *
  * @example
  * // In a component:
@@ -28,8 +26,5 @@ export function useTransposedNotes({
   noteIdentifiers,
   transposeFactor,
 }: UseTransposedNotesParams): Note[] {
-  return useMemo(
-    () => transposeNoteList(noteIdentifiers, transposeFactor),
-    [noteIdentifiers, transposeFactor],
-  );
+  return transposeNoteList(noteIdentifiers, transposeFactor);
 }

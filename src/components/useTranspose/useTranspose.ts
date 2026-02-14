@@ -1,4 +1,4 @@
-import { useCallback, useContext } from 'react';
+import { useContext } from 'react';
 import { useSelector } from '@xstate/react';
 
 import { Instrument, Note } from '@/types';
@@ -23,47 +23,31 @@ export const useTranspose = () => {
     (state) => state.context,
   );
 
-  // Memoize action creators to prevent unnecessary re-renders in child components
-  const setOriginalNote = useCallback(
-    (note: Note) => machine.send({ type: 'SET_ORIGINAL_NOTE', note }),
-    [machine],
-  );
+  const setOriginalNote = (note: Note) =>
+    machine.send({ type: 'SET_ORIGINAL_NOTE', note });
 
-  const setInstrument1 = useCallback(
-    (instrument?: Instrument) => machine.send({ type: 'SET_INSTRUMENT1', instrument }),
-    [machine],
-  );
+  const setInstrument1 = (instrument?: Instrument) =>
+    machine.send({ type: 'SET_INSTRUMENT1', instrument });
 
-  const setInstrument2 = useCallback(
-    (instrument?: Instrument) => machine.send({ type: 'SET_INSTRUMENT2', instrument }),
-    [machine],
-  );
+  const setInstrument2 = (instrument?: Instrument) =>
+    machine.send({ type: 'SET_INSTRUMENT2', instrument });
 
-  const clearSelection = useCallback(
-    (index: number) => {
-      if (index === 1) {
-        machine.send({ type: 'CLEAR_INSTRUMENT1' });
-      } else {
-        machine.send({ type: 'CLEAR_INSTRUMENT2' });
-      }
-    },
-    [machine],
-  );
+  const clearSelection = (index: number) => {
+    if (index === 1) {
+      machine.send({ type: 'CLEAR_INSTRUMENT1' });
+    } else {
+      machine.send({ type: 'CLEAR_INSTRUMENT2' });
+    }
+  };
 
-  const setSelectedScale = useCallback(
-    (value: string) => machine.send({ type: 'SET_SELECTED_SCALE', value }),
-    [machine],
-  );
+  const setSelectedScale = (value: string) =>
+    machine.send({ type: 'SET_SELECTED_SCALE', value });
 
-  const setSelectedChord = useCallback(
-    (value: string) => machine.send({ type: 'SET_SELECTED_CHORD', value }),
-    [machine],
-  );
+  const setSelectedChord = (value: string) =>
+    machine.send({ type: 'SET_SELECTED_CHORD', value });
 
-  const setCustomNotation = useCallback(
-    (value: string) => machine.send({ type: 'SET_CUSTOM_NOTATION', value }),
-    [machine],
-  );
+  const setCustomNotation = (value: string) =>
+    machine.send({ type: 'SET_CUSTOM_NOTATION', value });
 
   // Return clean API with state values and methods
   return {

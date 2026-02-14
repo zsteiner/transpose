@@ -1,5 +1,4 @@
 import classnames from 'classnames';
-import { useCallback } from 'react';
 
 import { Icon } from '../Icon';
 import { useDialog } from '../useDialog';
@@ -17,10 +16,10 @@ export const InstrumentSelector = () => {
     clearSelection,
   } = useTranspose();
 
-  const { ref: picker1Ref, showModal: showPicker1 } = useDialog();
-  const { ref: picker2Ref, showModal: showPicker2 } = useDialog();
+  const { open: picker1Open, showModal: showPicker1, close: closePicker1 } = useDialog();
+  const { open: picker2Open, showModal: showPicker2, close: closePicker2 } = useDialog();
 
-  const handleClearInstrument2 = useCallback(() => clearSelection(2), [clearSelection]);
+  const handleClearInstrument2 = () => clearSelection(2);
 
   return (
     <section className={styles.switcher}>
@@ -49,12 +48,14 @@ export const InstrumentSelector = () => {
         </button>
       </div>
       <InstrumentPicker
+        onClose={closePicker1}
         onSelect={setInstrument1}
-        ref={picker1Ref}
+        open={picker1Open}
       />
       <InstrumentPicker
+        onClose={closePicker2}
         onSelect={setInstrument2}
-        ref={picker2Ref}
+        open={picker2Open}
       />
     </section>
   );
