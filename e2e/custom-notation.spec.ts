@@ -1,5 +1,7 @@
 import { expect, test } from '@playwright/test';
 
+import { waitForHydration } from './helpers';
+
 test.describe('Custom Notation Page', () => {
   test('should display textarea for entering ABC notation', async ({
     page,
@@ -12,6 +14,7 @@ test.describe('Custom Notation Page', () => {
   test('should render notation when ABC text is entered', async ({ page }) => {
     await page.goto('/custom');
     await page.locator('textarea').waitFor();
+    await waitForHydration(page);
 
     const textarea = page.locator('textarea');
     await textarea.click();
@@ -25,6 +28,7 @@ test.describe('Custom Notation Page', () => {
   }) => {
     await page.goto('/custom?instrument1=piano&instrument2=clarinet');
     await page.locator('textarea').waitFor();
+    await waitForHydration(page);
 
     const textarea = page.locator('textarea');
     await textarea.click();

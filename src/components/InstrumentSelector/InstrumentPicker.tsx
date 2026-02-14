@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { RefObject } from 'react';
 
 import { instruments } from '@/constants/instruments';
 import { Instrument } from '@/types';
@@ -8,30 +8,15 @@ import styles from './InstrumentPicker.module.css';
 
 type InstrumentPickerProps = {
   id?: string;
-  onClose: () => void;
   onSelect: (instrument?: Instrument) => void;
-  open: boolean;
+  ref: RefObject<HTMLDialogElement | null>;
 };
 
 export const InstrumentPicker = ({
   id,
-  onClose,
   onSelect,
-  open,
+  ref,
 }: InstrumentPickerProps) => {
-  const ref = useRef<HTMLDialogElement>(null);
-
-  useEffect(() => {
-    const dialog = ref.current;
-    if (!dialog) return;
-
-    if (open && !dialog.open) {
-      dialog.showModal();
-    } else if (!open && dialog.open) {
-      dialog.close();
-    }
-  }, [open]);
-
   const handleSelect = (instrument: Instrument) => {
     onSelect(instrument);
   };
@@ -40,7 +25,6 @@ export const InstrumentPicker = ({
     <dialog
       className={styles.picker}
       id={id}
-      onClose={onClose}
       ref={ref}
     >
       <form

@@ -16,8 +16,8 @@ export const InstrumentSelector = () => {
     clearSelection,
   } = useTranspose();
 
-  const { open: picker1Open, showModal: showPicker1, close: closePicker1 } = useDialog();
-  const { open: picker2Open, showModal: showPicker2, close: closePicker2 } = useDialog();
+  const { ref: picker1Ref, showModal: showPicker1 } = useDialog();
+  const { ref: picker2Ref, showModal: showPicker2 } = useDialog();
 
   const handleClearInstrument2 = () => clearSelection(2);
 
@@ -48,14 +48,12 @@ export const InstrumentSelector = () => {
         </button>
       </div>
       <InstrumentPicker
-        onClose={closePicker1}
         onSelect={setInstrument1}
-        open={picker1Open}
+        ref={picker1Ref}
       />
       <InstrumentPicker
-        onClose={closePicker2}
         onSelect={setInstrument2}
-        open={picker2Open}
+        ref={picker2Ref}
       />
     </section>
   );

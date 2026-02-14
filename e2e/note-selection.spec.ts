@@ -1,5 +1,7 @@
 import { expect, test } from '@playwright/test';
 
+import { waitForHydration } from './helpers';
+
 test.describe('Circle of Fifths Note Selection', () => {
   test('should display the circle of fifths SVG', async ({ page }) => {
     await page.goto('/');
@@ -13,6 +15,7 @@ test.describe('Circle of Fifths Note Selection', () => {
   }) => {
     await page.goto('/?instrument1=piano&instrument2=clarinet');
     await page.locator('svg#menu').waitFor();
+    await waitForHydration(page);
 
     // Click on the G note (position 1)
     await page.locator('[data-position="1"]').click();
@@ -27,6 +30,7 @@ test.describe('Circle of Fifths Note Selection', () => {
   test('should update transposition when note changes', async ({ page }) => {
     await page.goto('/?note=C&instrument1=piano&instrument2=clarinet');
     await page.locator('svg#menu').waitFor();
+    await waitForHydration(page);
 
     // Verify initial message contains the transposition
     await expect(
@@ -43,6 +47,7 @@ test.describe('Circle of Fifths Note Selection', () => {
   test('should allow clicking through multiple notes', async ({ page }) => {
     await page.goto('/?instrument1=piano&instrument2=clarinet');
     await page.locator('svg#menu').waitFor();
+    await waitForHydration(page);
 
     // Click through several notes
     await page.locator('[data-position="2"]').click(); // D
