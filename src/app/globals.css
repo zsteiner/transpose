@@ -21,6 +21,9 @@
   --border-radius: 0.75rem;
   --picker-background: rgb(255 255 255 / 0.95);
   --hover-color: hsl(0deg 0% 93%);
+  --switch-size: 6rem;
+  --switch-gap: var(--spacer-double);
+  --menu-size: 19rem;
 }
 
 *,
@@ -45,6 +48,9 @@ body {
 @media (width >= 45rem) {
   :root {
     --layout-gap: var(--spacer-double);
+    --switch-size: 10rem;
+    --switch-gap: 3rem;
+    --menu-size: 20rem;
   }
 }
 

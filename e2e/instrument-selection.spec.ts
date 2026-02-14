@@ -1,5 +1,7 @@
 import { expect, test } from '@playwright/test';
 
+import { waitForHydration } from './helpers';
+
 test.describe('Instrument Selection', () => {
   test('should show piano as default instrument1 and add instrument for slot 2', async ({
     page,
@@ -16,6 +18,8 @@ test.describe('Instrument Selection', () => {
     page,
   }) => {
     await page.goto('/');
+    await page.locator('svg#menu').waitFor();
+    await waitForHydration(page);
 
     // Click the first instrument slot — use getByRole scoped outside dialogs
     await page.getByRole('button', { name: 'piano', exact: true }).first().click();
@@ -30,6 +34,8 @@ test.describe('Instrument Selection', () => {
 
   test('should select a new instrument1', async ({ page }) => {
     await page.goto('/');
+    await page.locator('svg#menu').waitFor();
+    await waitForHydration(page);
 
     // Open instrument1 picker
     await page.getByRole('button', { name: 'piano', exact: true }).first().click();
@@ -51,6 +57,8 @@ test.describe('Instrument Selection', () => {
     page,
   }) => {
     await page.goto('/');
+    await page.locator('svg#menu').waitFor();
+    await waitForHydration(page);
 
     // Click the "add instrument" slot (instrument2)
     await page.getByRole('button', { name: 'add instrument' }).click();
@@ -72,6 +80,8 @@ test.describe('Instrument Selection', () => {
     page,
   }) => {
     await page.goto('/?instrument1=piano&instrument2=clarinet');
+    await page.locator('svg#menu').waitFor();
+    await waitForHydration(page);
 
     // TransposeMessage should be visible
     await expect(
@@ -94,6 +104,8 @@ test.describe('Instrument Selection', () => {
     page,
   }) => {
     await page.goto('/?instrument1=piano&instrument2=clarinet');
+    await page.locator('svg#menu').waitFor();
+    await waitForHydration(page);
 
     // Verify clarinet is shown
     await expect(page.getByText(/on the clarinet/)).toBeVisible();

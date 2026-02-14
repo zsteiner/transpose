@@ -18,6 +18,10 @@
   -webkit-tap-highlight-color: transparent;
   text-align: center;
   transition: all 0.1s linear;
+
+  & > * {
+    pointer-events: none;
+  }
 }
 
 .button:focus,
@@ -44,14 +48,13 @@
 }
 
 .switcher {
-  --switch-size: 8rem;
-  --switch-gap: var(--spacer-double);
-
   align-items: center;
   display: grid;
   gap: var(--switch-gap);
   grid-template-columns: var(--switch-size) min-content var(--switch-size);
   justify-content: center;
+  position: relative;
+  z-index: 1;
 }
 
 .arrow {
@@ -82,10 +85,8 @@
   visibility: visible;
 }
 
-@media (width >=45rem) {
+@media (width >= 45rem) {
   .switcher {
-    --switch-gap: 3rem;
-    --switch-size: 10rem;
     --arrow-size: 2rem;
   }
 }

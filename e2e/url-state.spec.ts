@@ -1,5 +1,7 @@
 import { expect, test } from '@playwright/test';
 
+import { waitForHydration } from './helpers';
+
 test.describe('URL State Management', () => {
   test('should initialize state from URL parameters', async ({ page }) => {
     await page.goto('/?note=G&instrument1=piano&instrument2=clarinet');
@@ -16,10 +18,13 @@ test.describe('URL State Management', () => {
 
   test('should update URL when instrument is selected', async ({ page }) => {
     await page.goto('/');
+    await page.locator('svg#menu').waitFor();
+    await waitForHydration(page);
 
     // Select instrument2
     await page.getByRole('button', { name: 'add instrument' }).click();
     const dialog = page.getByRole('dialog');
+    await expect(dialog).toBeVisible();
     await dialog.getByRole('button', { name: 'trumpet', exact: true }).click();
 
     // URL should contain instrument2

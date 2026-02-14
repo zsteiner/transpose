@@ -1,0 +1,90 @@
+.skeleton {
+  animation: shimmer 4s ease-in-out infinite;
+  background: linear-gradient(
+      90deg,
+      transparent 0%,
+      var(--hover-color) 50%,
+      transparent 100%
+    )
+    var(--default-transparent);
+  background-size: 200% 100%;
+  border-radius: var(--border-radius);
+}
+
+.circle {
+  border-radius: 50%;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.switcher {
+  align-items: center;
+  display: grid;
+  gap: var(--switch-gap);
+  grid-template-columns: var(--switch-size) min-content var(--switch-size);
+  justify-content: center;
+}
+
+.switcherBox {
+  block-size: var(--switch-size);
+  inline-size: var(--switch-size);
+}
+
+.arrow {
+  color: var(--info);
+  font-size: var(--arrow-size, var(--spacer));
+  margin-block-end: 2rem;
+}
+
+.circleWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.circleSkeleton {
+  block-size: var(--menu-size);
+  inline-size: var(--menu-size);
+  max-inline-size: 100%;
+}
+
+.selectSkeleton {
+  block-size: 2.75rem;
+  margin: 0 auto;
+  max-inline-size: 25rem;
+  min-inline-size: 20rem;
+}
+
+.textareaSkeleton {
+  block-size: 4.75rem;
+  margin: 0 auto;
+  max-inline-size: 25rem;
+  min-inline-size: 20rem;
+}
+
+.layout {
+  block-size: 100%;
+  display: grid;
+  gap: var(--spacer);
+  inline-size: 100%;
+  margin: auto;
+  max-inline-size: var(--medium);
+  padding-block: var(--spacer-double);
+}
+
+@media (width >= 45rem) {
+  .arrow {
+    --arrow-size: 2rem;
+  }
+
+  .layout {
+    padding-block: var(--spacer-triple);
+  }
+}

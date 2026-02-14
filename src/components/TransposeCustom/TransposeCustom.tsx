@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import { getAbcKey, parseAbcKeyLine } from '@/constants/abcNotation';
 import { getNoteByIdentifier } from '@/constants/notes';
@@ -73,7 +73,7 @@ export const TransposeCustom = () => {
     selectedScaleRef.current = selectedScale;
   });
 
-  const handleParseWarnings = useCallback((newWarnings: string[]) => {
+  const handleParseWarnings = (newWarnings: string[]) => {
     const formatted = newWarnings.map(sanitizeWarningHtml);
     setWarnings((prev) => {
       if (prev.length === 0 && formatted.length === 0) return prev;
@@ -84,7 +84,7 @@ export const TransposeCustom = () => {
         return prev;
       return formatted;
     });
-  }, []);
+  };
 
   // Parse K: line from textarea to update note and scale
   useEffect(() => {

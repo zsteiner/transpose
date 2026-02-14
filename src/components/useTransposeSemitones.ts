@@ -1,5 +1,3 @@
-import { useMemo } from 'react';
-
 import { Note } from '@/types';
 import { circleFifthsPositionToSemitones } from '@/utils/circleFifthsPositionToSemitones';
 
@@ -16,14 +14,12 @@ export const useTransposeSemitones = ({
   originalNote,
   transposedNote,
 }: UseTransposeSemitonesParams) => {
-  const transposeSemitonesOriginal = useMemo(
-    () => circleFifthsPositionToSemitones(originalNote.position),
-    [originalNote.position],
+  const transposeSemitonesOriginal = circleFifthsPositionToSemitones(
+    originalNote.position,
   );
 
-  const transposeSemitonesTransposed = useMemo(
-    () => circleFifthsPositionToSemitones(transposedNote?.position || 0),
-    [transposedNote?.position],
+  const transposeSemitonesTransposed = circleFifthsPositionToSemitones(
+    transposedNote?.position || 0,
   );
 
   return { transposeSemitonesOriginal, transposeSemitonesTransposed };

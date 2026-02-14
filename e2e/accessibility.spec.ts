@@ -1,5 +1,7 @@
 import { expect, test } from '@playwright/test';
 
+import { waitForHydration } from './helpers';
+
 test.describe('Accessibility', () => {
   test('should have semantic navigation landmarks', async ({ page }) => {
     await page.goto('/');
@@ -24,6 +26,8 @@ test.describe('Accessibility', () => {
     page,
   }) => {
     await page.goto('/');
+    await page.locator('svg#menu').waitFor();
+    await waitForHydration(page);
 
     await page.getByRole('button', { name: 'add instrument' }).click();
 
@@ -35,6 +39,8 @@ test.describe('Accessibility', () => {
     page,
   }) => {
     await page.goto('/');
+    await page.locator('svg#menu').waitFor();
+    await waitForHydration(page);
 
     await page.getByRole('button', { name: 'add instrument' }).click();
     const dialog = page.getByRole('dialog');
