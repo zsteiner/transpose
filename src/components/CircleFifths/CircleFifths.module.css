@@ -6,8 +6,6 @@
 }
 
 .circleMenu {
-  --menu-size: 19rem;
-
   block-size: var(--menu-size);
   inline-size: var(--menu-size);
   margin: 0 auto;
@@ -29,12 +27,6 @@
   /* KEEP THIS so that text will not get cut off
   it it is wider than the icon width */
   overflow: visible;
-}
-
-@media (width >= 45rem) {
-  .circleMenu {
-    --menu-size: 20rem;
-  }
 }
 
 .note {

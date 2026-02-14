@@ -44,9 +44,6 @@
 }
 
 .switcher {
-  --switch-size: 6rem;
-  --switch-gap: var(--spacer-double);
-
   align-items: center;
   display: grid;
   gap: var(--switch-gap);
@@ -82,10 +79,8 @@
   visibility: visible;
 }
 
-@media (width >=45rem) {
+@media (width >= 45rem) {
   .switcher {
-    --switch-gap: 3rem;
-    --switch-size: 10rem;
     --arrow-size: 2rem;
   }
 }

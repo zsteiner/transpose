@@ -6,6 +6,7 @@ import { ReactNode, Suspense } from 'react';
 
 import { IconSet } from '@/components/Icon';
 import { MainNav } from '@/components/MainNav';
+import { SkeletonLayout } from '@/components/Skeleton';
 import { TransposeContainer } from '@/components/TransposeContainer';
 
 import styles from './page.module.css';
@@ -33,7 +34,7 @@ export default function RootLayout({
           <Suspense fallback={null}>
             <MainNav />
           </Suspense>
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<SkeletonLayout />}>
             <TransposeContainer>{children}</TransposeContainer>
           </Suspense>
         </div>
