@@ -16,6 +16,7 @@ test.describe('URL State Management', () => {
 
   test('should update URL when instrument is selected', async ({ page }) => {
     await page.goto('/');
+    await page.locator('svg#menu').waitFor();
 
     // Select instrument2
     await page.getByRole('button', { name: 'add instrument' }).click();

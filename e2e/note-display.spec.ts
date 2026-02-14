@@ -33,6 +33,7 @@ test.describe('Note Display', () => {
   }) => {
     // Select an accidental note (F#/Gb at position 6)
     await page.goto('/?instrument1=piano&instrument2=clarinet');
+    await page.locator('svg#menu').waitFor();
     await page.locator('[data-position="6"]').click();
 
     // The note display should contain accidental symbols
@@ -44,6 +45,7 @@ test.describe('Note Display', () => {
     page,
   }) => {
     await page.goto('/?note=C&instrument1=piano&instrument2=clarinet');
+    await page.locator('svg#menu').waitFor();
 
     // Initial state - verify message is visible
     await expect(

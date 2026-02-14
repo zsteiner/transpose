@@ -24,6 +24,7 @@ test.describe('Accessibility', () => {
     page,
   }) => {
     await page.goto('/');
+    await page.locator('svg#menu').waitFor();
 
     await page.getByRole('button', { name: 'add instrument' }).click();
 
@@ -35,6 +36,7 @@ test.describe('Accessibility', () => {
     page,
   }) => {
     await page.goto('/');
+    await page.locator('svg#menu').waitFor();
 
     await page.getByRole('button', { name: 'add instrument' }).click();
     const dialog = page.getByRole('dialog');

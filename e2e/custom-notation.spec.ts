@@ -11,6 +11,7 @@ test.describe('Custom Notation Page', () => {
 
   test('should render notation when ABC text is entered', async ({ page }) => {
     await page.goto('/custom');
+    await page.locator('textarea').waitFor();
 
     const textarea = page.locator('textarea');
     await textarea.click();
@@ -23,6 +24,7 @@ test.describe('Custom Notation Page', () => {
     page,
   }) => {
     await page.goto('/custom?instrument1=piano&instrument2=clarinet');
+    await page.locator('textarea').waitFor();
 
     const textarea = page.locator('textarea');
     await textarea.click();

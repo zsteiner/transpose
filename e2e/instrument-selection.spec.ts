@@ -16,6 +16,7 @@ test.describe('Instrument Selection', () => {
     page,
   }) => {
     await page.goto('/');
+    await page.locator('svg#menu').waitFor();
 
     // Click the first instrument slot — use getByRole scoped outside dialogs
     await page.getByRole('button', { name: 'piano', exact: true }).first().click();
@@ -30,6 +31,7 @@ test.describe('Instrument Selection', () => {
 
   test('should select a new instrument1', async ({ page }) => {
     await page.goto('/');
+    await page.locator('svg#menu').waitFor();
 
     // Open instrument1 picker
     await page.getByRole('button', { name: 'piano', exact: true }).first().click();
@@ -51,6 +53,7 @@ test.describe('Instrument Selection', () => {
     page,
   }) => {
     await page.goto('/');
+    await page.locator('svg#menu').waitFor();
 
     // Click the "add instrument" slot (instrument2)
     await page.getByRole('button', { name: 'add instrument' }).click();
@@ -72,6 +75,7 @@ test.describe('Instrument Selection', () => {
     page,
   }) => {
     await page.goto('/?instrument1=piano&instrument2=clarinet');
+    await page.locator('svg#menu').waitFor();
 
     // TransposeMessage should be visible
     await expect(
@@ -94,6 +98,7 @@ test.describe('Instrument Selection', () => {
     page,
   }) => {
     await page.goto('/?instrument1=piano&instrument2=clarinet');
+    await page.locator('svg#menu').waitFor();
 
     // Verify clarinet is shown
     await expect(page.getByText(/on the clarinet/)).toBeVisible();
