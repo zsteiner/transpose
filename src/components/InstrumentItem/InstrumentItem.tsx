@@ -36,7 +36,8 @@ export const InstrumentItem = ({
     >
       <span
         className={classnames(styles.icon, {
-          [styles.keyIcon]: !instrument?.icon,
+          [styles.keyIcon]: !isEmpty && !instrument?.icon,
+          [styles.addIcon]: isEmpty,
         })}
       >
         <Icon
