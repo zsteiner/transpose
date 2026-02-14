@@ -1,12 +1,23 @@
 .header {
   --logo-height: 2rem;
-  --header-gap: var(--spacer);
+  --header-gap: var(--spacer-half);
 
   align-items: center;
   display: flex;
+  flex-wrap: wrap;
   gap: var(--header-gap);
-  justify-content: center;
-  text-align: center;
+  justify-content: flex-start;
+  padding-inline: var(--spacer);
+}
+
+@media screen and (width >= 45rem) {
+  .header {
+    --logo-height: 3rem;
+    --header-gap: 2rem;
+
+    justify-content: center;
+    text-align: center;
+  }
 }
 
 .logoLink {
@@ -16,13 +27,6 @@
 .logo {
   block-size: var(--logo-height);
   inline-size: auto;
-}
-
-@media (width >= 45rem) {
-  .header {
-    --logo-height: 3rem;
-    --header-gap: 2rem;
-  }
 }
 
 .nav {

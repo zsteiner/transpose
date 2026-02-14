@@ -44,8 +44,8 @@
 }
 
 .switcher {
-  --switch-size: 8rem;
-  --switch-gap: var(--spacer);
+  --switch-size: 6rem;
+  --switch-gap: var(--spacer-double);
 
   align-items: center;
   display: grid;
