@@ -12,7 +12,7 @@
       "Bash(npm test)",
       "Bash(npm run build:*)",
       "Bash(npm test:*)",
-      "Bash(node -e:*)"
+      "Bash(node -e:*)",
       "Bash(npm run lint:fix:*)"
     ]
   }
