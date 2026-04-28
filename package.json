@@ -16,35 +16,35 @@
     "lint:fix": "eslint . --fix && stylelint 'src/**/*.css' --fix"
   },
   "dependencies": {
-    "@xstate/react": "^6.0.0",
-    "abcjs": "^6.6.1",
+    "@xstate/react": "^6.1.0",
+    "abcjs": "^6.6.3",
     "classnames": "^2.5.1",
-    "next": "^16.1.6",
+    "next": "^16.2.4",
     "react": "^19",
     "react-dom": "^19",
-    "xstate": "^5.26.0"
+    "xstate": "^5.31.0"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3.3.3",
-    "@eslint/js": "^9.39.2",
-    "@playwright/test": "^1.58.2",
+    "@eslint/eslintrc": "^3.3.5",
+    "@eslint/js": "^9.0.0",
+    "@playwright/test": "^1.59.1",
     "@types/jest": "^30.0.0",
     "@types/node": "^25",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "babel-plugin-react-compiler": "^1.0.0",
-    "eslint": "^9.39.2",
-    "eslint-config-next": "16.1.6",
+    "eslint": "^9.0.0",
+    "eslint-config-next": "16.2.4",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.5",
-    "eslint-plugin-simple-import-sort": "^12.1.1",
-    "jest": "^30.2.0",
-    "prettier": "^3.8.1",
-    "stylelint": "^17.1.1",
+    "eslint-plugin-simple-import-sort": "^13.0.0",
+    "jest": "^30.3.0",
+    "prettier": "^3.8.3",
+    "stylelint": "^17.9.1",
     "stylelint-config-standard": "^40.0.0",
-    "stylelint-order": "^7.0.1",
-    "ts-jest": "^29.4.6",
+    "stylelint-order": "^8.1.1",
+    "ts-jest": "^29.4.9",
     "ts-node": "^10.9.2",
-    "typescript": "^5"
+    "typescript": "^6"
   }
 }
