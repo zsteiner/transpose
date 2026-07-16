@@ -2,6 +2,7 @@ import abcjs, { AbcVisualParams, Selector } from 'abcjs';
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 
 import { Container } from '@/types';
+import { withModalKeyFallback } from '@/utils/relativeMajorKey';
 
 export type ReactAbcConfig = AbcVisualParams;
 
@@ -59,14 +60,16 @@ export const ReactAbc = ({
       staffwidth = containerWidth;
     }
 
-    const tuneObjects = abcjs.renderAbc(notationRef.current as Selector, notation, {
-      ...rest,
-      paddingbottom,
-      paddingleft,
-      paddingright,
-      paddingtop,
-      staffwidth,
-    });
+    const tuneObjects = withModalKeyFallback(notation, (abc) =>
+      abcjs.renderAbc(notationRef.current as Selector, abc, {
+        ...rest,
+        paddingbottom,
+        paddingleft,
+        paddingright,
+        paddingtop,
+        staffwidth,
+      }),
+    );
 
     if (onParseWarningsRef.current && tuneObjects?.[0]) {
       onParseWarningsRef.current(tuneObjects[0].warnings || []);

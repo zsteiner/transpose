@@ -88,4 +88,23 @@ test.describe('Scales Page', () => {
     await page.locator('select').selectOption('bhairav');
     await expect(page.locator('select')).toHaveValue('bhairav');
   });
+
+  // ABCJS can't transpose the modal keys these scales use into every key, and
+  // used to throw while rendering rather than fail its own lookup.
+  ['phyrygian', 'locrian', 'gypsy', 'todi'].forEach((scale) => {
+    test(`should render the ${scale} scale when transposing to alto sax`, async ({
+      page,
+    }) => {
+      const errors: string[] = [];
+
+      page.on('pageerror', (error) => errors.push(error.message));
+
+      // E transposes to Db for an alto sax — a key ABCJS cannot spell modally.
+      await page.goto('/scales?note=E&instrument1=piano&instrument2=altoSax');
+      await page.locator('select').selectOption(scale);
+
+      await expect(page.getByText('Transposed:')).toBeVisible();
+      expect(errors).toEqual([]);
+    });
+  });
 });
